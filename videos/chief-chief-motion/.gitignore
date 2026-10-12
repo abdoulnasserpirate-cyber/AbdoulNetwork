@@ -2,3 +2,5 @@ snapshots/*.png
 .hyperframes/frame-packets/
 renders/raw-*
 renders/.hf-*
+renders/work-*
+renders/.raw-*
