@@ -1,0 +1,5 @@
+snapshots/*.png
+.hyperframes/frame-packets/
+renders/work-*/
+renders/.*-transaction-*/
+.hyperframes/

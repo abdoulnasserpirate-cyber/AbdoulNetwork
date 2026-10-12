@@ -1,0 +1,5 @@
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('Fraunces-italic-400_900.woff2') format('woff2');}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('Fraunces-normal-400_900.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('Inter-normal-400_800.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('JetBrainsMono-normal-500.woff2') format('woff2');}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('JetBrainsMono-normal-700.woff2') format('woff2');}

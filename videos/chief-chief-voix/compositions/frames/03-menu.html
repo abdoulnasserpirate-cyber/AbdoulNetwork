@@ -1,0 +1,125 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#FBF3E6}
+    #s3-bg{position:absolute;inset:0;background:#7A1016}
+    #s3-left{position:absolute;left:0;top:0;width:900px;height:1080px}
+    #s3-eyebrow{position:absolute;left:115px;top:150px;font:500 21px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#E9B13B}
+    #s3-titles{position:absolute;left:115px;top:350px;width:760px;height:290px;overflow:hidden}
+    .s3-t{position:absolute;left:0;top:0;font:700 124px/1.02 Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    .s3-t i{font-style:italic;font-weight:600;color:#E9B13B}
+    #s3-rule{position:absolute;left:115px;top:680px;width:270px;height:7px;background:#E9B13B;border-radius:4px;transform-origin:0 50%}
+    #s3-subs{position:absolute;left:115px;top:712px;width:720px;height:46px;overflow:hidden}
+    .s3-s{position:absolute;left:0;top:0;font:500 29px Inter,sans-serif;color:rgba(251,243,230,.85);white-space:nowrap}
+    #s3-count{position:absolute;left:115px;top:880px;width:200px;height:30px;overflow:hidden;font:500 22px 'JetBrains Mono',monospace;color:rgba(251,243,230,.78)}
+    .s3-c{position:absolute;left:0;top:0}
+    #s3-panel{position:absolute;left:845px;top:0;width:1075px;height:1080px;overflow:hidden}
+    .s3-ph{position:absolute;inset:0;overflow:hidden}
+    .s3-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    #s3-p4{background:radial-gradient(700px 620px at 50% 52%,#5A1A12 0%,#2A0A08 75%)}
+    #s3-wrap{position:absolute;left:0;top:0;width:1075px;height:1080px}
+    #s3-fade{position:absolute;left:845px;top:0;width:180px;height:1080px;background:linear-gradient(90deg,#7A1016,rgba(122,16,22,0))}
+  </style>
+  <div id="root" data-composition-id="03-menu" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+    <div id="s3-bg" class="clip" data-start="0" data-duration="6" data-track-index="0"></div>
+    <div id="s3-panel">
+      <div class="s3-ph" id="s3-p1"><img src="assets/photos/plat-du-chef.jpg" style="object-position:50% 60%" alt=""></div>
+      <div class="s3-ph" id="s3-p2"><img src="assets/photos/riz-creole.jpg" alt=""></div>
+      <div class="s3-ph" id="s3-p3"><img src="assets/photos/burger.jpg" alt=""></div>
+      <div class="s3-ph" id="s3-p4">
+        <svg id="s3-wrap" viewBox="0 0 1075 1080">
+          <g id="s3-wrapg"><g transform="translate(560 560) rotate(-12)">
+            <ellipse cx="0" cy="360" rx="260" ry="34" fill="#000" opacity=".35" />
+            <!-- flatbread back -->
+            <path d="M-210,-170 Q0,-270 210,-170 L120,330 Q0,370 -120,330 Z" fill="#E3B676" />
+            <!-- filling -->
+            <g>
+              <path d="M-200,-180 q30,-70 80,-40 q30,-80 90,-35 q40,-70 95,-20 q55,-50 85,25 q50,10 40,60 L-205,-120 Z" fill="#5FAE3A" />
+              <path d="M-185,-150 q40,-60 90,-20 q20,-50 75,-10 q40,-40 80,0 q40,-30 70,10 L170,-90 L-180,-90 Z" fill="#8B4320" />
+              <path d="M-150,-170 q30,-30 60,-5 l-10,40 l-60,-5 z" fill="#A9582B" />
+              <path d="M20,-185 q35,-25 70,0 l-5,45 l-70,-5 z" fill="#A9582B" />
+              <circle cx="-90" cy="-150" r="34" fill="#D63A2A" /><circle cx="-90" cy="-150" r="22" fill="#E8604B" />
+              <circle cx="95" cy="-140" r="30" fill="#D63A2A" /><circle cx="95" cy="-140" r="19" fill="#E8604B" />
+              <path d="M-30,-205 a40,24 0 0 1 70,6" fill="none" stroke="#F1E3EE" stroke-width="10" stroke-linecap="round" />
+              <path d="M-170,-120 a36,20 0 0 1 60,-4" fill="none" stroke="#F1E3EE" stroke-width="9" stroke-linecap="round" />
+              <path d="M-170,-150 C-90,-185 -30,-120 40,-165 S150,-160 185,-185" fill="none" stroke="#FFF6E6" stroke-width="9" stroke-linecap="round" opacity=".95" />
+            </g>
+            <!-- flatbread front fold -->
+            <path d="M-215,-110 Q0,-60 215,-110 L125,330 Q0,370 -125,330 Z" fill="#EFC98D" />
+            <circle cx="-120" cy="-40" r="9" fill="#C68B45" opacity=".7" /><circle cx="60" cy="-20" r="12" fill="#C68B45" opacity=".6" /><circle cx="-20" cy="40" r="8" fill="#C68B45" opacity=".6" /><circle cx="120" cy="20" r="7" fill="#C68B45" opacity=".7" />
+            <!-- paper wrap -->
+            <path d="M-180,60 Q0,110 180,60 L125,330 Q0,370 -125,330 Z" fill="#FBF3E6" />
+            <path d="M-170,105 Q0,155 170,105 L162,140 Q0,190 -162,140 Z" fill="#B3141C" />
+            <text x="0" y="250" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="700" font-size="54" fill="#B3141C">Chief-Chief</text>
+          </g></g>
+          <g fill="none" stroke="#FBF3E6" stroke-width="7" stroke-linecap="round" opacity=".55">
+            <path class="s3-steam" d="M470,250 q-25,-40 0,-80 q25,-40 0,-80" />
+            <path class="s3-steam" d="M560,230 q-25,-40 0,-80 q25,-40 0,-80" />
+            <path class="s3-steam" d="M650,250 q-25,-40 0,-80 q25,-40 0,-80" />
+          </g>
+        </svg>
+      </div>
+      <div class="s3-ph" id="s3-p5"><img src="assets/photos/poulet-frites.jpg" style="object-position:75% 50%" alt=""></div>
+    </div>
+    <div id="s3-fade"></div>
+    <div id="s3-left">
+      <div id="s3-eyebrow">AU MENU CHEZ CHIEF-CHIEF</div>
+      <div id="s3-titles">
+        <div class="s3-t" id="s3-t1">Plats<br><i>africains</i></div>
+        <div class="s3-t" id="s3-t2">Burgers<br><i>généreux</i></div>
+        <div class="s3-t" id="s3-t3">Chawarma<br><i>bien garni</i></div>
+        <div class="s3-t" id="s3-t4">Frites<br><i>bien dorées</i></div>
+      </div>
+      <div id="s3-rule"></div>
+      <div id="s3-subs">
+        <div class="s3-s" id="s3-s1">Préparés avec amour.</div>
+        <div class="s3-s" id="s3-s2">Moelleux, fondants, copieux.</div>
+        <div class="s3-s" id="s3-s3">Roulé minute, bien rempli.</div>
+        <div class="s3-s" id="s3-s4">Croustillantes à souhait.</div>
+      </div>
+      <div id="s3-count"><span class="s3-c" id="s3-c1">01 / 04</span><span class="s3-c" id="s3-c2">02 / 04</span><span class="s3-c" id="s3-c3">03 / 04</span><span class="s3-c" id="s3-c4">04 / 04</span></div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var S=5.8; function T(a){return a-S;}
+      var tl=gsap.timeline({paused:true});
+      gsap.set(['#s3-t2','#s3-t3','#s3-t4','#s3-s2','#s3-s3','#s3-s4','#s3-c2','#s3-c3','#s3-c4'],{yPercent:160});
+      gsap.set(['#s3-p2','#s3-p3','#s3-p4','#s3-p5'],{xPercent:100});
+      // shot 1 — plats africains (6.0)
+      tl.fromTo('#s3-p1 img',{scale:1.16},{scale:1.0,duration:1.6,ease:'power2.out'},0);
+      tl.fromTo('#s3-eyebrow',{opacity:0,x:-24},{opacity:1,x:0,duration:0.45,ease:'power3.out'},T(5.95));
+      tl.fromTo('#s3-t1',{yPercent:160},{yPercent:0,duration:0.65,ease:'expo.out'},T(6.0));
+      tl.fromTo('#s3-rule',{scaleX:0},{scaleX:1,duration:0.6,ease:'expo.out'},T(6.3));
+      tl.fromTo('#s3-s1',{yPercent:160},{yPercent:0,duration:0.5,ease:'power3.out'},T(6.95));
+      tl.fromTo('#s3-count',{opacity:0},{opacity:1,duration:0.4},T(6.4));
+      // riz créole — second African dish, photo only (7.15)
+      tl.to('#s3-p1',{xPercent:-30,duration:0.55,ease:'expo.inOut'},T(7.1));
+      tl.fromTo('#s3-p2',{xPercent:100},{xPercent:0,duration:0.55,ease:'expo.inOut',immediateRender:false},T(7.1));
+      tl.fromTo('#s3-p2 img',{scale:1.14},{scale:1.0,duration:1.4,ease:'power2.out',immediateRender:false},T(7.1));
+      // swaps: burgers 8.1 · chawarma 9.1 · frites 10.4
+      var sw=[[8.05,2,3,1,2],[9.05,3,4,2,3],[10.35,4,5,3,4]];
+      sw.forEach(function(s){
+        var t=T(s[0]),pa='#s3-p'+s[1],pb='#s3-p'+s[2],a=s[3],b=s[4];
+        tl.to(pa,{xPercent:-30,duration:0.55,ease:'expo.inOut'},t);
+        tl.fromTo(pb,{xPercent:100},{xPercent:0,duration:0.55,ease:'expo.inOut',immediateRender:false},t);
+        tl.to(['#s3-t'+a,'#s3-s'+a,'#s3-c'+a],{yPercent:-160,duration:0.32,ease:'power3.in'},t-0.08);
+        tl.fromTo('#s3-t'+b,{yPercent:160},{yPercent:0,duration:0.55,ease:'expo.out',immediateRender:false},t+0.18);
+        tl.fromTo(['#s3-s'+b,'#s3-c'+b],{yPercent:160},{yPercent:0,duration:0.45,ease:'power3.out',immediateRender:false},t+0.3);
+        tl.fromTo('#s3-rule',{scaleX:0.2},{scaleX:1,duration:0.5,ease:'expo.out',immediateRender:false},t+0.22);
+      });
+      tl.fromTo('#s3-p3 img',{scale:1.16},{scale:1.0,duration:1.4,ease:'power2.out',immediateRender:false},T(8.05));
+      tl.fromTo('#s3-wrapg',{scale:0.7,rotation:-18,svgOrigin:'560 560'},{scale:1,rotation:0,svgOrigin:'560 560',duration:0.8,ease:'back.out(1.6)',immediateRender:false},T(9.1));
+      tl.fromTo('.s3-steam',{y:30,opacity:0},{y:-20,opacity:0.6,duration:0.8,stagger:0.15,ease:'sine.out',immediateRender:false},T(9.4));
+      tl.fromTo('#s3-p5 img',{scale:1.18},{scale:1.02,duration:1.6,ease:'power2.out',immediateRender:false},T(10.35));
+      window.__timelines=window.__timelines||{};
+      window.__timelines['03-menu']=tl;
+    })();
+  </script>
+</template>

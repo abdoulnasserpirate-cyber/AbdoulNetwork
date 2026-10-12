@@ -1,0 +1,46 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#FBF3E6}
+    #s4-bg{position:absolute;inset:0;background:radial-gradient(1200px 700px at 50% 40%,#4e0d12 0%,#3A0A0D 70%)}
+    #s4-bref{position:absolute;left:0;right:0;top:70px;text-align:center;font:500 24px 'JetBrains Mono',monospace;letter-spacing:.24em;color:#E9B13B}
+    #s4-title{position:absolute;left:0;right:0;top:108px;text-align:center;font:700 74px Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    #s4-title span{display:inline-block;margin:0 .1em}
+    #s4-title i{font-style:italic;font-weight:600;color:#E9B13B}
+    .s4-tile{position:absolute;top:250px;width:334px;height:700px;border-radius:24px;overflow:hidden}
+    .s4-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .s4-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 60%,rgba(40,6,8,.85))}
+    .s4-tile b{position:absolute;left:22px;bottom:20px;font:700 32px Fraunces,serif;color:#FBF3E6;white-space:nowrap}
+  </style>
+  <div id="root" data-composition-id="04-delice" data-start="0" data-duration="2.5" data-width="1920" data-height="1080">
+    <div id="s4-bg" class="clip" data-start="0" data-duration="2.5" data-track-index="0"></div>
+    <div id="s4-bref">BREF…</div>
+    <div id="s4-title"><span>Chaque</span><span>bouchée,</span><span>un</span><span>vrai</span><span><i>délice.</i></span></div>
+    <div class="s4-tile" id="s4-m1" style="left:81px"><img src="assets/photos/plat-du-chef.jpg" style="object-position:50% 60%" alt=""><div class="s4-grad"></div><b>Plat du Chef</b></div>
+    <div class="s4-tile" id="s4-m2" style="left:437px"><img src="assets/photos/burger.jpg" alt=""><div class="s4-grad"></div><b>Burger</b></div>
+    <div class="s4-tile" id="s4-m3" style="left:793px"><img src="assets/photos/poulet-croustillant.jpg" style="object-position:50% 40%" alt=""><div class="s4-grad"></div><b>Poulet</b></div>
+    <div class="s4-tile" id="s4-m4" style="left:1149px"><img src="assets/photos/pizza.jpg" alt=""><div class="s4-grad"></div><b>Pizza</b></div>
+    <div class="s4-tile" id="s4-m5" style="left:1505px"><img src="assets/photos/poulet-frites.jpg" style="object-position:70% 50%" alt=""><div class="s4-grad"></div><b>Frites</b></div>
+  </div>
+  <script>
+    (function(){
+      var S=11.35; function T(a){return a-S;}
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#s4-bref',{opacity:0,y:12},{opacity:1,y:0,duration:0.35,ease:'power3.out'},T(11.5));
+      ['#s4-m1','#s4-m2','#s4-m3','#s4-m4','#s4-m5'].forEach(function(id,i){
+        tl.fromTo(id,{opacity:0,y:90,scale:0.92},{opacity:1,y:0,scale:1,duration:0.6,ease:'back.out(1.5)'},T(11.55)+i*0.09);
+        tl.fromTo(id+' img',{scale:1.02},{scale:1.1,duration:2.3,ease:'none'},T(11.55));
+      });
+      tl.fromTo('#s4-title span',{opacity:0,yPercent:60},{opacity:1,yPercent:0,duration:0.42,stagger:0.16,ease:'back.out(1.8)'},T(12.1));
+      tl.to('#s4-title i',{color:'#F6D58A',duration:0.3,yoyo:true,repeat:1},T(13.1));
+      window.__timelines=window.__timelines||{};
+      window.__timelines['04-delice']=tl;
+    })();
+  </script>
+</template>

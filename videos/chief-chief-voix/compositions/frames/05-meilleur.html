@@ -1,0 +1,77 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #s5-red{position:absolute;inset:0;background:radial-gradient(1200px 760px at 50% 45%,#C8202A 0%,#8E1118 100%)}
+    #s5-q{position:absolute;left:0;right:0;top:350px;text-align:center;font:700 190px/1 Fraunces,serif;letter-spacing:-.03em;color:#FBF3E6;white-space:nowrap}
+    #s5-q span{display:inline-block;margin:0 .08em}
+    #s5-q .s5-qm{color:#F2C14E;font-style:italic}
+    #s5-cream{position:absolute;inset:0;background:radial-gradient(900px 760px at 72% 50%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6;clip-path:circle(0% at 50% 50%)}
+    #s5-eyebrow{position:absolute;left:130px;top:270px;font:500 22px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#B3141C}
+    #s5-t{position:absolute;left:130px;top:320px;font:700 100px/1.08 Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    .s5-l{display:block;overflow:hidden;padding-bottom:12px;margin-bottom:-12px}
+    .s5-l>span{display:inline-block;margin-right:.22em}
+    .s5-red{color:#B3141C;font-style:italic;font-weight:600}
+    #s5-pill{position:absolute;left:134px;top:730px;display:flex;align-items:center;gap:14px;padding:16px 30px;border-radius:100px;background:#B3141C;color:#FBF3E6;font:700 30px Inter,sans-serif;white-space:nowrap}
+    #s5-pill svg{width:34px;height:34px}
+    #s5-house{position:absolute;left:1180px;top:190px;width:620px;height:660px}
+  </style>
+  <div id="root" data-composition-id="05-meilleur" data-start="0" data-duration="3.9" data-width="1920" data-height="1080">
+    <div id="s5-red" class="clip" data-start="0" data-duration="3.9" data-track-index="0"></div>
+    <div id="s5-q"><span>Et</span><span>le</span><span>meilleur</span><span class="s5-qm">?</span></div>
+    <div id="s5-cream">
+      <div id="s5-eyebrow">ET LE MEILLEUR…</div>
+      <div id="s5-t">
+        <span class="s5-l"><span>Vous</span><span>n'avez</span><span>même</span><span>pas</span></span>
+        <span class="s5-l"><span>besoin</span><span>de</span><span>vous</span></span>
+        <span class="s5-l"><span class="s5-red">déplacer.</span></span>
+      </div>
+      <div id="s5-pill"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="#FBF3E6" /><path d="M9,16.5 l5,5 l9,-10" fill="none" stroke="#B3141C" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg>Restez tranquillement chez vous</div>
+      <svg id="s5-house" viewBox="0 0 620 660">
+        <ellipse cx="310" cy="610" rx="270" ry="26" fill="#2A1712" opacity=".10" />
+        <g id="s5-hbody">
+          <rect x="95" y="290" width="430" height="320" rx="10" fill="#fff" stroke="#2A1712" stroke-width="8" />
+          <rect x="250" y="430" width="120" height="180" rx="10" fill="#B3141C" />
+          <circle cx="350" cy="525" r="7" fill="#F2C14E" />
+          <rect x="135" y="350" width="95" height="85" rx="8" fill="#F6D58A" stroke="#2A1712" stroke-width="6" />
+          <rect x="390" y="350" width="95" height="85" rx="8" fill="#F6D58A" stroke="#2A1712" stroke-width="6" />
+          <path d="M182,350 v85 M135,392 h95 M437,350 v85 M390,392 h95" stroke="#2A1712" stroke-width="5" />
+        </g>
+        <path id="s5-roof" d="M50,310 L310,90 L570,310" fill="none" stroke="#B3141C" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" />
+        <g id="s5-heart"><path d="M310,250 c-30,-30 -70,-5 -50,25 l50,45 l50,-45 c20,-30 -20,-55 -50,-25z" fill="#B3141C" /></g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var S=13.4; function T(a){return a-S;}
+      var tl=gsap.timeline({paused:true});
+      gsap.set('#s5-t .s5-l>span',{yPercent:115});
+      gsap.set('#s5-pill',{opacity:0});
+      // "Et le meilleur ?" (13.6 → 14.6)
+      tl.fromTo('#s5-q span',{yPercent:80,opacity:0},{yPercent:0,opacity:1,duration:0.4,stagger:0.18,ease:'back.out(2)'},T(13.62));
+      tl.fromTo('#s5-q .s5-qm',{rotation:0},{rotation:14,duration:0.18,yoyo:true,repeat:3,ease:'sine.inOut',immediateRender:false},T(14.25));
+      tl.fromTo('#s5-q',{scale:1},{scale:1.06,duration:1.2,ease:'none'},T(13.6));
+      // circle wipe to cream (14.6)
+      tl.to('#s5-cream',{clipPath:'circle(150% at 50% 50%)',duration:0.6,ease:'power3.inOut'},T(14.55));
+      tl.set('#s5-q',{autoAlpha:0},T(15.2));
+      tl.fromTo('#s5-eyebrow',{opacity:0,x:-20},{opacity:1,x:0,duration:0.4,ease:'power3.out'},T(14.8));
+      var w=gsap.utils.toArray('#s5-t .s5-l>span');
+      var wt=[14.72,14.86,15.02,15.18,15.35,15.6,15.72,16.0];
+      w.forEach(function(el,i){tl.fromTo(el,{yPercent:115},{yPercent:0,duration:0.45,ease:'back.out(1.6)',immediateRender:false},T(wt[i]));});
+      tl.fromTo('#s5-house',{y:80,opacity:0},{y:0,opacity:1,duration:0.7,ease:'back.out(1.5)',immediateRender:false},T(14.85));
+      tl.fromTo('#s5-roof',{y:-120,opacity:0},{y:0,opacity:1,duration:0.55,ease:'bounce.out',immediateRender:false},T(15.2));
+      tl.fromTo('#s5-heart',{scale:0,svgOrigin:'310 280'},{scale:1,svgOrigin:'310 280',duration:0.5,ease:'back.out(3)',immediateRender:false},T(15.7));
+      tl.to('#s5-heart',{scale:1.15,svgOrigin:'310 280',duration:0.25,yoyo:true,repeat:3,ease:'sine.inOut'},T(16.25));
+      tl.fromTo('#s5-pill',{opacity:0,y:20,scale:0.9},{opacity:1,y:0,scale:1,duration:0.5,ease:'back.out(1.8)',immediateRender:false},T(16.35));
+      window.__timelines=window.__timelines||{};
+      window.__timelines['05-meilleur']=tl;
+    })();
+  </script>
+</template>

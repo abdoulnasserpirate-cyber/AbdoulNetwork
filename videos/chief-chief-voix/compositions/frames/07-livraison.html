@@ -1,0 +1,104 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #s7-bg{position:absolute;inset:0;background:radial-gradient(1100px 600px at 50% 30%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6}
+    #s7-eyebrow{position:absolute;left:130px;top:118px;font:500 22px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#B3141C}
+    .s7-block{position:absolute;left:130px;top:160px;font:700 88px/1.06 Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    .s7-l{display:block;overflow:hidden;padding-bottom:12px;margin-bottom:-12px}
+    .s7-l>span{display:inline-block;margin-right:.22em}
+    .s7-red{color:#B3141C;font-style:italic;font-weight:600}
+    #s7-badge{position:absolute;left:1330px;top:150px;width:470px;height:150px;background:#fff;border:2px solid rgba(179,20,28,.18);border-radius:24px;display:flex;align-items:center;gap:22px;padding:0 22px;box-shadow:0 20px 50px rgba(16,35,90,.10)}
+    #s7-badge img{width:106px;height:106px;border-radius:16px;object-fit:cover}
+    #s7-blab{font:500 16px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#6B5A52}
+    #s7-bname{font:800 36px Inter,sans-serif;color:#13246b;margin-top:4px;white-space:nowrap}
+    #s7-scene{position:absolute;left:0;top:0;width:1920px;height:1080px}
+    #s7-logo{position:absolute;left:110px;top:640px;width:230px;height:230px}
+    #s7-tag1{position:absolute;left:110px;top:885px;width:230px;text-align:center;font:500 18px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#6B5A52}
+    #s7-tag2{position:absolute;left:1560px;top:885px;width:260px;text-align:center;font:500 18px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#6B5A52}
+    #s7-moto{position:absolute;left:0;top:560px;width:330px;height:280px}
+  </style>
+  <div id="root" data-composition-id="07-livraison" data-start="0" data-duration="4.9" data-width="1920" data-height="1080">
+    <div id="s7-bg" class="clip" data-start="0" data-duration="4.9" data-track-index="0"></div>
+    <svg id="s7-scene" viewBox="0 0 1920 1080">
+      <rect x="0" y="860" width="1920" height="220" fill="#F1E2CB" />
+      <path id="s7-route" d="M340,800 C700,880 1000,700 1560,800" fill="none" stroke="#B3141C" stroke-width="8" stroke-dasharray="4 22" stroke-linecap="round" opacity=".55" />
+      <g id="s7-house">
+        <ellipse cx="1690" cy="868" rx="150" ry="16" fill="#2A1712" opacity=".1" />
+        <rect x="1580" y="700" width="220" height="168" rx="8" fill="#fff" stroke="#2A1712" stroke-width="6" />
+        <rect x="1660" y="770" width="60" height="98" rx="6" fill="#B3141C" />
+        <rect x="1600" y="730" width="44" height="40" rx="5" fill="#F6D58A" stroke="#2A1712" stroke-width="4" />
+        <rect x="1736" y="730" width="44" height="40" rx="5" fill="#F6D58A" stroke="#2A1712" stroke-width="4" />
+        <path d="M1555,712 L1690,600 L1825,712" fill="none" stroke="#B3141C" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <g id="s7-pin"><path d="M1690,590 c-22,-34 -36,-48 -36,-64 a36,36 0 0 1 72,0 c0,16 -14,30 -36,64z" fill="#B3141C" /><circle cx="1690" cy="526" r="13" fill="#fff" /></g>
+    </svg>
+    <img id="s7-logo" src="assets/logo-chief-chief.png" alt="">
+    <div id="s7-tag1">CHIEF-CHIEF</div>
+    <div id="s7-tag2">CHEZ VOUS</div>
+    <svg id="s7-moto" viewBox="0 0 330 280">
+      <g fill="none" stroke="#FBF3E6" stroke-width="6" stroke-linecap="round" opacity=".9">
+        <path class="s7-steam" d="M70,58 q-12,-18 0,-36 q12,-18 0,-36" stroke="#C9B9A5" />
+        <path class="s7-steam" d="M110,58 q-12,-18 0,-36 q12,-18 0,-36" stroke="#C9B9A5" />
+      </g>
+      <rect x="30" y="70" width="120" height="105" rx="14" fill="#B3141C" />
+      <circle cx="90" cy="122" r="32" fill="#FBF3E6" />
+      <text x="90" y="131" text-anchor="middle" font-family="Fraunces" font-style="italic" font-weight="700" font-size="24" fill="#B3141C">C-C</text>
+      <path d="M40,190 H240 L262,150 H212 L200,180 H60 Z" fill="#B3141C" />
+      <path d="M150,180 q10,-46 60,-46" fill="none" stroke="#7A1016" stroke-width="14" stroke-linecap="round" />
+      <path d="M235,150 L255,95 H280" fill="none" stroke="#2A1712" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M160,140 L195,95 L235,108" fill="none" stroke="#13246b" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M175,135 L215,175" fill="none" stroke="#13246b" stroke-width="18" stroke-linecap="round" />
+      <circle cx="200" cy="62" r="26" fill="#2A1712" /><path d="M200,62 h28" stroke="#E9B13B" stroke-width="8" />
+      <g id="s7-w1"><circle cx="70" cy="215" r="34" fill="#2A1712" /><circle cx="70" cy="215" r="13" fill="#E9B13B" /><path d="M70,185 V245 M40,215 H100" stroke="#5a4a44" stroke-width="4" /></g>
+      <g id="s7-w2"><circle cx="250" cy="215" r="34" fill="#2A1712" /><circle cx="250" cy="215" r="13" fill="#E9B13B" /><path d="M250,185 V245 M220,215 H280" stroke="#5a4a44" stroke-width="4" /></g>
+    </svg>
+    <div id="s7-eyebrow">LIVRAISON À DOMICILE · PARTOUT À MARADI</div>
+    <div class="s7-block" id="s7-a">
+      <span class="s7-l"><span>Notre</span><span>équipe</span><span>de</span><span>livraison</span></span>
+      <span class="s7-l"><span>s'occupe</span><span>du</span><span class="s7-red">reste.</span></span>
+    </div>
+    <div class="s7-block" id="s7-b">
+      <span class="s7-l"><span>Votre</span><span>repas</span><span class="s7-red">tout</span><span class="s7-red">chaud,</span></span>
+      <span class="s7-l"><span>jusqu'en</span><span>bas</span><span>de</span><span>chez</span><span>vous.</span></span>
+    </div>
+    <div id="s7-badge"><img src="assets/allo-multiservices.png" alt=""><div><div id="s7-blab">LIVRAISON ASSURÉE PAR</div><div id="s7-bname">Allô Multiservices</div></div></div>
+  </div>
+  <script>
+    (function(){
+      var S=21.85; function T(a){return a-S;}
+      var tl=gsap.timeline({paused:true});
+      gsap.set(['#s7-a .s7-l>span','#s7-b .s7-l>span'],{yPercent:115});
+      gsap.set('#s7-b',{autoAlpha:0});
+      tl.fromTo('#s7-eyebrow',{opacity:0,x:-20},{opacity:1,x:0,duration:0.4,ease:'power3.out'},T(22.0));
+      var a=gsap.utils.toArray('#s7-a .s7-l>span'), at=[22.05,22.2,22.35,22.45,23.1,23.3,23.45];
+      a.forEach(function(el,i){tl.fromTo(el,{yPercent:115},{yPercent:0,duration:0.45,ease:'back.out(1.6)',immediateRender:false},T(at[i]));});
+      tl.to('#s7-a .s7-l>span',{yPercent:-115,duration:0.3,stagger:0.02,ease:'power3.in'},T(23.85));
+      tl.set('#s7-a',{autoAlpha:0},T(24.0));
+      tl.set('#s7-b',{autoAlpha:1},T(23.95));
+      var b=gsap.utils.toArray('#s7-b .s7-l>span'), bt=[24.0,24.15,24.35,24.55,25.25,25.45,25.6,25.72,25.85];
+      b.forEach(function(el,i){tl.fromTo(el,{yPercent:115},{yPercent:0,duration:0.45,ease:'back.out(1.6)',immediateRender:false},T(bt[i]));});
+      // world
+      tl.fromTo('#s7-logo',{scale:0.4,opacity:0,rotation:-20},{scale:1,opacity:1,rotation:0,duration:0.6,ease:'back.out(1.7)'},T(21.95));
+      tl.fromTo(['#s7-tag1','#s7-tag2'],{opacity:0},{opacity:1,duration:0.4},T(22.4));
+      tl.fromTo('#s7-route',{attr:{'stroke-dashoffset':0}},{attr:{'stroke-dashoffset':-260},duration:4.6,ease:'none'},0);
+      tl.fromTo('#s7-house',{y:60,opacity:0},{y:0,opacity:1,duration:0.6,ease:'back.out(1.6)'},T(22.2));
+      tl.fromTo('#s7-pin',{y:-80,opacity:0},{y:0,opacity:1,duration:0.6,ease:'bounce.out'},T(22.5));
+      tl.fromTo('#s7-badge',{x:80,opacity:0},{x:0,opacity:1,duration:0.6,ease:'expo.out'},T(22.6));
+      // scooter rides from the restaurant to the house
+      tl.fromTo('#s7-moto',{x:250},{x:1225,duration:3.0,ease:'power1.inOut'},T(22.45));
+      tl.fromTo('#s7-moto',{y:0},{y:-10,duration:0.18,yoyo:true,repeat:15,ease:'sine.inOut'},T(22.45));
+      tl.fromTo(['#s7-w1','#s7-w2'],{rotation:0,transformOrigin:'50% 50%'},{rotation:720,duration:3.0,ease:'power1.inOut'},T(22.45));
+      tl.fromTo('.s7-steam',{opacity:0,y:10},{opacity:0.9,y:-6,duration:0.6,stagger:0.2,repeat:5,yoyo:true,ease:'sine.inOut'},T(22.6));
+      tl.to('#s7-pin',{scale:1.2,transformOrigin:'50% 100%',duration:0.2,yoyo:true,repeat:3,ease:'sine.inOut'},T(25.5));
+      window.__timelines=window.__timelines||{};
+      window.__timelines['07-livraison']=tl;
+    })();
+  </script>
+</template>

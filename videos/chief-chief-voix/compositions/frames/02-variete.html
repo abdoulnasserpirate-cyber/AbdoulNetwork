@@ -1,0 +1,62 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#FBF3E6}
+    #s2-bg{position:absolute;inset:0;background:radial-gradient(1300px 800px at 50% 30%,#C8202A 0%,#9A1219 55%,#6E0E13 100%)}
+    #s2-cam{position:absolute;inset:0;transform-origin:50% 40%}
+    #s2-eyebrow{position:absolute;left:0;right:0;top:92px;text-align:center;font:500 24px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#F6D58A}
+    #s2-title{position:absolute;left:0;right:0;top:140px;text-align:center;font:700 112px/1.04 Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    .s2-l{display:block;overflow:hidden;padding-bottom:12px;margin-bottom:-12px}
+    .s2-l>span{display:inline-block;margin:0 .12em}
+    .s2-gold{color:#F2C14E;font-style:italic;font-weight:600}
+    .s2-card{position:absolute;top:560px;width:300px;height:380px;background:#fff;border-radius:22px;padding:12px 12px 0;box-shadow:0 30px 60px rgba(40,4,6,.35);transform-origin:50% 120%}
+    .s2-card .s2-ph{width:276px;height:300px;border-radius:14px;overflow:hidden;position:relative}
+    .s2-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .s2-card b{display:block;text-align:center;font:700 28px Fraunces,serif;color:#2A1712;margin-top:12px;white-space:nowrap}
+  </style>
+  <div id="root" data-composition-id="02-variete" data-start="0" data-duration="3" data-width="1920" data-height="1080">
+    <div id="s2-bg" class="clip" data-start="0" data-duration="3" data-track-index="0"></div>
+    <div id="s2-cam">
+      <div id="s2-eyebrow">ICI, ON VOUS PROPOSE…</div>
+      <div id="s2-title">
+        <span class="s2-l"><span>une</span><span>grande</span><span class="s2-gold">variété</span></span>
+        <span class="s2-l"><span>de</span><span>menus.</span></span>
+      </div>
+      <div class="s2-card" id="s2-c1" style="left:110px"><div class="s2-ph"><img src="assets/photos/plat-du-chef.jpg" style="object-position:50% 60%" alt=""></div><b>Plat du Chef</b></div>
+      <div class="s2-card" id="s2-c2" style="left:450px"><div class="s2-ph"><img src="assets/photos/burger.jpg" alt=""></div><b>Burgers</b></div>
+      <div class="s2-card" id="s2-c3" style="left:810px"><div class="s2-ph"><img src="assets/photos/poulet-croustillant.jpg" style="object-position:50% 45%" alt=""></div><b>Poulet</b></div>
+      <div class="s2-card" id="s2-c4" style="left:1170px"><div class="s2-ph"><img src="assets/photos/pizza.jpg" alt=""></div><b>Pizzas</b></div>
+      <div class="s2-card" id="s2-c5" style="left:1510px"><div class="s2-ph"><img src="assets/photos/riz-creole.jpg" alt=""></div><b>Riz créole</b></div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var S=3.25; function T(a){return a-S;}
+      var tl=gsap.timeline({paused:true});
+      gsap.set('#s2-title .s2-l>span',{yPercent:115});
+      tl.fromTo('#s2-cam',{scale:1},{scale:1.035,duration:3,ease:'none'},0);
+      tl.fromTo('#s2-eyebrow',{opacity:0,y:14},{opacity:1,y:0,duration:0.45,ease:'power3.out'},T(3.5));
+      // fan of dishes
+      var rot=[-14,-7,0,7,14], ys=[70,22,0,22,70];
+      ['#s2-c1','#s2-c2','#s2-c3','#s2-c4','#s2-c5'].forEach(function(id,i){
+        tl.fromTo(id,{y:700,rotation:rot[i]*2.2,opacity:1},{y:ys[i],rotation:rot[i],duration:0.75,ease:'back.out(1.4)'},T(3.6)+i*0.13);
+        tl.fromTo(id+' img',{scale:1.18},{scale:1.02,duration:2.2,ease:'power2.out'},T(3.6)+i*0.13);
+      });
+      // "une grande variété de menus" lands on the voice (5.0)
+      var w=gsap.utils.toArray('#s2-title .s2-l>span');
+      var wt=[4.95,5.12,5.3,5.6,5.72];
+      w.forEach(function(el,i){tl.fromTo(el,{yPercent:115},{yPercent:0,duration:0.45,ease:'back.out(1.7)',immediateRender:false},T(wt[i]));});
+      tl.to('#s2-eyebrow',{opacity:0,duration:0.3},T(4.85));
+      tl.to(['#s2-c1','#s2-c5'],{y:'-=18',duration:1.1,ease:'sine.inOut'},T(5.0));
+      tl.to(['#s2-c2','#s2-c4'],{y:'-=12',duration:1.1,ease:'sine.inOut'},T(5.0));
+      window.__timelines=window.__timelines||{};
+      window.__timelines['02-variete']=tl;
+    })();
+  </script>
+</template>

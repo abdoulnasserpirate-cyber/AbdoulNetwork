@@ -1,0 +1,59 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #s9-bg{position:absolute;inset:0;background:radial-gradient(770px 580px at 50% 34%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6}
+    #s9-cam{position:absolute;inset:0;transform-origin:50% 40%}
+    #s9-svg{position:absolute;left:0;top:0;width:1920px;height:1080px}
+    #s9-logo{position:absolute;left:772px;top:110px;width:376px;height:376px}
+    #s9-tag{position:absolute;left:0;right:0;top:540px;text-align:center;font:italic 600 74px Fraunces,serif;letter-spacing:-.01em;white-space:nowrap}
+    #s9-tag span{display:inline-block;margin:0 .12em}
+    #s9-tag .s9-red{color:#B3141C}
+    #s9-info{position:absolute;left:0;right:0;top:700px;display:flex;justify-content:center;gap:26px}
+    .s9-chip{display:flex;align-items:center;gap:14px;padding:16px 28px 16px 18px;border-radius:100px;background:#fff;border:2px solid rgba(179,20,28,.2);font:700 30px Inter,sans-serif;color:#2A1712;white-space:nowrap}
+    .s9-chip svg{width:40px;height:40px;flex:none}
+    #s9-addr{position:absolute;left:0;right:0;top:830px;display:flex;justify-content:center;align-items:center;gap:30px;font:500 21px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#6B5A52;white-space:nowrap}
+    #s9-addr img{width:40px;height:40px;border-radius:8px;vertical-align:middle;margin-right:12px}
+    #s9-addr svg{width:24px;height:24px;vertical-align:-5px;margin-right:8px}
+  </style>
+  <div id="root" data-composition-id="09-signature" data-start="0" data-duration="4.7" data-width="1920" data-height="1080">
+    <div id="s9-bg" class="clip" data-start="0" data-duration="4.7" data-track-index="0"></div>
+    <div id="s9-cam">
+      <svg id="s9-svg" viewBox="0 0 1920 1080">
+        <circle id="s9-ring" cx="960" cy="298" r="210" fill="none" stroke="#B3141C" stroke-width="6" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" transform="rotate(-90 960 298)" />
+      </svg>
+      <img id="s9-logo" src="assets/logo-chief-chief.png" alt="">
+      <div id="s9-tag"><span>Le</span><span>goût</span><span>qui</span><span>vous</span><span>ramène</span><span class="s9-red">toujours.</span></div>
+      <div id="s9-info">
+        <div class="s9-chip"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#B3141C" /><circle cx="26" cy="26" r="15" fill="none" stroke="#fff" stroke-width="3" /><ellipse cx="26" cy="26" rx="7" ry="15" fill="none" stroke="#fff" stroke-width="2.6" /><path d="M11,26 H41" stroke="#fff" stroke-width="2.6" /></svg>chiefchiefrestaurant.com</div>
+        <div class="s9-chip"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#B3141C" /><path d="M18,14 l6,0 l3,8 l-4,3 a18,18 0 0 0 8,8 l3,-4 l8,3 l0,6 a4,4 0 0 1 -4,4 a26,26 0 0 1 -24,-24 a4,4 0 0 1 4,-4z" fill="#fff" /></svg>88 84 49 84</div>
+      </div>
+      <div id="s9-addr">
+        <span><svg viewBox="0 0 24 24"><path d="M12,23 c-5,-7 -8,-10 -8,-14 a8,8 0 0 1 16,0 c0,4 -3,7 -8,14z" fill="#B3141C" /><circle cx="12" cy="9" r="3" fill="#fff" /></svg>FACE À L'HÔPITAL DE RÉFÉRENCE DE MARADI</span>
+        <span><img src="assets/allo-multiservices.png" alt="">LIVRAISON AVEC ALLÔ MULTISERVICES</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var S=28.9; function T(a){return a-S;}
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#s9-cam',{scale:1},{scale:1.03,duration:4.7,ease:'none'},0);
+      tl.to('#s9-ring',{attr:{'stroke-dashoffset':0},duration:0.6,ease:'power2.inOut'},T(29.0));
+      tl.fromTo('#s9-logo',{scale:0.5,rotation:-12,opacity:0},{scale:1,rotation:0,opacity:1,duration:0.7,ease:'back.out(1.7)'},T(29.15));
+      tl.to('#s9-ring',{opacity:0,duration:0.4},T(29.7));
+      var w=gsap.utils.toArray('#s9-tag span'), wt=[30.45,30.6,30.8,30.95,31.15,31.45];
+      w.forEach(function(el,i){tl.fromTo(el,{yPercent:60,opacity:0},{yPercent:0,opacity:1,duration:0.45,ease:'back.out(1.8)'},T(wt[i]));});
+      tl.fromTo('.s9-chip',{y:30,opacity:0},{y:0,opacity:1,duration:0.5,stagger:0.12,ease:'back.out(1.6)'},T(29.9));
+      tl.fromTo('#s9-addr > span',{y:16,opacity:0},{y:0,opacity:1,duration:0.45,stagger:0.12,ease:'power3.out'},T(30.3));
+      window.__timelines=window.__timelines||{};
+      window.__timelines['09-signature']=tl;
+    })();
+  </script>
+</template>
