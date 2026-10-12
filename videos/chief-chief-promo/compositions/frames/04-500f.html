@@ -1,0 +1,87 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #f04-bg{position:absolute;inset:0;background:radial-gradient(960px 770px at 75% 48%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6}
+    #f04-cam{position:absolute;inset:0;transform-origin:30% 50%}
+    #f04-eyebrow{position:absolute;left:134px;top:196px;font:500 21px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#B3141C}
+    #f04-title{position:absolute;left:134px;top:236px;font:700 100px/1.05 Fraunces,serif;letter-spacing:-.02em}
+    .f04-mask{display:block;overflow:hidden;padding-bottom:10px;margin-bottom:-10px}
+    .f04-mask>span{display:inline-block}
+    #f04-price{position:absolute;left:134px;top:500px;display:flex;align-items:baseline;gap:24px}
+    #f04-des{font:italic 500 54px Fraunces,serif;color:#6B5A52}
+    #f04-num{font:800 236px/1 Fraunces,serif;letter-spacing:-.03em;color:#B3141C;display:inline-block;transform-origin:0 80%}
+    #f04-pills{position:absolute;left:134px;top:812px;display:flex;gap:18px}
+    .f04-pill{display:flex;align-items:center;gap:12px;font:600 25px Inter,sans-serif;padding:14px 28px;border-radius:100px;border:2px solid rgba(179,20,28,.22);background:rgba(179,20,28,.05);color:#B3141C;white-space:nowrap}
+    .f04-pill svg{width:30px;height:30px}
+    #f04-map{position:absolute;left:1075px;top:70px;width:690px;height:690px}
+    #f04-badge{position:absolute;left:1075px;top:800px;width:690px;height:150px;background:#fff;border:2px solid rgba(179,20,28,.18);border-radius:24px;display:flex;align-items:center;gap:26px;padding:0 24px;box-shadow:0 20px 50px rgba(16,35,90,.10)}
+    #f04-badge img{width:108px;height:108px;border-radius:16px;object-fit:cover}
+    #f04-blab{font:500 17px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#6B5A52}
+    #f04-bname{font:800 40px Inter,sans-serif;color:#13246b;margin-top:4px}
+  </style>
+  <div data-hf-id="hf-x9jv" id="root" data-composition-id="04-500f" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-4h3q" id="f04-bg" class="clip" data-start="0" data-duration="8" data-track-index="0"></div>
+    <div data-hf-id="hf-5fyv" id="f04-cam">
+      <div data-hf-id="hf-z7eq" id="f04-eyebrow">LIVRAISON À DOMICILE</div>
+      <div data-hf-id="hf-vf14" id="f04-title"><span data-hf-id="hf-ifyi" class="f04-mask"><span data-hf-id="hf-bazb" id="f04-t1">Partout</span></span><span data-hf-id="hf-c2ku" class="f04-mask"><span data-hf-id="hf-eseb" id="f04-t2">à Maradi.</span></span></div>
+      <div data-hf-id="hf-osvx" id="f04-price"><span data-hf-id="hf-c9hc" id="f04-des">dès</span><span data-hf-id="hf-j5xv" id="f04-num">0 F</span></div>
+      <div data-hf-id="hf-dxdu" id="f04-pills">
+        <div data-hf-id="hf-ibp3" class="f04-pill" id="f04-p1"><svg data-hf-id="hf-161r" viewBox="0 0 32 32"><circle data-hf-id="hf-t6rr" cx="8" cy="23" r="5" fill="none" stroke="#B3141C" stroke-width="3" /><circle data-hf-id="hf-vwgc" cx="25" cy="23" r="5" fill="none" stroke="#B3141C" stroke-width="3" /><path data-hf-id="hf-3p1t" d="M8,23 H15 L19,13 H24 L25,23" fill="none" stroke="#B3141C" stroke-width="3" stroke-linejoin="round" /><rect data-hf-id="hf-k4w8" x="3" y="9" width="10" height="9" rx="2" fill="#B3141C" /></svg>Livraison à domicile</div>
+        <div data-hf-id="hf-isuk" class="f04-pill" id="f04-p2"><svg data-hf-id="hf-o57j" viewBox="0 0 32 32"><rect data-hf-id="hf-l5ri" x="3" y="8" width="26" height="17" rx="3" fill="none" stroke="#B3141C" stroke-width="3" /><rect data-hf-id="hf-qve3" x="3" y="12" width="26" height="4" fill="#B3141C" /></svg>Paiement à la livraison</div>
+      </div>
+      <svg data-hf-id="hf-8wuc" id="f04-map" viewBox="0 0 100 100">
+        <defs data-hf-id="hf-mh0t"><mask data-hf-id="hf-y2so" id="f04-rmask" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><path data-hf-id="hf-hcce" id="f04-rmp" d="M24,62 Q38,34 52,40 T78,24" pathLength="1" fill="none" stroke="#fff" stroke-width="6" stroke-dasharray="1 1" stroke-dashoffset="1" /></mask></defs>
+        <circle data-hf-id="hf-arqs" id="f04-disc" cx="50" cy="50" r="46" fill="#fff" stroke="#B3141C" stroke-opacity=".18" stroke-width=".5" />
+        <g data-hf-id="hf-5kk8" stroke="#B3141C" stroke-opacity=".22" stroke-width=".6" fill="none">
+          <path data-hf-id="hf-2l17" class="f04-st" pathLength="1" d="M8,40 Q40,35 92,48" /><path data-hf-id="hf-drgc" class="f04-st" pathLength="1" d="M18,76 Q50,55 90,28" /><path data-hf-id="hf-o4fo" class="f04-st" pathLength="1" d="M45,5 Q52,50 40,95" /><path data-hf-id="hf-n88s" class="f04-st" pathLength="1" d="M10,60 L88,66" /><path data-hf-id="hf-dyw5" class="f04-st" pathLength="1" d="M28,12 Q60,40 70,92" />
+        </g>
+        <g data-hf-id="hf-8pf6" mask="url(#f04-rmask)"><path data-hf-id="hf-hx89" d="M24,62 Q38,34 52,40 T78,24" fill="none" stroke="#B3141C" stroke-width="1.2" stroke-dasharray="2 1.6" stroke-linecap="round" /></g>
+        <g data-hf-id="hf-it5s" class="f04-pin2"><path data-hf-id="hf-bdfr" d="M33,30 c-3,-5 -5,-7 -5,-9 a5,5 0 0 1 10,0 c0,2 -2,4 -5,9z" fill="#B3141C" opacity=".45" /></g>
+        <g data-hf-id="hf-08pk" class="f04-pin2"><path data-hf-id="hf-6qx3" d="M66,76 c-3,-5 -5,-7 -5,-9 a5,5 0 0 1 10,0 c0,2 -2,4 -5,9z" fill="#B3141C" opacity=".45" /></g>
+        <g data-hf-id="hf-z1sh" class="f04-pin2"><path data-hf-id="hf-xytr" d="M80,58 c-3,-5 -5,-7 -5,-9 a5,5 0 0 1 10,0 c0,2 -2,4 -5,9z" fill="#B3141C" opacity=".45" /></g>
+        <g data-hf-id="hf-dm92" id="f04-pin1"><path data-hf-id="hf-qy4d" d="M24,62 c-3,-5 -5,-7 -5,-9 a5,5 0 0 1 10,0 c0,2 -2,4 -5,9z" fill="#B3141C" /><circle data-hf-id="hf-76em" cx="24" cy="53" r="1.8" fill="#fff" /></g>
+        <g data-hf-id="hf-8bg6" id="f04-pinA"><path data-hf-id="hf-glck" d="M52,40 c-3,-5 -5,-7 -5,-9 a5,5 0 0 1 10,0 c0,2 -2,4 -5,9z" fill="#B3141C" /><circle data-hf-id="hf-pyg9" cx="52" cy="31" r="1.8" fill="#fff" /></g>
+        <g data-hf-id="hf-25qd" id="f04-pinB"><path data-hf-id="hf-28hu" d="M78,24 c-3,-5 -5,-7 -5,-9 a5,5 0 0 1 10,0 c0,2 -2,4 -5,9z" fill="#B3141C" /><circle data-hf-id="hf-9icv" cx="78" cy="15" r="1.8" fill="#fff" /></g>
+        <g data-hf-id="hf-bmsj" id="f04-moto"><circle data-hf-id="hf-acxa" r="4.2" fill="#2A1712" /><circle data-hf-id="hf-xvfk" r="2.6" fill="#E9B13B" /></g>
+        <text data-hf-id="hf-vdj9" x="50" y="97.5" text-anchor="middle" font-family="JetBrains Mono" font-size="2.8" fill="#6b5a52" letter-spacing=".5">MARADI · NIGER</text>
+      </svg>
+      <div data-hf-id="hf-i7jz" id="f04-badge"><img data-hf-id="hf-y03j" src="assets/allo-multiservices.png" alt=""><div data-hf-id="hf-yeow"><div data-hf-id="hf-12wj" id="f04-blab">LIVRAISON ASSURÉE PAR</div><div data-hf-id="hf-k619" id="f04-bname">Allô Multiservices</div></div></div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#f04-cam',{scale:1},{scale:1.035,duration:7.5,ease:'none'},0);
+      tl.fromTo('#f04-eyebrow',{opacity:0,x:-20},{opacity:1,x:0,duration:0.5,ease:'power3.out'},0.05);
+      tl.fromTo(['#f04-t1','#f04-t2'],{yPercent:110},{yPercent:0,duration:0.65,stagger:0.14,ease:'expo.out'},0.15);
+      tl.fromTo('#f04-map',{scale:0.9,opacity:0,transformOrigin:'50% 50%'},{scale:1,opacity:1,duration:0.7,ease:'expo.out'},0.0);
+      tl.fromTo('.f04-st',{attr:{'stroke-dasharray':'1 1','stroke-dashoffset':1}},{attr:{'stroke-dashoffset':0},duration:0.9,stagger:0.08,ease:'power2.out'},0.1);
+      tl.fromTo('#f04-rmp',{attr:{'stroke-dashoffset':1}},{attr:{'stroke-dashoffset':0},duration:0.85,ease:'power1.inOut'},0.5);
+      tl.fromTo('#f04-moto',{x:24,y:62},{keyframes:[{x:38,y:44,duration:0.2},{x:52,y:40,duration:0.25},{x:66,y:36,duration:0.2},{x:78,y:24,duration:0.2}],ease:'none'},0.5);
+      [['#f04-pin1',0.55],['#f04-pinA',0.95],['#f04-pinB',1.35]].forEach(function(p){
+        tl.fromTo(p[0],{y:-8,opacity:0},{y:0,opacity:1,duration:0.45,ease:'back.out(2.4)'},p[1]);
+      });
+      tl.fromTo('.f04-pin2',{opacity:0},{opacity:1,duration:0.4,stagger:0.12},1.5);
+      tl.fromTo('#f04-moto',{opacity:1},{opacity:0,duration:0.25,immediateRender:false},1.4);
+      tl.fromTo('#f04-price',{opacity:0,y:20},{opacity:1,y:0,duration:0.4,ease:'power3.out'},1.35);
+      var o={v:0}, num=document.getElementById('f04-num');
+      tl.fromTo(o,{v:0},{v:500,duration:1.1,ease:'power2.out',onUpdate:function(){num.textContent=Math.round(o.v)+' F';}},1.45);
+      tl.fromTo('#f04-num',{scale:1},{keyframes:{scale:[1,1.1,1]},duration:0.45,ease:'power1.inOut',immediateRender:false},2.55);
+      tl.fromTo('#f04-badge',{y:50,opacity:0},{y:0,opacity:1,duration:0.6,ease:'back.out(1.6)'},2.95);
+      tl.fromTo('#f04-badge img',{scale:0.7,rotation:-8},{scale:1,rotation:0,duration:0.55,ease:'back.out(2)'},3.05);
+      tl.fromTo('#f04-p1',{y:40,opacity:0},{y:0,opacity:1,duration:0.5,ease:'back.out(1.7)'},4.85);
+      tl.fromTo('#f04-p2',{y:40,opacity:0},{y:0,opacity:1,duration:0.5,ease:'back.out(1.7)'},5.15);
+      tl.to(['#f04-pin1','#f04-pinA','#f04-pinB'],{keyframes:{y:[0,-2,0]},duration:0.6,stagger:0.2,ease:'sine.inOut'},5.6);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['04-500f']=tl;
+    })();
+  </script>
+</template>

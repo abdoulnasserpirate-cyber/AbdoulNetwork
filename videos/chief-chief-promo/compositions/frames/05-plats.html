@@ -1,0 +1,114 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#FBF3E6}
+    #f05-bg{position:absolute;inset:0;background:#7A1016}
+    #f05-bg2{position:absolute;inset:0;background:radial-gradient(1200px 700px at 50% 40%,#4e0d12 0%,#3A0A0D 70%)}
+    #f05-left{position:absolute;left:0;top:0;width:900px;height:1080px}
+    #f05-eyebrow{position:absolute;left:115px;top:118px;font:500 20px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#E9B13B}
+    #f05-titles{position:absolute;left:115px;top:360px;width:760px;height:300px;overflow:hidden}
+    .f05-t{position:absolute;left:0;top:0;font:700 124px/1.02 Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    .f05-t i{font-style:italic;font-weight:600;color:#E9B13B}
+    #f05-rule{position:absolute;left:115px;top:690px;width:270px;height:7px;background:#E9B13B;border-radius:4px;transform-origin:0 50%}
+    #f05-subs{position:absolute;left:115px;top:722px;width:720px;height:44px;overflow:hidden}
+    .f05-s{position:absolute;left:0;top:0;font:500 27px Inter,sans-serif;color:rgba(251,243,230,.82);white-space:nowrap}
+    #f05-count{position:absolute;left:115px;top:880px;font:500 22px 'JetBrains Mono',monospace;color:rgba(251,243,230,.78);height:30px;width:200px;overflow:hidden}
+    .f05-c{position:absolute;left:0;top:0}
+    #f05-panel{position:absolute;left:845px;top:0;width:1075px;height:1080px;overflow:hidden;border-radius:0}
+    .f05-ph{position:absolute;inset:0;overflow:hidden}
+    .f05-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    #f05-fade{position:absolute;left:845px;top:0;width:200px;height:1080px;background:linear-gradient(90deg,#7A1016,rgba(122,16,22,0))}
+    #f05-mtitle{position:absolute;left:0;right:0;top:66px;text-align:center;font:700 64px Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    #f05-mtitle i{font-style:italic;font-weight:600;color:#E9B13B}
+    .f05-tile{position:absolute;top:211px;width:421px;height:744px;border-radius:24px;overflow:hidden}
+    .f05-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .f05-tile b,.f05-plab{position:absolute;left:24px;bottom:22px;font:700 34px Fraunces,serif;color:#FBF3E6;white-space:nowrap}
+    .f05-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 58%,rgba(40,6,8,.85))}
+    #f05-more{position:absolute;left:0;right:0;top:996px;text-align:center;font:500 23px 'JetBrains Mono',monospace;letter-spacing:.22em;color:#E9B13B}
+  </style>
+  <div data-hf-id="hf-8ido" id="root" data-composition-id="05-plats" data-start="0" data-duration="10.6" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-4nku" id="f05-bg" class="clip" data-start="0" data-duration="10.6" data-track-index="0"></div>
+    <div data-hf-id="hf-2d3i" id="f05-bg2"></div>
+    <div data-hf-id="hf-omby" id="f05-left">
+      <div data-hf-id="hf-k7rt" id="f05-eyebrow">SIGNATURE · CHOIX DU CHEF</div>
+      <div data-hf-id="hf-wzeo" id="f05-titles">
+        <div data-hf-id="hf-lvcm" class="f05-t" id="f05-t1">Le Plat<br data-hf-id="hf-x5px">du <i data-hf-id="hf-qg6w">Chef</i></div>
+        <div data-hf-id="hf-egce" class="f05-t" id="f05-t2">Le riz<br data-hf-id="hf-rsrt"><i data-hf-id="hf-r7ni">créole</i></div>
+        <div data-hf-id="hf-d5ok" class="f05-t" id="f05-t3">Poulet<br data-hf-id="hf-szow"><i data-hf-id="hf-5gae">croustillant</i></div>
+        <div data-hf-id="hf-c3x2" class="f05-t" id="f05-t4">Les<br data-hf-id="hf-sldv"><i data-hf-id="hf-izer">pizzas</i></div>
+      </div>
+      <div data-hf-id="hf-572v" id="f05-rule"></div>
+      <div data-hf-id="hf-n0is" id="f05-subs">
+        <div data-hf-id="hf-hocv" class="f05-s" id="f05-s1">La composition signature de la maison.</div>
+        <div data-hf-id="hf-3rjr" class="f05-s" id="f05-s2">Doré, parfumé, généreux.</div>
+        <div data-hf-id="hf-5cnl" class="f05-s" id="f05-s3">Croustillant dehors, tendre dedans.</div>
+        <div data-hf-id="hf-j9u9" class="f05-s" id="f05-s4">Garnies, filantes, à partager.</div>
+      </div>
+      <div data-hf-id="hf-fgvy" id="f05-count"><span data-hf-id="hf-zrr8" class="f05-c" id="f05-c1">01 / 04</span><span data-hf-id="hf-nq3e" class="f05-c" id="f05-c2">02 / 04</span><span data-hf-id="hf-j5fc" class="f05-c" id="f05-c3">03 / 04</span><span data-hf-id="hf-wo8a" class="f05-c" id="f05-c4">04 / 04</span></div>
+    </div>
+    <div data-hf-id="hf-y88d" class="f05-tile" id="f05-m1" style="left:77px"><img data-hf-id="hf-e9e6" src="assets/photos/plat-du-chef.jpg" style="object-position:50% 58%" alt=""><div data-hf-id="hf-h870" class="f05-grad"></div><b data-hf-id="hf-6inp">Plat du Chef</b></div>
+    <div data-hf-id="hf-ray2" class="f05-tile" id="f05-m2" style="left:525px"><img data-hf-id="hf-g22z" src="assets/photos/riz-creole.jpg" alt=""><div data-hf-id="hf-k4dw" class="f05-grad"></div><b data-hf-id="hf-l6jg">Riz créole</b></div>
+    <div data-hf-id="hf-347k" class="f05-tile" id="f05-m3" style="left:973px"><img data-hf-id="hf-kaom" src="assets/photos/poulet-frites.jpg" alt=""><div data-hf-id="hf-ixgt" class="f05-grad"></div><b data-hf-id="hf-6t7m">Poulet croustillant</b></div>
+    <div data-hf-id="hf-ki9y" class="f05-tile" id="f05-m4" style="left:1421px"><img data-hf-id="hf-a3sb" src="assets/photos/pizza.jpg" alt=""><div data-hf-id="hf-jbru" class="f05-grad"></div><b data-hf-id="hf-o7fm">Pizzas</b></div>
+    <div data-hf-id="hf-5s4x" id="f05-panel">
+      <div data-hf-id="hf-z14z" class="f05-ph" id="f05-p1"><img data-hf-id="hf-rcbx" src="assets/photos/plat-du-chef.jpg" style="object-position:50% 60%" alt=""></div>
+      <div data-hf-id="hf-o5nc" class="f05-ph" id="f05-p2"><img data-hf-id="hf-2cbv" src="assets/photos/riz-creole.jpg" alt=""></div>
+      <div data-hf-id="hf-r4wx" class="f05-ph" id="f05-p3"><img data-hf-id="hf-ljwa" src="assets/photos/poulet-frites.jpg" alt=""></div>
+      <div data-hf-id="hf-g9fa" class="f05-ph" id="f05-p4"><img data-hf-id="hf-m9hn" src="assets/photos/pizza.jpg" alt=""></div>
+    </div>
+    <div data-hf-id="hf-ugzb" id="f05-fade"></div>
+    <div data-hf-id="hf-tvza" id="f05-mtitle">Fast-food généreux, <i data-hf-id="hf-2g7f">fait maison.</i></div>
+    <div data-hf-id="hf-n0tu" id="f05-more">… ET BIEN D'AUTRES</div>
+  </div>
+  <script>
+    (function(){
+      var tl=gsap.timeline({paused:true});
+      // initial states
+      gsap.set(['#f05-t2','#f05-t3','#f05-t4','#f05-s2','#f05-s3','#f05-s4','#f05-c2','#f05-c3','#f05-c4'],{yPercent:160});
+      gsap.set(['#f05-p2','#f05-p3','#f05-p4'],{xPercent:100});
+      gsap.set(['#f05-bg2','#f05-mtitle','#f05-more','#f05-m1','#f05-m2','#f05-m3','#f05-m4'],{opacity:0});
+      // shot 1
+      tl.fromTo('#f05-p1 img',{scale:1.14},{scale:1.0,duration:2.4,ease:'power2.out'},0);
+      tl.fromTo('#f05-eyebrow',{opacity:0,x:-24},{opacity:1,x:0,duration:0.5,ease:'power3.out'},0.1);
+      tl.fromTo('#f05-t1',{yPercent:160},{yPercent:0,duration:0.7,ease:'expo.out'},0.35);
+      tl.fromTo('#f05-rule',{scaleX:0},{scaleX:1,duration:0.6,ease:'expo.out'},0.7);
+      tl.fromTo('#f05-s1',{yPercent:160},{yPercent:0,duration:0.5,ease:'power3.out'},0.85);
+      tl.fromTo('#f05-count',{opacity:0},{opacity:1,duration:0.4},0.9);
+      // swaps
+      var at=[2.0,3.6,5.2];
+      at.forEach(function(t,i){
+        var a=i+1,b=i+2;
+        tl.to('#f05-p'+a,{xPercent:-30,duration:0.6,ease:'expo.inOut'},t-0.05);
+        tl.fromTo('#f05-p'+b,{xPercent:100},{xPercent:0,duration:0.6,ease:'expo.inOut',immediateRender:false},t-0.05);
+        tl.fromTo('#f05-p'+b+' img',{scale:1.14},{scale:1.0,duration:2.0,ease:'power2.out'},t-0.05);
+        tl.to(['#f05-t'+a,'#f05-s'+a,'#f05-c'+a],{yPercent:-160,duration:0.35,ease:'power3.in'},t-0.1);
+        tl.fromTo('#f05-t'+b,{yPercent:160},{yPercent:0,duration:0.6,ease:'expo.out',immediateRender:false},t+0.2);
+        tl.fromTo(['#f05-s'+b,'#f05-c'+b],{yPercent:160},{yPercent:0,duration:0.5,ease:'power3.out',immediateRender:false},t+0.35);
+        tl.fromTo('#f05-rule',{scaleX:0.2},{scaleX:1,duration:0.5,ease:'expo.out',immediateRender:false},t+0.25);
+      });
+      // mosaic at 6.8
+      var M=6.8;
+      tl.to('#f05-left',{opacity:0,x:-60,duration:0.4,ease:'power2.in'},M-0.1);
+      tl.to('#f05-fade',{opacity:0,duration:0.3},M-0.1);
+      tl.to('#f05-bg2',{opacity:1,duration:0.5},M);
+      tl.to('#f05-panel',{x:330,y:120,scale:0.62,opacity:0,transformOrigin:'60% 50%',duration:0.7,ease:'expo.inOut'},M);
+      tl.fromTo('#f05-m4',{opacity:0,scale:1.35,transformOrigin:'50% 50%'},{opacity:1,scale:1,duration:0.75,ease:'expo.out',immediateRender:false},M+0.15);
+      ['#f05-m1','#f05-m2','#f05-m3'].forEach(function(id,i){
+        tl.fromTo(id,{opacity:0,y:70,scale:0.94},{opacity:1,y:0,scale:1,duration:0.65,ease:'back.out(1.5)',immediateRender:false},M+0.25+i*0.12);
+        tl.fromTo(id+' img',{scale:1},{scale:1.06,duration:3,ease:'none',immediateRender:false},M+0.25);
+      });
+      tl.fromTo('#f05-mtitle',{opacity:0,y:30},{opacity:1,y:0,duration:0.6,ease:'expo.out',immediateRender:false},7.1);
+      tl.fromTo('#f05-more',{opacity:0,y:20},{opacity:1,y:0,duration:0.7,ease:'expo.out',immediateRender:false},8.3);
+      tl.fromTo('#f05-m4 img',{scale:1},{scale:1.06,duration:3,ease:'none',immediateRender:false},M+0.25);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['05-plats']=tl;
+    })();
+  </script>
+</template>

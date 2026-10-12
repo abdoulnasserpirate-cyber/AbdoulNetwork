@@ -1,0 +1,60 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif}
+    #f02-bg{position:absolute;inset:0;background:radial-gradient(1340px 860px at 50% 45%,#c9202a 0%,#B3141C 45%,#7A1016 100%)}
+    #f02-cam{position:absolute;inset:0;transform-origin:50% 50%}
+    #f02-orbit{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:960px 540px}
+    #f02-kicker{position:absolute;left:0;right:0;top:300px;text-align:center;font:500 42px 'JetBrains Mono',monospace;letter-spacing:.24em;color:rgba(251,243,230,.92);white-space:nowrap}
+    #f02-kicker span{display:inline-block}
+    #f02-line{position:absolute;left:0;right:0;top:420px;text-align:center;font:700 128px/1.15 Fraunces,serif;letter-spacing:-.02em;color:#FBF3E6;white-space:nowrap}
+    .f02-mask{display:inline-block;overflow:hidden;vertical-align:top;padding:0 6px 14px;margin-bottom:-14px}
+    .f02-mask>span{display:inline-block}
+    #f02-box{position:relative;display:inline-block;padding:0 30px;margin-left:14px}
+    #f02-boxbg{position:absolute;inset:6px 0 4px 0;background:#FBF3E6;border-radius:22px;transform-origin:0 50%}
+    #f02-boxtxt{position:relative;color:#B3141C;display:inline-block}
+  </style>
+  <div data-hf-id="hf-tzda" id="root" data-composition-id="02-du-reste" data-start="0" data-duration="5.4" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-w8kv" id="f02-bg" class="clip" data-start="0" data-duration="5.4" data-track-index="0"></div>
+    <div data-hf-id="hf-nc6h" id="f02-cam">
+      <svg data-hf-id="hf-mr4j" id="f02-orbit" viewBox="0 0 1920 1080">
+        <defs data-hf-id="hf-mh0t">
+          <mask data-hf-id="hf-6v48" id="f02-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080">
+            <path data-hf-id="hf-5975" id="f02-maskpath" d="M1740,500 A780,215 0 1,1 1739.9,499.6" pathLength="1" fill="none" stroke="#fff" stroke-width="40" stroke-dasharray="1 1" stroke-dashoffset="1" transform="rotate(-6 960 540)" />
+          </mask>
+        </defs>
+        <g data-hf-id="hf-9pqh" mask="url(#f02-reveal)">
+          <path data-hf-id="hf-oebr" d="M1740,500 A780,215 0 1,1 1739.9,499.6" fill="none" stroke="#FBF3E6" stroke-opacity=".6" stroke-width="4" stroke-dasharray="14 18" stroke-linecap="round" transform="rotate(-6 960 540)" />
+        </g>
+        <g data-hf-id="hf-907d" id="f02-plane" transform="translate(1700 418)"><path data-hf-id="hf-teom" d="M0,0 L46,-18 L30,10 Z" fill="#FBF3E6" /><path data-hf-id="hf-5t1d" d="M30,10 L22,26 L18,4 Z" fill="#FBF3E6" opacity=".6" /></g>
+      </svg>
+      <div data-hf-id="hf-10un" id="f02-kicker"></div>
+      <div data-hf-id="hf-7jfm" id="f02-line"><span data-hf-id="hf-n3mc" class="f02-mask"><span data-hf-id="hf-ke7c" id="f02-a">On s'occupe</span></span><span data-hf-id="hf-9x5q" id="f02-box"><span data-hf-id="hf-jhk7" id="f02-boxbg"></span><span data-hf-id="hf-9a24" class="f02-mask"><span data-hf-id="hf-tv06" id="f02-boxtxt">du reste.</span></span></span></div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var k=document.getElementById('f02-kicker');
+      "C'EST TOUT.".split('').forEach(function(c){var s=document.createElement('span');s.textContent=c===' '?' ':c;k.appendChild(s);});
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#f02-cam',{scale:1},{scale:1.05,duration:5,ease:'none'},0);
+      tl.fromTo('#f02-maskpath',{attr:{'stroke-dashoffset':1}},{attr:{'stroke-dashoffset':0},duration:1.5,ease:'power2.inOut'},0.15);
+      tl.fromTo('#f02-plane',{opacity:0,scale:0.4,transformOrigin:'50% 50%'},{opacity:1,scale:1,duration:0.4,ease:'back.out(2)'},1.45);
+      tl.fromTo('#f02-orbit',{rotation:0},{rotation:4,duration:5,ease:'none'},0);
+      tl.fromTo('#f02-kicker span',{opacity:0,y:24},{opacity:1,y:0,duration:0.35,stagger:0.05,ease:'back.out(2)'},0.3);
+      tl.fromTo('#f02-a',{yPercent:110},{yPercent:0,duration:0.65,ease:'expo.out'},1.5);
+      tl.fromTo('#f02-boxbg',{scaleX:0},{scaleX:1,duration:0.5,ease:'expo.inOut'},2.3);
+      tl.fromTo('#f02-boxtxt',{yPercent:110},{yPercent:0,duration:0.6,ease:'back.out(1.6)'},2.45);
+      tl.fromTo('#f02-box',{scale:1},{scale:1.06,duration:2.2,ease:'sine.out',immediateRender:false},2.8);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['02-du-reste']=tl;
+    })();
+  </script>
+</template>

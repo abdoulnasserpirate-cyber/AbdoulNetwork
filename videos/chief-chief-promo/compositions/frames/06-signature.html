@@ -1,0 +1,51 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #f06-bg{position:absolute;inset:0;background:radial-gradient(770px 580px at 50% 36%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6}
+    #f06-cam{position:absolute;inset:0;transform-origin:50% 40%}
+    #f06-svg{position:absolute;left:0;top:0;width:1920px;height:1080px}
+    #f06-logo{position:absolute;left:762px;top:186px;width:396px;height:396px}
+    #f06-tag{position:absolute;left:0;right:0;top:640px;text-align:center;font:italic 600 66px Fraunces,serif;letter-spacing:-.01em;white-space:nowrap}
+    #f06-tag span{display:inline-block;margin:0 .12em}
+    #f06-tag .f06-red{color:#B3141C}
+    #f06-offer{position:absolute;left:0;right:0;top:770px;text-align:center;font:600 31px Inter,sans-serif;color:#B3141C;white-space:nowrap}
+    #f06-info{position:absolute;left:0;right:0;top:850px;display:flex;justify-content:center;align-items:center;gap:34px;font:500 19px 'JetBrains Mono',monospace;letter-spacing:.16em;color:#6B5A52;white-space:nowrap}
+    #f06-info img{width:34px;height:34px;border-radius:7px;vertical-align:middle;margin-right:10px}
+  </style>
+  <div data-hf-id="hf-1lnv" id="root" data-composition-id="06-signature" data-start="0" data-duration="5" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-5fzt" id="f06-bg" class="clip" data-start="0" data-duration="5" data-track-index="0"></div>
+    <div data-hf-id="hf-09jh" id="f06-cam">
+      <svg data-hf-id="hf-caap" id="f06-svg" viewBox="0 0 1920 1080">
+        <circle data-hf-id="hf-jide" id="f06-ring" cx="960" cy="384" r="222" fill="none" stroke="#B3141C" stroke-width="6" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" transform="rotate(-90 960 384)" />
+        <circle data-hf-id="hf-mmg1" id="f06-dot" cx="960" cy="384" r="22" fill="#B3141C" />
+      </svg>
+      <img data-hf-id="hf-apos" id="f06-logo" src="assets/logo-chief-chief.png" alt="">
+      <div data-hf-id="hf-zork" id="f06-tag"><span data-hf-id="hf-3px2">Le</span><span data-hf-id="hf-v3c0">goût</span><span data-hf-id="hf-epdu">qui</span><span data-hf-id="hf-i512">vous</span><span data-hf-id="hf-yj5o">ramène</span><span data-hf-id="hf-8x1e" class="f06-red">toujours.</span></div>
+      <div data-hf-id="hf-r0nr" id="f06-offer">Livraison à domicile dès 500 F · Partout à Maradi</div>
+      <div data-hf-id="hf-5cjg" id="f06-info"><span data-hf-id="hf-tl1g">• MARADI, NIGER</span><span data-hf-id="hf-2b6a">• PAIEMENT À LA LIVRAISON</span><span data-hf-id="hf-rpuq"><img data-hf-id="hf-y03j" src="assets/allo-multiservices.png" alt="">AVEC ALLÔ MULTISERVICES</span></div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#f06-cam',{scale:1},{scale:1.03,duration:5,ease:'none'},0);
+      tl.fromTo('#f06-dot',{scale:0,transformOrigin:'50% 50%'},{scale:1,duration:0.35,ease:'back.out(3)'},0.15);
+      tl.fromTo('#f06-ring',{attr:{'stroke-dashoffset':1}},{attr:{'stroke-dashoffset':0},duration:0.7,ease:'power2.inOut'},0.35);
+      tl.to('#f06-dot',{scale:0,opacity:0,duration:0.3,ease:'power2.in'},0.85);
+      tl.fromTo('#f06-logo',{scale:0.55,rotation:-10,opacity:0},{scale:1,rotation:0,opacity:1,duration:0.8,ease:'back.out(1.7)'},0.95);
+      tl.fromTo('#f06-tag span',{yPercent:60,opacity:0},{yPercent:0,opacity:1,duration:0.5,stagger:0.13,ease:'back.out(1.8)'},1.9);
+      tl.fromTo('#f06-offer',{y:24,opacity:0},{y:0,opacity:1,duration:0.55,ease:'expo.out'},3.3);
+      tl.fromTo('#f06-info span',{y:16,opacity:0},{y:0,opacity:1,duration:0.45,stagger:0.1,ease:'power3.out'},3.7);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['06-signature']=tl;
+    })();
+  </script>
+</template>

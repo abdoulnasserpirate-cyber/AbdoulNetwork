@@ -1,0 +1,72 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #f01-bg{position:absolute;inset:0;background:radial-gradient(1150px 770px at 72% 40%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6}
+    #f01-cam{position:absolute;inset:0;transform-origin:50% 50%}
+    #f01-eyebrow{position:absolute;left:134px;top:372px;font:500 20px 'JetBrains Mono',monospace;letter-spacing:.18em;color:#B3141C;white-space:nowrap}
+    #f01-eyebrow span{display:inline-block}
+    #f01-title{position:absolute;left:134px;top:420px;font:700 150px/1.0 Fraunces,serif;letter-spacing:-.02em}
+    .f01-line{display:block;overflow:hidden;padding:0 0 10px;margin-bottom:-10px}
+    .f01-line>span{display:inline-block}
+    #f01-red{color:#B3141C;position:relative}
+    #f01-under{position:absolute;left:4px;right:28px;bottom:6px;height:10px;background:#E9B13B;border-radius:6px;transform-origin:0 50%}
+    #f01-ticket{position:absolute;left:1040px;top:236px;width:700px;height:410px;background:#fff;border-radius:24px;box-shadow:0 40px 80px rgba(90,13,16,.16),0 4px 12px rgba(90,13,16,.06);overflow:hidden}
+    #f01-thead{position:absolute;left:0;right:0;top:0;height:80px;background:#B3141C;display:flex;align-items:center;gap:18px;padding-left:34px;font:700 19px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#FBF3E6}
+    #f01-thead img{width:52px;height:52px}
+    .f01-row{position:absolute;left:38px}
+    #f01-r1{top:112px;font:700 44px Fraunces,serif;color:#2A1712}
+    #f01-r2{top:186px;font:500 21px/1.9 'JetBrains Mono',monospace;color:#6B5A52;letter-spacing:.06em}
+    #f01-perf{position:absolute;left:38px;right:38px;top:300px;border-top:4px dashed rgba(42,23,18,.18)}
+    #f01-r3{top:326px;font:700 25px Inter,sans-serif;letter-spacing:.02em}
+    #f01-r3 b{color:#B3141C}
+    #f01-stamp{position:absolute;right:30px;top:236px;border:9px solid #B3141C;color:#B3141C;font:800 50px Inter,sans-serif;letter-spacing:.07em;padding:4px 22px;border-radius:12px;opacity:.92;mix-blend-mode:multiply}
+  </style>
+  <div data-hf-id="hf-gp3a" id="root" data-composition-id="01-commandez" data-start="0" data-duration="5.4" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-6zha" id="f01-bg" class="clip" data-start="0" data-duration="5.4" data-track-index="0"></div>
+    <div data-hf-id="hf-s2vu" id="f01-cam">
+      <div data-hf-id="hf-vcyu" id="f01-eyebrow"></div>
+      <div data-hf-id="hf-7dw5" id="f01-title">
+        <span data-hf-id="hf-y6a7" class="f01-line"><span data-hf-id="hf-77ns" id="f01-w1">Commandez</span></span>
+        <span data-hf-id="hf-ndrj" class="f01-line"><span data-hf-id="hf-5f2b" id="f01-w2">votre</span></span>
+        <span data-hf-id="hf-mzgi" class="f01-line"><span data-hf-id="hf-zb94" id="f01-w3"><span data-hf-id="hf-da9c" id="f01-red">plat.<i data-hf-id="hf-tmcd" id="f01-under"></i></span></span></span>
+      </div>
+      <div data-hf-id="hf-f6od" id="f01-ticket">
+        <div data-hf-id="hf-cvht" id="f01-thead"><img data-hf-id="hf-r0z2" src="assets/logo-chief-chief.png" alt="">BON DE COMMANDE · CHIEF-CHIEF</div>
+        <div data-hf-id="hf-knbr" class="f01-row" id="f01-r1">1× Plat du Chef</div>
+        <div data-hf-id="hf-j9uo" class="f01-row" id="f01-r2">LIVRAISON · MARADI<br data-hf-id="hf-x5px">PAIEMENT · À LA LIVRAISON</div>
+        <div data-hf-id="hf-u42g" id="f01-perf"></div>
+        <div data-hf-id="hf-8dbu" class="f01-row" id="f01-r3">N° <b data-hf-id="hf-bn32">0500</b> · MARADI</div>
+        <div data-hf-id="hf-6og6" id="f01-stamp">COMMANDÉ</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var eb=document.getElementById('f01-eyebrow');
+      'VOTRE SEULE MISSION'.split('').forEach(function(c){var s=document.createElement('span');s.textContent=c===' '?' ':c;eb.appendChild(s);});
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#f01-cam',{scale:1},{scale:1.04,duration:5,ease:'none'},0);
+      tl.fromTo('#f01-ticket',{x:560,rotation:-16,opacity:0},{x:0,rotation:-6,opacity:1,duration:0.95,ease:'expo.out'},0.2);
+      tl.fromTo('#f01-thead',{yPercent:-100},{yPercent:0,duration:0.5,ease:'expo.out'},0.55);
+      tl.fromTo(['#f01-r1','#f01-r2','#f01-perf','#f01-r3'],{y:18,opacity:0},{y:0,opacity:1,duration:0.5,stagger:0.09,ease:'power3.out'},0.7);
+      tl.fromTo('#f01-ticket',{y:0},{y:-10,duration:2.2,ease:'sine.inOut',immediateRender:false},1.2);
+      tl.fromTo('#f01-eyebrow span',{opacity:0,y:10},{opacity:1,y:0,duration:0.3,stagger:0.035,ease:'power2.out'},1.15);
+      tl.fromTo('#f01-w1',{yPercent:115},{yPercent:0,duration:0.6,ease:'back.out(1.5)'},2.3);
+      tl.fromTo('#f01-w2',{yPercent:115},{yPercent:0,duration:0.6,ease:'back.out(1.5)'},2.6);
+      tl.fromTo('#f01-w3',{yPercent:115},{yPercent:0,duration:0.6,ease:'back.out(1.5)'},2.9);
+      tl.fromTo('#f01-under',{scaleX:0},{scaleX:1,duration:0.5,ease:'expo.out'},3.2);
+      tl.fromTo('#f01-stamp',{scale:2.4,rotation:-4,opacity:0},{scale:1,rotation:-12,opacity:0.92,duration:0.22,ease:'power4.in'},3.35);
+      tl.to('#f01-ticket',{keyframes:{x:[0,-9,7,-4,2,0]},duration:0.42,ease:'none'},3.57);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['01-commandez']=tl;
+    })();
+  </script>
+</template>

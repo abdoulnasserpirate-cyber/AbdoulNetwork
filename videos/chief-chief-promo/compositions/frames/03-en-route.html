@@ -1,0 +1,117 @@
+<template>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Fraunces';font-style:normal;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-normal-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Fraunces';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/Fraunces-italic-400_900.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');}
+    </style>
+  <style>
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Inter,sans-serif;color:#2A1712}
+    #f03-bg{position:absolute;inset:0;background:radial-gradient(770px 580px at 50% 64%,#ffffff 0%,rgba(255,255,255,0) 70%),#FBF3E6}
+    #f03-cam{position:absolute;inset:0;transform-origin:50% 60%}
+    #f03-sub{position:absolute;left:0;right:0;top:70px;text-align:center;font:500 28px Inter,sans-serif;color:#6B5A52}
+    #f03-title{position:absolute;left:0;right:0;top:112px;text-align:center;font:700 76px/1.15 Fraunces,serif;letter-spacing:-.02em;white-space:nowrap}
+    .f03-mask{display:inline-block;overflow:hidden;vertical-align:top;padding:0 4px 12px;margin-bottom:-12px}
+    .f03-mask>span{display:inline-block}
+    #f03-red{color:#B3141C;position:relative}
+    #f03-under{position:absolute;left:2px;right:2px;bottom:4px;height:8px;background:#B3141C;border-radius:4px;transform-origin:0 50%}
+    #f03-card{position:absolute;left:560px;top:268px;width:800px;height:112px;background:#fff;border:2px solid rgba(179,20,28,.2);border-radius:24px;box-shadow:0 26px 60px rgba(179,20,28,.12)}
+    #f03-check{position:absolute;left:28px;top:28px;width:56px;height:56px;border-radius:15px;background:#B3141C;display:grid;place-items:center}
+    #f03-check svg{width:32px;height:32px}
+    #f03-labels{position:absolute;left:112px;top:0;right:200px;height:112px;overflow:hidden}
+    .f03-lab{position:absolute;left:0;top:0;height:112px;display:flex;align-items:center;font:600 34px Inter,sans-serif;white-space:nowrap}
+    #f03-badge{position:absolute;right:26px;top:33px;height:46px;border-radius:100px;overflow:hidden;width:150px}
+    .f03-bd{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 20px Inter,sans-serif;border-radius:100px}
+    #f03-bd1{background:rgba(233,177,59,.18);color:#9a6a0b}
+    #f03-bd2{background:#B3141C;color:#fff}
+    #f03-ring{position:absolute;left:0;top:0;width:1920px;height:1080px}
+    #f03-bag{position:absolute;left:806px;top:440px;width:308px;height:400px;transform-origin:50% 100%}
+    #f03-handle{position:absolute;left:86px;top:0;width:136px;height:100px;border:22px solid #7A1016;border-bottom:none;border-radius:68px 68px 0 0}
+    #f03-body{position:absolute;left:0;top:70px;width:308px;height:308px;background:linear-gradient(180deg,#c41a22,#7A1016);border-radius:38px;box-shadow:0 40px 60px rgba(90,13,16,.3)}
+    #f03-band{position:absolute;left:0;top:184px;width:308px;height:42px;background:#E9B13B}
+    #f03-logo{position:absolute;left:83px;top:126px;width:142px;height:142px;border-radius:50%;border:7px solid #FBF3E6}
+    #f03-moto{position:absolute;left:0;top:776px;width:150px;height:96px}
+    #f03-dots{position:absolute;left:0;right:0;top:910px;display:flex;justify-content:center;align-items:center;gap:14px;font:500 22px 'JetBrains Mono',monospace;color:#6B5A52}
+    .f03-dot{width:14px;height:14px;border-radius:50%;background:rgba(42,23,18,.18);position:relative}
+    .f03-dot i{position:absolute;inset:0;border-radius:50%;background:#B3141C}
+    #f03-count{margin-left:12px;position:relative;width:220px;height:30px;overflow:hidden}
+    .f03-n{position:absolute;left:0;top:0;white-space:nowrap}
+    #f03-bon{position:absolute;left:0;right:0;top:955px;text-align:center;font:italic 600 44px Fraunces,serif;color:#B3141C}
+  </style>
+  <div data-hf-id="hf-mn56" id="root" data-composition-id="03-en-route" data-start="0" data-duration="8" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-4trn" id="f03-bg" class="clip" data-start="0" data-duration="8" data-track-index="0"></div>
+    <div data-hf-id="hf-fi9c" id="f03-cam">
+      <div data-hf-id="hf-hcsr" id="f03-sub"><span data-hf-id="hf-nco7" class="f03-mask"><span data-hf-id="hf-c67o" id="f03-s1">Restez chez vous.</span></span></div>
+      <div data-hf-id="hf-bqb3" id="f03-title"><span data-hf-id="hf-cu4n" class="f03-mask"><span data-hf-id="hf-b09a" id="f03-t1">Tout est déjà</span></span> <span data-hf-id="hf-cftm" class="f03-mask"><span data-hf-id="hf-ahxq" id="f03-t2"><span data-hf-id="hf-coer" id="f03-red">en route.<i data-hf-id="hf-kmvb" id="f03-under"></i></span></span></span></div>
+      <svg data-hf-id="hf-n5q0" id="f03-ring" viewBox="0 0 1920 1080"><ellipse data-hf-id="hf-xje3" id="f03-ell" cx="960" cy="842" rx="420" ry="78" fill="none" stroke="#B3141C" stroke-opacity=".35" stroke-width="5" /><ellipse data-hf-id="hf-4n5o" id="f03-ell2" cx="960" cy="842" rx="420" ry="78" fill="none" stroke="#B3141C" stroke-opacity=".25" stroke-width="3" /></svg>
+      <div data-hf-id="hf-bqzc" id="f03-moto">
+        <svg data-hf-id="hf-kbya" viewBox="0 0 150 96" width="150" height="96"><circle data-hf-id="hf-rsvk" cx="30" cy="74" r="18" fill="none" stroke="#2A1712" stroke-width="7" /><circle data-hf-id="hf-n03x" cx="118" cy="74" r="18" fill="none" stroke="#2A1712" stroke-width="7" /><path data-hf-id="hf-yof6" d="M30,74 L62,74 L78,44 L104,44 L118,74" fill="none" stroke="#B3141C" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" /><rect data-hf-id="hf-g3sa" x="8" y="22" width="46" height="38" rx="7" fill="#B3141C" /><rect data-hf-id="hf-083d" x="8" y="36" width="46" height="7" fill="#E9B13B" /><path data-hf-id="hf-ltgj" d="M96,44 L104,18 L120,16" fill="none" stroke="#2A1712" stroke-width="7" stroke-linecap="round" /></svg>
+      </div>
+      <div data-hf-id="hf-v7jr" id="f03-bag">
+        <div data-hf-id="hf-le0t" id="f03-handle"></div>
+        <div data-hf-id="hf-ooa3" id="f03-body"><div data-hf-id="hf-4e8e" id="f03-band"></div><img data-hf-id="hf-lj7f" id="f03-logo" src="assets/logo-chief-chief.png" alt=""></div>
+      </div>
+      <div data-hf-id="hf-ldcp" id="f03-card">
+        <div data-hf-id="hf-o6n5" id="f03-check"><svg data-hf-id="hf-161r" viewBox="0 0 32 32"><path data-hf-id="hf-9oth" id="f03-tick" d="M7,17 L13,23 L25,9" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1" /></svg></div>
+        <div data-hf-id="hf-33sy" id="f03-labels">
+          <div data-hf-id="hf-m2x6" class="f03-lab" id="f03-l1">Commande reçue</div>
+          <div data-hf-id="hf-s3re" class="f03-lab" id="f03-l2">Préparée maison</div>
+          <div data-hf-id="hf-vcnx" class="f03-lab" id="f03-l3">Emballée bien chaude</div>
+          <div data-hf-id="hf-hiss" class="f03-lab" id="f03-l4">En route vers vous</div>
+          <div data-hf-id="hf-iaqk" class="f03-lab" id="f03-l5">Livrée chez vous</div>
+        </div>
+        <div data-hf-id="hf-6mto" id="f03-badge"><div data-hf-id="hf-r6ar" class="f03-bd" id="f03-bd2">✓ Fait</div></div>
+      </div>
+      <div data-hf-id="hf-jkzz" id="f03-dots">
+        <span data-hf-id="hf-4uj0" class="f03-dot"><i data-hf-id="hf-f3mq" id="f03-d1"></i></span><span data-hf-id="hf-bo2s" class="f03-dot"><i data-hf-id="hf-b5ip" id="f03-d2"></i></span><span data-hf-id="hf-ah5p" class="f03-dot"><i data-hf-id="hf-aduw" id="f03-d3"></i></span><span data-hf-id="hf-avgq" class="f03-dot"><i data-hf-id="hf-6fqv" id="f03-d4"></i></span><span data-hf-id="hf-cuzv" class="f03-dot"><i data-hf-id="hf-2hmu" id="f03-d5"></i></span>
+        <span data-hf-id="hf-hvz9" id="f03-count"><span data-hf-id="hf-803j" class="f03-n" id="f03-n1">1 / 5 étapes</span><span data-hf-id="hf-q6kn" class="f03-n" id="f03-n2">2 / 5 étapes</span><span data-hf-id="hf-2rsn" class="f03-n" id="f03-n3">3 / 5 étapes</span><span data-hf-id="hf-whhj" class="f03-n" id="f03-n4">4 / 5 étapes</span><span data-hf-id="hf-3tsa" class="f03-n" id="f03-n5">5 / 5 · livré</span></span>
+      </div>
+      <div data-hf-id="hf-yzyj" id="f03-bon">Bon appétit !</div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var tl=gsap.timeline({paused:true});
+      tl.fromTo('#f03-cam',{scale:1},{scale:1.035,duration:7.5,ease:'none'},0);
+      tl.fromTo('#f03-s1',{yPercent:110},{yPercent:0,duration:0.55,ease:'expo.out'},0.05);
+      tl.fromTo(['#f03-t1','#f03-t2'],{yPercent:110},{yPercent:0,duration:0.65,stagger:0.15,ease:'expo.out'},0.2);
+      tl.fromTo('#f03-bag',{y:-160,opacity:0,scaleY:1},{y:0,opacity:1,duration:0.6,ease:'back.out(1.4)'},0.2);
+      tl.fromTo('#f03-ell',{attr:{rx:240,ry:44},opacity:0},{attr:{rx:420,ry:78},opacity:1,duration:0.8,ease:'expo.out'},0.55);
+      tl.fromTo('#f03-ell2',{attr:{rx:420,ry:78},opacity:0.9},{attr:{rx:620,ry:116},opacity:0,duration:1.2,ease:'power2.out'},0.6);
+      tl.fromTo('#f03-card',{y:30,opacity:0,scale:0.94},{y:0,opacity:1,scale:1,duration:0.5,ease:'back.out(1.6)'},0.75);
+      // initial label/badge/count states
+      gsap.set(['#f03-l2','#f03-l3','#f03-l4','#f03-l5','#f03-n2','#f03-n3','#f03-n4','#f03-n5'],{yPercent:110});
+      gsap.set(['#f03-l1','#f03-n1'],{yPercent:0});
+      gsap.set('#f03-bd2',{yPercent:110});
+      gsap.set(['#f03-d1','#f03-d2','#f03-d3','#f03-d4','#f03-d5'],{scale:0});
+      gsap.set('#f03-tick',{attr:{'stroke-dashoffset':1}});
+      gsap.set('#f03-moto',{opacity:0,x:520});
+      gsap.set('#f03-bon',{opacity:0});
+      var cues=[1.0,2.3,3.6,4.8,5.6];
+      cues.forEach(function(t,i){
+        var n=i+1;
+        if(i>0){
+          tl.to('#f03-l'+i,{yPercent:-110,duration:0.4,ease:'power3.in'},t-0.18);
+          tl.fromTo('#f03-l'+n,{yPercent:110},{yPercent:0,duration:0.5,ease:'back.out(1.5)',immediateRender:false},t);
+          tl.to('#f03-n'+i,{yPercent:-140,duration:0.3,ease:'power3.in'},t-0.1);
+          tl.fromTo('#f03-n'+n,{yPercent:140},{yPercent:0,duration:0.4,ease:'power3.out',immediateRender:false},t+0.1);
+          tl.to('#f03-bd2',{yPercent:110,duration:0.2,ease:'power2.in'},t-0.2);
+          tl.to('#f03-tick',{attr:{'stroke-dashoffset':1},duration:0.15},t-0.2);
+        }
+        tl.to('#f03-tick',{attr:{'stroke-dashoffset':0},duration:0.35,ease:'power2.out'},t+0.05);
+        tl.to('#f03-bd2',{yPercent:0,duration:0.35,ease:'back.out(1.8)'},t+0.12);
+        tl.fromTo('#f03-d'+n,{scale:0},{scale:1,duration:0.35,ease:'back.out(2.5)',immediateRender:false},t+0.05);
+        tl.to('#f03-bag',{keyframes:{scale:[1,1.05,1]},duration:0.45,ease:'power1.inOut'},t);
+        tl.to('#f03-check',{keyframes:{scale:[1,1.18,1]},duration:0.4,ease:'power1.inOut'},t);
+      });
+      tl.fromTo('#f03-moto',{x:520,opacity:0},{x:1250,opacity:1,duration:1.2,ease:'power1.inOut',immediateRender:false},4.75);
+      tl.to('#f03-moto',{opacity:0,duration:0.2},5.96);
+      tl.fromTo('#f03-under',{scaleX:0},{scaleX:1,duration:0.5,ease:'expo.out'},5.75);
+      tl.fromTo('#f03-bon',{y:24,opacity:0},{y:0,opacity:1,duration:0.55,ease:'back.out(1.8)'},6.3);
+      window.__timelines=window.__timelines||{};
+      window.__timelines['03-en-route']=tl;
+    })();
+  </script>
+</template>
