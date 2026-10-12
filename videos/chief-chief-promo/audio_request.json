@@ -1,0 +1,37 @@
+{
+  "provider": "kokoro",
+  "speed": "1.0",
+  "lines": [
+    {
+      "id": "01",
+      "text": "Une petite faim ? Votre seule mission : commander votre plat."
+    },
+    {
+      "id": "02",
+      "text": "C'est tout. Chez Tif-Tif, on s'occupe du reste."
+    },
+    {
+      "id": "03",
+      "text": "Votre commande est reçue, préparée maison, emballée bien chaude… puis livrée chez vous."
+    },
+    {
+      "id": "04",
+      "text": "Partout à Maradi, dès cinq cents francs. Et vous payez à la livraison."
+    },
+    {
+      "id": "05",
+      "text": "Le riz du Chef. La pâte africaine. Le poulet croustillant. Les pizzas. Du fast-food généreux, fait maison."
+    },
+    {
+      "id": "06",
+      "text": "Tif-Tif. Le goût qui vous ramène toujours."
+    }
+  ],
+  "bgm": {
+    "mode": "retrieve",
+    "query": "upbeat afrobeat percussion, warm, joyful, modern commercial, 105 bpm",
+    "blob": "Chief-Chief vous livre partout à Maradi, dès 500 F",
+    "arc": "Hook (commande) → Valeur (on s'occupe du reste) → Preuve (suivi de livraison) → Offre (500 F, partout à Maradi) → Désir (plats locaux) → Marque"
+  },
+  "voice": "ff_siwis"
+}
