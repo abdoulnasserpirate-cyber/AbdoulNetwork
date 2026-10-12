@@ -32,14 +32,14 @@
 **Time:** 17.0 – 23.0s
 **Delivery:** Appuyer « partout » et « cinq cents francs ».
 
-    Partout à Maradi, dès cinq cents francs. Et vous payez à la livraison.
+    Partout à Maradi, dès cinq cents francs, avec Allô Multiservices. Et vous payez à la livraison.
 
 ## Line 5 — Les plats (Frame 5)
 
 **Time:** 23.0 – 33.0s
 **Delivery:** Gourmande, chaque plat comme une annonce.
 
-    Le riz du Chef. La pâte africaine. Le poulet croustillant. Les pizzas. Du fast-food généreux, fait maison.
+    Le Plat du Chef. Le riz créole. Le poulet croustillant. Les pizzas. Et bien d'autres, faits maison.
 
 ## Line 6 — Signature (Frame 6)
 

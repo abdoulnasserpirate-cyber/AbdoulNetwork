@@ -63,8 +63,8 @@ keyMessage: Du four à votre porte, tout est géré.
 
 ## Frame 4 — Partout à Maradi, dès 500 F
 
-- scene: Plan de Maradi stylisé (traits fins rouges sur crème), une moto trace un trajet en pointillés et plante des épingles dans plusieurs quartiers. Grand titre « Livraison partout à Maradi ». Le prix compte de 0 à « 500 F » en très grand (rouge, Fraunces), avec « dès » en petit. Deux pastilles : « Livraison à domicile » · « Paiement à la livraison ».
-- voiceover: "Partout à Maradi, dès cinq cents francs. Et vous payez à la livraison."
+- scene: Plan de Maradi stylisé (traits fins rouges sur crème), une moto trace un trajet en pointillés et plante des épingles dans plusieurs quartiers. Grand titre « Livraison partout à Maradi ». Le prix compte de 0 à « 500 F » en très grand (rouge, Fraunces), avec « dès » en petit. Deux pastilles : « Livraison à domicile » · « Paiement à la livraison ». Badge partenaire en bas à droite du plan : logo Allô Multiservices + « Livraison assurée par Allô Multiservices ».
+- voiceover: "Partout à Maradi, dès cinq cents francs, avec Allô Multiservices. Et vous payez à la livraison."
 - duration: 6s
 - poster: 5s
 - transition_in: crossfade
@@ -74,14 +74,15 @@ keyMessage: Du four à votre porte, tout est géré.
 - persuasion: Value stacking
 - beat: confidence
 - blueprint: dataviz-countup
+- asset_candidates: assets/allo-multiservices.png — logo du livreur partenaire Allô Multiservices (fond bleu marine)
 
 narrativeRole: L'offre concrète de l'utilisateur — le prix d'appel et la couverture de toute la ville.
 keyMessage: Livré partout à Maradi, dès 500 F.
 
 ## Frame 5 — Les plats
 
-- scene: Quatre plans plein écran illustrés en motion design, grand titre qui glisse en bas à gauche, petite ligne mono en haut (« SIGNATURE · CHOIX DU CHEF »). 1) Le Plat du Chef — riz sauté et viande. 2) La pâte africaine et sa sauce. 3) Poulet croustillant. 4) Pizzas. Puis mosaïque 4 panneaux sur fond bordeaux : « Fast-food généreux, fait maison. »
-- voiceover: "Le riz du Chef. La pâte africaine. Le poulet croustillant. Les pizzas. Du fast-food généreux, fait maison."
+- scene: Quatre plans plein écran en VRAIES PHOTOS : moitié gauche aplat bordeaux avec grand titre qui glisse + ligne mono (« SIGNATURE · CHOIX DU CHEF », compteur 01/04), moitié droite la photo du plat en plein cadre (léger Ken Burns). 1) Le Plat du Chef. 2) Riz créole. 3) Poulet croustillant & frites. 4) Pizzas. Puis mosaïque 4 photos sur fond bordeaux : « Fast-food généreux, fait maison. » + « … et bien d'autres ».
+- voiceover: "Le Plat du Chef. Le riz créole. Le poulet croustillant. Les pizzas. Et bien d'autres, faits maison."
 - duration: 10s
 - poster: 9s
 - transition_in: push-slide LEFT
@@ -91,10 +92,10 @@ keyMessage: Livré partout à Maradi, dès 500 F.
 - persuasion: Value stacking (variété du menu)
 - beat: desire + excitement
 - blueprint: grid-card-assemble
-- asset_candidates: assets/dishes/plat-du-chef.svg — riz sauté et viande; assets/dishes/pate-africaine.svg — pâte africaine et sauce; assets/dishes/poulet-croustillant.svg — seau de poulet croustillant; assets/dishes/pizza.svg — pizza vue de dessus
+- asset_candidates: assets/photos/plat-du-chef.jpg — Plat du Chef : bol kraft logo Chief-Chief, riz jaune, viande, légumes, olives; assets/photos/riz-creole.jpg — riz créole aux vermicelles, œuf; assets/photos/poulet-frites.jpg — poulet frit croustillant et frites; assets/photos/pizza.jpg — pizza pepperoni, viande, poivrons
 
-narrativeRole: Calque des destinations plein écran + mosaïque « Une équipe. Trois destinations. » — menu réel : riz, pâte africaine, poulet croustillant, pizzas : on donne envie avec les plats signatures.
-keyMessage: Des plats généreux, faits maison.
+narrativeRole: Calque des destinations plein écran + mosaïque « Une équipe. Trois destinations. » — vraies photos fournies par le restaurant ; on donne envie avec le menu réel.
+keyMessage: Des plats généreux, faits maison — et bien d'autres.
 
 ## Frame 6 — Signature
 

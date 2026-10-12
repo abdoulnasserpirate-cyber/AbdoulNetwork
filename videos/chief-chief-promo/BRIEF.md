@@ -40,3 +40,5 @@ domicile à partir de 500 francs, partout à Maradi ». Vendre (promo), pas visi
 - Prononciation voix off : écrire « Tif-Tif » dans SCRIPT.md pour que la voix dise bien le nom.
 - Menu réel confirmé par l'utilisateur : riz, pâte africaine, poulet frit (« KFC »), pizzas — PAS de brochettes. Dans la vidéo : « poulet croustillant » (pas la marque KFC).
 - Plan approuvé ; croquis des 6 scènes demandés avant la production.
+- v2 (retour utilisateur) : « Le Plat du Chef » (pas « riz du Chef »). Menu montré : Plat du Chef, riz créole, poulet « KFC » (écrit « poulet croustillant »), pizzas, « et plein d'autres ». VRAIES PHOTOS fournies (assets/photos/) — plus de dessins de plats.
+- Livraison assurée par le partenaire Allô Multiservices (logo assets/allo-multiservices.png).

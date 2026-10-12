@@ -32,13 +32,13 @@
     {
       "id": "04",
       "path": "assets/voice/04.wav",
-      "duration_s": 3.712,
+      "duration_s": 5.44,
       "words": []
     },
     {
       "id": "05",
       "path": "assets/voice/05.wav",
-      "duration_s": 6.549,
+      "duration_s": 5.248,
       "words": []
     },
     {
@@ -49,5 +49,5 @@
     }
   ],
   "sfx": [],
-  "total_duration_s": 22.421
+  "total_duration_s": 22.848
 }
