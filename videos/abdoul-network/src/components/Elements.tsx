@@ -1,6 +1,6 @@
 import React from 'react';
 import {Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, FONT, textStroke} from '../theme';
+import {C, FONT, themedStroke, useTheme} from '../theme';
 
 /**
  * Photo dans un masque circulaire avec halo violet/cyan et anneaux
@@ -14,6 +14,9 @@ export const Photo: React.FC<{
 	rings?: boolean;
 }> = ({src, size, objectPosition = '50% 25%', zoom = 1, rings = true}) => {
 	const frame = useCurrentFrame();
+	const T = useTheme();
+	const ringA = T.mode === 'blue' ? C.white : '#0057FF';
+	const ringB = T.mode === 'blue' ? C.yellow : '#00A6E0';
 	const rot = frame * 1.6;
 	const pulse = 1 + Math.sin(frame / 8) * 0.03;
 	return (
@@ -24,7 +27,7 @@ export const Photo: React.FC<{
 					position: 'absolute',
 					inset: -size * 0.28,
 					borderRadius: '50%',
-					background: `radial-gradient(circle, ${C.violet}cc 0%, ${C.cyan}55 40%, transparent 68%)`,
+					background: `radial-gradient(circle, ${ringB}88 0%, ${ringA}33 40%, transparent 68%)`,
 					transform: `scale(${pulse})`,
 					filter: 'blur(10px)',
 				}}
@@ -37,8 +40,8 @@ export const Photo: React.FC<{
 				>
 					<defs>
 						<linearGradient id="ringA" x1="0" x2="1">
-							<stop offset="0" stopColor={C.cyan} />
-							<stop offset="1" stopColor={C.violet} />
+							<stop offset="0" stopColor={ringA} />
+							<stop offset="1" stopColor={ringB} />
 						</linearGradient>
 					</defs>
 					<g transform={`rotate(${rot} ${size * 0.68} ${size * 0.68})`}>
@@ -51,7 +54,7 @@ export const Photo: React.FC<{
 							strokeWidth={8}
 							strokeDasharray={`${size * 1.1} ${size * 0.5}`}
 							strokeLinecap="round"
-							style={{filter: `drop-shadow(0 0 14px ${C.cyan})`}}
+							style={{filter: `drop-shadow(0 0 10px ${ringA}88)`}}
 						/>
 					</g>
 					<g transform={`rotate(${-rot * 1.4} ${size * 0.68} ${size * 0.68})`}>
@@ -60,15 +63,15 @@ export const Photo: React.FC<{
 							cy={size * 0.68}
 							r={size * 0.67}
 							fill="none"
-							stroke={C.yellow}
+							stroke={ringB}
 							strokeWidth={5}
 							strokeDasharray={`18 26`}
 							opacity={0.85}
 						/>
 					</g>
 					<g transform={`rotate(${rot * 2.2} ${size * 0.68} ${size * 0.68})`}>
-						<circle cx={size * 0.68} cy={size * 0.68 - size * 0.62} r={12} fill={C.white} style={{filter: `drop-shadow(0 0 16px ${C.cyan})`}} />
-						<circle cx={size * 0.68} cy={size * 0.68 + size * 0.62} r={9} fill={C.yellow} style={{filter: `drop-shadow(0 0 16px ${C.yellow})`}} />
+						<circle cx={size * 0.68} cy={size * 0.68 - size * 0.62} r={12} fill={ringA} />
+						<circle cx={size * 0.68} cy={size * 0.68 + size * 0.62} r={9} fill={ringB} />
 					</g>
 				</svg>
 			)}
@@ -80,8 +83,8 @@ export const Photo: React.FC<{
 					borderRadius: '50%',
 					overflow: 'hidden',
 					border: `8px solid ${C.white}`,
-					boxShadow: `0 0 0 6px ${C.violet}, 0 0 60px ${C.violet}, 0 0 120px ${C.cyan}66`,
-					background: C.bg2,
+					boxShadow: `0 0 0 6px ${ringB}, 0 20px 60px rgba(0,30,90,0.35)`,
+					background: '#DDE7FF',
 				}}
 			>
 				<Img
@@ -159,17 +162,17 @@ export const GlassCard: React.FC<{
 	accent?: string;
 	children: React.ReactNode;
 	style?: React.CSSProperties;
-}> = ({width, height, accent = C.cyan, children, style}) => (
+}> = ({width, height, accent = C.cyan, children, style}) => {
+	const T = useTheme();
+	return (
 	<div
 		style={{
 			width,
 			height,
 			borderRadius: 48,
-			background: `linear-gradient(135deg, ${C.white}26, ${C.white}08 60%, ${accent}1a)`,
-			border: `3px solid ${C.white}40`,
-			boxShadow: `0 30px 80px rgba(0,0,0,0.55), 0 0 60px ${accent}44, inset 0 2px 0 ${C.white}55`,
-			backdropFilter: 'blur(22px)',
-			WebkitBackdropFilter: 'blur(22px)',
+			background: T.card,
+			border: `3px solid ${T.cardBorder}`,
+			boxShadow: T.mode === 'white' ? `0 24px 60px rgba(0,60,160,0.16)` : `0 30px 80px rgba(0,20,80,0.35)`,
 			position: 'relative',
 			overflow: 'hidden',
 			...style,
@@ -187,7 +190,8 @@ export const GlassCard: React.FC<{
 		/>
 		{children}
 	</div>
-);
+	);
+};
 
 /** Texte géant avec entrée « zoom punch » (spring nerveux). */
 export const PunchText: React.FC<{
@@ -199,8 +203,9 @@ export const PunchText: React.FC<{
 	shake?: number;
 	glowColor?: string;
 	style?: React.CSSProperties;
-}> = ({children, size, color = C.white, delay = 0, from = 2.6, shake = 0, glowColor, style}) => {
+}> = ({children, size, color, delay = 0, from = 2.6, shake = 0, glowColor, style}) => {
 	const frame = useCurrentFrame();
+	const T = useTheme();
 	const {fps} = useVideoConfig();
 	const f = frame - delay;
 	const s = spring({frame: f, fps, config: {damping: 12, stiffness: 260, mass: 0.7}});
@@ -217,16 +222,16 @@ export const PunchText: React.FC<{
 				fontWeight: 900,
 				fontSize: size,
 				lineHeight: 1.02,
-				color,
+				color: color ?? T.text,
 				textAlign: 'center',
 				textTransform: 'uppercase',
 				letterSpacing: -1,
 				transform: `translate(${sx}px, ${sy}px) scale(${scale})`,
 				opacity,
 				filter: `blur(${blur}px)`,
-				...textStroke(Math.max(8, size / 14)),
-				...(glowColor
-					? {textShadow: `0 0 40px ${glowColor}, 0 0 90px ${glowColor}88, 0 12px 0 rgba(0,0,0,0.6)`}
+				...themedStroke(T, Math.max(8, size / 14)),
+				...(glowColor && T.mode === 'blue'
+					? {textShadow: `0 0 40px ${glowColor}88, ${T.shadow}`}
 					: {}),
 				...style,
 			}}

@@ -1,4 +1,4 @@
-import {C} from './theme';
+import {BLUE, C, Theme, WHITE} from './theme';
 import {cue} from './timeline';
 
 /**
@@ -36,29 +36,32 @@ export const buildPlan = (audioDuration: number) => {
 	const neReste = cue('ne', 31.33, 30.5);
 	const lia = cue('lia', 36.15, 35.5);
 
-	const scenes: {id: SceneId; start: number; end: number; transition: 'zoom' | 'whip' | 'glitch' | 'wipe' | 'none'}[] = [
-		{id: 'hook', start: 0, end: clients, transition: 'none'},
-		{id: 'problem', start: clients, end: moi, transition: 'glitch'},
-		{id: 'intro', start: moi, end: formation, transition: 'zoom'},
-		{id: 'services', start: formation, end: resultat, transition: 'whip'},
-		{id: 'results', start: resultat, end: neReste, transition: 'wipe'},
-		{id: 'cta', start: neReste, end: lia, transition: 'zoom'},
-		{id: 'end', start: lia, end: audioDuration + 1, transition: 'glitch'},
+	const parce = cue('parce', 3.12, clients);
+	const voiceOut = Math.min(audioDuration, cue('succes', 37.47, lia) + 0.6);
+
+	// Fonds unis : alternance bleu / blanc
+	const scenes: {id: SceneId; start: number; end: number; theme: Theme; transition: 'zoom' | 'whip' | 'glitch' | 'wipe' | 'none'}[] = [
+		{id: 'hook', start: 0, end: clients, theme: BLUE, transition: 'none'},
+		{id: 'problem', start: clients, end: moi, theme: WHITE, transition: 'glitch'},
+		{id: 'intro', start: moi, end: formation, theme: BLUE, transition: 'zoom'},
+		{id: 'services', start: formation, end: resultat, theme: WHITE, transition: 'whip'},
+		{id: 'results', start: resultat, end: neReste, theme: WHITE, transition: 'wipe'},
+		{id: 'cta', start: neReste, end: lia, theme: BLUE, transition: 'zoom'},
+		{id: 'end', start: lia, end: audioDuration + 1, theme: BLUE, transition: 'glitch'},
 	];
 
 	return {
 		scenes,
-		// Les grands titres reprennent déjà la voix sur ces intervalles :
-		// les sous-titres karaoké y sont masqués.
-		subtitlesHidden: [
-			[0, clients],
-			[moi, lia],
-		] as [number, number][],
+		// Sous-titres karaoké seulement quand aucun autre texte n'est affiché
+		subtitleWindows: [
+			{from: parce, to: moi, top: 1150, size: 84, theme: WHITE},
+			{from: lia, to: voiceOut, top: 760, size: 104, theme: BLUE},
+		],
 		hook: {
 			stopEnd: ton - 0.05,
 			lines: [
 				{text: 'TON BUSINESS', at: ton, color: C.white, size: 130},
-				{text: 'PERD DES CLIENTS', at: perd, color: C.red, size: 118},
+				{text: 'PERD DES CLIENTS', at: perd, color: C.yellow, size: 118},
 			],
 		},
 		problem: {
@@ -66,7 +69,7 @@ export const buildPlan = (audioDuration: number) => {
 			labelAt: clients,
 			counterTo: 365, // « chaque jour » : un an de clients perdus
 			counterUntil: cue('jour', 2.92, clients) + 0.3,
-			keyword: {text: "PAS ENCORE L'IA", at: cue('pas', 4.1, 3.5)},
+			labelOutAt: parce,
 		},
 		intro: {
 			nameAt: cue('abdoul', 6.82, moi),
@@ -76,20 +79,20 @@ export const buildPlan = (audioDuration: number) => {
 			levelAt: cue('niveau', 11.95, moi),
 		},
 		services: [
-			{label: 'Formations IA', icon: 'ia', at: formation, accent: C.yellow, photo: 'formation-1.jpg', photoPos: '60% 42%'},
-			{label: 'Montage vidéo IA', icon: 'video', at: cue('montage', 15.63, formation), accent: C.violet},
-			{label: 'Affiches pro', icon: 'poster', at: cue('affiche', 17.68, formation), accent: C.yellow},
-			{label: 'Marketing digital', icon: 'marketing', at: cue('marketing', 19.22, formation), accent: C.cyan},
-			{label: 'Sites & applications', icon: 'web', at: cue('creation', 20.28, formation), accent: C.violet},
+			{label: 'Formations IA', icon: 'ia', at: formation, accent: '#0057FF', photo: 'formation-1.jpg', photoPos: '60% 42%'},
+			{label: 'Montage vidéo IA', icon: 'video', at: cue('montage', 15.63, formation), accent: '#00A6E0', photo: 'podcast.jpg', photoPos: '50% 35%'},
+			{label: 'Affiches pro', icon: 'poster', at: cue('affiche', 17.68, formation), accent: '#FF8A00'},
+			{label: 'Marketing digital', icon: 'marketing', at: cue('marketing', 19.22, formation), accent: '#0057FF'},
+			{label: 'Sites & applications', icon: 'web', at: cue('creation', 20.28, formation), accent: '#00A6E0'},
 			{label: 'Automatisation WhatsApp', icon: 'whatsapp', at: cue('automatisation', 22.89, formation), accent: C.green},
 		],
 		results: {
 			titleAt: resultat,
 			items: [
-				{value: 300, prefix: '+', suffix: '%', label: 'VISIBILITÉ', at: cue('plus', 26.31, resultat)},
-				{value: 150, prefix: '+', suffix: '%', label: 'CLIENTS', at: cue('plus', 27.68, 27.2)},
-				{value: 200, prefix: '+', suffix: '%', label: 'VENTES', at: cue('plus', 28.84, 28.4)},
-				{value: 10, prefix: '+', suffix: 'H', label: 'TEMPS GAGNÉ', at: cue('temps', 30.38, 29.5)},
+				{value: 300, prefix: '+', suffix: '%', label: 'VISIBILITÉ', at: cue('plus', 26.31, resultat), photo: 'formation-3.jpg', photoPos: '50% 40%'},
+				{value: 150, prefix: '+', suffix: '%', label: 'CLIENTS', at: cue('plus', 27.68, 27.2), photo: 'formation-2.jpg', photoPos: '40% 35%'},
+				{value: 200, prefix: '+', suffix: '%', label: 'VENTES', at: cue('plus', 28.84, 28.4), photo: 'formation-1.jpg', photoPos: '58% 42%'},
+				{value: 10, prefix: '+', suffix: 'H', label: 'TEMPS GAGNÉ', at: cue('temps', 30.38, 29.5), photo: 'podcast.jpg', photoPos: '50% 35%'},
 			],
 		},
 		cta: {
@@ -99,7 +102,7 @@ export const buildPlan = (audioDuration: number) => {
 			buttonAt: cue('whatsapp', 35.28, neReste),
 		},
 		end: {
-			start: lia,
+			logoAt: voiceOut - 0.2,
 		},
 	};
 };

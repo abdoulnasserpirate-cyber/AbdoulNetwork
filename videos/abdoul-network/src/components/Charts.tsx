@@ -1,7 +1,7 @@
 import {evolvePath, getLength} from '@remotion/paths';
 import React from 'react';
 import {Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, FONT, textStroke} from '../theme';
+import {C, FONT, themedStroke, useTheme} from '../theme';
 
 /** Construit un chemin lissé (Catmull-Rom -> Bézier) à partir de points. */
 const smoothPath = (pts: [number, number][]) => {
@@ -154,6 +154,7 @@ export const Bars: React.FC<{
 }) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
+	const T = useTheme();
 	const n = from.length;
 	const gap = 26;
 	const bw = (width - gap * (n - 1)) / n;
@@ -169,7 +170,7 @@ export const Bars: React.FC<{
 						right: -20,
 						bottom: p * height,
 						height: 2,
-						background: `${C.white}18`,
+						background: T.muted,
 					}}
 				/>
 			))}
@@ -200,7 +201,7 @@ export const Bars: React.FC<{
 							height: h,
 							borderRadius: '14px 14px 4px 4px',
 							background: `linear-gradient(to top, ${col}33, ${col})`,
-							boxShadow: `0 0 30px ${col}88, inset 0 2px 0 ${C.white}88`,
+							boxShadow: `0 10px 30px ${col}55`,
 						}}
 					/>
 				);
@@ -232,6 +233,7 @@ export const Counter: React.FC<{
 	style,
 }) => {
 	const frame = useCurrentFrame();
+	const T = useTheme();
 	const v = interpolate(frame - delay, [0, duration], [from, to], {
 		extrapolateLeft: 'clamp',
 		extrapolateRight: 'clamp',
@@ -247,8 +249,7 @@ export const Counter: React.FC<{
 				color,
 				lineHeight: 1,
 				fontVariantNumeric: 'tabular-nums',
-				...textStroke(8),
-				textShadow: `0 0 40px ${color}99, 0 10px 0 rgba(0,0,0,0.5)`,
+				...themedStroke(T, 9),
 				...style,
 			}}
 		>
@@ -267,12 +268,13 @@ export const ProgressRing: React.FC<{
 	stroke?: number;
 	children?: React.ReactNode;
 }> = ({size, progress, color = C.cyan, stroke = 18, children}) => {
+	const T = useTheme();
 	const r = (size - stroke) / 2;
 	const circ = 2 * Math.PI * r;
 	return (
 		<div style={{position: 'relative', width: size, height: size}}>
 			<svg width={size} height={size} style={{transform: 'rotate(-90deg)'}}>
-				<circle cx={size / 2} cy={size / 2} r={r} stroke={`${C.white}18`} strokeWidth={stroke} fill="none" />
+				<circle cx={size / 2} cy={size / 2} r={r} stroke={T.muted} strokeWidth={stroke} fill="none" />
 				<circle
 					cx={size / 2}
 					cy={size / 2}

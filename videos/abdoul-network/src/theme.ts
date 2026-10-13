@@ -1,3 +1,4 @@
+import React from 'react';
 import {loadFont} from '@remotion/fonts';
 import {staticFile} from 'remotion';
 
@@ -41,3 +42,54 @@ export const textStroke = (px = 10, color = '#05050C') => ({
 
 export const glow = (color: string, r = 30) =>
 	`0 0 ${r}px ${color}, 0 0 ${r * 2}px ${color}66`;
+
+/* ------------------------------------------------------------------ */
+/* Thèmes de scène : fonds unis bleu ou blanc                          */
+/* ------------------------------------------------------------------ */
+export type Theme = {
+	mode: 'blue' | 'white';
+	bg: string;
+	text: string; // texte principal
+	accent: string; // mots clés
+	accent2: string; // éléments graphiques secondaires
+	stroke: string;
+	shadow: string;
+	card: string;
+	cardBorder: string;
+	muted: string;
+};
+
+export const BLUE: Theme = {
+	mode: 'blue',
+	bg: '#0057FF',
+	text: '#FFFFFF',
+	accent: '#FFD60A',
+	accent2: '#BFE9FF',
+	stroke: '#04205E',
+	shadow: '0 10px 0 rgba(4,32,94,0.5)',
+	card: 'rgba(255,255,255,0.14)',
+	cardBorder: 'rgba(255,255,255,0.5)',
+	muted: 'rgba(255,255,255,0.25)',
+};
+
+export const WHITE: Theme = {
+	mode: 'white',
+	bg: '#FFFFFF',
+	text: '#0A1A3F',
+	accent: '#0057FF',
+	accent2: '#00A6E0',
+	stroke: '#FFFFFF',
+	shadow: '0 8px 24px rgba(0,60,160,0.18)',
+	card: '#F2F6FF',
+	cardBorder: 'rgba(0,87,255,0.3)',
+	muted: 'rgba(10,26,63,0.12)',
+};
+
+export const ThemeCtx = React.createContext<Theme>(BLUE);
+export const useTheme = () => React.useContext(ThemeCtx);
+
+/** Contour + ombre adaptés au fond : contour marine sur bleu, ombre douce sur blanc. */
+export const themedStroke = (T: Theme, px = 10) =>
+	T.mode === 'blue'
+		? {WebkitTextStroke: `${px}px ${T.stroke}`, paintOrder: 'stroke fill' as const, textShadow: T.shadow}
+		: {textShadow: T.shadow};

@@ -6,7 +6,7 @@ import {Subtitles} from './components/Subtitles';
 import {SceneShell} from './components/Transitions';
 import {CtaScene, EndScene, HookScene, IntroScene, ProblemScene, ResultsScene, ServicesScene} from './scenes/Scenes';
 import {buildPlan, SceneId} from './script';
-import {C} from './theme';
+import {C, ThemeCtx} from './theme';
 import {groupWords, isSpeaking, toFrames, WORDS} from './timeline';
 
 export type VideoProps = {audioDuration: number; hasMusic: boolean};
@@ -21,16 +21,6 @@ const SCENES: Record<SceneId, React.FC<{plan: ReturnType<typeof buildPlan>; star
 	end: EndScene,
 };
 
-// Fond de chaque scène : photo floutée (image, point focal)
-const BG: Record<SceneId, [string, string]> = {
-	hook: ['podcast.jpg', '50% 40%'],
-	problem: ['formation-3.jpg', '50% 45%'],
-	intro: ['formation-2.jpg', '40% 40%'],
-	services: ['formation-1.jpg', '55% 45%'],
-	results: ['formation-3.jpg', '45% 40%'],
-	cta: ['photo-studio.jpg', '50% 35%'],
-	end: ['formation-1.jpg', '50% 45%'],
-};
 
 const Sfx: React.FC<{at: number; src: string; volume: number}> = ({at, src, volume}) => (
 	<Sequence from={Math.max(0, toFrames(at))} durationInFrames={45} layout="none">
@@ -63,17 +53,19 @@ export const AbdoulNetworkVideo: React.FC<VideoProps> = ({audioDuration, hasMusi
 				const dur = Math.max(1, toFrames(s.end) - from);
 				return (
 					<Sequence key={s.id} from={from} durationInFrames={dur} name={s.id}>
-						<SceneShell type={s.transition}>
-							<Background image={BG[s.id][0]} focus={BG[s.id][1]} />
-							<Scene plan={plan} start={s.start} />
-						</SceneShell>
+						<ThemeCtx.Provider value={s.theme}>
+							<SceneShell type={s.transition}>
+								<Background />
+								<Scene plan={plan} start={s.start} />
+							</SceneShell>
+						</ThemeCtx.Provider>
 					</Sequence>
 				);
 			})}
 
 			{/* Sous-titres karaoké : uniquement quand aucun grand titre ne dit
 			    déjà la même chose (pas de texte en double à l'écran) */}
-			<Subtitles groups={groups} hidden={plan.subtitlesHidden} />
+			<Subtitles groups={groups} windows={plan.subtitleWindows} />
 
 			{/* Voix off */}
 			<Audio src={staticFile('voix.mp3')} />

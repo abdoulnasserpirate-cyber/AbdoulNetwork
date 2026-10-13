@@ -60,7 +60,7 @@ export const SceneShell: React.FC<{
 };
 
 const GlitchBars: React.FC<{frame: number}> = ({frame}) => (
-	<AbsoluteFill style={{mixBlendMode: 'screen'}}>
+	<AbsoluteFill style={{}}>
 		{new Array(9).fill(0).map((_, i) => {
 			const y = random(`y${frame}-${i}`) * 1920;
 			const h = 10 + random(`hh${frame}-${i}`) * 70;
@@ -74,7 +74,7 @@ const GlitchBars: React.FC<{frame: number}> = ({frame}) => (
 						top: y,
 						width: 1080,
 						height: h,
-						background: i % 3 === 0 ? C.cyan : i % 3 === 1 ? C.violet : C.yellow,
+						background: i % 3 === 0 ? '#0057FF' : i % 3 === 1 ? C.white : C.yellow,
 						opacity: 0.55,
 					}}
 				/>
