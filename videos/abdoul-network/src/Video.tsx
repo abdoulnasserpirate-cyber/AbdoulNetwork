@@ -21,14 +21,15 @@ const SCENES: Record<SceneId, React.FC<{plan: ReturnType<typeof buildPlan>; star
 	end: EndScene,
 };
 
-const TINT: Record<SceneId, string> = {
-	hook: C.red,
-	problem: C.red,
-	intro: C.violet,
-	services: C.cyan,
-	results: C.growth,
-	cta: C.violet,
-	end: C.violet,
+// Fond de chaque scène : photo floutée (image, point focal)
+const BG: Record<SceneId, [string, string]> = {
+	hook: ['podcast.jpg', '50% 40%'],
+	problem: ['formation-3.jpg', '50% 45%'],
+	intro: ['formation-2.jpg', '40% 40%'],
+	services: ['formation-1.jpg', '55% 45%'],
+	results: ['formation-3.jpg', '45% 40%'],
+	cta: ['photo-studio.jpg', '50% 35%'],
+	end: ['formation-1.jpg', '50% 45%'],
 };
 
 const Sfx: React.FC<{at: number; src: string; volume: number}> = ({at, src, volume}) => (
@@ -63,15 +64,16 @@ export const AbdoulNetworkVideo: React.FC<VideoProps> = ({audioDuration, hasMusi
 				return (
 					<Sequence key={s.id} from={from} durationInFrames={dur} name={s.id}>
 						<SceneShell type={s.transition}>
-							<Background tint={TINT[s.id]} />
+							<Background image={BG[s.id][0]} focus={BG[s.id][1]} />
 							<Scene plan={plan} start={s.start} />
 						</SceneShell>
 					</Sequence>
 				);
 			})}
 
-			{/* Sous-titres karaoké */}
-			<Subtitles groups={groups} />
+			{/* Sous-titres karaoké : uniquement quand aucun grand titre ne dit
+			    déjà la même chose (pas de texte en double à l'écran) */}
+			<Subtitles groups={groups} hidden={plan.subtitlesHidden} />
 
 			{/* Voix off */}
 			<Audio src={staticFile('voix.mp3')} />

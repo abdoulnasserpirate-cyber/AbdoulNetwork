@@ -124,13 +124,9 @@ export const ProblemScene: React.FC<SceneProps> = ({plan, start}) => {
 	const {durationInFrames, fps} = useVideoConfig();
 	const L = local(start);
 	const labelAt = L(plan.problem.labelAt);
-	const kwAt = L(plan.problem.keyword.at);
-	const alarm = 0.5 + 0.5 * Math.sin(frame / 3);
 	const counterIn = spring({frame: frame - labelAt, fps, config: {damping: 12, stiffness: 200}});
 	return (
 		<AbsoluteFill>
-			{/* Liseré d'alerte */}
-			<AbsoluteFill style={{boxShadow: `inset 0 0 160px ${C.red}${Math.round(alarm * 120).toString(16).padStart(2, '0')}`}} />
 			<div style={{position: 'absolute', left: 110, top: 300}}>
 				<Bars
 					from={[0.55, 0.7, 0.82, 0.9, 1]}
@@ -175,23 +171,6 @@ export const ProblemScene: React.FC<SceneProps> = ({plan, start}) => {
 					{plan.problem.label}
 				</div>
 			</Center>
-			{frame >= kwAt && (
-				<Center top={1085} height={160}>
-					<div
-						style={{
-							padding: '10px 36px',
-							background: C.red,
-							borderRadius: 18,
-							transform: `rotate(-3deg) scale(${spring({frame: frame - kwAt, fps, config: {damping: 9, stiffness: 300}})})`,
-							boxShadow: `0 0 60px ${C.red}`,
-						}}
-					>
-						<span style={{fontFamily: FONT, fontWeight: 900, fontSize: 88, color: C.white, textTransform: 'uppercase'}}>
-							{plan.problem.keyword.text}
-						</span>
-					</div>
-				</Center>
-			)}
 		</AbsoluteFill>
 	);
 };
@@ -209,8 +188,22 @@ export const IntroScene: React.FC<SceneProps> = ({plan, start}) => {
 	const roleOut = interpolate(frame, [pinAt - 5, pinAt], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 	const levelAt = L(plan.intro.levelAt);
 	const pinOut = interpolate(frame, [levelAt - 5, levelAt], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+	const montageAt = L(plan.intro.montageAt);
+	const idOut = interpolate(frame, [montageAt - 2, montageAt + 6], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 	return (
 		<AbsoluteFill>
+			{frame >= montageAt - 2 && (
+				<PhotoMontage
+					delay={montageAt}
+					images={[
+						['formation-3.jpg', '50% 40%'],
+						['formation-1.jpg', '52% 45%'],
+						['formation-2.jpg', '42% 35%'],
+					]}
+				/>
+			)}
+			{idOut > 0 && (
+			<div style={{opacity: idOut, position: 'absolute', inset: 0, transform: `scale(${1 + (1 - idOut) * 0.15})`}}>
 			<Center top={280} height={470}>
 				<div style={{transform: `scale(${interpolate(enter, [0, 1], [0.2, 1])}) rotate(${interpolate(enter, [0, 1], [-25, 0])}deg)`}}>
 					<Photo src="photo.png" size={400} objectPosition="50% 18%" zoom={1.05 + frame * 0.0008} />
@@ -221,6 +214,8 @@ export const IntroScene: React.FC<SceneProps> = ({plan, start}) => {
 					ABDOUL <span style={{color: C.yellow}}>NETWORK</span>
 				</PunchText>
 			</Center>
+			</div>
+			)}
 			{roleOut > 0 && (
 				<Center top={1075} height={140} style={{opacity: roleOut}}>
 					<PunchText size={80} delay={roleAt} color={C.cyan} from={1.4}>
@@ -249,6 +244,57 @@ export const IntroScene: React.FC<SceneProps> = ({plan, start}) => {
 				</Center>
 			)}
 		</AbsoluteFill>
+	);
+};
+
+/**
+ * Montage des photos de formation dans un grand cadre : fondu enchaîné
+ * + zoom lent, chaque photo restant nette (contrairement au fond flouté).
+ */
+const PhotoMontage: React.FC<{delay: number; images: [string, string][]}> = ({delay, images}) => {
+	const frame = useCurrentFrame();
+	const {fps, durationInFrames} = useVideoConfig();
+	const f = frame - delay;
+	const span = Math.max(20, (durationInFrames - delay) / images.length);
+	const enter = spring({frame: f, fps, config: {damping: 14, stiffness: 150}});
+	return (
+		<div
+			style={{
+				position: 'absolute',
+				left: 60,
+				top: 290,
+				width: 960,
+				height: 720,
+				borderRadius: 44,
+				overflow: 'hidden',
+				border: `6px solid ${C.white}`,
+				boxShadow: `0 0 0 4px ${C.yellow}, 0 30px 80px rgba(0,0,0,0.7), 0 0 80px ${C.yellow}55`,
+				transform: `translateY(${interpolate(enter, [0, 1], [500, 0])}px) rotate(${interpolate(enter, [0, 1], [8, 0])}deg)`,
+			}}
+		>
+			{images.map(([src, pos], i) => {
+				const local = f - i * span;
+				const o = i === 0 ? 1 : interpolate(local, [0, 6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+				if (local < 0 && i > 0) return null;
+				return (
+					<Img
+						key={src}
+						src={staticFile(src)}
+						style={{
+							position: 'absolute',
+							inset: 0,
+							width: '100%',
+							height: '100%',
+							objectFit: 'cover',
+							objectPosition: pos,
+							opacity: o,
+							transform: `scale(${1.08 + Math.max(0, local) * 0.0025})`,
+						}}
+					/>
+				);
+			})}
+			<AbsoluteFill style={{background: 'linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.45))'}} />
+		</div>
 	);
 };
 
@@ -295,29 +341,6 @@ export const ServicesScene: React.FC<SceneProps> = ({plan, start}) => {
 	const rowW = items.length * TILE + (items.length - 1) * GAP;
 	return (
 		<AbsoluteFill>
-			{/* Photo de formation en fond, très atténuée, pour la première carte */}
-			<AbsoluteFill
-				style={{
-					opacity: interpolate(frame, [0, 8, items[1].f - 6, items[1].f], [0, 0.28, 0.28, 0], {
-						extrapolateLeft: 'clamp',
-						extrapolateRight: 'clamp',
-					}),
-				}}
-			>
-				<Img
-					src={staticFile('formation-2.jpg')}
-					style={{
-						width: '100%',
-						height: '100%',
-						objectFit: 'cover',
-						objectPosition: '40% 50%',
-						transform: `scale(${1.1 + frame * 0.002})`,
-						filter: 'grayscale(0.4) contrast(1.1)',
-					}}
-				/>
-				<AbsoluteFill style={{background: `linear-gradient(${C.bg}dd, ${C.bg2}aa, ${C.bg}ee)`}} />
-			</AbsoluteFill>
-
 			{/* Rangée d'icônes : les services déjà cités deviennent des tuiles */}
 			<div style={{position: 'absolute', top: 290, left: (1080 - rowW) / 2, width: rowW, height: TILE}}>
 				{items.map((s, i) => {
@@ -381,11 +404,21 @@ export const ServicesScene: React.FC<SceneProps> = ({plan, start}) => {
 						}}
 					>
 						<GlassCard width={940} height={600} accent={s.accent}>
-							<div style={{position: 'absolute', top: 60, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}>
-								<ProgressRing size={250} progress={interpolate(frame - s.f, [0, 18], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})} color={s.accent} stroke={12}>
-									<ServiceIcon kind={s.icon} size={150} color={s.accent} />
-								</ProgressRing>
-							</div>
+							{s.photo ? (
+								// Formations : vraie photo d'une session de formation
+								<div style={{position: 'absolute', top: 30, left: 30, right: 30, height: 290, borderRadius: 30, overflow: 'hidden', border: `3px solid ${s.accent}`}}>
+									<Img
+										src={staticFile(s.photo)}
+										style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: s.photoPos, transform: `scale(${1.12 + (frame - s.f) * 0.002})`}}
+									/>
+								</div>
+							) : (
+								<div style={{position: 'absolute', top: 60, left: 0, right: 0, display: 'flex', justifyContent: 'center'}}>
+									<ProgressRing size={250} progress={interpolate(frame - s.f, [0, 18], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})} color={s.accent} stroke={12}>
+										<ServiceIcon kind={s.icon} size={150} color={s.accent} />
+									</ProgressRing>
+								</div>
+							)}
 							<div
 								style={{
 									position: 'absolute',
@@ -628,15 +661,26 @@ export const EndScene: React.FC<SceneProps> = () => {
 						<br />
 						<span style={{color: C.yellow}}>NETWORK</span>
 					</div>
-					{/* Balayage lumineux */}
+					{/* Balayage lumineux limité aux lettres (background-clip: text) */}
 					<div
 						style={{
 							position: 'absolute',
 							inset: 0,
-							background: `linear-gradient(110deg, transparent ${sweep - 12}%, rgba(255,255,255,0.85) ${sweep}%, transparent ${sweep + 12}%)`,
-							mixBlendMode: 'overlay',
+							fontFamily: FONT,
+							fontWeight: 900,
+							fontSize: 150,
+							lineHeight: 0.98,
+							textAlign: 'center',
+							color: 'transparent',
+							backgroundImage: `linear-gradient(110deg, transparent ${sweep - 10}%, rgba(255,255,255,0.95) ${sweep}%, transparent ${sweep + 10}%)`,
+							WebkitBackgroundClip: 'text',
+							backgroundClip: 'text',
 						}}
-					/>
+					>
+						ABDOUL
+						<br />
+						NETWORK
+					</div>
 				</div>
 			</Center>
 			<div style={{position: 'absolute', left: 140, right: 140, top: 880, height: 6, borderRadius: 3, background: `linear-gradient(90deg, transparent, ${C.cyan}, ${C.violet}, transparent)`, transform: `scaleX(${logoIn})`}} />

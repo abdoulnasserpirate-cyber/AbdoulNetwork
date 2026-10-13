@@ -48,6 +48,12 @@ export const buildPlan = (audioDuration: number) => {
 
 	return {
 		scenes,
+		// Les grands titres reprennent déjà la voix sur ces intervalles :
+		// les sous-titres karaoké y sont masqués.
+		subtitlesHidden: [
+			[0, clients],
+			[moi, lia],
+		] as [number, number][],
 		hook: {
 			stopEnd: ton - 0.05,
 			lines: [
@@ -66,10 +72,11 @@ export const buildPlan = (audioDuration: number) => {
 			nameAt: cue('abdoul', 6.82, moi),
 			roleAt: cue('expert', 7.87, moi),
 			pinAt: cue('maradi', 10.36, moi),
+			montageAt: cue('je', 10.79, moi),
 			levelAt: cue('niveau', 11.95, moi),
 		},
 		services: [
-			{label: 'Formations IA', icon: 'ia', at: formation, accent: C.cyan},
+			{label: 'Formations IA', icon: 'ia', at: formation, accent: C.yellow, photo: 'formation-1.jpg', photoPos: '60% 42%'},
 			{label: 'Montage vidéo IA', icon: 'video', at: cue('montage', 15.63, formation), accent: C.violet},
 			{label: 'Affiches pro', icon: 'poster', at: cue('affiche', 17.68, formation), accent: C.yellow},
 			{label: 'Marketing digital', icon: 'marketing', at: cue('marketing', 19.22, formation), accent: C.cyan},
