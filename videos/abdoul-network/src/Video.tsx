@@ -42,7 +42,17 @@ export const AbdoulNetworkVideo: React.FC<VideoProps> = ({audioDuration, hasMusi
 	const plan = React.useMemo(() => buildPlan(audioDuration), [audioDuration]);
 	const groups = React.useMemo(() => groupWords(WORDS), []);
 	const cta = plan.scenes.find((s) => s.id === 'cta')!;
-	const end = plan.scenes.find((s) => s.id === 'end')!;
+	// Ducking : 15 % en l'absence de voix, 8 % quand elle parle, avec une
+	// rampe de ~0,2 s pour éviter les sauts de volume audibles.
+	const duck = React.useMemo(() => {
+		const n = Math.ceil((audioDuration + 1) * fps) + 1;
+		const raw = Array.from({length: n}, (_, f) => (isSpeaking(f / fps) ? 0.08 : 0.15));
+		const R = 3;
+		return raw.map((_, i) => {
+			const w = raw.slice(Math.max(0, i - R), i + R + 1);
+			return w.reduce((a, v) => a + v, 0) / w.length;
+		});
+	}, [audioDuration, fps]);
 
 	return (
 		<AbsoluteFill style={{backgroundColor: C.bg}}>
@@ -60,8 +70,8 @@ export const AbdoulNetworkVideo: React.FC<VideoProps> = ({audioDuration, hasMusi
 				);
 			})}
 
-			{/* Sous-titres karaoké (masqués quand le numéro géant occupe la zone) */}
-			<Subtitles groups={groups} hidden={[[plan.cta.numberAt, end.end + 1]]} />
+			{/* Sous-titres karaoké */}
+			<Subtitles groups={groups} />
 
 			{/* Voix off */}
 			<Audio src={staticFile('voix.mp3')} />
@@ -71,7 +81,7 @@ export const AbdoulNetworkVideo: React.FC<VideoProps> = ({audioDuration, hasMusi
 				<Audio
 					src={staticFile('musique.mp3')}
 					loop
-					volume={(f) => (isSpeaking(f / fps) ? 0.08 : 0.15)}
+					volume={(f) => duck[Math.min(duck.length - 1, Math.max(0, Math.round(f)))]}
 				/>
 			)}
 
@@ -85,6 +95,10 @@ export const AbdoulNetworkVideo: React.FC<VideoProps> = ({audioDuration, hasMusi
 			))}
 			<Sfx at={cta.start - 1} src="riser" volume={0.14} />
 			<Sfx at={plan.cta.numberAt} src="impact" volume={0.25} />
+			<Sfx at={plan.cta.buttonAt} src="click" volume={0.3} />
+			{plan.results.items.map((r, i) => (
+				<Sfx key={`r${i}`} at={r.at} src="click" volume={0.2} />
+			))}
 		</AbsoluteFill>
 	);
 };

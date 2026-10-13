@@ -1,1 +1,674 @@
-[]
+[
+  {
+    "text": "Stop!",
+    "startMs": 320,
+    "endMs": 650,
+    "timestampMs": 380,
+    "confidence": null
+  },
+  {
+    "text": " Ton",
+    "startMs": 1330,
+    "endMs": 1484,
+    "timestampMs": 1407,
+    "confidence": null
+  },
+  {
+    "text": " business",
+    "startMs": 1484,
+    "endMs": 1894,
+    "timestampMs": 1689,
+    "confidence": null
+  },
+  {
+    "text": " perd",
+    "startMs": 1894,
+    "endMs": 2099,
+    "timestampMs": 1996,
+    "confidence": null
+  },
+  {
+    "text": " des",
+    "startMs": 2099,
+    "endMs": 2253,
+    "timestampMs": 2176,
+    "confidence": null
+  },
+  {
+    "text": " clients",
+    "startMs": 2253,
+    "endMs": 2611,
+    "timestampMs": 2432,
+    "confidence": null
+  },
+  {
+    "text": " chaque",
+    "startMs": 2611,
+    "endMs": 2919,
+    "timestampMs": 2765,
+    "confidence": null
+  },
+  {
+    "text": " jour",
+    "startMs": 2919,
+    "endMs": 3124,
+    "timestampMs": 3021,
+    "confidence": null
+  },
+  {
+    "text": " parce",
+    "startMs": 3124,
+    "endMs": 3380,
+    "timestampMs": 3252,
+    "confidence": null
+  },
+  {
+    "text": " que",
+    "startMs": 3380,
+    "endMs": 3534,
+    "timestampMs": 3457,
+    "confidence": null
+  },
+  {
+    "text": " tu",
+    "startMs": 3534,
+    "endMs": 3654,
+    "timestampMs": 3594,
+    "confidence": null
+  },
+  {
+    "text": " n'utilises",
+    "startMs": 3636,
+    "endMs": 4098,
+    "timestampMs": 3867,
+    "confidence": null
+  },
+  {
+    "text": " pas",
+    "startMs": 4098,
+    "endMs": 4251,
+    "timestampMs": 4174,
+    "confidence": null
+  },
+  {
+    "text": " encore",
+    "startMs": 4251,
+    "endMs": 4559,
+    "timestampMs": 4405,
+    "confidence": null
+  },
+  {
+    "text": " l'intelligence",
+    "startMs": 4559,
+    "endMs": 5225,
+    "timestampMs": 4892,
+    "confidence": null
+  },
+  {
+    "text": " artificielle.",
+    "startMs": 5225,
+    "endMs": 5940,
+    "timestampMs": 5583,
+    "confidence": null
+  },
+  {
+    "text": " Moi,",
+    "startMs": 6260,
+    "endMs": 6498,
+    "timestampMs": 6379,
+    "confidence": null
+  },
+  {
+    "text": " c'est",
+    "startMs": 6498,
+    "endMs": 6816,
+    "timestampMs": 6657,
+    "confidence": null
+  },
+  {
+    "text": " Abdoul",
+    "startMs": 6816,
+    "endMs": 7212,
+    "timestampMs": 7014,
+    "confidence": null
+  },
+  {
+    "text": " Network",
+    "startMs": 7212,
+    "endMs": 7630,
+    "timestampMs": 7421,
+    "confidence": null
+  },
+  {
+    "text": " Expert",
+    "startMs": 7870,
+    "endMs": 8370,
+    "timestampMs": 8120,
+    "confidence": null
+  },
+  {
+    "text": " en",
+    "startMs": 8370,
+    "endMs": 8490,
+    "timestampMs": 8430,
+    "confidence": null
+  },
+  {
+    "text": " IA",
+    "startMs": 8453,
+    "endMs": 8970,
+    "timestampMs": 8712,
+    "confidence": null
+  },
+  {
+    "text": " et",
+    "startMs": 9200,
+    "endMs": 9345,
+    "timestampMs": 9272,
+    "confidence": null
+  },
+  {
+    "text": " en",
+    "startMs": 9345,
+    "endMs": 9489,
+    "timestampMs": 9417,
+    "confidence": null
+  },
+  {
+    "text": " digital,",
+    "startMs": 9489,
+    "endMs": 9995,
+    "timestampMs": 9742,
+    "confidence": null
+  },
+  {
+    "text": " basé",
+    "startMs": 9995,
+    "endMs": 10284,
+    "timestampMs": 10139,
+    "confidence": null
+  },
+  {
+    "text": " à",
+    "startMs": 10284,
+    "endMs": 10404,
+    "timestampMs": 10344,
+    "confidence": null
+  },
+  {
+    "text": " Maradi.",
+    "startMs": 10356,
+    "endMs": 10790,
+    "timestampMs": 10573,
+    "confidence": null
+  },
+  {
+    "text": " Je",
+    "startMs": 10790,
+    "endMs": 10934,
+    "timestampMs": 10862,
+    "confidence": null
+  },
+  {
+    "text": " t'aide",
+    "startMs": 10934,
+    "endMs": 11296,
+    "timestampMs": 11115,
+    "confidence": null
+  },
+  {
+    "text": " à",
+    "startMs": 11296,
+    "endMs": 11416,
+    "timestampMs": 11356,
+    "confidence": null
+  },
+  {
+    "text": " passer",
+    "startMs": 11368,
+    "endMs": 11802,
+    "timestampMs": 11585,
+    "confidence": null
+  },
+  {
+    "text": " au",
+    "startMs": 11802,
+    "endMs": 11946,
+    "timestampMs": 11874,
+    "confidence": null
+  },
+  {
+    "text": " niveau",
+    "startMs": 11946,
+    "endMs": 12380,
+    "timestampMs": 12163,
+    "confidence": null
+  },
+  {
+    "text": " supérieur.",
+    "startMs": 12380,
+    "endMs": 13130,
+    "timestampMs": 12755,
+    "confidence": null
+  },
+  {
+    "text": " Formation",
+    "startMs": 13480,
+    "endMs": 13948,
+    "timestampMs": 13714,
+    "confidence": null
+  },
+  {
+    "text": " en",
+    "startMs": 13948,
+    "endMs": 14068,
+    "timestampMs": 14008,
+    "confidence": null
+  },
+  {
+    "text": " intelligence",
+    "startMs": 14052,
+    "endMs": 14676,
+    "timestampMs": 14364,
+    "confidence": null
+  },
+  {
+    "text": " artificielle.",
+    "startMs": 14676,
+    "endMs": 15400,
+    "timestampMs": 15038,
+    "confidence": null
+  },
+  {
+    "text": " montage",
+    "startMs": 15630,
+    "endMs": 16264,
+    "timestampMs": 15947,
+    "confidence": null
+  },
+  {
+    "text": " vidéo",
+    "startMs": 16264,
+    "endMs": 16716,
+    "timestampMs": 16490,
+    "confidence": null
+  },
+  {
+    "text": " avec",
+    "startMs": 16716,
+    "endMs": 17078,
+    "timestampMs": 16897,
+    "confidence": null
+  },
+  {
+    "text": " l'IA,",
+    "startMs": 17078,
+    "endMs": 17450,
+    "timestampMs": 17264,
+    "confidence": null
+  },
+  {
+    "text": " Affiche",
+    "startMs": 17680,
+    "endMs": 18081,
+    "timestampMs": 17880,
+    "confidence": null
+  },
+  {
+    "text": " professionnelle.",
+    "startMs": 18081,
+    "endMs": 19040,
+    "timestampMs": 18560,
+    "confidence": null
+  },
+  {
+    "text": " Marketing",
+    "startMs": 19220,
+    "endMs": 19815,
+    "timestampMs": 19518,
+    "confidence": null
+  },
+  {
+    "text": " digital,",
+    "startMs": 19815,
+    "endMs": 20278,
+    "timestampMs": 20047,
+    "confidence": null
+  },
+  {
+    "text": " création",
+    "startMs": 20278,
+    "endMs": 20807,
+    "timestampMs": 20542,
+    "confidence": null
+  },
+  {
+    "text": " de",
+    "startMs": 20807,
+    "endMs": 20939,
+    "timestampMs": 20873,
+    "confidence": null
+  },
+  {
+    "text": " sites",
+    "startMs": 20939,
+    "endMs": 21270,
+    "timestampMs": 21104,
+    "confidence": null
+  },
+  {
+    "text": " web",
+    "startMs": 21270,
+    "endMs": 21468,
+    "timestampMs": 21369,
+    "confidence": null
+  },
+  {
+    "text": " et",
+    "startMs": 21468,
+    "endMs": 21600,
+    "timestampMs": 21534,
+    "confidence": null
+  },
+  {
+    "text": " d'applications,",
+    "startMs": 21600,
+    "endMs": 22560,
+    "timestampMs": 22080,
+    "confidence": null
+  },
+  {
+    "text": " et",
+    "startMs": 22760,
+    "endMs": 22885,
+    "timestampMs": 22822,
+    "confidence": null
+  },
+  {
+    "text": " automatisation",
+    "startMs": 22885,
+    "endMs": 23758,
+    "timestampMs": 23322,
+    "confidence": null
+  },
+  {
+    "text": " WhatsApp",
+    "startMs": 23758,
+    "endMs": 24258,
+    "timestampMs": 24008,
+    "confidence": null
+  },
+  {
+    "text": " pour",
+    "startMs": 24258,
+    "endMs": 24507,
+    "timestampMs": 24382,
+    "confidence": null
+  },
+  {
+    "text": " ton",
+    "startMs": 24507,
+    "endMs": 24694,
+    "timestampMs": 24601,
+    "confidence": null
+  },
+  {
+    "text": " business.",
+    "startMs": 24694,
+    "endMs": 25194,
+    "timestampMs": 24944,
+    "confidence": null
+  },
+  {
+    "text": " Le",
+    "startMs": 25194,
+    "endMs": 25318,
+    "timestampMs": 25256,
+    "confidence": null
+  },
+  {
+    "text": " résultat?",
+    "startMs": 25318,
+    "endMs": 25980,
+    "timestampMs": 25568,
+    "confidence": null
+  },
+  {
+    "text": " Plus",
+    "startMs": 26310,
+    "endMs": 26562,
+    "timestampMs": 26436,
+    "confidence": null
+  },
+  {
+    "text": " de",
+    "startMs": 26562,
+    "endMs": 26689,
+    "timestampMs": 26626,
+    "confidence": null
+  },
+  {
+    "text": " visibilité.",
+    "startMs": 26689,
+    "endMs": 27420,
+    "timestampMs": 27054,
+    "confidence": null
+  },
+  {
+    "text": " Plus",
+    "startMs": 27680,
+    "endMs": 27908,
+    "timestampMs": 27794,
+    "confidence": null
+  },
+  {
+    "text": " de",
+    "startMs": 27908,
+    "endMs": 28028,
+    "timestampMs": 27968,
+    "confidence": null
+  },
+  {
+    "text": " clients.",
+    "startMs": 28022,
+    "endMs": 28520,
+    "timestampMs": 28271,
+    "confidence": null
+  },
+  {
+    "text": " Plus",
+    "startMs": 28840,
+    "endMs": 29108,
+    "timestampMs": 28974,
+    "confidence": null
+  },
+  {
+    "text": " de",
+    "startMs": 29108,
+    "endMs": 29242,
+    "timestampMs": 29175,
+    "confidence": null
+  },
+  {
+    "text": " ventes",
+    "startMs": 29242,
+    "endMs": 29644,
+    "timestampMs": 29443,
+    "confidence": null
+  },
+  {
+    "text": " et",
+    "startMs": 29644,
+    "endMs": 29778,
+    "timestampMs": 29711,
+    "confidence": null
+  },
+  {
+    "text": " surtout",
+    "startMs": 29778,
+    "endMs": 30246,
+    "timestampMs": 30012,
+    "confidence": null
+  },
+  {
+    "text": " du",
+    "startMs": 30246,
+    "endMs": 30380,
+    "timestampMs": 30313,
+    "confidence": null
+  },
+  {
+    "text": " temps",
+    "startMs": 30380,
+    "endMs": 30715,
+    "timestampMs": 30548,
+    "confidence": null
+  },
+  {
+    "text": " gagné.",
+    "startMs": 30715,
+    "endMs": 31150,
+    "timestampMs": 30933,
+    "confidence": null
+  },
+  {
+    "text": " Ne",
+    "startMs": 31330,
+    "endMs": 31450,
+    "timestampMs": 31390,
+    "confidence": null
+  },
+  {
+    "text": " reste",
+    "startMs": 31448,
+    "endMs": 31743,
+    "timestampMs": 31595,
+    "confidence": null
+  },
+  {
+    "text": " pas",
+    "startMs": 31743,
+    "endMs": 31919,
+    "timestampMs": 31831,
+    "confidence": null
+  },
+  {
+    "text": " en",
+    "startMs": 31919,
+    "endMs": 32039,
+    "timestampMs": 31979,
+    "confidence": null
+  },
+  {
+    "text": " arrière",
+    "startMs": 32037,
+    "endMs": 32450,
+    "timestampMs": 32243,
+    "confidence": null
+  },
+  {
+    "text": " pendant",
+    "startMs": 32450,
+    "endMs": 32862,
+    "timestampMs": 32656,
+    "confidence": null
+  },
+  {
+    "text": " que",
+    "startMs": 32862,
+    "endMs": 33039,
+    "timestampMs": 32951,
+    "confidence": null
+  },
+  {
+    "text": " les",
+    "startMs": 33039,
+    "endMs": 33216,
+    "timestampMs": 33127,
+    "confidence": null
+  },
+  {
+    "text": " autres",
+    "startMs": 33216,
+    "endMs": 33569,
+    "timestampMs": 33393,
+    "confidence": null
+  },
+  {
+    "text": " avancent.",
+    "startMs": 33569,
+    "endMs": 34041,
+    "timestampMs": 33805,
+    "confidence": null
+  },
+  {
+    "text": " Écris-moi",
+    "startMs": 34041,
+    "endMs": 34512,
+    "timestampMs": 34277,
+    "confidence": null
+  },
+  {
+    "text": " maintenant",
+    "startMs": 34512,
+    "endMs": 35102,
+    "timestampMs": 34807,
+    "confidence": null
+  },
+  {
+    "text": " sur",
+    "startMs": 35102,
+    "endMs": 35279,
+    "timestampMs": 35190,
+    "confidence": null
+  },
+  {
+    "text": " WhatsApp.",
+    "startMs": 35279,
+    "endMs": 35850,
+    "timestampMs": 35564,
+    "confidence": null
+  },
+  {
+    "text": " L'IA",
+    "startMs": 36150,
+    "endMs": 36382,
+    "timestampMs": 36266,
+    "confidence": null
+  },
+  {
+    "text": " au",
+    "startMs": 36382,
+    "endMs": 36537,
+    "timestampMs": 36460,
+    "confidence": null
+  },
+  {
+    "text": " service",
+    "startMs": 36537,
+    "endMs": 37079,
+    "timestampMs": 36808,
+    "confidence": null
+  },
+  {
+    "text": " de",
+    "startMs": 37079,
+    "endMs": 37233,
+    "timestampMs": 37156,
+    "confidence": null
+  },
+  {
+    "text": " ton",
+    "startMs": 37233,
+    "endMs": 37466,
+    "timestampMs": 37350,
+    "confidence": null
+  },
+  {
+    "text": " succès.",
+    "startMs": 37466,
+    "endMs": 38030,
+    "timestampMs": 37748,
+    "confidence": null
+  }
+]

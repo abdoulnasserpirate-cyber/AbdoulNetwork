@@ -5,7 +5,10 @@
   "scripts": {
     "studio": "remotion studio",
     "transcribe": "node scripts/transcribe.mjs",
-    "render": "remotion render AbdoulNetwork out/abdoul-network.mp4"
+    "transcribe:offline": "python3 scripts/transcribe_sherpa.py models/sherpa-onnx-whisper-medium models/sherpa-onnx-streaming-zipformer-fr-2023-04-14",
+    "music": "python3 scripts/make_music.py 39.2",
+    "render": "remotion render AbdoulNetwork out/abdoul-network.mp4",
+    "postrender": "ffmpeg -y -loglevel error -i out/abdoul-network.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:a aac -b:a 192k -movflags +faststart out/final.mp4 && mv out/final.mp4 out/abdoul-network.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.535",

@@ -36,13 +36,13 @@ export const Subtitles: React.FC<{groups: CaptionGroup[]; hidden?: [number, numb
 					position: 'absolute',
 					left: 50,
 					right: 50,
-					top: 1250,
-					height: 200,
+					top: 1270,
+					height: 190,
 					display: 'flex',
 					flexWrap: 'wrap',
 					justifyContent: 'center',
 					alignContent: 'center',
-					columnGap: 22,
+					columnGap: 30,
 					rowGap: 0,
 					transform: `translateY(${interpolate(pop, [0, 1], [40, 0])}px) scale(${interpolate(pop, [0, 1], [0.85, 1])})`,
 					opacity: interpolate(pop, [0, 1], [0, 1]),
@@ -53,7 +53,7 @@ export const Subtitles: React.FC<{groups: CaptionGroup[]; hidden?: [number, numb
 					const spoken = t >= w.start;
 					const wf = frame - Math.round(w.start * fps);
 					const hit = spring({frame: wf, fps, config: {damping: 10, stiffness: 400, mass: 0.5}});
-					const scale = active ? interpolate(hit, [0, 1], [1, 1.12]) : 1;
+					const scale = active ? interpolate(hit, [0, 1], [1, 1.07]) : 1;
 					return (
 						<span
 							key={i}
