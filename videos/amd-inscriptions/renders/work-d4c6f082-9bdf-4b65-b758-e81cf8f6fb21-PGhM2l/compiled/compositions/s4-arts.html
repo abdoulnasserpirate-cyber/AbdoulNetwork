@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/amd.css" />
+      <style>
+        #s4-root { position: absolute; inset: 0; overflow: hidden; }
+        #s4-glow { width: 1300px; height: 1300px; right: -300px; top: -150px; }
+        #s4-ghost { left: 40px; top: -40px; font-size: 420px; }
+        #s4-brush { left: 820px; top: 330px; width: 1500px; height: 300px; transform-origin: 0% 50%; }
+        #s4-p { right: 10px; bottom: 0; height: 1050px; }
+        #s4-icon { left: 120px; top: 120px; width: 170px; height: 170px; }
+        #s4-icon img { width: 112px; height: auto; }
+        #s4-t1 { position: absolute; left: 110px; top: 330px; font-size: 230px; color: #F7F3EA; }
+        #s4-t2 { position: absolute; left: 110px; top: 555px; font-size: 230px; color: #E8B01C; }
+        #s4-tags { position: absolute; left: 120px; top: 840px; display: flex; gap: 26px; }
+        .s4-tag { font-size: 96px; }
+      </style>
+      <div id="s4-root" data-composition-id="s4-arts" data-width="1920" data-height="1080">
+        <div id="s4-cam" class="amd-cam">
+          <div id="s4-glow" class="amd-glow"></div>
+          <div id="s4-ghost" class="amd-ghost">武术</div>
+          <img id="s4-brush" class="amd-brush" src="assets/fx/brush-gold-2.png" alt="" />
+          <img id="s4-p" class="amd-person" src="assets/people/kungfu.png" alt="" data-hf-motion-blur />
+          <div id="s4-icon" class="amd-icon"><img src="assets/icons/kicker.png" alt="" /></div>
+          <div id="s4-t1" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Arts</div>
+          <div id="s4-t2" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Martiaux</div>
+          <div id="s4-tags">
+            <div id="s4-k1" class="s4-tag amd-pill">Kung-Fu</div>
+            <div id="s4-k2" class="s4-tag amd-pill">Wushu</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var tl = gsap.timeline({ paused: true });
+          var S = 10.91; function T(t) { return Math.max(0, t - S); }
+          tl.fromTo('#s4-cam', { scale: 1.06 }, { scale: 1, duration: 2.2, ease: 'power1.out' }, 0);
+          tl.fromTo('#s4-glow', { opacity: 0.3, scale: 0.8 }, { opacity: 1, scale: 1.1, duration: 2.2, ease: 'sine.inOut' }, 0);
+          tl.fromTo('#s4-ghost', { y: 30 }, { y: -40, duration: 2.2, ease: 'none' }, 0);
+          tl.fromTo('#s4-brush', { clipPath: 'inset(0% 100% 0% 0%)', rotation: -14 }, { clipPath: 'inset(0% 0% 0% 0%)', rotation: -10, duration: 0.34, ease: 'power3.out' }, 0.02);
+          tl.fromTo('#s4-p', { x: 380, opacity: 0, scale: 1.08 }, { x: 0, opacity: 1, scale: 1, duration: 0.42, ease: 'expo.out' }, 0);
+          tl.fromTo('#s4-p', { y: 0 }, { y: -18, duration: 1.7, ease: 'sine.inOut', immediateRender: false }, 0.45);
+          tl.fromTo('#s4-icon', { scale: 0, rotation: -120 }, { scale: 1, rotation: 0, duration: 0.45, ease: 'back.out(2.2)' }, 0.04);
+          tl.fromTo('#s4-t1', { x: -700, opacity: 0 }, { x: 0, opacity: 1, duration: 0.32, ease: 'expo.out' }, 0.0);
+          tl.fromTo('#s4-t2', { scale: 1.8, opacity: 0, filter: 'blur(14px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out', transformOrigin: '0% 50%' }, 0.14);
+          tl.fromTo('#s4-k1', { y: 140, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.34, ease: 'back.out(2)' }, T(11.64));
+          tl.fromTo('#s4-k2', { y: 140, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.34, ease: 'back.out(2)' }, T(12.16));
+          window.__timelines['s4-arts'] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

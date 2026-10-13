@@ -1,0 +1,4 @@
+snapshots/**/*.png
+.hyperframes/
+renders/render.log
+renders/.hf-segments/

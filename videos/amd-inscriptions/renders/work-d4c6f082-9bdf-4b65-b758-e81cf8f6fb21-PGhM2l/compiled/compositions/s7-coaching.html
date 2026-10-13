@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/amd.css" />
+      <style>
+        #s7-root { position: absolute; inset: 0; overflow: hidden; }
+        #s7-glow { width: 1100px; height: 1100px; left: -260px; top: 60px; }
+        #s7-glow2 { width: 900px; height: 900px; right: -260px; top: 260px; }
+        #s7-ghost { left: 50%; top: 220px; margin-left: -330px; font-size: 660px; }
+        #s7-title { position: absolute; left: 0; right: 0; top: 44px; text-align: center; font-size: 168px; color: #F7F3EA; }
+        #s7-title span { color: #E8B01C; }
+        #s7-p1 { left: 10px; bottom: 0; height: 860px; }
+        #s7-p2 { right: 10px; bottom: 0; height: 660px; }
+        #s7-icon { left: 50%; top: 270px; width: 130px; height: 130px; margin-left: -65px; }
+        #s7-icon svg { width: 92px; height: 92px; }
+        #s7-tags { position: absolute; left: 600px; width: 860px; top: 430px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+        .s7-tag { font-size: 92px; min-width: 520px; }
+      </style>
+      <div id="s7-root" data-composition-id="s7-coaching" data-width="1920" data-height="1080">
+        <div id="s7-cam" class="amd-cam">
+          <div id="s7-glow" class="amd-glow"></div>
+          <div id="s7-glow2" class="amd-glow"></div>
+          <div id="s7-ghost" class="amd-ghost">力</div>
+          <img id="s7-p1" class="amd-person" src="assets/people/muscle.png" alt="" data-hf-motion-blur />
+          <img id="s7-p2" class="amd-person" src="assets/people/fitwoman.png" alt="" data-hf-motion-blur />
+          <div id="s7-title" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Coaching <span>personnalisé</span></div>
+          <div id="s7-icon" class="amd-icon">
+            <svg viewBox="0 0 64 64"><rect x="4" y="22" width="8" height="20" rx="2" fill="#0B0A08"/><rect x="12" y="16" width="9" height="32" rx="2" fill="#0B0A08"/><rect x="21" y="29" width="22" height="6" fill="#0B0A08"/><rect x="43" y="16" width="9" height="32" rx="2" fill="#0B0A08"/><rect x="52" y="22" width="8" height="20" rx="2" fill="#0B0A08"/></svg>
+          </div>
+          <div id="s7-tags">
+            <div id="s7-k1" class="s7-tag amd-pill">Fitness</div>
+            <div id="s7-k2" class="s7-tag amd-pill">Bodybuilding</div>
+            <div id="s7-k3" class="s7-tag amd-pill">Préparation physique</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var tl = gsap.timeline({ paused: true });
+          var S = 16.49; function T(t) { return Math.max(0, t - S); }
+          tl.fromTo('#s7-cam', { scale: 1.05 }, { scale: 1, duration: 3.58, ease: 'power1.out' }, 0);
+          tl.fromTo('#s7-glow', { opacity: 0.3, scale: 0.8 }, { opacity: 1, scale: 1.1, duration: 3.5, ease: 'sine.inOut' }, 0);
+          tl.fromTo('#s7-ghost', { opacity: 0, scale: 1.3 }, { opacity: 0.08, scale: 1, duration: 1.5, ease: 'power2.out' }, 0);
+          tl.fromTo('#s7-title', { y: -200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: 'expo.out' }, 0);
+          tl.fromTo('#s7-p1', { x: -420, opacity: 0, scale: 1.08 }, { x: 0, opacity: 1, scale: 1, duration: 0.42, ease: 'expo.out' }, 0.04);
+          tl.fromTo('#s7-p1', { y: 0 }, { y: -20, duration: 3, ease: 'sine.inOut', immediateRender: false }, 0.5);
+          tl.fromTo('#s7-icon', { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.45, ease: 'back.out(2)' }, 0.2);
+          tl.fromTo('#s7-p2', { x: 420, opacity: 0, scale: 1.08 }, { x: 0, opacity: 1, scale: 1, duration: 0.4, ease: 'expo.out' }, T(17.86));
+          tl.fromTo('#s7-k1', { x: -500, opacity: 0, rotation: -4 }, { x: 0, opacity: 1, rotation: 0, duration: 0.3, ease: 'expo.out' }, T(17.90));
+          tl.fromTo('#s7-k2', { x: 500, opacity: 0, rotation: 4 }, { x: 0, opacity: 1, rotation: 0, duration: 0.3, ease: 'expo.out' }, T(18.40));
+          tl.fromTo('#s7-k3', { y: 160, scale: 0.6, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.36, ease: 'back.out(2)' }, T(19.05));
+          tl.fromTo('#s7-cam', { x: 0 }, { x: 200, filter: 'blur(8px)', duration: 0.24, ease: 'power3.in', immediateRender: false }, T(19.84));
+          window.__timelines['s7-coaching'] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

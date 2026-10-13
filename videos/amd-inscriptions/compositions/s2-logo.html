@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/amd.css" />
+      <style>
+        #s2-root { position: absolute; inset: 0; overflow: hidden; }
+        #s2-glow { width: 1000px; height: 1000px; left: -180px; top: -260px; }
+        #s2-ghost { right: 60px; top: 40px; font-size: 300px; }
+        #s2-logo { position: absolute; left: 130px; top: 70px; height: 420px; width: auto; filter: drop-shadow(0 0 40px rgba(232,176,28,.45)); }
+        #s2-name { position: absolute; left: 590px; top: 120px; }
+        #s2-n1 { font-size: 96px; color: #F7F3EA; }
+        #s2-n2 { font-size: 172px; color: #E8B01C; margin-top: 6px; }
+        #s2-banner { position: absolute; left: 40px; top: 560px; width: 1840px; height: 330px; }
+        #s2-bimg { left: 0; top: 0; width: 1840px; height: 330px; }
+        #s2-btext { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding-bottom: 14px; font-size: 136px; color: #0B0A08; }
+        #s2-city { position: absolute; right: 120px; top: 900px; display: flex; align-items: center; gap: 22px; }
+        #s2-city svg { width: 96px; height: 96px; }
+        #s2-ctext { font-size: 120px; color: #F7F3EA; }
+      </style>
+      <div id="s2-root" data-composition-id="s2-logo" data-width="1920" data-height="1080">
+        <div id="s2-cam" class="amd-cam">
+          <div id="s2-glow" class="amd-glow"></div>
+          <div id="s2-ghost" class="amd-ghost">武</div>
+          <img id="s2-logo" src="assets/logo-on-dark.png" alt="" data-hf-motion-blur />
+          <div id="s2-name">
+            <div class="amd-mask"><div id="s2-n1" class="amd-mont amd-line">Academy of</div></div>
+            <div id="s2-n2" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Martial Discipline</div>
+          </div>
+          <div id="s2-banner">
+            <img id="s2-bimg" class="amd-brush" src="assets/fx/brush-gold-1.png" alt="" />
+            <div id="s2-btext" class="amd-anton amd-line">Ouverture des inscriptions</div>
+          </div>
+          <div id="s2-city">
+            <svg viewBox="0 0 24 24"><path fill="#E8B01C" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <div id="s2-ctext" class="amd-anton amd-line amd-shadow">Maradi</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var tl = gsap.timeline({ paused: true });
+          var S = 3.06; function T(t) { return Math.max(0, t - S); }
+          tl.fromTo('#s2-cam', { scale: 1.08 }, { scale: 1, duration: 3.22, ease: 'power1.out' }, 0);
+          tl.fromTo('#s2-glow', { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: 'expo.out' }, 0);
+          tl.fromTo('#s2-ghost', { opacity: 0, y: 60 }, { opacity: 0.09, y: 0, duration: 3, ease: 'sine.out' }, 0);
+          // logo: gong hit
+          tl.fromTo('#s2-logo', { scale: 0.3, rotation: -40, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.8)' }, T(3.08));
+          tl.fromTo('#s2-logo', { filter: 'drop-shadow(0 0 120px rgba(255,212,90,1)) brightness(1.8)' }, { filter: 'drop-shadow(0 0 40px rgba(232,176,28,.45)) brightness(1)', duration: 0.9, ease: 'power2.out' }, T(3.08));
+          // name
+          tl.fromTo('#s2-n1', { yPercent: 110 }, { yPercent: 0, duration: 0.42, ease: 'expo.out' }, T(3.62));
+          tl.fromTo('#s2-n2', { scale: 1.6, opacity: 0, filter: 'blur(14px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.34, ease: 'power4.out', transformOrigin: '0% 60%' }, T(4.15));
+          // banner: brush paints in, text hits
+          tl.fromTo('#s2-bimg', { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 0.3, ease: 'power3.out' }, T(4.38));
+          tl.fromTo('#s2-btext', { scale: 1.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'power4.out' }, T(4.45));
+          tl.fromTo('#s2-banner', { rotation: 0 }, { rotation: -2, duration: 1.8, ease: 'sine.inOut' }, T(4.5));
+          // city pin
+          tl.fromTo('#s2-city svg', { y: -140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: 'bounce.out' }, T(5.25));
+          tl.fromTo('#s2-ctext', { x: 120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.32, ease: 'expo.out' }, T(5.29));
+          // exit push
+          tl.fromTo('#s2-cam', { x: 0 }, { x: -220, filter: 'blur(8px)', duration: 0.3, ease: 'power3.in', immediateRender: false }, T(5.95));
+          window.__timelines['s2-logo'] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

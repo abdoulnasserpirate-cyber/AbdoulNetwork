@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/amd.css" />
+      <style>
+        #s8-root { position: absolute; inset: 0; overflow: hidden; }
+        #s8-stripes { position: absolute; left: -400px; top: -400px; width: 2800px; height: 1900px; background: repeating-linear-gradient(-35deg, rgba(232,176,28,.13) 0 70px, rgba(232,176,28,0) 70px 190px); }
+        #s8-glow { width: 1400px; height: 1400px; left: 260px; top: -200px; }
+        #s8-ghostw { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font-size: 420px; color: #F7F3EA; opacity: .05; }
+        #s8-icon { left: 50%; top: 70px; width: 210px; height: 210px; margin-left: -105px; }
+        #s8-icon svg { width: 140px; height: 140px; }
+        #s8-t1 { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font-size: 170px; color: #F7F3EA; }
+        #s8-t2 { position: absolute; left: 0; right: 0; top: 470px; text-align: center; font-size: 300px; color: #E8B01C; text-shadow: 0 0 80px rgba(232,176,28,.35), 0 10px 40px rgba(0,0,0,.9); }
+        #s8-sub { position: absolute; left: 0; right: 0; top: 820px; text-align: center; font-size: 96px; color: #F7F3EA; }
+        .s8-chev { position: absolute; top: 880px; width: 90px; height: 90px; }
+      </style>
+      <div id="s8-root" data-composition-id="s8-militaire" data-width="1920" data-height="1080">
+        <div id="s8-cam" class="amd-cam">
+          <div id="s8-stripes"></div>
+          <div id="s8-glow" class="amd-glow"></div>
+          <div id="s8-ghostw" class="amd-anton amd-line">Discipline</div>
+          <div id="s8-icon" class="amd-icon">
+            <svg viewBox="0 0 64 64"><path d="M8 40 C8 22 19 11 32 11 C45 11 56 22 56 40 Z" fill="#0B0A08"/><rect x="4" y="40" width="56" height="8" rx="3" fill="#0B0A08"/><path d="M24 22 L32 17 L40 22" fill="none" stroke="#E8B01C" stroke-width="3.5" stroke-linecap="round"/><path d="M24 29 L32 24 L40 29" fill="none" stroke="#E8B01C" stroke-width="3.5" stroke-linecap="round"/></svg>
+          </div>
+          <div id="s8-t1" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Préparation</div>
+          <div id="s8-t2" class="amd-anton amd-line" data-hf-motion-blur>Militaire</div>
+          <div id="s8-sub" class="amd-bebas amd-line amd-shadow">Accompagnement spécifique</div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo('#s8-stripes', { x: 0 }, { x: 260, duration: 1.86, ease: 'none' }, 0);
+          tl.fromTo('#s8-cam', { scale: 1.1 }, { scale: 1, duration: 1.86, ease: 'power2.out' }, 0);
+          tl.fromTo('#s8-icon', { y: -260, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: 'bounce.out' }, 0.02);
+          tl.fromTo('#s8-t1', { y: -120, opacity: 0, scaleX: 1.6 }, { y: 0, opacity: 1, scaleX: 1, duration: 0.36, ease: 'expo.out' }, 0.0);
+          tl.fromTo('#s8-t2', { scale: 2.4, opacity: 0, filter: 'blur(20px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.32, ease: 'power4.out' }, 0.78);
+          tl.fromTo('#s8-sub', { y: 70, opacity: 0 }, { y: 0, opacity: 1, duration: 0.34, ease: 'circ.out' }, 1.05);
+          tl.fromTo('#s8-ghostw', { x: -300 }, { x: 300, duration: 1.86, ease: 'none' }, 0);
+          window.__timelines['s8-militaire'] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

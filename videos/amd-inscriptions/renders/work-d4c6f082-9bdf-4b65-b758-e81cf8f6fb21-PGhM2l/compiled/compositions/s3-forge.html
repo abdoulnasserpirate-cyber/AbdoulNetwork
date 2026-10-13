@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/amd.css" />
+      <style>
+        #s3-root { position: absolute; inset: 0; overflow: hidden; }
+        .s3-panel { position: absolute; top: 0; width: 1060px; height: 1080px; overflow: hidden; }
+        #s3-left { left: 0; clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%); background: radial-gradient(700px 700px at 45% 55%, #2a210f 0%, #0B0A08 70%); }
+        #s3-right { right: 0; clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%); background: radial-gradient(700px 700px at 55% 55%, #2a210f 0%, #0B0A08 70%); }
+        #s3-pl { left: 90px; bottom: 0; height: 960px; }
+        #s3-pr { right: 30px; bottom: 0; height: 980px; }
+        #s3-divider { left: 260px; top: 495px; width: 1400px; height: 90px; transform-origin: 50% 50%; }
+        #s3-top { position: absolute; left: 0; right: 0; top: 56px; text-align: center; font-size: 84px; color: #F7F3EA; }
+        #s3-lc { position: absolute; left: 90px; bottom: 70px; font-size: 190px; color: #E8B01C; }
+        #s3-rc { position: absolute; right: 80px; bottom: 70px; font-size: 190px; color: #F7F3EA; }
+        #s3-words { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+        .s3-w { font-size: 200px; color: #E8B01C; text-shadow: 0 0 60px rgba(232,176,28,.35), 0 10px 40px rgba(0,0,0,.9); }
+        #s3-dim { position: absolute; inset: 0; background: #0B0A08; opacity: 0; }
+        #s3-ghost { left: 50%; top: 50%; font-size: 900px; margin: -470px 0 0 -900px; opacity: 0; }
+      </style>
+      <div id="s3-root" data-composition-id="s3-forge" data-width="1920" data-height="1080">
+        <div id="s3-cam" class="amd-cam">
+          <div id="s3-left" class="s3-panel">
+            <img id="s3-pl" class="amd-person" src="assets/people/muscle.png" alt="" />
+          </div>
+          <div id="s3-right" class="s3-panel">
+            <img id="s3-pr" class="amd-person" src="assets/people/kungfu.png" alt="" />
+          </div>
+          <img id="s3-divider" class="amd-brush" src="assets/fx/brush-gold-slash.png" alt="" />
+          <div id="s3-top" class="amd-mont amd-shadow">Ici, on forge</div>
+          <div id="s3-lc" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Le corps</div>
+          <div id="s3-rc" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>&amp; l'esprit</div>
+          <div id="s3-dim"></div>
+          <div id="s3-ghost" class="amd-ghost">武术</div>
+          <div id="s3-words">
+            <div id="s3-w1" class="s3-w amd-anton amd-line" data-hf-motion-blur>Discipline</div>
+            <div id="s3-w2" class="s3-w amd-anton amd-line" data-hf-motion-blur>Force</div>
+            <div id="s3-w3" class="s3-w amd-anton amd-line" data-hf-motion-blur>Maîtrise de soi</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var tl = gsap.timeline({ paused: true });
+          var S = 6.28; function T(t) { return Math.max(0, t - S); }
+          // part A — split screen
+          tl.fromTo('#s3-left', { xPercent: -100 }, { xPercent: 0, duration: 0.42, ease: 'expo.out' }, 0);
+          tl.fromTo('#s3-pl', { scale: 1.15 }, { scale: 1, duration: 2.2, ease: 'power2.out' }, 0);
+          tl.fromTo('#s3-top', { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: 'expo.out' }, 0.05);
+          tl.fromTo('#s3-lc', { scale: 1.8, opacity: 0, filter: 'blur(14px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out', transformOrigin: '0% 100%' }, T(6.9));
+          tl.fromTo('#s3-right', { xPercent: 100 }, { xPercent: 0, duration: 0.4, ease: 'expo.out' }, T(7.7));
+          tl.fromTo('#s3-pr', { scale: 1.15 }, { scale: 1, duration: 1.4, ease: 'power2.out' }, T(7.7));
+          tl.fromTo('#s3-divider', { rotation: 96, scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.26, ease: 'expo.out' }, T(7.74));
+          tl.fromTo('#s3-rc', { x: 500, opacity: 0, skewX: -16 }, { x: 0, opacity: 1, skewX: 0, duration: 0.34, ease: 'expo.out' }, T(7.8));
+          // part B — the three virtues, one per impact
+          tl.fromTo('#s3-dim', { opacity: 0 }, { opacity: 0.82, duration: 0.18, ease: 'power2.out' }, T(8.4));
+          tl.fromTo(['#s3-lc', '#s3-rc', '#s3-top'], { opacity: 1 }, { opacity: 0, duration: 0.12, immediateRender: false }, T(8.4));
+          tl.fromTo('#s3-ghost', { opacity: 0, scale: 1.2 }, { opacity: 0.08, scale: 1, duration: 2.2, ease: 'power2.out' }, T(8.46));
+          tl.fromTo('#s3-w1', { scale: 2.2, opacity: 0, filter: 'blur(18px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.28, ease: 'power4.out' }, T(8.46));
+          tl.fromTo('#s3-w2', { x: -1100, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: 'expo.out' }, T(9.23));
+          tl.fromTo('#s3-w3', { y: 200, rotation: -6, opacity: 0 }, { y: 0, rotation: 0, opacity: 1, duration: 0.34, ease: 'circ.out' }, T(9.78));
+          tl.fromTo('#s3-words', { scale: 1 }, { scale: 1.06, duration: 2.4, ease: 'none' }, T(8.46));
+          tl.fromTo('#s3-cam', { scale: 1, filter: 'blur(0px)' }, { scale: 1.25, filter: 'blur(10px)', duration: 0.3, ease: 'power3.in', immediateRender: false }, T(10.6));
+          window.__timelines['s3-forge'] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <link rel="stylesheet" href="assets/amd.css" />
+      <style>
+        #s5-root { position: absolute; inset: 0; overflow: hidden; }
+        #s5-glow { width: 1200px; height: 1200px; left: -320px; top: -100px; }
+        #s5-ghost { right: 30px; bottom: -80px; font-size: 400px; }
+        #s5-brush { left: -200px; top: 380px; width: 1300px; height: 280px; transform-origin: 100% 50%; }
+        #s5-p { left: 60px; bottom: 0; height: 1050px; }
+        #s5-icon { left: 700px; top: 150px; width: 170px; height: 170px; }
+        #s5-icon svg { width: 100px; height: 100px; }
+        #s5-title { position: absolute; left: 690px; top: 360px; font-size: 220px; color: #F7F3EA; }
+        #s5-title span { color: #E8B01C; }
+        #s5-sub { position: absolute; left: 700px; top: 660px; font-size: 104px; color: #F7F3EA; }
+        #s5-sub span { color: #E8B01C; }
+        #s5-rule { position: absolute; left: 700px; top: 630px; width: 1080px; height: 8px; background: #E8B01C; transform-origin: 0 50%; }
+      </style>
+      <div id="s5-root" data-composition-id="s5-selfdef" data-width="1920" data-height="1080">
+        <div id="s5-cam" class="amd-cam">
+          <div id="s5-glow" class="amd-glow"></div>
+          <div id="s5-ghost" class="amd-ghost">德</div>
+          <img id="s5-brush" class="amd-brush" src="assets/fx/brush-gold-1.png" alt="" />
+          <img id="s5-p" class="amd-person" src="assets/people/hijab.png" alt="" data-hf-motion-blur />
+          <div id="s5-icon" class="amd-icon">
+            <svg viewBox="0 0 64 64"><path d="M32 4 L56 13 V30 C56 45 46 56 32 61 C18 56 8 45 8 30 V13 Z" fill="#0B0A08"/><path d="M21 32 L29 40 L44 24" fill="none" stroke="#E8B01C" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div id="s5-title" class="amd-anton amd-line amd-shadow" data-hf-motion-blur>Self-<span>défense</span></div>
+          <div id="s5-rule"></div>
+          <div id="s5-sub" class="amd-bebas amd-line amd-shadow"><span>Femmes</span> &amp; tous niveaux</div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var tl = gsap.timeline({ paused: true });
+          var S = 13.11; function T(t) { return Math.max(0, t - S); }
+          tl.fromTo('#s5-cam', { scale: 1.06, x: 30 }, { scale: 1, x: 0, duration: 2.16, ease: 'power1.out' }, 0);
+          tl.fromTo('#s5-glow', { opacity: 0.3 }, { opacity: 1, duration: 1.2, ease: 'sine.out' }, 0);
+          tl.fromTo('#s5-brush', { clipPath: 'inset(0% 0% 0% 100%)', rotation: 8 }, { clipPath: 'inset(0% 0% 0% 0%)', rotation: 5, duration: 0.34, ease: 'power3.out' }, 0.04);
+          tl.fromTo('#s5-p', { x: -380, opacity: 0, scale: 1.08 }, { x: 0, opacity: 1, scale: 1, duration: 0.42, ease: 'expo.out' }, 0);
+          tl.fromTo('#s5-p', { y: 0 }, { y: -16, duration: 1.6, ease: 'sine.inOut', immediateRender: false }, 0.45);
+          tl.fromTo('#s5-icon', { scale: 0, rotation: 90 }, { scale: 1, rotation: 0, duration: 0.42, ease: 'back.out(2.2)' }, 0.06);
+          tl.fromTo('#s5-title', { scale: 1.9, opacity: 0, filter: 'blur(16px)' }, { scale: 1, opacity: 1, filter: 'blur(0px)', duration: 0.3, ease: 'power4.out', transformOrigin: '0% 50%' }, 0.02);
+          tl.fromTo('#s5-rule', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'expo.out' }, 0.25);
+          tl.fromTo('#s5-sub', { x: 600, opacity: 0 }, { x: 0, opacity: 1, duration: 0.34, ease: 'expo.out' }, T(14.36));
+          window.__timelines['s5-selfdef'] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

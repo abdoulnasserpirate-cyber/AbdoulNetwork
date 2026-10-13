@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/amd.css" />
+    <style>
+      @font-face{font-family:'Anton';src:url('assets/fonts/Anton.woff2') format('woff2');font-display:block}
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #0B0A08; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #0B0A08; }
+      #bg { position: absolute; inset: 0; background: radial-gradient(1200px 800px at 50% 45%, #1d1810 0%, #0B0A08 70%); }
+      #bg-glow { position: absolute; width: 1600px; height: 1600px; left: 160px; top: -260px; }
+      #stage { position: absolute; inset: 0; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #embers { position: absolute; inset: 0; pointer-events: none; }
+      .ember { position: absolute; left: 0; top: 0; border-radius: 50%; background: #FFD45A; box-shadow: 0 0 10px 3px rgba(232,176,28,.75); }
+      #fx { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+      #wipe { position: absolute; left: 0; top: 0; width: 2400px; height: auto; transform-origin: 50% 50%; opacity: 0; }
+      #slash { position: absolute; left: -200px; top: 470px; width: 2400px; height: auto; transform-origin: 0% 50%; opacity: 0; }
+      #flash { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, #fffaf0 0%, #FFD45A 45%, rgba(232,176,28,0) 80%); opacity: 0; }
+      #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.6) 100%); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="44.225" data-width="1920" data-height="1080" data-fps="60">
+      <div id="bg"><div id="bg-glow" class="amd-glow"></div></div>
+
+      <div id="stage">
+        <div id="s1-hook" class="scene" data-composition-id="s1-hook" data-composition-src="compositions/s1-hook.html" data-start="0" data-duration="3.06" data-track-index="0" data-width="1920" data-height="1080"></div>
+        <div id="s2-logo" class="scene" data-composition-id="s2-logo" data-composition-src="compositions/s2-logo.html" data-start="3.06" data-duration="3.22" data-track-index="1" data-width="1920" data-height="1080"></div>
+        <div id="s3-forge" class="scene" data-composition-id="s3-forge" data-composition-src="compositions/s3-forge.html" data-start="6.28" data-duration="4.63" data-track-index="0" data-width="1920" data-height="1080"></div>
+        <div id="s4-arts" class="scene" data-composition-id="s4-arts" data-composition-src="compositions/s4-arts.html" data-start="10.91" data-duration="2.2" data-track-index="1" data-width="1920" data-height="1080"></div>
+        <div id="s5-selfdef" class="scene" data-composition-id="s5-selfdef" data-composition-src="compositions/s5-selfdef.html" data-start="13.11" data-duration="2.16" data-track-index="0" data-width="1920" data-height="1080"></div>
+        <div id="s6-enfants" class="scene" data-composition-id="s6-enfants" data-composition-src="compositions/s6-enfants.html" data-start="15.27" data-duration="1.22" data-track-index="1" data-width="1920" data-height="1080"></div>
+        <div id="s7-coaching" class="scene" data-composition-id="s7-coaching" data-composition-src="compositions/s7-coaching.html" data-start="16.49" data-duration="3.58" data-track-index="0" data-width="1920" data-height="1080"></div>
+        <div id="s8-militaire" class="scene" data-composition-id="s8-militaire" data-composition-src="compositions/s8-militaire.html" data-start="20.07" data-duration="1.86" data-track-index="1" data-width="1920" data-height="1080"></div>
+        <div id="s9-niveaux" class="scene" data-composition-id="s9-niveaux" data-composition-src="compositions/s9-niveaux.html" data-start="21.93" data-duration="5.02" data-track-index="0" data-width="1920" data-height="1080"></div>
+        <div id="s10-maitre" class="scene" data-composition-id="s10-maitre" data-composition-src="compositions/s10-maitre.html" data-start="26.95" data-duration="3.3" data-track-index="1" data-width="1920" data-height="1080"></div>
+        <div id="s11-inscriptions" class="scene" data-composition-id="s11-inscriptions" data-composition-src="compositions/s11-inscriptions.html" data-start="30.25" data-duration="5.64" data-track-index="0" data-width="1920" data-height="1080"></div>
+        <div id="s12-appel" class="scene" data-composition-id="s12-appel" data-composition-src="compositions/s12-appel.html" data-start="35.89" data-duration="4.86" data-track-index="1" data-width="1920" data-height="1080"></div>
+        <div id="s13-final" class="scene" data-composition-id="s13-final" data-composition-src="compositions/s13-final.html" data-start="40.75" data-duration="3.475" data-track-index="0" data-width="1920" data-height="1080"></div>
+      </div>
+
+      <div id="embers"></div>
+
+      <div id="fx">
+        <img id="wipe" src="assets/fx/brush-gold-1.png" alt="" />
+        <img id="slash" src="assets/fx/brush-gold-slash.png" alt="" />
+        <div id="flash"></div>
+      </div>
+
+      <div
+  id="grain-overlay"
+  style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+  "
+>
+  <div class="grain-texture"></div>
+</div>
+
+<style>
+  @keyframes hf-grain-noise {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-5%, -5%);
+    }
+    20% {
+      transform: translate(-10%, 5%);
+    }
+    30% {
+      transform: translate(5%, -10%);
+    }
+    40% {
+      transform: translate(-5%, 15%);
+    }
+    50% {
+      transform: translate(-10%, 5%);
+    }
+    60% {
+      transform: translate(15%, 0);
+    }
+    70% {
+      transform: translate(0, 10%);
+    }
+    80% {
+      transform: translate(-15%, 0);
+    }
+    90% {
+      transform: translate(10%, 5%);
+    }
+  }
+
+  #grain-overlay .grain-texture {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.07;
+    animation: hf-grain-noise 0.5s steps(1) infinite;
+  }
+</style>
+      <div id="vignette"></div>
+
+      <audio id="vo" src="assets/voice/voiceover.mp3" data-start="0" data-duration="44.225" data-track-index="10" data-volume="1"></audio>
+      <audio id="score" src="assets/audio/score-sfx.wav" data-start="0" data-duration="44.225" data-track-index="11" data-volume="0.42"></audio>
+    </div>
+
+    <script src="assets/vendor/motion-blur.js"></script>
+
+<!--
+  Timeline integration example:
+
+  <div id="root" data-composition-id="my-composition" data-duration="6" data-fps="30">
+    <div id="my-box" data-hf-motion-blur></div>
+    <div id="my-title" data-hf-motion-blur='{"shutterAngle": 360}'></div>
+  </div>
+
+  const tl = gsap.timeline({ paused: true });
+
+  tl.fromTo("#my-box", { x: -100 }, { x: 1700, duration: 1.2, ease: "power3.inOut" }, 0.5);
+
+  // Extend to data-duration so seeks past the last tween reach the blur callback.
+  tl.set(document.body, {}, DATA_DURATION);
+
+  // The registration below is what attaches both targets, in that order.
+  window.__timelines = window.__timelines || {};
+  window.__timelines["my-composition"] = tl;
+
+  // Only for an element created later than the polling window above:
+  attachMotionBlur("#late-box", tl, { shutterAngle: 720, samplesPerFrame: 16 });
+-->
+
+    <script>
+      (function () {
+        var tl = gsap.timeline({ paused: true });
+        var D = 44.225;
+
+        // ---- seeded PRNG (deterministic embers) ----
+        var seed = 1337;
+        function rnd() { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; var t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }
+
+        var host = document.getElementById('embers');
+        for (var i = 0; i < 64; i++) {
+          var e = document.createElement('div');
+          e.className = 'ember';
+          var s = 2 + rnd() * 5;
+          e.style.width = s + 'px'; e.style.height = s + 'px';
+          host.appendChild(e);
+          var x0 = rnd() * 1920, y0 = 1100 + rnd() * 3200, drift = (rnd() - 0.5) * 300;
+          tl.fromTo(e, { x: x0, y: y0, opacity: 0.35 + rnd() * 0.6 }, { x: x0 + drift, y: y0 - 3400, duration: D, ease: 'none' }, 0);
+        }
+
+        // ambient background breath
+        tl.fromTo('#bg-glow', { scale: 0.9, opacity: 0.55 }, { scale: 1.1, opacity: 0.9, duration: D / 4, ease: 'sine.inOut', yoyo: true, repeat: 3 }, 0);
+
+        // ---- camera shake on impacts ----
+        function shake(t, a) {
+          tl.fromTo('#stage', { x: 0, y: 0, rotation: 0 }, {
+            keyframes: [
+              { x: a, y: -a * 0.6, rotation: a * 0.02, duration: 0.04 },
+              { x: -a * 0.8, y: a * 0.5, rotation: -a * 0.015, duration: 0.05 },
+              { x: a * 0.5, y: a * 0.3, rotation: a * 0.01, duration: 0.05 },
+              { x: -a * 0.25, y: -a * 0.2, rotation: 0, duration: 0.06 },
+              { x: 0, y: 0, rotation: 0, duration: 0.08 }
+            ], ease: 'none', immediateRender: false
+          }, t);
+        }
+        [[0.0, 22], [0.85, 16], [1.39, 16], [2.02, 20], [4.45, 14], [6.9, 10], [7.76, 10], [8.46, 16], [9.23, 16], [9.78, 18],
+         [10.91, 14], [13.11, 14], [15.27, 12], [16.49, 12], [20.07, 12], [20.85, 18], [24.46, 12], [25.48, 10], [27.65, 16], [30.25, 14],
+         [32.41, 14], [33.30, 18], [34.49, 18], [35.89, 12], [37.25, 10], [37.92, 10], [38.89, 10], [39.83, 14], [40.75, 16], [43.9, 12]
+        ].forEach(function (p) { shake(p[0], p[1]); });
+
+        // ---- flash ----
+        function flash(t, o, d) {
+          tl.fromTo('#flash', { opacity: 0 }, { keyframes: [{ opacity: o, duration: 0.04 }, { opacity: 0, duration: d || 0.28 }], ease: 'power2.out', immediateRender: false }, t);
+        }
+        [[0.0, 0.85, 0.4], [2.02, 0.35], [3.04, 0.95, 0.5], [8.46, 0.3], [9.78, 0.35], [10.9, 0.6], [15.26, 0.5], [20.06, 0.7], [26.94, 0.6], [33.30, 0.4], [34.49, 0.35], [35.88, 0.6], [39.83, 0.35], [40.73, 0.95, 0.6], [43.9, 0.45, 0.33]
+        ].forEach(function (p) { flash(p[0], p[1], p[2]); });
+
+        // ---- gold brush wipe transition (covers the cut at t) ----
+        function wipe(t, rot) {
+          tl.fromTo('#wipe', { x: -3540, y: 360, rotation: rot, scaleX: 1.9, scaleY: 3.9, opacity: 1 },
+            { x: 3060, duration: 0.62, ease: 'power2.inOut', immediateRender: false }, t - 0.31);
+          tl.fromTo('#wipe', { opacity: 1 }, { opacity: 0, duration: 0.01, immediateRender: false }, t + 0.32);
+        }
+        [[6.28, -8], [13.11, 6], [16.49, -6], [21.93, 8], [30.25, -7]].forEach(function (p) { wipe(p[0], p[1]); });
+
+        // ---- gold slash transition ----
+        function slash(t, rot, y) {
+          tl.fromTo('#slash', { y: y - 470, rotation: rot, scaleX: 0, scaleY: 1.4, opacity: 1 }, { scaleX: 1, duration: 0.14, ease: 'expo.out', immediateRender: false }, t - 0.06);
+          tl.fromTo('#slash', { opacity: 1 }, { opacity: 0, scaleY: 0.2, duration: 0.25, ease: 'power2.in', immediateRender: false }, t + 0.1);
+        }
+        [[10.91, -14, 560], [15.27, 12, 420], [20.07, -10, 520], [26.95, 9, 600], [35.89, -12, 520]].forEach(function (p) { slash(p[0], p[1], p[2]); });
+
+        window.__timelines['main'] = tl;
+      })();
+    </script>
+  </body>
+</html>

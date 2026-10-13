@@ -1,0 +1,27 @@
+@font-face{font-family:'Anton';src:url('fonts/Anton.woff2') format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:'Bebas Neue';src:url('fonts/BebasNeue.woff2') format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:'Montserrat';src:url('fonts/Montserrat-Black.woff2') format('woff2');font-weight:900;font-display:block}
+@font-face{font-family:'Montserrat';src:url('fonts/Montserrat-Bold.woff2') format('woff2');font-weight:700;font-display:block}
+@font-face{font-family:'Permanent Marker';src:url('fonts/PermanentMarker.woff2') format('woff2');font-weight:400;font-display:block}
+@font-face{font-family:'Noto Serif SC';src:url('fonts/NotoSerifSC-wushu.woff2') format('woff2');font-weight:700;font-display:block}
+
+:root{--bg:#0B0A08;--ink:#F7F3EA;--gold:#E8B01C;--gold2:#FFD45A;--gold3:#B47F0C}
+
+/* shared scene vocabulary */
+.amd-scene{position:absolute;inset:0;overflow:hidden;color:var(--ink);font-family:'Anton',sans-serif}
+.amd-cam{position:absolute;inset:0;transform-origin:50% 50%}
+.amd-glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(232,176,28,.34) 0%,rgba(232,176,28,.10) 40%,rgba(232,176,28,0) 70%)}
+.amd-ghost{position:absolute;font-family:'Noto Serif SC',serif;font-weight:700;color:var(--ink);opacity:.09;line-height:1;white-space:nowrap}
+.amd-anton{font-family:'Anton',sans-serif;font-weight:400;line-height:.98;letter-spacing:.005em;text-transform:uppercase}
+.amd-mont{font-family:'Montserrat',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+.amd-bebas{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.04em;text-transform:uppercase}
+.amd-gold{color:var(--gold)}
+.amd-white{color:var(--ink)}
+.amd-shadow{text-shadow:0 8px 40px rgba(0,0,0,.85),0 2px 6px rgba(0,0,0,.9)}
+.amd-person{position:absolute;display:block;filter:drop-shadow(0 0 34px rgba(232,176,28,.38)) drop-shadow(0 0 2px rgba(255,212,90,.55)) contrast(1.06) saturate(1.06)}
+.amd-brush{position:absolute;display:block}
+.amd-pill{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:var(--bg);font-family:'Anton',sans-serif;text-transform:uppercase;border-radius:14px;padding:6px 34px 10px;box-shadow:0 14px 40px rgba(0,0,0,.6)}
+.amd-icon{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--gold);box-shadow:0 0 0 8px rgba(232,176,28,.18),0 0 60px rgba(232,176,28,.45)}
+.amd-icon svg,.amd-icon img{display:block}
+.amd-line{display:block;white-space:nowrap}
+.amd-mask{display:block;overflow:hidden;padding:0 10px 14px;margin:0 -10px -14px}
