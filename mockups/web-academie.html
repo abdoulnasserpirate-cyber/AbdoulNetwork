@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Concept — Site d'une académie digitale</title>
+<link rel="stylesheet" href="base.css" />
+<style>
+  body {
+    background:
+      radial-gradient(50% 60% at 20% 10%, #c7d2fe, transparent 70%),
+      radial-gradient(40% 50% at 95% 95%, #a5f3fc, transparent 70%),
+      linear-gradient(160deg, #eef2ff, #f8fafc 60%, #ecfeff);
+    color:#0f172a;
+  }
+  .browser { position:absolute; left:80px; top:70px; width:1180px; height:860px; border-radius:18px; background:#fff; overflow:hidden;
+    box-shadow: 0 0 0 1px #0f172a14, 0 50px 100px -30px #1e1b4b55, 0 20px 40px -20px #1e1b4b33; }
+  .bar { height:52px; display:flex; align-items:center; gap:16px; padding:0 18px; background:#f1f5f9; border-bottom:1px solid #e2e8f0; }
+  .dots { display:flex; gap:8px; } .dots i { width:12px; height:12px; border-radius:50%; background:#fca5a5; } .dots i:nth-child(2){background:#fcd34d} .dots i:nth-child(3){background:#86efac}
+  .url { flex:1; max-width:520px; margin:0 auto; height:32px; border-radius:9px; background:#fff; border:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; gap:8px; font:500 13.5px 'Inter'; color:#475569; }
+  .viewport { position:absolute; top:52px; left:0; right:0; bottom:0; overflow:hidden; }
+  .page { animation: scroll 8s cubic-bezier(.65,0,.35,1) infinite; }
+  @keyframes scroll { 0%,12%{ transform:translateY(0);} 45%,70%{ transform:translateY(-520px);} 92%,100%{ transform:translateY(0);} }
+
+  nav { display:flex; align-items:center; justify-content:space-between; padding:22px 48px; }
+  .logo { display:flex; align-items:center; gap:10px; font:700 20px 'Space Grotesk'; letter-spacing:-.02em; }
+  .logo i { width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,#6366f1,#06b6d4); display:grid; place-items:center; color:#fff; font-style:normal; font-size:17px; }
+  nav ul { display:flex; gap:32px; list-style:none; font:500 15px 'Inter'; color:#475569; }
+  .cta { background:#0f172a; color:#fff; padding:12px 20px; border-radius:12px; font:600 14.5px 'Inter'; }
+
+  .hero { display:grid; grid-template-columns: 1.05fr 1fr; gap:40px; padding:30px 48px 0; align-items:center; }
+  .badge { display:inline-flex; align-items:center; gap:8px; padding:7px 13px 7px 7px; border-radius:99px; background:#eef2ff; color:#4338ca; font:600 13.5px 'Inter'; }
+  .badge b { background:#4f46e5; color:#fff; padding:4px 9px; border-radius:99px; font-size:12px; }
+  .hero h1 { font:700 64px/0.98 'Space Grotesk'; letter-spacing:-.045em; margin-top:20px; }
+  .hero h1 span { background:linear-gradient(100deg,#4f46e5,#06b6d4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p { margin-top:20px; font:400 18px/1.5 'Inter'; color:#475569; max-width:440px; }
+  .btns { display:flex; gap:12px; margin-top:28px; }
+  .b1 { background:linear-gradient(135deg,#4f46e5,#0891b2); color:#fff; padding:16px 24px; border-radius:14px; font:600 16px 'Inter'; box-shadow:0 14px 30px -12px #4f46e5; }
+  .b2 { padding:16px 22px; border-radius:14px; font:600 16px 'Inter'; border:1px solid #e2e8f0; display:flex; align-items:center; gap:8px; }
+  .trust { display:flex; gap:24px; margin-top:30px; font:500 14px 'Inter'; color:#64748b; }
+  .trust span { display:flex; align-items:center; gap:7px; }
+  .trust svg { color:#10b981; }
+  .photo { position:relative; height:440px; border-radius:28px; overflow:hidden; }
+  .photo img { width:100%; height:100%; object-fit:cover; }
+  .float { position:absolute; background:#fff; border-radius:16px; padding:12px 14px; box-shadow:0 20px 40px -14px #0f172a40; display:flex; gap:10px; align-items:center; font:600 14px 'Inter'; }
+  .float small { display:block; font:500 12px 'Inter'; color:#64748b; }
+  .float i { width:38px; height:38px; border-radius:11px; display:grid; place-items:center; }
+
+  .courses { padding:70px 48px 40px; }
+  .courses h2 { font:700 38px 'Space Grotesk'; letter-spacing:-.035em; }
+  .courses .row { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:26px; }
+  .c { border:1px solid #e2e8f0; border-radius:22px; overflow:hidden; background:#fff; }
+  .c .th { position:relative; height:170px; overflow:hidden; }
+  .c .th img { width:100%; height:100%; object-fit:cover; }
+  .c .tag { position:absolute; left:12px; top:12px; background:#fff; padding:6px 10px; border-radius:99px; font:600 12px 'Inter'; }
+  .c .bd { padding:18px; }
+  .c h3 { font:700 19px 'Space Grotesk'; letter-spacing:-.02em; }
+  .c .meta { display:flex; gap:14px; margin-top:8px; font:500 13px 'Inter'; color:#64748b; }
+  .c .ft { display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:14px; border-top:1px solid #f1f5f9; }
+  .c .price { font:700 18px 'Inter'; }
+  .c .go { font:600 13.5px 'Inter'; color:#4f46e5; }
+
+  /* vue mobile */
+  .phone { left:1170px; top:250px; transform: scale(.92); transform-origin: top left; animation: fl 8s ease-in-out infinite; }
+  @keyframes fl { 0%,100%{ transform: scale(.92) translateY(0);} 50%{ transform: scale(.92) translateY(-16px);} }
+  .m-nav { display:flex; justify-content:space-between; align-items:center; padding:2px 18px 10px; }
+  .m-nav .logo { font-size:16px; } .m-nav .logo i { width:28px; height:28px; font-size:14px; border-radius:8px; }
+  .m-hero { padding:6px 18px; }
+  .m-hero h1 { font:700 31px/1 'Space Grotesk'; letter-spacing:-.04em; margin-top:12px; }
+  .m-hero h1 span { background:linear-gradient(100deg,#4f46e5,#06b6d4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .m-hero p { font:400 13.5px/1.45 'Inter'; color:#475569; margin-top:10px; }
+  .m-hero .b1 { display:block; text-align:center; margin-top:16px; padding:14px; font-size:14.5px; }
+  .m-photo { margin:16px 18px 0; height:220px; border-radius:20px; overflow:hidden; }
+  .m-photo img { width:100%; height:100%; object-fit:cover; }
+
+  .cursor { position:absolute; z-index:40; left:0; top:0; animation: cur 8s cubic-bezier(.65,0,.35,1) infinite; }
+  @keyframes cur { 0%{ transform:translate(760px,700px);} 10%{ transform:translate(250px,560px);} 14%{ transform:translate(250px,560px) scale(.85);} 16%{ transform:translate(250px,560px) scale(1);} 50%{ transform:translate(520px,640px);} 70%{ transform:translate(880px,770px);} 100%{ transform:translate(760px,700px);} }
+</style>
+</head>
+<body>
+<div class="browser">
+  <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
+    <div class="url"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>academie-digitale.ne</div>
+    <div style="width:60px"></div></div>
+  <div class="viewport"><div class="page">
+    <nav><div class="logo"><i>A</i>Académie Digitale</div>
+      <ul><li>Formations</li><li>Sessions</li><li>Formateurs</li><li>Contact</li></ul>
+      <div class="cta">S'inscrire</div></nav>
+    <section class="hero">
+      <div>
+        <span class="badge"><b>Nouveau</b>Session IA & TikTok à Maradi</span>
+        <h1>Apprends l'IA et le digital, <span>à ton rythme.</span></h1>
+        <p>Des formations pratiques en français, en salle ou en ligne, pour passer de l'idée à l'action.</p>
+        <div class="btns"><div class="b1">Voir les formations</div><div class="b2"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Vidéo de présentation</div></div>
+        <div class="trust">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Attestation</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Groupe WhatsApp</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Cas pratiques</span>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="../public/images/formation-3.webp" alt="" />
+        <div class="float" style="left:18px; bottom:18px"><i style="background:#eef2ff;color:#4f46e5"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></i><div>Prochaine session<small>Samedi · 9h00 · Maradi</small></div></div>
+        <div class="float" style="left:18px; top:18px"><i style="background:#ecfeff;color:#0891b2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></i><div>Places limitées<small>Inscription sur WhatsApp</small></div></div>
+      </div>
+    </section>
+    <section class="courses">
+      <h2>Formations populaires</h2>
+      <div class="row">
+        <div class="c"><div class="th"><img src="../public/images/studio.webp" alt="" style="object-position:50% 30%"/><span class="tag">Débutant</span></div><div class="bd"><h3>L'IA au quotidien</h3><div class="meta"><span>6 modules</span><span>·</span><span>En ligne</span></div><div class="ft"><span class="price">15 000 FCFA</span><span class="go">Découvrir →</span></div></div></div>
+        <div class="c"><div class="th"><img src="../public/images/formation-2.webp" alt="" style="object-position:40% 40%"/><span class="tag">Tous niveaux</span></div><div class="bd"><h3>Créer et monétiser sur TikTok</h3><div class="meta"><span>8 modules</span><span>·</span><span>En salle</span></div><div class="ft"><span class="price">25 000 FCFA</span><span class="go">Découvrir →</span></div></div></div>
+        <div class="c"><div class="th"><img src="../public/images/formation-1.webp" alt="" style="object-position:50% 40%"/><span class="tag">Pratique</span></div><div class="bd"><h3>Montage vidéo sur mobile</h3><div class="meta"><span>5 modules</span><span>·</span><span>Hybride</span></div><div class="ft"><span class="price">20 000 FCFA</span><span class="go">Découvrir →</span></div></div></div>
+      </div>
+    </section>
+    <section style="padding:10px 48px 60px">
+      <div style="border-radius:28px;padding:44px 48px;background:linear-gradient(120deg,#312e81,#4f46e5 45%,#0891b2);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:30px">
+        <div><div style="font:700 40px/1.05 'Space Grotesk';letter-spacing:-.04em">Prêt à passer à l'action ?</div>
+          <div style="margin-top:10px;font:400 17px 'Inter';opacity:.85">Réserve ta place pour la prochaine session en deux minutes.</div></div>
+        <div style="background:#fff;color:#1e1b4b;padding:17px 26px;border-radius:14px;font:700 16px 'Inter';white-space:nowrap">S'inscrire sur WhatsApp</div>
+      </div>
+      <div style="display:flex;justify-content:space-between;margin-top:34px;font:500 14px 'Inter';color:#64748b"><span>© Académie Digitale · Maradi, Niger</span><span>Formations · Sessions · Contact</span></div>
+    </section>
+  </div></div>
+  <svg class="cursor" width="26" height="26" viewBox="0 0 24 24"><path d="M4 2l16 10-7 1.5L9.5 21z" fill="#0f172a" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+</div>
+
+<div class="phone"><div class="screen"><div class="island"></div>
+  <div class="statusbar" data-time="9:41"></div>
+  <div class="m-nav"><div class="logo"><i>A</i>Académie Digitale</div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
+  <div class="m-hero">
+    <span class="badge" style="font-size:11.5px"><b style="font-size:10.5px">Nouveau</b>Session à Maradi</span>
+    <h1>Apprends l'IA et le digital, <span>à ton rythme.</span></h1>
+    <p>Des formations pratiques en français, en salle ou en ligne.</p>
+    <div class="b1">Voir les formations</div>
+  </div>
+  <div class="m-photo"><img src="../public/images/formation-3.webp" alt="" /></div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

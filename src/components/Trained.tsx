@@ -8,7 +8,7 @@ import { FadeIn } from './FadeIn'
 import { Magnetic } from './Magnetic'
 
 const photos = [
-  { src: '/images/formation-1.webp', alt: 'Abdoul Nasser animant une formation sur ChatGPT et l’art du prompt' },
+  { src: '/images/formation-3.webp', alt: 'Abdoul Nasser devant une salle comble, formation « Les clés de la réussite dans le digital »' },
   { src: '/images/formation-2.webp', alt: 'Abdoul Nasser devant des participants en formation' },
   { src: '/images/studio.webp', alt: 'Abdoul Nasser en studio, face au micro' },
 ]
@@ -31,7 +31,7 @@ export function Trained() {
 
       {/* Photos de formation flottantes (desktop) */}
       <div className="pointer-events-none absolute inset-0 -z-10 hidden lg:block">
-        <motion.figure style={{ y: y1 }} className="absolute left-[3%] top-[14%] w-[22vw] max-w-[340px] -rotate-6">
+        <motion.figure style={{ y: y1 }} className="absolute left-[2%] top-[12%] w-[25vw] max-w-[380px] -rotate-6">
           <Photo {...photos[0]} />
         </motion.figure>
         <motion.figure style={{ y: y2 }} className="absolute bottom-[10%] right-[3%] w-[24vw] max-w-[360px] rotate-[5deg]">

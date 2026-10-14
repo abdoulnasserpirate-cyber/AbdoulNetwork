@@ -77,6 +77,20 @@ function Tile({ service, active, canHover, onActivate, onDeactivate, onToggle }:
         if (!e.currentTarget.contains(e.relatedTarget as Node | null)) onDeactivate()
       }}
     >
+      {/* Visuel de fond */}
+      <motion.img
+        src={service.image}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        initial={false}
+        animate={{ opacity: active ? 0.75 : 0.42, scale: active ? 1.06 : 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg2 via-bg2/70 to-bg2/10" />
+
       {/* Illumination */}
       <motion.div
         aria-hidden="true"
@@ -95,18 +109,6 @@ function Tile({ service, active, canHover, onActivate, onDeactivate, onToggle }:
         initial={false}
         animate={{ opacity: active ? 1 : 0 }}
       />
-
-      {/* Icône géante décorative */}
-      {big && (
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-10 -right-10 text-white/[0.05]"
-          animate={ambient ? { rotate: 360 } : undefined}
-          transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-        >
-          <Icon strokeWidth={0.6} className="h-64 w-64 md:h-80 md:w-80" />
-        </motion.div>
-      )}
 
       {/* Contenu de base */}
       <div className="pointer-events-none relative flex h-full flex-col justify-between p-5 sm:p-6">

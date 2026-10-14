@@ -52,6 +52,22 @@ Pour créer un aperçu muet léger à partir d'une vidéo :
 ffmpeg -ss 0 -t 10 -i video.mp4 -an -vf scale=640:-2 -c:v libx264 -crf 30 -movflags +faststart preview.mp4
 ```
 
+## Projets « Concept » et maquettes
+
+Les projets marqués `concept: true` sont des démonstrations réalisées par Abdoul Network
+(sans client réel). Un badge « Concept » s'affiche sur la carte et dans la modale.
+
+Leurs visuels viennent du dossier `mockups/` : de vraies pages HTML/CSS (app, assistant IA,
+site, montage, TikTok) que tu peux ouvrir, modifier et reproduire pour un client.
+Pour régénérer les images (`public/images/concept-*.webp`) et les aperçus animés
+(`public/videos/concept-*.mp4`) — Playwright et ffmpeg nécessaires :
+
+```bash
+node mockups/render.mjs                    # tout
+node mockups/render.mjs app-boutiko        # une maquette
+node mockups/render.mjs app-boutiko --cover  # image seulement
+```
+
 ## Déployer sur Netlify
 
 1. Pousse le dépôt sur GitHub.

@@ -10,7 +10,7 @@ export const contact = {
   /** Numéro WhatsApp au format international, sans + ni espaces. */
   whatsapp: '22796669998',
   /** Laisse vide pour masquer le lien e-mail. */
-  email: '',
+  email: 'mr.nasser.scraper@gmail.com',
   /** Photo du Hero. Si le fichier est absent, un cadre « photo à ajouter » s'affiche. */
   photo: '/images/profile.webp',
   /** Seuls les réseaux avec une URL sont affichés dans le footer. */

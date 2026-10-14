@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Concept — Montage d'un Reel / TikTok</title>
+<link rel="stylesheet" href="base.css" />
+<style>
+  body { background: radial-gradient(60% 60% at 50% 0%, #8b5cf633, transparent 70%), #05070c; color:#e5e7eb; }
+  .win { position:absolute; left:40px; top:40px; width:1520px; height:920px; border-radius:16px; background:#0e1117; overflow:hidden;
+    box-shadow:0 0 0 1px #ffffff14, 0 50px 100px -30px #000; display:grid; grid-template-rows: 50px 1fr 330px; }
+  .top { display:flex; align-items:center; gap:18px; padding:0 18px; background:#12151d; border-bottom:1px solid #1f2430; }
+  .dots { display:flex; gap:8px; } .dots i { width:12px; height:12px; border-radius:50%; background:#ff5f57; } .dots i:nth-child(2){background:#febc2e} .dots i:nth-child(3){background:#28c840}
+  .file { font:600 14px 'Inter'; color:#cbd5e1; }
+  .file small { color:#64748b; font-weight:500; margin-left:6px; }
+  .tabs { margin:0 auto; display:flex; gap:4px; background:#0b0d13; padding:4px; border-radius:10px; }
+  .tabs span { padding:7px 14px; border-radius:7px; font:500 13px 'Inter'; color:#94a3b8; }
+  .tabs span.on { background:#1f2533; color:#fff; }
+  .export { background:linear-gradient(135deg,#8b5cf6,#22d3ee); color:#05070c; font:700 13.5px 'Inter'; padding:9px 16px; border-radius:9px; display:flex; gap:7px; align-items:center; }
+
+  .mid { display:grid; grid-template-columns: 300px 1fr 310px; min-height:0; }
+  .panel { background:#10131a; padding:16px; border-right:1px solid #1f2430; }
+  .panel.r { border-right:0; border-left:1px solid #1f2430; }
+  .ph { display:flex; justify-content:space-between; align-items:center; font:600 13px 'Inter'; color:#cbd5e1; margin-bottom:12px; }
+  .ph small { color:#64748b; font-weight:500; }
+  .media { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .media div { position:relative; height:92px; border-radius:9px; overflow:hidden; border:1px solid #ffffff12; }
+  .media div.sel { outline:2px solid #8b5cf6; outline-offset:1px; }
+  .media img { width:100%; height:100%; object-fit:cover; }
+  .media b { position:absolute; right:5px; bottom:5px; font:600 10.5px 'Inter'; background:#000a; padding:2px 5px; border-radius:4px; color:#fff; }
+  .media .au { display:grid; place-items:center; background:linear-gradient(135deg,#1e293b,#0f172a); color:#22d3ee; }
+
+  .viewer { display:flex; flex-direction:column; align-items:center; justify-content:center; background:#090b10; gap:12px; }
+  .frame { position:relative; width:250px; height:444px; border-radius:12px; overflow:hidden; background:#000; box-shadow:0 0 0 1px #ffffff1a; }
+  .frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; }
+  .i1 { animation: s1 8s linear infinite; object-position:60% 50%; }
+  .i2 { animation: s2 8s linear infinite; object-position:48% 50%; }
+  .i3 { animation: s3 8s linear infinite; object-position:50% 20%; }
+  .i4 { animation: s4 8s linear infinite; object-position:40% 50%; }
+  @keyframes s1 { 0%{opacity:1; transform:scale(1.02);} 24.9%{opacity:1; transform:scale(1.14);} 25%,100%{opacity:0;} }
+  @keyframes s2 { 0%,24.9%{opacity:0;} 25%{opacity:1; transform:scale(1.18);} 49.9%{opacity:1; transform:scale(1.04);} 50%,100%{opacity:0;} }
+  @keyframes s3 { 0%,49.9%{opacity:0;} 50%{opacity:1; transform:scale(1.02);} 74.9%{opacity:1; transform:scale(1.12);} 75%,100%{opacity:0;} }
+  @keyframes s4 { 0%,74.9%{opacity:0;} 75%{opacity:1; transform:scale(1.15);} 99.9%{opacity:1; transform:scale(1.03);} 100%{opacity:0;} }
+  .shade { position:absolute; inset:0; background:linear-gradient(180deg,#0000 45%,#000a); }
+  .cap { position:absolute; left:12px; right:12px; top:58%; text-align:center; font:700 23px/1.1 'Space Grotesk'; letter-spacing:-.02em; color:#fff; text-transform:uppercase;
+    text-shadow: 0 3px 0 #000, 0 0 18px #0009; opacity:0; }
+  .cap em { font-style:normal; color:#facc15; }
+  .c1 { animation: k1 8s infinite; } .c2 { animation: k2 8s infinite; } .c3 { animation: k3 8s infinite; } .c4 { animation: k4 8s infinite; }
+  @keyframes k1 { 0%{opacity:0; transform:scale(.7);} 2%{opacity:1; transform:scale(1.08);} 4%,23%{opacity:1; transform:scale(1);} 24.9%,100%{opacity:0;} }
+  @keyframes k2 { 0%,25%{opacity:0; transform:scale(.7);} 27%{opacity:1; transform:scale(1.08);} 29%,48%{opacity:1; transform:scale(1);} 49.9%,100%{opacity:0;} }
+  @keyframes k3 { 0%,50%{opacity:0; transform:scale(.7);} 52%{opacity:1; transform:scale(1.08);} 54%,73%{opacity:1; transform:scale(1);} 74.9%,100%{opacity:0;} }
+  @keyframes k4 { 0%,75%{opacity:0; transform:scale(.7);} 77%{opacity:1; transform:scale(1.08);} 79%,98%{opacity:1; transform:scale(1);} 100%{opacity:0;} }
+  .safe { position:absolute; inset:14px; border:1px dashed #ffffff30; border-radius:6px; }
+  .rec { position:absolute; left:12px; top:12px; font:600 11px 'Inter'; color:#fff; background:#000a; padding:4px 7px; border-radius:5px; }
+  .controls { display:flex; align-items:center; gap:18px; color:#cbd5e1; font:600 13px 'Inter'; }
+  .controls .tc { font-variant-numeric:tabular-nums; color:#fff; background:#151924; padding:6px 10px; border-radius:7px; }
+  .controls .play { width:38px; height:38px; border-radius:50%; background:#fff; color:#000; display:grid; place-items:center; }
+
+  .fx { display:flex; flex-direction:column; gap:10px; }
+  .fx > div { background:#151924; border:1px solid #ffffff0d; border-radius:11px; padding:11px 12px; }
+  .fx .row { display:flex; justify-content:space-between; align-items:center; font:600 13px 'Inter'; color:#e2e8f0; }
+  .tog { width:34px; height:20px; border-radius:99px; background:#8b5cf6; position:relative; }
+  .tog::after { content:''; position:absolute; right:3px; top:3px; width:14px; height:14px; border-radius:50%; background:#fff; }
+  .tog.off { background:#334155; } .tog.off::after { right:auto; left:3px; }
+  .sl { margin-top:10px; height:4px; border-radius:4px; background:#273041; position:relative; }
+  .sl i { position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:linear-gradient(90deg,#8b5cf6,#22d3ee); }
+  .sl b { position:absolute; top:-5px; width:14px; height:14px; border-radius:50%; background:#fff; margin-left:-7px; }
+  .fx small { display:block; margin-top:6px; font:500 11.5px 'Inter'; color:#64748b; }
+  .ai { font:700 10px 'Inter'; color:#c4b5fd; background:#8b5cf62b; padding:2px 6px; border-radius:5px; margin-left:6px; }
+
+  .tl { background:#0b0d13; border-top:1px solid #1f2430; position:relative; padding:0 0 0 120px; }
+  .ruler { height:30px; position:relative; border-bottom:1px solid #1f2430; }
+  .ruler span { position:absolute; top:8px; font:500 10.5px 'Inter'; color:#64748b; transform:translateX(-50%); }
+  .ruler i { position:absolute; bottom:0; width:1px; height:6px; background:#334155; }
+  .track { height:54px; position:relative; border-bottom:1px solid #151924; }
+  .lab { position:absolute; left:-120px; top:0; width:120px; height:100%; display:flex; align-items:center; gap:8px; padding-left:16px; font:600 12px 'Inter'; color:#94a3b8; background:#0e1117; border-right:1px solid #1f2430; }
+  .lab i { width:8px; height:8px; border-radius:2px; }
+  .clip { position:absolute; top:6px; bottom:6px; border-radius:7px; overflow:hidden; }
+  .vclip { background-size:auto 100%; background-repeat:repeat-x; box-shadow: inset 0 0 0 1.5px #60a5fa; }
+  .vclip b { position:absolute; left:6px; top:4px; font:600 10.5px 'Inter'; color:#fff; background:#0008; padding:1px 5px; border-radius:4px; }
+  .tclip { background:#7c3aed; box-shadow: inset 0 0 0 1.5px #a78bfa; display:flex; align-items:center; padding-left:8px; font:600 11.5px 'Inter'; color:#fff; white-space:nowrap; }
+  .aclip { display:flex; align-items:center; gap:2px; padding:0 6px; }
+  .aclip i { flex:1; border-radius:2px; }
+  .voice { background:#052e1f; box-shadow: inset 0 0 0 1.5px #10b981; } .voice i { background:#34d399; }
+  .music { background:#082f49; box-shadow: inset 0 0 0 1.5px #0ea5e9; } .music i { background:#38bdf8; }
+  .sfx { background:#3b0764; box-shadow: inset 0 0 0 1.5px #c084fc; } .sfx i { background:#e9d5ff; }
+  .playhead { position:absolute; top:0; bottom:0; left:120px; width:2px; background:#ef4444; z-index:5; animation: ph 8s linear infinite; }
+  .playhead::before { content:''; position:absolute; top:0; left:-7px; width:16px; height:14px; background:#ef4444; clip-path: polygon(0 0,100% 0,100% 60%,50% 100%,0 60%); }
+  @keyframes ph { from { transform:translateX(0);} to { transform:translateX(1400px);} }
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="top">
+    <div class="dots"><i></i><i></i><i></i></div>
+    <div class="file">Reel_3-outils-IA <small>· 1080 × 1920 · 30 i/s</small></div>
+    <div class="tabs"><span class="on">Montage</span><span>Couleur</span><span>Audio</span><span>Sous-titres</span></div>
+    <div class="export"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Exporter</div>
+  </div>
+
+  <div class="mid">
+    <div class="panel">
+      <div class="ph">Médias <small>12 éléments</small></div>
+      <div class="media">
+        <div class="sel"><img src="../public/images/studio.webp" alt=""/><b>00:06</b></div>
+        <div><img src="../public/images/formation-3.webp" alt=""/><b>00:09</b></div>
+        <div><img src="../public/images/profile.webp" alt="" style="object-position:50% 20%"/><b>00:05</b></div>
+        <div><img src="../public/images/formation-2.webp" alt=""/><b>00:08</b></div>
+        <div><img src="../public/images/formation-1.webp" alt=""/><b>00:04</b></div>
+        <div class="au"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><b>00:28</b></div>
+      </div>
+      <div class="ph" style="margin-top:18px">Modèles <small>Tout voir</small></div>
+      <div class="media">
+        <div style="background:linear-gradient(135deg,#7c3aed,#db2777);display:grid;place-items:center;font:700 15px 'Space Grotesk';color:#fff">TITRE POP</div>
+        <div style="background:#111;display:grid;place-items:center;font:700 15px 'Space Grotesk';color:#facc15;text-shadow:0 2px 0 #000">KARAOKÉ</div>
+      </div>
+    </div>
+
+    <div class="viewer">
+      <div class="frame">
+        <img class="i1" src="../public/images/studio.webp" alt=""/>
+        <img class="i2" src="../public/images/formation-3.webp" alt=""/>
+        <img class="i3" src="../public/images/profile.webp" alt=""/>
+        <img class="i4" src="../public/images/formation-2.webp" alt=""/>
+        <div class="shade"></div>
+        <div class="cap c1"><em>3 outils IA</em><br/>que personne<br/>ne t'a montrés</div>
+        <div class="cap c2">Le premier<br/>écrit tes posts<br/><em>à ta place</em></div>
+        <div class="cap c3">Le deuxième<br/><em>monte tes vidéos</em></div>
+        <div class="cap c4"><em>Abonne-toi</em><br/>pour la suite</div>
+        <div class="safe"></div>
+        <div class="rec">9:16</div>
+      </div>
+      <div class="controls">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM9.5 12 20 5v14z"/></svg>
+        <span class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM14.5 12 4 19V5z"/></svg>
+        <span class="tc">00:00:07:12 / 00:00:28:00</span>
+      </div>
+    </div>
+
+    <div class="panel r">
+      <div class="ph">Effets <small>Clip sélectionné</small></div>
+      <div class="fx">
+        <div><div class="row"><span>Sous-titres auto<span class="ai">IA</span></span><span class="tog"></span></div><small>Style « Karaoké » · mots surlignés</small></div>
+        <div><div class="row"><span>Zoom dynamique</span><span class="tog"></span></div><div class="sl"><i style="width:62%"></i><b style="left:62%"></b></div></div>
+        <div><div class="row"><span>Réduction du bruit<span class="ai">IA</span></span><span class="tog"></span></div><div class="sl"><i style="width:40%"></i><b style="left:40%"></b></div></div>
+        <div><div class="row"><span>Étalonnage ciné</span><span class="tog"></span></div><div class="sl"><i style="width:75%"></i><b style="left:75%"></b></div></div>
+        <div><div class="row"><span>Transition glitch</span><span class="tog off"></span></div><small>Entre les clips 2 et 3</small></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl">
+    <div class="ruler" id="ruler"></div>
+    <div class="track"><span class="lab"><i style="background:#a78bfa"></i>Titres</span>
+      <div class="clip tclip" style="left:0;width:340px">3 OUTILS IA</div>
+      <div class="clip tclip" style="left:352px;width:338px">LE PREMIER…</div>
+      <div class="clip tclip" style="left:702px;width:338px">LE DEUXIÈME…</div>
+      <div class="clip tclip" style="left:1052px;width:340px">ABONNE-TOI</div>
+    </div>
+    <div class="track"><span class="lab"><i style="background:#60a5fa"></i>Vidéo</span>
+      <div class="clip vclip" style="left:0;width:346px;background-image:url(../public/images/studio.webp)"><b>studio.mp4</b></div>
+      <div class="clip vclip" style="left:350px;width:346px;background-image:url(../public/images/formation-3.webp)"><b>formation.mp4</b></div>
+      <div class="clip vclip" style="left:700px;width:346px;background-image:url(../public/images/profile.webp)"><b>portrait.mp4</b></div>
+      <div class="clip vclip" style="left:1050px;width:350px;background-image:url(../public/images/formation-2.webp)"><b>atelier.mp4</b></div>
+    </div>
+    <div class="track"><span class="lab"><i style="background:#34d399"></i>Voix</span>
+      <div class="clip aclip voice" data-bars="150" data-seed="3" style="left:0;width:1400px"></div>
+    </div>
+    <div class="track"><span class="lab"><i style="background:#38bdf8"></i>Musique</span>
+      <div class="clip aclip music" data-bars="150" data-seed="9" data-soft="1" style="left:0;width:1400px"></div>
+    </div>
+    <div class="track"><span class="lab"><i style="background:#e9d5ff"></i>Effets</span>
+      <div class="clip aclip sfx" data-bars="8" data-seed="5" style="left:330px;width:60px"></div>
+      <div class="clip aclip sfx" data-bars="8" data-seed="6" style="left:680px;width:60px"></div>
+      <div class="clip aclip sfx" data-bars="8" data-seed="7" style="left:1030px;width:60px"></div>
+    </div>
+    <div class="playhead"></div>
+  </div>
+</div>
+<script>
+  // Graduations et formes d'onde (pseudo-aléatoire déterministe).
+  const ruler = document.getElementById('ruler')
+  for (let s = 0; s <= 28; s++) {
+    const x = (s / 28) * 1400
+    ruler.insertAdjacentHTML('beforeend', `<i style="left:${x}px;height:${s % 2 ? 4 : 8}px"></i>` + (s % 4 === 0 ? `<span style="left:${x}px">00:${String(s).padStart(2,'0')}</span>` : ''))
+  }
+  document.querySelectorAll('[data-bars]').forEach((el) => {
+    let seed = Number(el.dataset.seed)
+    const rnd = () => ((seed = (seed * 9301 + 49297) % 233280) / 233280)
+    const n = Number(el.dataset.bars)
+    for (let i = 0; i < n; i++) {
+      const env = el.dataset.soft ? 0.35 + 0.25 * Math.sin(i / 9) : (Math.sin(i / 3.2) > -0.6 ? 1 : 0.15)
+      const h = Math.max(8, Math.round((0.25 + rnd() * 0.75) * env * 100))
+      el.insertAdjacentHTML('beforeend', `<i style="height:${h}%"></i>`)
+    }
+  })
+</script>
+</body>
+</html>

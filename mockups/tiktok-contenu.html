@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Concept — Série de vidéos TikTok</title>
+<link rel="stylesheet" href="base.css" />
+<style>
+  body {
+    background:
+      radial-gradient(40% 55% at 22% 40%, #fe2c5540, transparent 70%),
+      radial-gradient(40% 55% at 80% 60%, #25f4ee30, transparent 70%),
+      #050507;
+    color:#fff;
+  }
+  .title { position:absolute; left:72px; top:70px; }
+  .title small { display:inline-flex; gap:8px; align-items:center; font:600 14px 'Inter'; color:#fda4af; background:#fe2c551f; border:1px solid #fe2c554d; padding:8px 14px; border-radius:99px; }
+  .title h1 { margin-top:18px; font:700 58px/1 'Space Grotesk'; letter-spacing:-.045em; }
+  .title h1 span { background:linear-gradient(100deg,#fe2c55,#ff7a90 40%,#25f4ee); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .steps { position:absolute; left:72px; bottom:76px; display:flex; flex-direction:column; gap:12px; }
+  .steps div { display:flex; gap:12px; align-items:center; font:500 17px 'Inter'; color:#e5e7eb; }
+  .steps b { width:30px; height:30px; border-radius:9px; display:grid; place-items:center; background:#ffffff12; border:1px solid #ffffff1f; font:700 14px 'Inter'; color:#25f4ee; }
+
+  .p1 { left: 640px; top: 230px; transform: rotate(-6deg); animation: a1 8s ease-in-out infinite; }
+  .p2 { left: 935px; top: 140px; z-index:5; animation: a2 8s ease-in-out infinite; }
+  .p3 { left: 1225px; top: 220px; transform: rotate(6deg); animation: a3 8s ease-in-out infinite; }
+  @keyframes a1 { 0%,100%{ transform:translateY(0) rotate(-6deg);} 50%{ transform:translateY(-14px) rotate(-5deg);} }
+  @keyframes a2 { 0%,100%{ transform:translateY(-6px);} 50%{ transform:translateY(12px);} }
+  @keyframes a3 { 0%,100%{ transform:translateY(-12px) rotate(6deg);} 50%{ transform:translateY(4px) rotate(5deg);} }
+  .screen { background:#000; color:#fff; }
+  .bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation: kb 8s ease-in-out infinite; }
+  @keyframes kb { 0%,100%{ transform:scale(1.05);} 50%{ transform:scale(1.15);} }
+  .sh { position:absolute; inset:0; background:linear-gradient(180deg,#0008 0%,#0000 22%,#0000 50%,#000c 100%); }
+  .top-tabs { position:absolute; top:58px; left:0; right:0; display:flex; justify-content:center; gap:18px; font:600 15px 'Inter'; color:#ffffffa6; z-index:5; }
+  .top-tabs b { color:#fff; position:relative; }
+  .top-tabs b::after { content:''; position:absolute; left:30%; right:30%; bottom:-7px; height:3px; border-radius:2px; background:#fff; }
+  .rail { position:absolute; right:10px; bottom:120px; display:flex; flex-direction:column; align-items:center; gap:18px; z-index:5; }
+  .rail .av { width:46px; height:46px; border-radius:50%; border:2px solid #fff; overflow:hidden; position:relative; }
+  .rail .av img { width:100%; height:100%; object-fit:cover; object-position:50% 20%; }
+  .rail .plus { position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); width:20px; height:20px; border-radius:50%; background:#fe2c55; display:grid; place-items:center; font:700 15px/1 'Inter'; }
+  .rail span { display:flex; flex-direction:column; align-items:center; gap:3px; font:600 11px 'Inter'; text-shadow:0 1px 3px #000; }
+  .rail svg { filter: drop-shadow(0 1px 2px #0008); }
+  .heart { animation: hb 8s infinite; }
+  @keyframes hb { 0%,40%,100%{ transform:scale(1); color:#fff;} 44%{ transform:scale(1.35); color:#fe2c55;} 48%,90%{ transform:scale(1); color:#fe2c55;} }
+  .disc { width:42px; height:42px; border-radius:50%; background:radial-gradient(#333 30%, #111 32%, #222 60%); border:7px solid #1a1a1a; animation: spin 4s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg);} }
+  .meta { position:absolute; left:14px; right:70px; bottom:34px; z-index:5; font:400 13px/1.35 'Inter'; text-shadow:0 1px 3px #000; }
+  .meta b { font:700 14.5px 'Inter'; display:block; margin-bottom:5px; }
+  .meta .tags { color:#fff; font-weight:600; }
+  .meta .snd { margin-top:8px; display:flex; gap:6px; align-items:center; font-size:12.5px; }
+  .prog { position:absolute; left:0; right:0; bottom:16px; height:3px; background:#ffffff33; z-index:5; }
+  .prog i { position:absolute; left:0; top:0; bottom:0; width:100%; background:#fff; transform-origin:left; animation: pg 8s linear infinite; }
+  @keyframes pg { from { transform:scaleX(0);} to { transform:scaleX(1);} }
+  .cap { position:absolute; left:16px; right:62px; top:42%; z-index:6; text-align:center; font:700 27px/1.06 'Space Grotesk'; letter-spacing:-.02em; text-transform:uppercase; }
+  .cap span { display:inline-block; padding:2px 6px; margin:2px 0; border-radius:6px; background:#fff; color:#000; animation: w 8s infinite; opacity:0; }
+  .cap span.k { background:#fe2c55; color:#fff; }
+  .cap span.c { background:#25f4ee; color:#000; }
+  @keyframes w { 0%{ opacity:0; transform:scale(.6) rotate(-4deg);} 3%{ opacity:1; transform:scale(1.1);} 5%,92%{ opacity:1; transform:scale(1);} 97%,100%{ opacity:0; transform:scale(.9);} }
+</style>
+</head>
+<body>
+<div class="title">
+  <small>♪ Stratégie de contenu TikTok</small>
+  <h1>Des vidéos courtes<br/><span>qui arrêtent le scroll.</span></h1>
+</div>
+<div class="steps">
+  <div><b>1</b>Une accroche forte dans les 2 premières secondes</div>
+  <div><b>2</b>Sous-titres dynamiques, rythme rapide</div>
+  <div><b>3</b>Un appel à l'action clair</div>
+</div>
+
+<div class="phone p1"><div class="screen"><div class="island"></div>
+  <img class="bg" src="../public/images/profile.webp" alt="" style="object-position:50% 25%"/>
+  <div class="sh"></div>
+  <div class="statusbar" data-time="20:14"></div>
+  <div class="top-tabs"><span>Abonnements</span><b>Pour toi</b></div>
+  <div class="cap"><span style="animation-delay:-7.6s">3 erreurs</span><br/><span class="k" style="animation-delay:-7.3s">qui tuent</span><br/><span style="animation-delay:-7s">tes vues</span></div>
+  <div class="rail">
+    <div class="av"><img src="../public/images/profile.webp" alt=""/><i class="plus">+</i></div>
+    <span><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.4 4.5 7 4.5c2 0 3.5 1 5 2.8 1.5-1.8 3-2.8 5-2.8 3.6 0 6 3.5 4.5 7.2C19.5 16.4 12 21 12 21Z"/></svg>J'aime</span>
+    <span><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 21.5l4-2c.9.3 2 .5 3 .5 5.5 0 10-3.8 10-8.5S17.5 3 12 3Z"/></svg>Commenter</span>
+    <span><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M14 4v4C7 9 4 13 3 20c2.5-3.5 6-5 11-5v4l7-7.5z"/></svg>Partager</span>
+    <div class="disc"></div>
+  </div>
+  <div class="meta"><b>@abdoulnetwork</b>Arrête de faire ces 3 erreurs si tu veux percer sur TikTok <span class="tags">#tiktok #astuces #niger</span>
+    <div class="snd">♪ son original · Abdoul Network</div></div>
+  <div class="prog"><i style="animation-delay:-3s"></i></div>
+</div></div>
+
+<div class="phone p2"><div class="screen"><div class="island"></div>
+  <img class="bg" src="../public/images/studio.webp" alt="" style="object-position:58% 50%"/>
+  <div class="sh"></div>
+  <div class="statusbar" data-time="20:14"></div>
+  <div class="top-tabs"><span>Abonnements</span><b>Pour toi</b></div>
+  <div class="cap"><span>L'IA peut</span><br/><span class="c" style="animation-delay:.3s">écrire ton CV</span><br/><span style="animation-delay:.6s">en 30 secondes</span></div>
+  <div class="rail">
+    <div class="av"><img src="../public/images/profile.webp" alt=""/><i class="plus">+</i></div>
+    <span class="heart"><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.4 4.5 7 4.5c2 0 3.5 1 5 2.8 1.5-1.8 3-2.8 5-2.8 3.6 0 6 3.5 4.5 7.2C19.5 16.4 12 21 12 21Z"/></svg>J'aime</span>
+    <span><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 21.5l4-2c.9.3 2 .5 3 .5 5.5 0 10-3.8 10-8.5S17.5 3 12 3Z"/></svg>Commenter</span>
+    <span><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M14 4v4C7 9 4 13 3 20c2.5-3.5 6-5 11-5v4l7-7.5z"/></svg>Partager</span>
+    <div class="disc"></div>
+  </div>
+  <div class="meta"><b>@abdoulnetwork</b>Je te montre comment, étape par étape <span class="tags">#ia #chatgpt #emploi</span>
+    <div class="snd">♪ son original · Abdoul Network</div></div>
+  <div class="prog"><i></i></div>
+</div></div>
+
+<div class="phone p3"><div class="screen"><div class="island"></div>
+  <img class="bg" src="../public/images/formation-3.webp" alt="" style="object-position:48% 50%"/>
+  <div class="sh"></div>
+  <div class="statusbar" data-time="20:14"></div>
+  <div class="top-tabs"><span>Abonnements</span><b>Pour toi</b></div>
+  <div class="cap"><span style="animation-delay:-6.6s">Une journée</span><br/><span class="k" style="animation-delay:-6.3s">de formation</span><br/><span style="animation-delay:-6s">à Maradi</span></div>
+  <div class="rail">
+    <div class="av"><img src="../public/images/profile.webp" alt=""/><i class="plus">+</i></div>
+    <span><svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.4 4.5 7 4.5c2 0 3.5 1 5 2.8 1.5-1.8 3-2.8 5-2.8 3.6 0 6 3.5 4.5 7.2C19.5 16.4 12 21 12 21Z"/></svg>J'aime</span>
+    <span><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.8 2 11.5c0 2.6 1.4 4.9 3.6 6.5L5 21.5l4-2c.9.3 2 .5 3 .5 5.5 0 10-3.8 10-8.5S17.5 3 12 3Z"/></svg>Commenter</span>
+    <span><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M14 4v4C7 9 4 13 3 20c2.5-3.5 6-5 11-5v4l7-7.5z"/></svg>Partager</span>
+    <div class="disc"></div>
+  </div>
+  <div class="meta"><b>@abdoulnetwork</b>Les coulisses d'une formation sur le digital <span class="tags">#formation #digital</span>
+    <div class="snd">♪ son original · Abdoul Network</div></div>
+  <div class="prog"><i style="animation-delay:-5.5s"></i></div>
+</div></div>
+<script src="kit.js"></script>
+</body>
+</html>

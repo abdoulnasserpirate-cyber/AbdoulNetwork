@@ -1,0 +1,42 @@
+/* Base commune des maquettes (1600×1000). Rendu en images/vidéos via mockups/render.mjs. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=block');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1600px; height: 1000px; overflow: hidden; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+.display { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.03em; }
+img { display: block; }
+
+/* Téléphone */
+.phone {
+  position: absolute;
+  width: 340px; height: 706px;
+  border-radius: 54px;
+  background: #0d0e12;
+  padding: 11px;
+  box-shadow:
+    0 0 0 1.5px #3a3d46,
+    0 0 0 3px #15161b,
+    0 60px 120px -30px rgba(0,0,0,.75),
+    0 30px 60px -30px rgba(0,0,0,.6);
+}
+.phone .screen {
+  position: relative; width: 100%; height: 100%;
+  border-radius: 44px; overflow: hidden; background: #fff;
+}
+.phone .island {
+  position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
+  width: 104px; height: 30px; border-radius: 20px; background: #000; z-index: 20;
+}
+.statusbar {
+  position: relative; z-index: 10;
+  height: 52px; padding: 18px 28px 0 30px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  font: 600 15px/1 'Inter', sans-serif;
+}
+.statusbar .icons { display: flex; gap: 6px; align-items: center; }
+.statusbar svg { display: block; }

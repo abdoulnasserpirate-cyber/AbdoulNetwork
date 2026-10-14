@@ -10,7 +10,7 @@ import { RevealText } from './RevealText'
 import { WhatsAppIcon } from './WhatsAppIcon'
 
 type Filter = 'all' | Category
-const order: Category[] = ['motion', 'video', 'web', 'apps', 'ia']
+const order: Category[] = ['motion', 'video', 'web', 'apps', 'ia', 'tiktok']
 const ease = [0.22, 1, 0.36, 1] as const
 
 export function Work() {
@@ -79,7 +79,8 @@ export function Work() {
   )
 }
 
-const spans = ['md:col-span-7', 'md:col-span-5 md:mt-24', 'md:col-span-5', 'md:col-span-7 md:-mt-24']
+// Grille asymétrique : 7/5 puis 5/7, la colonne étroite décalée vers le bas.
+const spans = ['md:col-span-7', 'md:col-span-5 md:mt-20', 'md:col-span-5 md:mt-20', 'md:col-span-7']
 
 function Card({ project, index, onOpen, hidden }: { project: Project; index: number; onOpen: () => void; hidden: boolean }) {
   const ref = useRef<HTMLLIElement>(null)
@@ -164,6 +165,7 @@ function Card({ project, index, onOpen, hidden }: { project: Project; index: num
                 <Play className="h-4 w-4 fill-current" />
               </span>
             )}
+            {project.concept && <ConceptBadge className="absolute right-4 top-4" />}
           </motion.div>
         </button>
       </motion.div>
@@ -226,11 +228,27 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
               <X className="h-5 w-5" />
             </motion.button>
           </div>
-          <motion.div layoutId={`media-${project.id}`} className="relative aspect-video overflow-hidden rounded-3xl bg-black ring-1 ring-white/10" transition={{ duration: 0.6, ease }}>
+          <motion.div
+            layoutId={`media-${project.id}`}
+            className={`relative overflow-hidden rounded-3xl bg-black ring-1 ring-white/10 ${
+              project.image && !project.video ? 'mx-auto aspect-square w-full max-w-[min(100%,68vh)]' : 'aspect-video'
+            }`}
+            transition={{ duration: 0.6, ease }}
+          >
             {project.video ? (
-              <video src={project.video} poster={project.cover} controls autoPlay playsInline preload="metadata" className="h-full w-full object-contain" />
+              <video
+                src={project.video}
+                poster={project.cover}
+                controls
+                autoPlay
+                playsInline
+                loop={project.concept}
+                muted={project.concept}
+                preload="metadata"
+                className="h-full w-full object-contain"
+              />
             ) : (
-              <img src={project.cover} alt="" className="h-full w-full object-cover" />
+              <img src={project.image ?? project.cover} alt={project.title} className="h-full w-full object-contain" />
             )}
           </motion.div>
 
@@ -241,6 +259,7 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
             className="mt-6 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
           >
             <div className="max-w-2xl">
+              {project.concept && <ConceptBadge className="mb-3" />}
               <h3 id={`modal-${project.id}`} className="display text-2xl leading-tight sm:text-4xl">
                 {project.title}
               </h3>
@@ -258,12 +277,12 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
                 </a>
               )}
               <a
-                href={waLink(messages.project(project.title))}
+                href={waLink(project.cta?.message ?? messages.project(project.title))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-medium transition-colors hover:bg-white/5"
               >
-                <WhatsAppIcon className="h-4 w-4" /> Je veux pareil
+                <WhatsAppIcon className="h-4 w-4" /> {project.cta?.label ?? 'Je veux pareil'}
               </a>
             </div>
           </motion.div>
@@ -271,5 +290,17 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
         </div>
       </div>
     </div>
+  )
+}
+
+/** Projet de démonstration : maquette réalisée par Abdoul Network, sans client réel. */
+function ConceptBadge({ className = '' }: { className?: string }) {
+  return (
+    <span
+      title="Projet de démonstration réalisé par Abdoul Network"
+      className={`inline-flex items-center rounded-full border border-white/20 bg-bg/70 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink/90 backdrop-blur ${className}`}
+    >
+      Concept
+    </span>
   )
 }
