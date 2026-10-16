@@ -20,7 +20,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright')
 const here = dirname(fileURLToPath(import.meta.url))
 const root = join(here, '..')
 
-/** name → { cover: instant (s) de la couverture, video: aperçu animé ?, out: nom de fichier (défaut concept-<name>) } */
+/** name → { cover: instant (s), video: aperçu animé ?, out: nom de fichier (défaut concept-<name>), size: [l, h] (défaut 1600×1000), jpg: sortie JPEG } */
 const mockups = {
   'app-boutiko': { cover: 4.2, video: true },
   'ia-assistant': { cover: 5.2, video: true },
@@ -28,6 +28,8 @@ const mockups = {
   'montage-studio': { cover: 3.1, video: true },
   'tiktok-contenu': { cover: 2.6, video: true },
   'tiktok-monetisable': { cover: 0, video: false, out: 'tiktok-monetisable-cover' },
+  // Aperçu de partage (WhatsApp, Facebook…) : JPEG 1200×630.
+  'og-image': { cover: 0, video: false, out: 'og-image', size: [1200, 630], jpg: true },
 }
 
 const args = process.argv.slice(2)
@@ -53,6 +55,8 @@ async function seek(t) {
 for (const name of list) {
   const conf = mockups[name]
   if (!conf) throw new Error(`Maquette inconnue : ${name}`)
+  const [w, h] = conf.size || [1600, 1000]
+  await page.setViewportSize({ width: w, height: h })
   const file = join(here, `${name}.html`)
   await page.goto('file://' + file, { waitUntil: 'networkidle' })
   await page.evaluate(() => document.fonts.ready)
@@ -62,8 +66,9 @@ for (const name of list) {
   const png = join(tmpdir(), `${name}-cover.png`)
   await page.screenshot({ path: png })
   const base = conf.out || `concept-${name}`
-  const cover = join(root, 'public/images', `${base}.webp`)
-  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', png, '-c:v', 'libwebp', '-quality', '80', cover])
+  const cover = join(root, 'public/images', `${base}.${conf.jpg ? 'jpg' : 'webp'}`)
+  const codec = conf.jpg ? ['-q:v', '3'] : ['-c:v', 'libwebp', '-quality', '80']
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', png, ...codec, cover])
   console.log('✓ couverture', cover)
 
   if (!conf.video || coverOnly) continue

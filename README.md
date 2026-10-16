@@ -68,6 +68,13 @@ node mockups/render.mjs app-boutiko        # une maquette
 node mockups/render.mjs app-boutiko --cover  # image seulement
 ```
 
+## Aperçu de partage (WhatsApp, Facebook…)
+
+L'image `public/images/og-image.jpg` (1200×630) vient de `mockups/og-image.html`
+(`node mockups/render.mjs og-image`). Les balises `og:` de `index.html` utilisent l'adresse
+complète du site : si elle change, mets-la à jour, et incrémente `?v=` pour forcer WhatsApp
+à recharger l'image.
+
 ## Déployer sur Netlify
 
 1. Pousse le dépôt sur GitHub.
