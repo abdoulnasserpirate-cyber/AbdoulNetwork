@@ -2,4 +2,8 @@ tools/node_modules/
 work/
 renders/
 .hyperframes/
+qa/snap*/
 snapshots/*.png
+assets/video/presenter.mp4
+*.mp4
+!baya_mahieddine_1080p_16x9.mp4

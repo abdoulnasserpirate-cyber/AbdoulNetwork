@@ -5,10 +5,12 @@ from pathlib import Path
 import sherpa_onnx
 import soundfile as sf
 
+import os
+LANGS = os.environ.get("LANGS", "fr").split(",")
 M = Path("/root/models/sherpa-onnx-whisper-medium")
 for p in sys.argv[1:]:
     audio, sr = sf.read(p, dtype="float32")
-    for lang in ("fr", "en"):
+    for lang in LANGS:
         rec = sherpa_onnx.OfflineRecognizer.from_whisper(
             encoder=str(M / "medium-encoder.int8.onnx"),
             decoder=str(M / "medium-decoder.int8.onnx"),

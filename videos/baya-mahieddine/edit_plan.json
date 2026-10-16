@@ -1,0 +1,1766 @@
+{
+ "fps": 30,
+ "duration": 91.52,
+ "intro_pad": 2.6,
+ "outro_pad": 3.0,
+ "segments": [
+  {
+   "clip": "0077",
+   "in": 0.55,
+   "out": 9.97,
+   "text": "Hi everyone, I'm AMOUSSOU HOUNGBEDJI Marie Marthe, Beninese and student at the University Dan Dicko Dankoulodo of Maradi, at Niger.",
+   "section": "intro",
+   "program_start": 2.6,
+   "pieces": [
+    {
+     "src_in": 0.55,
+     "src_out": 9.97,
+     "program_start": 2.6
+    }
+   ],
+   "program_end": 12.02,
+   "asr_words": [
+    {
+     "asr": "Hi",
+     "s": 2.9,
+     "e": 3.22
+    },
+    {
+     "asr": "everyone,",
+     "s": 3.38,
+     "e": 4.18
+    },
+    {
+     "asr": "I'm",
+     "s": 4.18,
+     "e": 4.5
+    },
+    {
+     "asr": "Amusu",
+     "s": 4.5,
+     "e": 5.14
+    },
+    {
+     "asr": "Mbeji",
+     "s": 5.14,
+     "e": 5.62
+    },
+    {
+     "asr": "Marimet,",
+     "s": 5.7,
+     "e": 6.58
+    },
+    {
+     "asr": "Benin",
+     "s": 6.58,
+     "e": 6.98
+    },
+    {
+     "asr": "and",
+     "s": 7.3,
+     "e": 7.38
+    },
+    {
+     "asr": "student",
+     "s": 7.54,
+     "e": 7.86
+    },
+    {
+     "asr": "at",
+     "s": 7.94,
+     "e": 8.26
+    },
+    {
+     "asr": "University",
+     "s": 8.26,
+     "e": 8.82
+    },
+    {
+     "asr": "Don",
+     "s": 8.82,
+     "e": 8.98
+    },
+    {
+     "asr": "Diko",
+     "s": 9.14,
+     "e": 9.38
+    },
+    {
+     "asr": "Donculoto",
+     "s": 9.62,
+     "e": 10.34
+    },
+    {
+     "asr": "of",
+     "s": 10.5,
+     "e": 10.66
+    },
+    {
+     "asr": "Maradi",
+     "s": 10.66,
+     "e": 11.06
+    },
+    {
+     "asr": "at",
+     "s": 11.22,
+     "e": 11.38
+    },
+    {
+     "asr": "Nyjai.",
+     "s": 11.38,
+     "e": 11.94
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 10.5,
+   "out": 14.71,
+   "text": "Today I'm introducing you to the story of Baya Mahieddine.",
+   "section": "intro",
+   "program_start": 12.12,
+   "pieces": [
+    {
+     "src_in": 10.5,
+     "src_out": 14.71,
+     "program_start": 12.12
+    }
+   ],
+   "program_end": 16.33,
+   "asr_words": [
+    {
+     "asr": "Today",
+     "s": 12.35,
+     "e": 12.75
+    },
+    {
+     "asr": "I'm",
+     "s": 12.83,
+     "e": 13.23
+    },
+    {
+     "asr": "introducing",
+     "s": 13.23,
+     "e": 13.95
+    },
+    {
+     "asr": "you",
+     "s": 13.95,
+     "e": 14.19
+    },
+    {
+     "asr": "to",
+     "s": 14.19,
+     "e": 14.35
+    },
+    {
+     "asr": "the",
+     "s": 14.35,
+     "e": 14.51
+    },
+    {
+     "asr": "story",
+     "s": 14.51,
+     "e": 14.83
+    },
+    {
+     "asr": "of",
+     "s": 14.83,
+     "e": 15.07
+    },
+    {
+     "asr": "Bayama",
+     "s": 15.23,
+     "e": 15.71
+    },
+    {
+     "asr": "Hidd.",
+     "s": 15.87,
+     "e": 16.27
+    }
+   ]
+  },
+  {
+   "clip": "0078",
+   "in": 15.95,
+   "out": 18.4,
+   "text": "I'm at ease with speaking in French.",
+   "section": "intro",
+   "program_start": 16.43,
+   "pieces": [
+    {
+     "src_in": 15.95,
+     "src_out": 18.4,
+     "program_start": 16.43
+    }
+   ],
+   "program_end": 18.88,
+   "asr_words": [
+    {
+     "asr": "I'm",
+     "s": 16.63,
+     "e": 16.87
+    },
+    {
+     "asr": "at",
+     "s": 16.87,
+     "e": 17.03
+    },
+    {
+     "asr": "ease",
+     "s": 17.03,
+     "e": 17.19
+    },
+    {
+     "asr": "with",
+     "s": 17.27,
+     "e": 17.35
+    },
+    {
+     "asr": "speaking",
+     "s": 17.67,
+     "e": 18.07
+    },
+    {
+     "asr": "in",
+     "s": 18.07,
+     "e": 18.23
+    },
+    {
+     "asr": "French.",
+     "s": 18.23,
+     "e": 18.63
+    }
+   ]
+  },
+  {
+   "clip": "0078",
+   "in": 19.85,
+   "out": 22.25,
+   "text": "Baya Mahieddine est une jeune Algérienne.",
+   "section": "story",
+   "program_start": 18.98,
+   "pieces": [
+    {
+     "src_in": 19.85,
+     "src_out": 22.25,
+     "program_start": 18.98
+    }
+   ],
+   "program_end": 21.38,
+   "asr_words": [
+    {
+     "asr": "Mayama",
+     "s": 19.02,
+     "e": 19.42
+    },
+    {
+     "asr": "Hidin",
+     "s": 19.58,
+     "e": 20.06
+    },
+    {
+     "asr": "est",
+     "s": 20.14,
+     "e": 20.3
+    },
+    {
+     "asr": "une",
+     "s": 20.3,
+     "e": 20.38
+    },
+    {
+     "asr": "jeune",
+     "s": 20.38,
+     "e": 20.62
+    },
+    {
+     "asr": "algérienne.",
+     "s": 20.62,
+     "e": 21.34
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 22.9,
+   "out": 27.2,
+   "text": "Orpheline et autodidacte, elle découvre très jeune un amour intense pour la peinture.",
+   "section": "story",
+   "program_start": 21.48,
+   "pieces": [
+    {
+     "src_in": 22.9,
+     "src_out": 27.2,
+     "program_start": 21.48
+    }
+   ],
+   "program_end": 25.78,
+   "asr_words": [
+    {
+     "asr": "Orpheline",
+     "s": 21.51,
+     "e": 22.15
+    },
+    {
+     "asr": "et",
+     "s": 22.15,
+     "e": 22.23
+    },
+    {
+     "asr": "autodights,",
+     "s": 22.23,
+     "e": 23.19
+    },
+    {
+     "asr": "elles",
+     "s": 23.19,
+     "e": 23.43
+    },
+    {
+     "asr": "découvrent",
+     "s": 23.43,
+     "e": 23.75
+    },
+    {
+     "asr": "très",
+     "s": 23.83,
+     "e": 23.91
+    },
+    {
+     "asr": "jeune",
+     "s": 23.99,
+     "e": 24.15
+    },
+    {
+     "asr": "un",
+     "s": 24.31,
+     "e": 24.39
+    },
+    {
+     "asr": "amour",
+     "s": 24.39,
+     "e": 24.55
+    },
+    {
+     "asr": "et",
+     "s": 24.71,
+     "e": 24.79
+    },
+    {
+     "asr": "tous",
+     "s": 24.87,
+     "e": 24.95
+    },
+    {
+     "asr": "pour",
+     "s": 25.11,
+     "e": 25.19
+    },
+    {
+     "asr": "la",
+     "s": 25.27,
+     "e": 25.35
+    },
+    {
+     "asr": "pin.",
+     "s": 25.43,
+     "e": 25.67
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 28.02,
+   "out": 34.97,
+   "text": "Les couleurs, les fleurs, les oiseaux, les jardins deviennent son langage, sa façon de donner vie à ce qu'elle porte en elle.",
+   "section": "story",
+   "program_start": 25.88,
+   "pieces": [
+    {
+     "src_in": 28.02,
+     "src_out": 34.97,
+     "program_start": 25.88
+    }
+   ],
+   "program_end": 32.83,
+   "asr_words": [
+    {
+     "asr": "Les",
+     "s": 25.93,
+     "e": 26.25
+    },
+    {
+     "asr": "couleurs,",
+     "s": 26.25,
+     "e": 27.05
+    },
+    {
+     "asr": "les",
+     "s": 27.05,
+     "e": 27.29
+    },
+    {
+     "asr": "fleurs,",
+     "s": 27.29,
+     "e": 27.85
+    },
+    {
+     "asr": "les",
+     "s": 27.85,
+     "e": 28.09
+    },
+    {
+     "asr": "oiseaux,",
+     "s": 28.09,
+     "e": 28.57
+    },
+    {
+     "asr": "les",
+     "s": 28.57,
+     "e": 28.73
+    },
+    {
+     "asr": "jardins",
+     "s": 28.73,
+     "e": 28.97
+    },
+    {
+     "asr": "deviennent",
+     "s": 29.21,
+     "e": 29.61
+    },
+    {
+     "asr": "son",
+     "s": 29.61,
+     "e": 29.77
+    },
+    {
+     "asr": "langage.",
+     "s": 29.77,
+     "e": 30.41
+    },
+    {
+     "asr": "Sa",
+     "s": 30.41,
+     "e": 30.57
+    },
+    {
+     "asr": "façon",
+     "s": 30.73,
+     "e": 30.97
+    },
+    {
+     "asr": "de",
+     "s": 30.97,
+     "e": 31.13
+    },
+    {
+     "asr": "donner",
+     "s": 31.13,
+     "e": 31.37
+    },
+    {
+     "asr": "vie",
+     "s": 31.45,
+     "e": 31.61
+    },
+    {
+     "asr": "à",
+     "s": 31.61,
+     "e": 31.69
+    },
+    {
+     "asr": "ce",
+     "s": 31.69,
+     "e": 31.77
+    },
+    {
+     "asr": "qu'elle",
+     "s": 31.85,
+     "e": 32.01
+    },
+    {
+     "asr": "porte",
+     "s": 32.17,
+     "e": 32.41
+    },
+    {
+     "asr": "en",
+     "s": 32.41,
+     "e": 32.57
+    },
+    {
+     "asr": "elle.",
+     "s": 32.57,
+     "e": 32.81
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 37.06,
+   "out": 39.21,
+   "text": "Sans formation artistique classique,",
+   "section": "story",
+   "program_start": 32.93,
+   "pieces": [
+    {
+     "src_in": 37.06,
+     "src_out": 39.21,
+     "program_start": 32.93
+    }
+   ],
+   "program_end": 35.08,
+   "asr_words": [
+    {
+     "asr": "Sans",
+     "s": 32.98,
+     "e": 33.38
+    },
+    {
+     "asr": "formation",
+     "s": 33.46,
+     "e": 33.94
+    },
+    {
+     "asr": "artistique",
+     "s": 33.94,
+     "e": 34.5
+    },
+    {
+     "asr": "classique.",
+     "s": 34.58,
+     "e": 34.98
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 39.85,
+   "out": 41.95,
+   "text": "elle laisse parler son imagination",
+   "section": "story",
+   "program_start": 35.18,
+   "pieces": [
+    {
+     "src_in": 39.85,
+     "src_out": 41.95,
+     "program_start": 35.18
+    }
+   ],
+   "program_end": 37.28,
+   "asr_words": [
+    {
+     "asr": "Elle",
+     "s": 35.22,
+     "e": 35.46
+    },
+    {
+     "asr": "laisse",
+     "s": 35.46,
+     "e": 35.78
+    },
+    {
+     "asr": "parler",
+     "s": 35.78,
+     "e": 36.1
+    },
+    {
+     "asr": "son",
+     "s": 36.26,
+     "e": 36.5
+    },
+    {
+     "asr": "imagination.",
+     "s": 36.5,
+     "e": 37.14
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 42.35,
+   "out": 45.49,
+   "text": "et crée un univers aussi libre que fascinant.",
+   "section": "story",
+   "program_start": 37.38,
+   "pieces": [
+    {
+     "src_in": 42.35,
+     "src_out": 45.49,
+     "program_start": 37.38
+    }
+   ],
+   "program_end": 40.52,
+   "asr_words": [
+    {
+     "asr": "et",
+     "s": 37.42,
+     "e": 37.74
+    },
+    {
+     "asr": "créer",
+     "s": 37.82,
+     "e": 38.22
+    },
+    {
+     "asr": "un",
+     "s": 38.22,
+     "e": 38.46
+    },
+    {
+     "asr": "univers",
+     "s": 38.46,
+     "e": 38.78
+    },
+    {
+     "asr": "aussi",
+     "s": 38.94,
+     "e": 39.26
+    },
+    {
+     "asr": "libre",
+     "s": 39.26,
+     "e": 39.74
+    },
+    {
+     "asr": "que",
+     "s": 39.74,
+     "e": 39.82
+    },
+    {
+     "asr": "facile.",
+     "s": 40.06,
+     "e": 40.46
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 47.4,
+   "out": 51.19,
+   "text": "En 1947, à seulement 16 ans,",
+   "section": "story",
+   "program_start": 40.62,
+   "pieces": [
+    {
+     "src_in": 47.4,
+     "src_out": 51.19,
+     "program_start": 40.62
+    }
+   ],
+   "program_end": 44.41,
+   "asr_words": [
+    {
+     "asr": "En",
+     "s": 40.67,
+     "e": 40.99
+    },
+    {
+     "asr": "1947,",
+     "s": 40.99,
+     "e": 42.99
+    },
+    {
+     "asr": "à",
+     "s": 43.15,
+     "e": 43.39
+    },
+    {
+     "asr": "seulement",
+     "s": 43.39,
+     "e": 43.79
+    },
+    {
+     "asr": "16",
+     "s": 43.79,
+     "e": 44.03
+    },
+    {
+     "asr": "ans.",
+     "s": 44.11,
+     "e": 44.35
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 52.07,
+   "out": 53.85,
+   "text": "ses œuvres sont exposées à Paris",
+   "section": "story",
+   "program_start": 44.51,
+   "pieces": [
+    {
+     "src_in": 52.07,
+     "src_out": 53.85,
+     "program_start": 44.51
+    }
+   ],
+   "program_end": 46.29,
+   "asr_words": [
+    {
+     "asr": "Ces",
+     "s": 44.55,
+     "e": 44.71
+    },
+    {
+     "asr": "œuvres",
+     "s": 44.87,
+     "e": 45.11
+    },
+    {
+     "asr": "sont",
+     "s": 45.11,
+     "e": 45.19
+    },
+    {
+     "asr": "exposées",
+     "s": 45.35,
+     "e": 45.83
+    },
+    {
+     "asr": "à",
+     "s": 45.83,
+     "e": 45.91
+    },
+    {
+     "asr": "Paris.",
+     "s": 45.91,
+     "e": 46.23
+    }
+   ]
+  },
+  {
+   "clip": "0077",
+   "in": 54.2,
+   "out": 56.31,
+   "text": "et elle se fait remarquer par son talent.",
+   "section": "story",
+   "program_start": 46.39,
+   "pieces": [
+    {
+     "src_in": 54.2,
+     "src_out": 56.31,
+     "program_start": 46.39
+    }
+   ],
+   "program_end": 48.5,
+   "asr_words": [
+    {
+     "asr": "Et",
+     "s": 46.42,
+     "e": 46.58
+    },
+    {
+     "asr": "elle",
+     "s": 46.58,
+     "e": 46.74
+    },
+    {
+     "asr": "se",
+     "s": 46.82,
+     "e": 46.98
+    },
+    {
+     "asr": "fait",
+     "s": 46.98,
+     "e": 47.06
+    },
+    {
+     "asr": "remarquer",
+     "s": 47.22,
+     "e": 47.7
+    },
+    {
+     "asr": "par",
+     "s": 47.78,
+     "e": 47.94
+    },
+    {
+     "asr": "son",
+     "s": 47.94,
+     "e": 48.1
+    },
+    {
+     "asr": "talent.",
+     "s": 48.1,
+     "e": 48.42
+    }
+   ]
+  },
+  {
+   "clip": "GAP",
+   "program_start": 48.6,
+   "program_end": 50.2,
+   "section": "chapter"
+  },
+  {
+   "clip": "0074",
+   "in": 1.3,
+   "out": 3.85,
+   "text": "Why this story matters.",
+   "section": "why",
+   "program_start": 50.2,
+   "pieces": [
+    {
+     "src_in": 1.3,
+     "src_out": 3.85,
+     "program_start": 50.2
+    }
+   ],
+   "program_end": 52.75,
+   "asr_words": []
+  },
+  {
+   "clip": "0074",
+   "in": 4.8,
+   "out": 15.9,
+   "text": "Cette histoire est importante parce qu'elle nous montre qu'on peut aimer sans qu'il s'agisse de ça, ça, ça, ça ou encore ça.",
+   "section": "why",
+   "program_start": 52.85,
+   "pieces": [
+    {
+     "src_in": 4.8,
+     "src_out": 15.9,
+     "program_start": 52.85
+    }
+   ],
+   "program_end": 63.95,
+   "asr_words": [
+    {
+     "asr": "cette",
+     "s": 52.91,
+     "e": 53.07
+    },
+    {
+     "asr": "histoire",
+     "s": 53.23,
+     "e": 53.71
+    },
+    {
+     "asr": "est",
+     "s": 53.71,
+     "e": 53.95
+    },
+    {
+     "asr": "importante.",
+     "s": 53.95,
+     "e": 55.15
+    },
+    {
+     "asr": "Est-ce",
+     "s": 55.15,
+     "e": 55.47
+    },
+    {
+     "asr": "qu'elle",
+     "s": 55.47,
+     "e": 55.63
+    },
+    {
+     "asr": "nous",
+     "s": 55.79,
+     "e": 55.87
+    },
+    {
+     "asr": "montre",
+     "s": 56.03,
+     "e": 56.43
+    },
+    {
+     "asr": "qu'on",
+     "s": 56.59,
+     "e": 56.91
+    },
+    {
+     "asr": "peut",
+     "s": 56.99,
+     "e": 57.07
+    },
+    {
+     "asr": "aimer",
+     "s": 57.23,
+     "e": 57.71
+    },
+    {
+     "asr": "sans",
+     "s": 57.87,
+     "e": 58.19
+    },
+    {
+     "asr": "qu'il",
+     "s": 58.19,
+     "e": 58.35
+    },
+    {
+     "asr": "nous",
+     "s": 58.43,
+     "e": 58.51
+    },
+    {
+     "asr": "s'agisse",
+     "s": 58.59,
+     "e": 58.99
+    },
+    {
+     "asr": "de",
+     "s": 59.07,
+     "e": 59.15
+    },
+    {
+     "asr": "ça.",
+     "s": 59.39,
+     "e": 60.03
+    },
+    {
+     "asr": "Ça,",
+     "s": 60.19,
+     "e": 60.99
+    },
+    {
+     "asr": "ça,",
+     "s": 60.99,
+     "e": 61.47
+    },
+    {
+     "asr": "ça.",
+     "s": 61.63,
+     "e": 62.03
+    },
+    {
+     "asr": "Ou",
+     "s": 62.19,
+     "e": 62.59
+    },
+    {
+     "asr": "encore",
+     "s": 62.59,
+     "e": 62.99
+    },
+    {
+     "asr": "ça.",
+     "s": 63.07,
+     "e": 63.87
+    }
+   ]
+  },
+  {
+   "clip": "0075",
+   "in": 1.52,
+   "out": 9.75,
+   "text": "L'amour, c'est aussi découvrir ce qui donne du goût à notre vie, nourrit notre esprit et nous pousse à construire notre avenir.",
+   "section": "why",
+   "program_start": 64.05,
+   "pieces": [
+    {
+     "src_in": 1.52,
+     "src_out": 9.75,
+     "program_start": 64.05
+    }
+   ],
+   "program_end": 72.28,
+   "asr_words": [
+    {
+     "asr": "l'avant",
+     "s": 64.13,
+     "e": 64.77
+    },
+    {
+     "asr": "c'est",
+     "s": 64.85,
+     "e": 65.09
+    },
+    {
+     "asr": "aussi",
+     "s": 65.09,
+     "e": 65.25
+    },
+    {
+     "asr": "découvrir",
+     "s": 65.33,
+     "e": 65.89
+    },
+    {
+     "asr": "ce",
+     "s": 65.89,
+     "e": 66.05
+    },
+    {
+     "asr": "qui",
+     "s": 66.05,
+     "e": 66.29
+    },
+    {
+     "asr": "donne",
+     "s": 66.29,
+     "e": 66.53
+    },
+    {
+     "asr": "du",
+     "s": 66.53,
+     "e": 66.69
+    },
+    {
+     "asr": "goût",
+     "s": 66.69,
+     "e": 67.01
+    },
+    {
+     "asr": "à",
+     "s": 67.01,
+     "e": 67.09
+    },
+    {
+     "asr": "notre",
+     "s": 67.09,
+     "e": 67.41
+    },
+    {
+     "asr": "vie,",
+     "s": 67.41,
+     "e": 68.21
+    },
+    {
+     "asr": "nourrir",
+     "s": 68.21,
+     "e": 68.77
+    },
+    {
+     "asr": "notre",
+     "s": 68.77,
+     "e": 68.93
+    },
+    {
+     "asr": "esprit",
+     "s": 68.93,
+     "e": 69.33
+    },
+    {
+     "asr": "et",
+     "s": 69.33,
+     "e": 69.49
+    },
+    {
+     "asr": "nous",
+     "s": 69.49,
+     "e": 69.65
+    },
+    {
+     "asr": "pousser",
+     "s": 69.65,
+     "e": 69.89
+    },
+    {
+     "asr": "à",
+     "s": 69.97,
+     "e": 70.13
+    },
+    {
+     "asr": "construire",
+     "s": 70.13,
+     "e": 70.53
+    },
+    {
+     "asr": "notre",
+     "s": 70.53,
+     "e": 70.77
+    },
+    {
+     "asr": "avenir.",
+     "s": 70.77,
+     "e": 72.21
+    }
+   ]
+  },
+  {
+   "clip": "0076",
+   "in": 1.62,
+   "out": 7.6,
+   "text": "L'histoire de Baya Mahieddine nous impose une réflexion sur notre rapport avec ce que nous aimons profondément.",
+   "section": "why",
+   "program_start": 72.38,
+   "pieces": [
+    {
+     "src_in": 1.62,
+     "src_out": 7.6,
+     "program_start": 72.38
+    }
+   ],
+   "program_end": 78.36,
+   "asr_words": [
+    {
+     "asr": "l'histoire",
+     "s": 72.44,
+     "e": 73.0
+    },
+    {
+     "asr": "de",
+     "s": 73.0,
+     "e": 73.08
+    },
+    {
+     "asr": "Baya",
+     "s": 73.08,
+     "e": 73.48
+    },
+    {
+     "asr": "Marie",
+     "s": 73.56,
+     "e": 73.8
+    },
+    {
+     "asr": "Dien",
+     "s": 73.88,
+     "e": 74.04
+    },
+    {
+     "asr": "nous",
+     "s": 74.2,
+     "e": 74.36
+    },
+    {
+     "asr": "impose",
+     "s": 74.36,
+     "e": 74.68
+    },
+    {
+     "asr": "une",
+     "s": 74.76,
+     "e": 74.84
+    },
+    {
+     "asr": "réflexion",
+     "s": 74.84,
+     "e": 75.48
+    },
+    {
+     "asr": "sur",
+     "s": 75.48,
+     "e": 75.64
+    },
+    {
+     "asr": "notre",
+     "s": 75.64,
+     "e": 75.88
+    },
+    {
+     "asr": "rapport",
+     "s": 75.88,
+     "e": 76.28
+    },
+    {
+     "asr": "avec",
+     "s": 76.28,
+     "e": 76.44
+    },
+    {
+     "asr": "ce",
+     "s": 76.6,
+     "e": 76.76
+    },
+    {
+     "asr": "que",
+     "s": 76.76,
+     "e": 76.92
+    },
+    {
+     "asr": "nous",
+     "s": 76.92,
+     "e": 77.08
+    },
+    {
+     "asr": "aimons",
+     "s": 77.08,
+     "e": 77.56
+    },
+    {
+     "asr": "profondément.",
+     "s": 77.56,
+     "e": 78.28
+    }
+   ]
+  },
+  {
+   "clip": "0076",
+   "in": 7.7,
+   "out": 16.55,
+   "text": "Elle nous montre comment une passion démesurée peut être canalisée pour bâtir un héritage, un héritage qui nous survivra.",
+   "section": "why",
+   "program_start": 78.46,
+   "pieces": [
+    {
+     "src_in": 7.7,
+     "src_out": 15.82,
+     "program_start": 78.46
+    },
+    {
+     "src_in": 16.21,
+     "src_out": 16.55,
+     "program_start": 86.58
+    }
+   ],
+   "program_end": 86.92,
+   "asr_words": [
+    {
+     "asr": "Elle",
+     "s": 78.52,
+     "e": 78.84
+    },
+    {
+     "asr": "nous",
+     "s": 78.84,
+     "e": 79.0
+    },
+    {
+     "asr": "montre",
+     "s": 79.0,
+     "e": 79.4
+    },
+    {
+     "asr": "comment",
+     "s": 79.4,
+     "e": 79.64
+    },
+    {
+     "asr": "une",
+     "s": 79.64,
+     "e": 79.88
+    },
+    {
+     "asr": "personne",
+     "s": 79.88,
+     "e": 80.2
+    },
+    {
+     "asr": "démesurée",
+     "s": 80.36,
+     "e": 81.08
+    },
+    {
+     "asr": "peut",
+     "s": 81.08,
+     "e": 81.32
+    },
+    {
+     "asr": "être",
+     "s": 81.32,
+     "e": 81.48
+    },
+    {
+     "asr": "canalisée",
+     "s": 81.48,
+     "e": 82.36
+    },
+    {
+     "asr": "pour",
+     "s": 82.36,
+     "e": 82.68
+    },
+    {
+     "asr": "bâtir",
+     "s": 82.84,
+     "e": 83.32
+    },
+    {
+     "asr": "un",
+     "s": 83.48,
+     "e": 83.64
+    },
+    {
+     "asr": "héritage.",
+     "s": 83.64,
+     "e": 84.68
+    },
+    {
+     "asr": "Un",
+     "s": 84.68,
+     "e": 84.92
+    },
+    {
+     "asr": "héritage",
+     "s": 84.92,
+     "e": 85.48
+    },
+    {
+     "asr": "qui",
+     "s": 85.48,
+     "e": 85.72
+    },
+    {
+     "asr": "nous",
+     "s": 85.72,
+     "e": 85.88
+    },
+    {
+     "asr": "suivra.",
+     "s": 85.88,
+     "e": 86.58
+    }
+   ]
+  },
+  {
+   "clip": "0076",
+   "in": 16.7,
+   "out": 18.1,
+   "text": "Merci.",
+   "section": "why",
+   "program_start": 87.02,
+   "pieces": [
+    {
+     "src_in": 16.7,
+     "src_out": 18.1,
+     "program_start": 87.02
+    }
+   ],
+   "program_end": 88.42,
+   "asr_words": [
+    {
+     "asr": "Merci.",
+     "s": 87.12,
+     "e": 88.4
+    }
+   ]
+  }
+ ],
+ "visuals": [
+  {
+   "id": "title",
+   "start": 0.0,
+   "end": 2.75,
+   "mode": "D",
+   "photo": "constantine"
+  },
+  {
+   "id": "hello",
+   "start": 2.75,
+   "end": 6.52,
+   "mode": "A",
+   "photo": "ouidah_museum"
+  },
+  {
+   "id": "benin",
+   "start": 6.52,
+   "end": 7.62,
+   "mode": "BL",
+   "photo": "ouidah_museum",
+   "label": {
+    "at": 6.58,
+    "big": "BÉNIN",
+    "small": "Musée d'Histoire de Ouidah"
+   }
+  },
+  {
+   "id": "niger",
+   "start": 7.62,
+   "end": 12.05,
+   "mode": "BL",
+   "photo": "niamey",
+   "label": {
+    "at": 7.7,
+    "big": "NIGER",
+    "small": "Niamey"
+   }
+  },
+  {
+   "id": "story-of",
+   "start": 12.05,
+   "end": 14.75,
+   "mode": "C",
+   "pip": "br",
+   "photo": "algiers_harbour",
+   "caption": "Alger, vers 1899"
+  },
+  {
+   "id": "baya-title",
+   "start": 14.75,
+   "end": 16.45,
+   "mode": "D",
+   "photo": "algiers_terrace",
+   "big_title": {
+    "at": 14.85,
+    "name": "BAYA MAHIEDDINE",
+    "years": "1931 – 1998"
+   }
+  },
+  {
+   "id": "french",
+   "start": 16.45,
+   "end": 18.95,
+   "mode": "A",
+   "photo": "algiers_terrace"
+  },
+  {
+   "id": "algerienne",
+   "start": 18.95,
+   "end": 21.45,
+   "mode": "BR",
+   "photo": "algiers_terrace",
+   "label": {
+    "at": 19.1,
+    "big": "ALGÉRIE",
+    "small": "Alger, vers 1899 · photochrome"
+   }
+  },
+  {
+   "id": "orpheline",
+   "start": 21.45,
+   "end": 24.3,
+   "mode": "D",
+   "photo": "embroidery_school",
+   "kinetic": [
+    {
+     "at": 21.5,
+     "out": 22.2,
+     "text": "ORPHELINE"
+    },
+    {
+     "at": 22.22,
+     "out": 24.25,
+     "text": "AUTODIDACTE"
+    }
+   ],
+   "caption": "École de broderie arabe, Alger, vers 1899"
+  },
+  {
+   "id": "peinture",
+   "start": 24.3,
+   "end": 26.22,
+   "mode": "C",
+   "pip": "bl",
+   "photo": "child_painting",
+   "kinetic": [
+    {
+     "at": 24.4,
+     "out": 26.2,
+     "text": "UN AMOUR INTENSE",
+     "small": true
+    }
+   ]
+  },
+  {
+   "id": "couleurs",
+   "start": 26.22,
+   "end": 27.25,
+   "mode": "D",
+   "photo": "paint_bottles",
+   "word": "LES COULEURS"
+  },
+  {
+   "id": "fleurs",
+   "start": 27.25,
+   "end": 28.05,
+   "mode": "D",
+   "photo": "delacroix_flowers",
+   "word": "LES FLEURS"
+  },
+  {
+   "id": "oiseaux",
+   "start": 28.05,
+   "end": 28.7,
+   "mode": "D",
+   "photo": "hoopoe",
+   "word": "LES OISEAUX"
+  },
+  {
+   "id": "jardins",
+   "start": 28.7,
+   "end": 30.38,
+   "mode": "D",
+   "photo": "rose_garden",
+   "word": "LES JARDINS"
+  },
+  {
+   "id": "langage",
+   "start": 30.38,
+   "end": 32.92,
+   "mode": "C",
+   "pip": "br",
+   "photo": "girls_flower_paintings"
+  },
+  {
+   "id": "formation",
+   "start": 32.92,
+   "end": 35.15,
+   "mode": "BL",
+   "photo": "classroom_archive",
+   "kinetic": [
+    {
+     "at": 33.0,
+     "out": 35.1,
+     "text": "SANS FORMATION CLASSIQUE",
+     "small": true,
+     "strike": 33.9
+    }
+   ]
+  },
+  {
+   "id": "imagination",
+   "start": 35.15,
+   "end": 37.35,
+   "mode": "A",
+   "photo": "kingfisher"
+  },
+  {
+   "id": "univers",
+   "start": 37.35,
+   "end": 40.6,
+   "mode": "D",
+   "mosaic": [
+    "kingfisher",
+    "matisse_anemones",
+    "bulbul",
+    "lavender",
+    "king_parrot",
+    "flowers_oil"
+   ],
+   "kinetic": [
+    {
+     "at": 38.4,
+     "out": 40.55,
+     "text": "UN UNIVERS LIBRE",
+     "small": false
+    }
+   ]
+  },
+  {
+   "id": "1947",
+   "start": 40.6,
+   "end": 44.45,
+   "mode": "D",
+   "photo": "paris_1950_eiffel",
+   "counter": {
+    "at": 40.95,
+    "frm": 1931,
+    "to": 1947,
+    "dur": 1.1,
+    "age_at": 43.75,
+    "age": "16 ANS"
+   }
+  },
+  {
+   "id": "expo",
+   "start": 44.45,
+   "end": 46.38,
+   "mode": "C",
+   "pip": "bl",
+   "photo": "paris_vintage_street",
+   "label": {
+    "at": 44.6,
+    "big": "PARIS · 1947",
+    "small": "Exposition à la Galerie Maeght"
+   }
+  },
+  {
+   "id": "breton",
+   "start": 46.38,
+   "end": 47.62,
+   "mode": "C",
+   "pip": "bl",
+   "photo": "breton_1938",
+   "label": {
+    "at": 46.45,
+    "big": "ANDRÉ BRETON",
+    "small": "à droite · avec D. Rivera et L. Trotsky, 1938"
+   }
+  },
+  {
+   "id": "picasso",
+   "start": 47.62,
+   "end": 48.62,
+   "mode": "C",
+   "pip": "bl",
+   "photo": "picasso_selfportrait",
+   "label": {
+    "at": 47.66,
+    "big": "PABLO PICASSO",
+    "small": "autoportrait au fusain"
+   }
+  },
+  {
+   "id": "chapter",
+   "start": 48.62,
+   "end": 50.25,
+   "mode": "D",
+   "photo": "museum_visitor",
+   "chapter": {
+    "at": 48.7,
+    "text": "WHY THIS STORY MATTERS",
+    "sub": "Pourquoi cette histoire compte"
+   }
+  },
+  {
+   "id": "why",
+   "start": 50.25,
+   "end": 59.32,
+   "mode": "A",
+   "photo": "museum_visitor",
+   "kinetic": [
+    {
+     "at": 57.15,
+     "out": 59.2,
+     "text": "AIMER",
+     "small": false
+    }
+   ]
+  },
+  {
+   "id": "ca1",
+   "start": 59.32,
+   "end": 60.15,
+   "mode": "C",
+   "pip": "br",
+   "photo": "couple_hands"
+  },
+  {
+   "id": "ca2",
+   "start": 60.15,
+   "end": 60.95,
+   "mode": "C",
+   "pip": "br",
+   "photo": "bridal_roses"
+  },
+  {
+   "id": "ca3",
+   "start": 60.95,
+   "end": 61.6,
+   "mode": "C",
+   "pip": "br",
+   "photo": "candle_love"
+  },
+  {
+   "id": "ca4",
+   "start": 61.6,
+   "end": 63.0,
+   "mode": "C",
+   "pip": "br",
+   "photo": "wedding_bw"
+  },
+  {
+   "id": "ca5",
+   "start": 63.0,
+   "end": 64.02,
+   "mode": "C",
+   "pip": "br",
+   "photo": "candle_table"
+  },
+  {
+   "id": "gout",
+   "start": 64.02,
+   "end": 68.12,
+   "mode": "BR",
+   "photo": "kid_paints_floor",
+   "label": {
+    "at": 66.5,
+    "big": "LE GOÛT DE VIVRE",
+    "small": ""
+   }
+  },
+  {
+   "id": "esprit",
+   "start": 68.12,
+   "end": 69.4,
+   "mode": "BR",
+   "photo": "book_achebe",
+   "label": {
+    "at": 68.2,
+    "big": "L'ESPRIT",
+    "small": "Chinua Achebe, « Things Fall Apart »"
+   }
+  },
+  {
+   "id": "avenir",
+   "start": 69.4,
+   "end": 72.35,
+   "mode": "BR",
+   "photo": "students_campus",
+   "label": {
+    "at": 69.5,
+    "big": "L'AVENIR",
+    "small": ""
+   }
+  },
+  {
+   "id": "histoire-baya",
+   "start": 72.35,
+   "end": 76.55,
+   "mode": "BL",
+   "photo": "algiers_terrace",
+   "label": {
+    "at": 72.9,
+    "big": "BAYA MAHIEDDINE",
+    "small": "1931 – 1998"
+   }
+  },
+  {
+   "id": "profond",
+   "start": 76.55,
+   "end": 78.42,
+   "mode": "A",
+   "photo": "algiers_terrace",
+   "kinetic": [
+    {
+     "at": 76.6,
+     "out": 78.35,
+     "text": "CE QUE NOUS AIMONS PROFONDÉMENT",
+     "small": true
+    }
+   ]
+  },
+  {
+   "id": "passion",
+   "start": 78.42,
+   "end": 83.5,
+   "mode": "C",
+   "pip": "bl",
+   "photo": "museum_visitor",
+   "kinetic": [
+    {
+     "at": 79.8,
+     "out": 83.4,
+     "text": "UNE PASSION DÉMESURÉE",
+     "small": true
+    }
+   ]
+  },
+  {
+   "id": "heritage",
+   "start": 83.5,
+   "end": 87.0,
+   "mode": "D",
+   "photo": "museum_hall",
+   "heritage": {
+    "at": 83.6,
+    "words": [
+     [
+      "UN HÉRITAGE",
+      83.62
+     ],
+     [
+      "QUI NOUS",
+      85.45
+     ],
+     [
+      "SURVIVRA",
+      85.85
+     ]
+    ]
+   }
+  },
+  {
+   "id": "merci",
+   "start": 87.0,
+   "end": 88.55,
+   "mode": "A",
+   "photo": "museum_hall"
+  },
+  {
+   "id": "outro",
+   "start": 88.55,
+   "end": 91.52,
+   "mode": "D",
+   "photo": "constantine"
+  }
+ ]
+}
