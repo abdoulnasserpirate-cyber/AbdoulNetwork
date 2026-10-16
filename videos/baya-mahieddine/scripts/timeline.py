@@ -55,7 +55,7 @@ SHOTS = [
     dict(id="chapter", start=48.62, end=50.25, mode="D", photo="museum_visitor", blur=True,
          chapter=dict(at=48.7, text="WHY THIS STORY MATTERS", sub="Pourquoi cette histoire compte"), sfx=["whoosh", "hit"]),
     dict(id="why", start=50.25, end=59.32, mode="A", photo="museum_visitor",
-         kinetic=[dict(at=57.15, out=59.2, text="AIMER", small=False)]),
+         kinetic=[dict(at=52.95, out=55.1, text="UNE HISTOIRE IMPORTANTE", small=True), dict(at=57.15, out=59.2, text="AIMER", small=False)]),
     dict(id="ca1", start=59.32, end=60.15, mode="C", pip="br", photo="couple_hands", kb="50% 45%", sfx=["tick"]),
     dict(id="ca2", start=60.15, end=60.95, mode="C", pip="br", photo="bridal_roses", kb="50% 50%", sfx=["tick"]),
     dict(id="ca3", start=60.95, end=61.6, mode="C", pip="br", photo="candle_love", kb="50% 50%", sfx=["tick"]),
