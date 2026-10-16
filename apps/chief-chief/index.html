@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chief-Chief — Le goût qui vous ramène toujours</title>
+<meta name="description" content="Fast-food généreux, fait maison. Maradi, Niger. Livraison à domicile, paiement à la livraison. Commandez sur WhatsApp.">
+<meta name="theme-color" content="#A61C24">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/logo-192.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Chief-Chief">
+<meta property="og:title" content="Chief-Chief — Le goût qui vous ramène toujours">
+<meta property="og:description" content="Fast-food généreux, fait maison. Livraison à domicile à Maradi.">
+<meta property="og:image" content="img/logo-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,700;1,9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/logo.webp">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-splash">
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></g></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5h2.6l2.3 11.2a1.5 1.5 0 0 0 1.5 1.2h8.4a1.5 1.5 0 0 0 1.5-1.1l1.7-7.3H6"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17.5" cy="20" r="1.3"/></g></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></g></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 9.5V20h16V9.5"/><path d="M2.5 9.5 4.5 4h15l2 5.5a2.6 2.6 0 0 1-5 .9 2.6 2.6 0 0 1-4.9 0 2.6 2.6 0 0 1-4.9 0 2.6 2.6 0 0 1-4.2-.9z"/><path d="M9.5 20v-5h5v5"/></g></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></g></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></g></symbol>
+</svg>
+
+<!-- ÉCRAN 1 — Splash -->
+<div id="splash" aria-hidden="true">
+  <div class="splash-halo"></div>
+  <div class="splash-logo-wrap">
+    <span class="splash-ring"></span>
+    <img class="splash-logo" src="img/logo.webp" alt="" width="132" height="132">
+  </div>
+  <div class="splash-name">Chief-Chief</div>
+  <div class="splash-slogan">Le goût qui vous ramène toujours</div>
+</div>
+
+<!-- Barre de progression -->
+<div id="progress" aria-hidden="true"><span></span></div>
+
+<!-- ÉCRAN 4 — Barre compacte -->
+<div id="compact-bar" aria-hidden="true">
+  <button class="cb-brand" data-go="top" tabindex="-1">
+    <img src="img/logo.webp" alt="" width="34" height="34">
+    <span>Chief-Chief</span>
+  </button>
+  <button class="cb-cart" data-open-cart tabindex="-1" aria-label="Panier">
+    <svg><use href="#i-cart"/></svg>
+    <span class="badge" data-cart-badge hidden>0</span>
+  </button>
+</div>
+
+<!-- ÉCRAN 9 — Recherche -->
+<div id="search-bar" role="search" aria-hidden="true">
+  <svg class="sb-icon"><use href="#i-search"/></svg>
+  <input id="search-input" type="search" placeholder="Chercher un plat…" autocomplete="off" enterkeyhint="search" aria-label="Chercher un plat" tabindex="-1">
+  <button id="search-close" aria-label="Fermer la recherche" tabindex="-1"><svg><use href="#i-close"/></svg></button>
+</div>
+
+<!-- ÉCRAN 3 — Accueil -->
+<div id="ticker" aria-live="polite"><span id="ticker-text"></span></div>
+
+<header id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="brand">
+      <img class="brand-logo" src="img/logo.webp" alt="Logo Chief-Chief" width="84" height="84">
+      <div>
+        <h1 class="brand-name">Chief-Chief</h1>
+        <p class="brand-slogan">Le goût qui vous ramène toujours</p>
+        <span class="pill pill-gold"><svg><use href="#i-pin"/></svg>Maradi, Niger</span>
+      </div>
+    </div>
+    <div class="hook-wrap"><p class="hook" id="hook"></p></div>
+    <div class="carousel" id="carousel" aria-roledescription="carrousel" aria-label="Nos plats">
+      <div class="carousel-frame" id="carousel-frame"></div>
+    </div>
+    <div class="dots" id="dots" role="tablist"></div>
+    <div class="hero-pills">
+      <span class="pill">🛵 Livraison à domicile</span>
+      <span class="pill">💳 Paiement à la livraison</span>
+    </div>
+  </div>
+</header>
+
+<nav id="cats" aria-label="Catégories">
+  <div class="cats-track" id="cats-track">
+    <span class="cats-indicator" id="cats-indicator"></span>
+  </div>
+</nav>
+
+<main id="menu">
+  <!-- ÉCRAN 5 — Signature -->
+  <section class="section" id="sec-signature" data-cat="signature">
+    <div class="section-head reveal">
+      <h2>⭐ Signature Chief-Chief</h2><span class="section-sub">exclusivité maison</span>
+    </div>
+    <div id="signature"></div>
+  </section>
+  <div id="sections"></div>
+  <div id="no-result" hidden>
+    <svg viewBox="0 0 120 100" width="120" height="100" aria-hidden="true">
+      <ellipse cx="60" cy="86" rx="40" ry="6" fill="#E9DCC6"/>
+      <path d="M22 60a38 38 0 0 1 76 0z" fill="#fff" stroke="#A61C24" stroke-width="3"/>
+      <path d="M14 60h92" stroke="#A61C24" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="60" cy="20" r="5" fill="#E3A63C"/>
+      <path d="M48 44q12-10 24 0" fill="none" stroke="#1A1512" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <p>Aucun plat ne correspond à votre recherche</p>
+  </div>
+</main>
+
+<!-- ÉCRAN 15 — Pied de page -->
+<footer id="footer">
+  <img src="img/logo.webp" alt="" width="64" height="64">
+  <p class="f-slogan">Le goût qui vous ramène toujours</p>
+  <p>📍 Maradi, Niger</p>
+  <p>🕗 Commandes de <span data-hours></span></p>
+  <p><a id="footer-wa" href="#"><svg><use href="#i-whatsapp"/></svg><span data-wa-display></span></a></p>
+  <p class="f-copy">CHIEF-CHIEF © 2026</p>
+</footer>
+
+<!-- ÉCRAN 14 — Installation -->
+<div id="install" hidden>
+  <img src="img/logo-192.png" alt="" width="44" height="44">
+  <div class="in-text">
+    <strong>Installez Chief-Chief</strong>
+    <span id="install-sub">Commandez encore plus vite</span>
+  </div>
+  <button id="install-btn" class="btn-gold btn-sm">Installer</button>
+  <button id="install-close" class="icon-btn" aria-label="Ne plus afficher"><svg><use href="#i-close"/></svg></button>
+</div>
+
+<!-- ÉCRAN 8 — Mini-barre panier -->
+<button id="mini-cart" data-open-cart aria-hidden="true" tabindex="-1">
+  <span class="mc-count" id="mc-count">0</span>
+  <span class="mc-label">Voir mon panier</span>
+  <span class="mc-total" id="mc-total">0 F</span>
+</button>
+
+<!-- ÉCRAN 10 — Barre du bas -->
+<nav id="bottom-nav" aria-label="Navigation">
+  <button data-nav="home" class="active"><svg><use href="#i-home"/></svg><span>Accueil</span></button>
+  <button data-nav="menu"><svg><use href="#i-grid"/></svg><span>Menu</span></button>
+  <button data-nav="search"><svg><use href="#i-search"/></svg><span>Recherche</span></button>
+  <button data-nav="cart" id="nav-cart"><span class="nav-ico"><svg><use href="#i-cart"/></svg><span class="badge" data-cart-badge hidden>0</span></span><span>Panier</span></button>
+</nav>
+
+<!-- Panneaux du bas -->
+<div id="backdrop"></div>
+
+<section id="dish-sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="ds-name" aria-hidden="true">
+  <div class="sheet-grip"><span></span></div>
+  <div class="sheet-scroll" id="ds-body"></div>
+  <div class="sheet-foot">
+    <div class="qty" id="ds-qty">
+      <button data-q="-1" aria-label="Moins"><svg><use href="#i-minus"/></svg></button>
+      <span id="ds-qty-val">1</span>
+      <button data-q="1" aria-label="Plus"><svg><use href="#i-plus"/></svg></button>
+    </div>
+    <button class="btn-red btn-grow" id="ds-add">Ajouter · <span id="ds-price">0 F</span></button>
+  </div>
+</section>
+
+<section id="cart-sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+  <div class="sheet-grip"><span></span></div>
+  <div class="sheet-scroll">
+    <h2 id="cart-title">Votre commande</h2>
+    <ul id="cart-list"></ul>
+    <p id="cart-empty" hidden>Votre panier est vide. Ajoutez un plat pour commencer 🍽️</p>
+    <div id="cart-content">
+      <div class="recap">
+        <div><span>Sous-total</span><span id="r-sub">0 F</span></div>
+        <div><span>Livraison <small id="r-zone"></small> <small id="r-night" hidden>🌙 tarif de nuit</small></span><span id="r-del">—</span></div>
+        <div class="r-total"><span>Total</span><span id="r-total">0 F</span></div>
+      </div>
+      <form id="order-form" novalidate>
+        <div class="row2">
+          <label class="field"><span>Nom</span><input id="f-name" name="name" autocomplete="name" placeholder="Aïcha"><em class="err"></em></label>
+          <label class="field"><span>Téléphone</span><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="90 00 00 00"><em class="err"></em></label>
+        </div>
+        <div class="field" id="f-zone-field">
+          <span>Zone de livraison</span>
+          <div class="chips" id="f-zones" role="radiogroup" aria-label="Zone de livraison"></div>
+          <em class="err"></em>
+        </div>
+        <label class="field"><span>Adresse précise</span><input id="f-address" name="address" autocomplete="street-address" placeholder="Quartier, rue, repère…"><em class="err"></em></label>
+        <label class="field"><span>Précision <small>(optionnel)</small></span><input id="f-note" name="note" placeholder="Sans piment, appeler en arrivant…"></label>
+      </form>
+    </div>
+  </div>
+  <div class="sheet-foot" id="cart-foot">
+    <button class="btn-wa" id="order-btn"><svg><use href="#i-whatsapp"/></svg>Commander sur WhatsApp · <span id="order-total">0 F</span></button>
+  </div>
+</section>
+
+<!-- Modales (promo, notices, confirmation) -->
+<div id="modal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card" id="modal-card" role="dialog" aria-modal="true"></div>
+</div>
+
+<!-- Lightbox photo -->
+<div id="lightbox" aria-hidden="true"><img alt=""><button class="icon-btn" aria-label="Fermer"><svg><use href="#i-close"/></svg></button></div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

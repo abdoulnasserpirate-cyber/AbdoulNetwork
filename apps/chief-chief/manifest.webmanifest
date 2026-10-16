@@ -1,0 +1,18 @@
+{
+  "name": "Chief-Chief — Le goût qui vous ramène toujours",
+  "short_name": "Chief-Chief",
+  "description": "Fast-food généreux, fait maison. Livraison à domicile à Maradi, commande sur WhatsApp.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#A61C24",
+  "theme_color": "#A61C24",
+  "icons": [
+    { "src": "img/logo-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/logo-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
