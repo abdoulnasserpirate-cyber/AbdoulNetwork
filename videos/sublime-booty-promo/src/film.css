@@ -49,7 +49,9 @@
       .leak-a { background: radial-gradient(circle, rgba(255, 170, 225, 0.55) 0%, rgba(255, 170, 225, 0) 65%); }
       .leak-b { background: radial-gradient(circle, rgba(240, 207, 120, 0.32) 0%, rgba(240, 207, 120, 0) 65%); }
       #bokeh { position: absolute; inset: 0; }
-      .bk { position: absolute; border-radius: 50%; mix-blend-mode: screen; }
+      .bkl { position: absolute; left: -240px; top: -240px; width: calc(100% + 480px); height: calc(100% + 480px); background-size: 2400px 2400px; mix-blend-mode: screen; }
+      .bk-far { background-image: url("assets/bokeh-far.png"); opacity: 0.8; }
+      .bk-near { background-image: url("assets/bokeh-near.png"); }
 
       /* ---------- finishing layers ---------- */
       .flash { position: absolute; inset: 0; opacity: 0; mix-blend-mode: screen;

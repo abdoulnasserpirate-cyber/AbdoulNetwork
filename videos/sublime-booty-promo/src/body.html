@@ -33,7 +33,7 @@
         </svg>
         <div class="leak leak-a"></div>
         <div class="leak leak-b"></div>
-        <div id="bokeh"></div>
+        <div id="bokeh"><div class="bkl bk-far"></div><div class="bkl bk-near"></div></div>
       </div>
 
       <!-- 1 · Hook -->
@@ -73,7 +73,7 @@
       <!-- 3 · Gamme 01 Fessiers -->
       <section id="s3" class="scene clip" data-start="8.25" data-duration="12.5" data-track-index="1">
         <div class="cam">
-          <div class="gamme">
+          <div class="gamme" data-layout-allow-occlusion>
             <div class="g-num bodoni gold">01</div>
             <div class="g-label sans-caps">La gamme</div>
             <div class="mask g-titlewrap"><div class="in g-title serif-i">Fessiers</div></div>
@@ -105,7 +105,7 @@
       <!-- 4 · Gamme 02 Poitrine -->
       <section id="s4" class="scene clip duo-scene" data-start="20.15" data-duration="6.1" data-track-index="2">
         <div class="cam">
-          <div class="gamme">
+          <div class="gamme" data-layout-allow-occlusion>
             <div class="g-num bodoni gold">02</div>
             <div class="g-label sans-caps">La gamme</div>
             <div class="mask g-titlewrap"><div class="in g-title serif-i">Poitrine</div></div>
@@ -131,7 +131,7 @@
       <!-- 5 · Gamme 03 Ventre plat -->
       <section id="s5" class="scene clip duo-scene" data-start="25.65" data-duration="7.5" data-track-index="1">
         <div class="cam">
-          <div class="gamme">
+          <div class="gamme" data-layout-allow-occlusion>
             <div class="g-num bodoni gold">03</div>
             <div class="g-label sans-caps">La gamme</div>
             <div class="mask g-titlewrap"><div class="in g-title serif-i">Ventre plat</div></div>
@@ -155,7 +155,7 @@
       </section>
 
       <!-- 6 · Paiement -->
-      <section id="s6" class="scene clip" data-start="32.55" data-duration="3.55" data-track-index="2">
+      <section id="s6" class="scene clip" data-start="32.55" data-duration="3.7" data-track-index="2">
         <div class="cam">
           <div class="pay-head">
             <div class="mask"><div class="in sans-caps blush kick">Paiement</div></div>
@@ -172,7 +172,7 @@
       </section>
 
       <!-- 6b · Livraison : carte Maradi → Niger → Afrique (zoom arrière) -->
-      <section id="s6b" data-state="b" class="scene clip" data-start="35.75" data-duration="3.7" data-track-index="4">
+      <section id="s6b" class="scene clip" data-start="35.6" data-duration="3.85" data-track-index="4">
         <div class="cam">
           <div class="map-wrap">
             <svg id="map" viewBox="{{MAP_A}}" preserveAspectRatio="xMidYMid slice">
@@ -243,4 +243,17 @@
       </div>
 
       <audio id="vo" src="assets/voice/voix_off.mp3" data-start="0" data-duration="48.875" data-track-index="10" data-volume="1"></audio>
+      <!-- discreet sound design: whoosh on every seam, shimmer on the gold reveals -->
+      <audio id="sfx-wh1" src="assets/sfx/whoosh.wav" data-start="3.25" data-duration="0.9" data-track-index="20" data-volume="0.2"></audio>
+      <audio id="sfx-wh2" src="assets/sfx/whoosh.wav" data-start="8.20" data-duration="0.9" data-track-index="21" data-volume="0.2"></audio>
+      <audio id="sfx-wh3" src="assets/sfx/whoosh.wav" data-start="20.10" data-duration="0.9" data-track-index="22" data-volume="0.2"></audio>
+      <audio id="sfx-wh4" src="assets/sfx/whoosh.wav" data-start="25.60" data-duration="0.9" data-track-index="23" data-volume="0.2"></audio>
+      <audio id="sfx-wh5" src="assets/sfx/whoosh.wav" data-start="32.50" data-duration="0.9" data-track-index="24" data-volume="0.2"></audio>
+      <audio id="sfx-wh6" src="assets/sfx/whoosh.wav" data-start="35.55" data-duration="0.9" data-track-index="25" data-volume="0.2"></audio>
+      <audio id="sfx-wh7" src="assets/sfx/whoosh.wav" data-start="38.80" data-duration="0.9" data-track-index="26" data-volume="0.2"></audio>
+      <audio id="sfx-wh8" src="assets/sfx/whoosh.wav" data-start="44.60" data-duration="0.9" data-track-index="27" data-volume="0.2"></audio>
+      <audio id="sfx-sh1" src="assets/sfx/shimmer.wav" data-start="2.72" data-duration="1.6" data-track-index="30" data-volume="0.16"></audio>
+      <audio id="sfx-sh2" src="assets/sfx/shimmer.wav" data-start="4.30" data-duration="1.6" data-track-index="31" data-volume="0.16"></audio>
+      <audio id="sfx-sh3" src="assets/sfx/shimmer.wav" data-start="44.30" data-duration="1.6" data-track-index="32" data-volume="0.16"></audio>
+      <audio id="sfx-sh4" src="assets/sfx/shimmer.wav" data-start="45.10" data-duration="1.6" data-track-index="33" data-volume="0.16"></audio>
     </div>

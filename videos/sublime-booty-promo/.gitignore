@@ -1,3 +1,6 @@
-snapshots/*.png
-.hyperframes/frame-packets/
+snapshots/
+.hyperframes/
 node_modules/
+renders/*.mp4
+!renders/sublime_booty_16x9.mp4
+!renders/sublime_booty_9x16.mp4

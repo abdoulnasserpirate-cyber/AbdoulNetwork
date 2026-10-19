@@ -13,7 +13,17 @@ map_frag = (root / "assets/map/layers.svg.frag").read_text()
 # delivery map camera: Maradi close-up, whole Niger, whole Africa (viewBox per format)
 MAP_A = {"land": "507 462.2 70 55.6", "port": "510 461 64 58"}
 
-for name, fmt, w, h in (("index.html", "land", 1920, 1080), ("vertical.html", "port", 1080, 1920)):
+# The 9:16 cut lives in its own HyperFrames project (one root composition per project);
+# vertical/assets is a symlink to the shared assets folder.
+vdir = root / "vertical"
+vdir.mkdir(exist_ok=True)
+if not (vdir / "assets").exists():
+    (vdir / "assets").symlink_to("../assets")
+for f in ("hyperframes.json", "package.json"):
+    (vdir / f).write_text((root / f).read_text())
+(vdir / "meta.json").write_text('{\n  "id": "sublime-booty-promo-9x16",\n  "name": "sublime-booty-promo-9x16"\n}\n')
+
+for name, fmt, w, h in (("index.html", "land", 1920, 1080), ("vertical/index.html", "port", 1080, 1920)):
     layout = (src / f"{fmt}.css").read_text()
     page = f"""<!doctype html>
 <html lang="fr">

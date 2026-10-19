@@ -61,7 +61,7 @@ const world_ = [
 const arrow = (x1, y1, x2, y2, bend, cls) => {
   const mx = (x1 + x2) / 2, my = (y1 + y2) / 2, dx = x2 - x1, dy = y2 - y1;
   const cx = r1(mx - dy * bend), cy = r1(my + dx * bend);
-  return `<path class="${cls}" d="M${x1},${y1} Q${cx},${cy} ${x2},${y2}" marker-end="url(#head-${cls.slice(-1)})" />`;
+  return `<path class="${cls}" pathLength="1" d="M${x1},${y1} Q${cx},${cy} ${x2},${y2}" marker-end="url(#head-${cls.slice(-1)})" />`;
 };
 
 let out = "";

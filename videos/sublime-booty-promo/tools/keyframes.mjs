@@ -9,7 +9,7 @@ const { chromium } = require(process.env.PW_PATH || "playwright");
 const root = process.cwd();
 fs.mkdirSync(path.join(root, "storyboard"), { recursive: true });
 const browser = await chromium.launch();
-for (const [file, tag, width, height] of [["index.html", "16x9", 1920, 1080], ["vertical.html", "9x16", 1080, 1920]]) {
+for (const [file, tag, width, height] of [["index.html", "16x9", 1920, 1080], ["vertical/index.html", "9x16", 1080, 1920]]) {
   const page = await browser.newPage({ viewport: { width, height } });
   await page.goto("file://" + path.join(root, file));
   await page.evaluate(() => document.fonts.ready);
