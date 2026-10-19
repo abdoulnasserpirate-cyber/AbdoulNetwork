@@ -6,7 +6,7 @@ arc: Accroche → Marque → 3 gammes produits → Paiement & livraison → Appe
 audience: Femmes de Maradi, du Niger et de l'international
 ---
 
-Version v3 (rose vif #FF00A8 + typographie grande et épaisse : Cinzel, Playfair Black Italic, Montserrat ExtraBold) — images clés : `storyboard/16x9-sN.png`, `storyboard/9x16-sN.png`, planches
+Version v4 (rose vif, typographie cinéma, livraison sur carte Maradi → Niger → Afrique) — images clés : `storyboard/16x9-sN.png`, `storyboard/9x16-sN.png`, planches
 `storyboard/planche-16x9.jpg` et `storyboard/planche-9x16.jpg`, page `storyboard.html`.
 
 **Fil conducteur** : le fond satin rose qui ne s'arrête jamais, et l'or (chiffres de gamme, prix, numéro) qui
@@ -60,13 +60,21 @@ duo 30,51 · paiement 33,02 (Nita ≈33,4 · Amana ≈33,75 · Wave ≈34,5 · a
 - voiceover: "Et pour vous sentir légère… thé perte de poids, duo thé et crème ventre plat."
 - scene: « 03 Ventre plat », le thé puis le duo.
 
-## Frame 6 — Paiement & livraison
+## Frame 6 — Paiement
 
-- duration: 6.3s
+- duration: 3.1s
 - status: built
 - src: index.html#s6
-- voiceover: "Paiement par Nita, Amana, Wave et autres. Livraison à Maradi, partout au Niger et à l'international."
-- scene: Cartes en verre dépoli (NITA, AMANA, Wave, « et autres ») ; ligne dorée Maradi → Niger → International.
+- voiceover: "Paiement par Nita, Amana, Wave et autres."
+- scene: Cartes en verre dépoli (NITA, AMANA, Wave, « et autres »), seules à l'écran.
+
+## Frame 6b — Livraison sur carte
+
+- duration: 3.2s
+- status: built
+- src: index.html#s6b
+- voiceover: "Livraison à Maradi, partout au Niger et à l'international."
+- scene: Carte réelle (Natural Earth) en zoom arrière : Maradi + flèches vers les quartiers → Niger + flèches vers les villes → Afrique + arcs.
 
 ## Frame 7 — Commandez
 

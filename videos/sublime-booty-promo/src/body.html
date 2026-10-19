@@ -154,8 +154,8 @@
         </div>
       </section>
 
-      <!-- 6 · Paiement & livraison -->
-      <section id="s6" class="scene clip" data-start="32.55" data-duration="6.9" data-track-index="2">
+      <!-- 6 · Paiement -->
+      <section id="s6" class="scene clip" data-start="32.55" data-duration="3.55" data-track-index="2">
         <div class="cam">
           <div class="pay-head">
             <div class="mask"><div class="in sans-caps blush kick">Paiement</div></div>
@@ -167,14 +167,30 @@
             <div class="card c-wave"><div class="tile"><img src="assets/logos/wave.png" alt="Wave" /></div><div class="c-name sans-caps">Wave</div></div>
             <div class="card c-more"><div class="more script gold">et autres</div><div class="c-name sans-caps">moyens</div></div>
           </div>
-          <div class="ship-head">
-            <div class="mask"><div class="in sans-caps blush kick">Livraison</div></div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 6b · Livraison : carte Maradi → Niger → Afrique (zoom arrière) -->
+      <section id="s6b" data-state="b" class="scene clip" data-start="35.75" data-duration="3.7" data-track-index="4">
+        <div class="cam">
+          <div class="map-wrap">
+            <svg id="map" viewBox="{{MAP_A}}" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <marker id="head-a" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="2.6" markerHeight="2.6" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#FFF4C4" /></marker>
+                <marker id="head-b" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="13" markerHeight="13" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#FFF4C4" /></marker>
+                <marker id="head-c" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="34" markerHeight="34" orient="auto"><path d="M0,0 L10,5 L0,10 L3,5 z" fill="#FFF4C4" /></marker>
+              </defs>
+{{MAP}}
+            </svg>
           </div>
-          <div class="route">
-            <div class="r-track"></div><div class="r-fill"></div>
-            <div class="node n1"><i></i><span class="serif">Maradi</span></div>
-            <div class="node n2"><i></i><span class="serif">Partout au Niger</span></div>
-            <div class="node n3"><i></i><span class="serif">International</span></div>
+          <div class="ship">
+            <div class="mask"><div class="in sans-caps kick">Livraison</div></div>
+            <div class="caps">
+              <div class="cap cap-a"><div class="cap-t serif gold">Maradi</div><div class="cap-s serif-i">dans tous les quartiers</div></div>
+              <div class="cap cap-b"><div class="cap-t serif gold">Partout au Niger</div></div>
+              <div class="cap cap-c"><div class="cap-t serif gold">International</div><div class="cap-s serif-i">partout en Afrique</div></div>
+            </div>
           </div>
         </div>
       </section>

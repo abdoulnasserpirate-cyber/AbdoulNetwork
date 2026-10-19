@@ -69,21 +69,24 @@
       .st-l .p-price, .st-r .p-price { align-self: center; font-size: 44px; padding: 12px 32px; }
       .duo-scene > .cam > .flare { left: 760px; top: 400px; width: 1150px; }
 
-      /* 6 */
-      .pay-head { position: absolute; left: 140px; top: 70px; }
+      /* 6 · paiement (seul à l'écran) */
+      .pay-head { position: absolute; left: 0; right: 0; top: 190px; text-align: center; }
       .kick { font-size: 40px; }
-      .pay-head .head { font-size: 100px; line-height: 1.12; }
-      .cards { left: 140px; top: 320px; grid-template-columns: repeat(4, 385px); grid-auto-rows: 260px; gap: 28px; }
-      .tile { width: 330px; height: 150px; }
-      .c-name { font-size: 32px; margin-top: 18px; letter-spacing: 0.12em; }
-      .more { font-size: 90px; }
-      .ship-head { position: absolute; left: 140px; top: 640px; }
-      .route { left: 300px; top: 760px; width: 1320px; height: 200px; }
-      .r-track, .r-fill { left: 0; top: 17px; width: 1320px; height: 6px; }
-      .node { top: 0; width: 640px; margin-left: -320px; flex-direction: column; }
-      .node i { width: 40px; height: 40px; }
-      .node span { font-size: 56px; margin-top: 24px; }
-      .n1 { left: 0; } .n2 { left: 660px; } .n3 { left: 1320px; }
+      .pay-head .head { font-size: 104px; line-height: 1.12; }
+      .cards { left: 140px; top: 500px; grid-template-columns: repeat(4, 385px); grid-auto-rows: 300px; gap: 28px; }
+      .tile { width: 340px; height: 170px; }
+      .c-name { font-size: 34px; margin-top: 20px; letter-spacing: 0.12em; }
+      .more { font-size: 80px; white-space: nowrap; }
+      #s6 > .cam > .flare { left: 160px; top: 820px; width: 1600px; }
+
+      /* 6b · livraison : carte */
+      .map-wrap { left: 600px; top: 0; width: 1320px; height: 1080px;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%); mask-image: linear-gradient(90deg, transparent 0, #000 14%); }
+      .ship { left: 100px; top: 300px; width: 820px; }
+      .ship .kick { font-size: 42px; }
+      .caps { margin-top: 26px; height: 420px; }
+      .cap-t { font-size: 84px; }
+      .cap-s { font-size: 58px; }
 
       /* 7 */
       .s7-cmd { position: absolute; left: 0; right: 0; top: 80px; text-align: center; }

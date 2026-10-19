@@ -9,6 +9,9 @@ body = (src / "body.html").read_text()
 css = (src / "film.css").read_text()
 js = (src / "film.js").read_text()
 motion = (src / "motion.js").read_text() if (src / "motion.js").exists() else ""
+map_frag = (root / "assets/map/layers.svg.frag").read_text()
+# delivery map camera: Maradi close-up, whole Niger, whole Africa (viewBox per format)
+MAP_A = {"land": "507 462.2 70 55.6", "port": "510 461 64 58"}
 
 for name, fmt, w, h in (("index.html", "land", 1920, 1080), ("vertical.html", "port", 1080, 1920)):
     layout = (src / f"{fmt}.css").read_text()
@@ -31,6 +34,7 @@ for name, fmt, w, h in (("index.html", "land", 1920, 1080), ("vertical.html", "p
   </body>
 </html>
 """
+    page = page.replace("{{MAP}}", map_frag).replace("{{MAP_A}}", MAP_A[fmt])
     page = page.replace("{{W}}", str(w)).replace("{{H}}", str(h)).replace("{{FMT}}", fmt)
     (root / name).write_text(page)
     print("wrote", name)

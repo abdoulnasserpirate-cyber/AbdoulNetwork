@@ -154,3 +154,30 @@
         background: rgba(120, 0, 78, 0.5); border: 1.5px solid rgba(240, 207, 120, 0.8); }
       .s8-num { font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
       .s8-slogan .in { color: var(--ivoire); }
+
+      /* delivery map */
+      .map-wrap { position: absolute; overflow: hidden; }
+      #map { width: 100%; height: 100%; display: block; overflow: hidden; }
+      #map .land { fill: rgba(255, 255, 255, 0.17); stroke: rgba(255, 232, 246, 0.6); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+      #map .niger { fill: rgba(255, 244, 196, 0.34); stroke: #FFF4C4; stroke-width: 3; vector-effect: non-scaling-stroke;
+        filter: drop-shadow(0 0 10px rgba(255, 244, 196, 0.6)); }
+      #map .rt { fill: none; stroke: #FFF4C4; stroke-linecap: round; filter: drop-shadow(0 0 3px rgba(120, 0, 75, 0.6)); }
+      #map .rt-a { stroke-width: 0.5; } #map .rt-b { stroke-width: 2.6; } #map .rt-c { stroke-width: 6.5; }
+      #map .qd, #map .wd { fill: #FFF4C4; }
+      #map .ct { fill: #FFF4C4; stroke: #8C005C; stroke-width: 1.5; }
+      #map .ct-l { font-family: "Cinzel", serif; font-weight: 900; font-size: 17px; fill: #FFFFFF;
+        paint-order: stroke; stroke: rgba(120, 0, 75, 0.75); stroke-width: 4px; stroke-linejoin: round; }
+      #map .pin-dot { fill: #FF00A8; stroke: #FFF4C4; }
+      #map .pin-pulse { fill: rgba(255, 244, 196, 0.38); }
+      #s6b[data-state="a"] .lyr-b, #s6b[data-state="a"] .lyr-c, #s6b[data-state="b"] .lyr-a, #s6b[data-state="b"] .lyr-c,
+      #s6b[data-state="c"] .lyr-a, #s6b[data-state="c"] .lyr-b { opacity: 0; }
+      #s6b[data-state="a"] .pin-dot { r: 1.5; stroke-width: 0.5; } #s6b[data-state="a"] .pin-pulse { r: 3.6; }
+      #s6b[data-state="b"] .pin-dot { r: 8; stroke-width: 2.5; } #s6b[data-state="b"] .pin-pulse { r: 20; }
+      #s6b[data-state="c"] .pin-dot { r: 20; stroke-width: 6; } #s6b[data-state="c"] .pin-pulse { r: 52; }
+      .ship { position: absolute; }
+      .caps { position: relative; }
+      .cap { position: absolute; left: 0; top: 0; width: 100%; }
+      .cap-t { display: inline-block; line-height: 1.02; }
+      .cap-s { margin-top: 14px; color: #FFFFFF; }
+      #s6b[data-state="a"] .cap-b, #s6b[data-state="a"] .cap-c, #s6b[data-state="b"] .cap-a, #s6b[data-state="b"] .cap-c,
+      #s6b[data-state="c"] .cap-a, #s6b[data-state="c"] .cap-b { opacity: 0; }
