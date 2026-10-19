@@ -5,39 +5,39 @@
     <meta name="viewport" content="width=1080, height=1920" />
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
-      @font-face { font-family: "Bodoni Moda"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/BodoniModa-normal-400_900.woff2") format("woff2"); }
-      @font-face { font-family: "Great Vibes"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/GreatVibes-normal-400.woff2") format("woff2"); }
-      @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 200 700; font-display: block; src: url("assets/fonts/Montserrat-normal-200_700.woff2") format("woff2"); }
-      @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Cinzel"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/Montserrat-normal-400_900.woff2") format("woff2"); }
       @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-italic-400_900.woff2") format("woff2"); }
 
       :root {
         --rose: #FF00A8; --fuchsia: #D6008C; --magenta: #8C005C; --nuit: #FF00A8;
-        --vif: #FF4DC2; --blush: #FFE6F5; --or: #F0CF78; --or-clair: #FFF4C4; --ivoire: #FFF3F7;
+        --vif: #FF4DC2; --blush: #FFE6F5; --or: #F0CF78; --or-clair: #FFF4C4; --ivoire: #FFFFFF;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); }
       #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--nuit); color: var(--ivoire); }
 
-      /* ---------- type roles ---------- */
-      .serif { font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.06em; }
-      .serif-i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; }
-      .bodoni { font-family: "Bodoni Moda", serif; font-weight: 600; }
-      .script { font-family: "Great Vibes", cursive; font-weight: 400; }
-      .sans-caps { font-family: "Montserrat", sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: 0.42em; }
+      /* ---------- type roles: heavy, cinematic, readable on a phone ----------
+         Cinzel (titles, numbers) · Playfair Display Black Italic (accents) · Montserrat ExtraBold (labels) */
+      .serif { font-family: "Cinzel", serif; font-weight: 800; letter-spacing: 0.03em; }
+      .bodoni { font-family: "Cinzel", serif; font-weight: 900; letter-spacing: 0.02em; }
+      .serif-i, .script { font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; letter-spacing: 0.005em; }
+      .sans-caps { font-family: "Montserrat", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: #FFFFFF; }
       .blush { color: var(--blush); }
-      /* bright pink canvas: every light glyph carries a soft magenta shadow for legibility */
-      .serif, .serif-i, .script, .sans-caps, .p-name, .node span { text-shadow: 0 2px 14px rgba(110, 0, 70, 0.55), 0 1px 2px rgba(110, 0, 70, 0.45); }
+      /* bright pink canvas: light glyphs sit on a hard magenta drop + soft cinematic glow */
+      .serif, .bodoni, .serif-i, .script, .sans-caps, .p-name, .node span, .c-name {
+        text-shadow: 0 3px 0 rgba(120, 0, 75, 0.55), 0 8px 26px rgba(90, 0, 55, 0.6);
+      }
       .gold.gold { text-shadow: none; }
-      .sans-caps { font-weight: 500; color: #FFFFFF; }
+      .w { display: inline-block; }
       .gold {
-        background: linear-gradient(180deg, #FFF8D8 0%, #F6DA8A 38%, #C9973A 58%, #F4D27E 78%, #FFF1BE 100%);
+        background: linear-gradient(180deg, #FFFBE6 0%, #FFE59A 30%, #E2B04E 52%, #B07A1E 60%, #F2CC72 80%, #FFF3C8 100%);
         -webkit-background-clip: text; background-clip: text; color: transparent;
-        filter: drop-shadow(0 2px 1px rgba(100, 0, 60, 0.75)) drop-shadow(0 6px 18px rgba(110, 0, 70, 0.5));
+        filter: drop-shadow(0 3px 0 rgba(110, 0, 65, 0.85)) drop-shadow(0 6px 12px rgba(90, 0, 55, 0.5));
       }
 
       /* masked line reveal: .mask clips, .in rises from the hidden baseline */
-      .mask { overflow: hidden; display: block; padding: 0.06em 0.08em 0.12em; }
+      .mask { overflow: hidden; display: block; padding: 0.2em 0.25em 0.3em; margin: -0.14em -0.17em -0.18em; }
       .mask > .in { display: block; will-change: transform; }
 
       /* ---------- backdrop ---------- */
@@ -81,10 +81,7 @@
 
       /* gamme header */
       .gamme { position: absolute; }
-      .g-num {
-        position: absolute; line-height: 0.8; color: transparent; -webkit-text-stroke: 3px var(--or-clair);
-        filter: drop-shadow(0 2px 6px rgba(110, 0, 70, 0.6));
-      }
+      .g-num { position: absolute; line-height: 0.85; }
       .g-label { position: absolute; color: #FFFFFF; white-space: nowrap; }
       .g-titlewrap { position: absolute; }
       .g-title { white-space: nowrap; color: var(--ivoire); line-height: 1; }
@@ -112,9 +109,9 @@
         -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%);
         mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%); }
       .info { position: absolute; display: flex; flex-direction: column; }
-      .p-name { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.05; color: var(--ivoire); }
+      .p-name { font-family: "Cinzel", serif; font-weight: 800; line-height: 1.08; letter-spacing: 0.01em; color: var(--ivoire); }
       .p-price {
-        display: inline-block; align-self: flex-start; font-family: "Montserrat", sans-serif; font-weight: 600;
+        display: inline-block; align-self: flex-start; font-family: "Montserrat", sans-serif; font-weight: 800;
         letter-spacing: 0.04em; color: #6E0048; border-radius: 999px; font-variant-numeric: lining-nums; white-space: nowrap;
         background: linear-gradient(180deg, #FFF4C4 0%, #F0CF78 45%, #D4A64C 100%);
         box-shadow: 0 8px 30px rgba(240, 207, 120, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -145,7 +142,7 @@
       .node { position: absolute; display: flex; align-items: center; }
       .node i { display: block; flex: none; border-radius: 50%; background: radial-gradient(circle, #FFF4C4 0%, #F0CF78 55%, #B98C34 100%);
         box-shadow: 0 0 0 6px rgba(240, 207, 120, 0.18), 0 0 30px rgba(240, 207, 120, 0.7); }
-      .node span { white-space: nowrap; color: var(--ivoire); font-weight: 600; letter-spacing: 0.02em; }
+      .node span { white-space: nowrap; color: var(--ivoire); font-family: "Cinzel", serif; font-weight: 800; letter-spacing: 0.02em; }
 
       /* call to action */
       .wa { position: absolute; display: flex; align-items: center; color: var(--ivoire); }
@@ -154,7 +151,7 @@
       .wa-dot svg { width: 64%; height: 64%; }
       .wa-bub { fill: none; stroke: #fff; stroke-width: 4; stroke-linejoin: round; }
       .wa-ph { fill: #fff; }
-      .phone { position: absolute; display: flex; white-space: nowrap; line-height: 1; font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.01em; font-variant-numeric: lining-nums; }
+      .phone { position: absolute; display: flex; white-space: nowrap; line-height: 1; font-family: "Cinzel", serif; font-weight: 900; letter-spacing: 0.01em; font-variant-numeric: lining-nums; }
       .pg { display: inline-block; overflow: hidden; padding: 0.04em 0.05em 0.1em; }
       .pg > span { display: inline-block; }
       .s7-cmd .in { color: var(--ivoire); letter-spacing: 0.1em; }
@@ -162,7 +159,7 @@
       /* end card */
       .s8-wa { position: absolute; display: flex; align-items: center; border-radius: 999px;
         background: rgba(120, 0, 78, 0.5); border: 1.5px solid rgba(240, 207, 120, 0.8); }
-      .s8-num { font-family: "Montserrat", sans-serif; font-weight: 600; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
+      .s8-num { font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
       .s8-slogan .in { color: var(--ivoire); }
 
       /* ===== 9:16 layout (1080x1920) — key content kept between y=220 and y=1540 ===== */
@@ -170,112 +167,113 @@
       .leak-b { width: 1200px; height: 1200px; left: 300px; top: 1000px; }
 
       /* 1 */
-      .s1-mesdames { position: absolute; left: 80px; top: 420px; }
-      .s1-mesdames .in { font-size: 150px; line-height: 1.1; }
-      .s1-l1 { position: absolute; left: 90px; top: 650px; }
-      .s1-l2 { position: absolute; left: 230px; top: 750px; }
-      .s1-l1 .in, .s1-l2 .in { font-size: 80px; line-height: 1.1; }
-      .s1-sentir { position: absolute; left: 96px; top: 905px; }
-      .s1-sentir .in { font-size: 36px; }
-      .s1-sub { position: absolute; left: 0; right: 0; top: 975px; text-align: center; }
-      .s1-sub .in { font-size: 150px; line-height: 1.05; letter-spacing: 0.02em; }
-      .s1-sub .flare { left: 40px; top: 90px; width: 1000px; }
+      .s1-mesdames { position: absolute; left: 60px; top: 360px; }
+      .s1-mesdames .in { font-size: 136px; line-height: 1.1; }
+      .s1-l1 { position: absolute; left: 66px; top: 560px; }
+      .s1-l2 { position: absolute; left: 200px; top: 665px; }
+      .s1-l1 .in, .s1-l2 .in { font-size: 88px; line-height: 1.1; }
+      .s1-sentir { position: absolute; left: 72px; top: 815px; }
+      .s1-sentir .in { font-size: 46px; }
+      .s1-sub { position: absolute; left: 0; right: 0; top: 885px; text-align: center; }
+      .s1-sub .in { font-size: 146px; line-height: 1.05; }
+      .s1-sub .flare { left: 40px; top: 95px; width: 1000px; }
 
       /* 2 */
-      .s2-mark { position: absolute; left: 240px; top: 300px; width: 600px; height: 600px; }
+      .s2-mark { position: absolute; left: 240px; top: 250px; width: 600px; height: 600px; }
       .s2-crown { position: absolute; left: 50px; top: 96px; width: 500px; height: 150px; }
       .s2-sb { position: absolute; left: 50px; top: 240px; width: 500px; height: 250px; }
-      .s2-text { position: absolute; left: 40px; right: 40px; top: 960px; text-align: center; }
-      .s2-kicker { font-size: 30px; }
-      .s2-text .brand { font-size: 92px; line-height: 1.1; white-space: nowrap; }
+      .s2-text { position: absolute; left: 40px; right: 40px; top: 880px; text-align: center; }
+      .s2-kicker { font-size: 38px; }
+      .s2-text .brand { font-size: 136px; line-height: 1.02; }
+      .s2-text .brand .w, .s8-brand .w { display: block; }
       .s2-bywrap { margin: 2px 0 0 0; }
-      .s2-by { font-size: 124px; line-height: 1.1; color: var(--blush); }
-      .s2-values { display: flex; justify-content: center; align-items: center; margin-top: 24px; font-size: 30px; letter-spacing: 0.26em; color: var(--ivoire); }
-      .dot { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--or); margin: 0 22px 0 12px; }
-      #s2 > .cam > .flare { left: 40px; top: 1100px; width: 1000px; }
+      .s2-by { font-size: 96px; line-height: 1.1; color: var(--blush); }
+      .s2-values { display: flex; justify-content: center; align-items: center; margin-top: 18px; font-size: 32px; letter-spacing: 0.08em; color: var(--ivoire); }
+      .dot { display: block; width: 11px; height: 11px; border-radius: 50%; background: var(--or-clair); margin: 0 14px; box-shadow: 0 2px 0 rgba(120, 0, 75, 0.5); }
+      #s2 > .cam > .flare { left: 40px; top: 1060px; width: 1000px; }
 
       /* 3 · 4 · 5 gamme header */
-      .gamme { left: 80px; top: 250px; width: 920px; height: 380px; }
-      .g-num { left: -8px; top: 0; font-size: 250px; }
-      .g-label { left: 330px; top: 30px; font-size: 26px; }
-      .g-titlewrap { left: 318px; top: 62px; }
-      .g-title { font-size: 116px; }
-      .duo-scene .g-title { font-size: 100px; }
-      .g-line { left: 330px; top: 220px; width: 300px; }
-      .counter { left: 330px; top: 245px; font-size: 32px; }
-      .g-subwrap { left: 0; top: 285px; width: 920px; text-align: center; }
-      .g-sub { font-size: 60px; }
+      .gamme { left: 60px; top: 240px; width: 960px; height: 400px; }
+      .g-num { left: -4px; top: 0; font-size: 230px; }
+      .g-label { left: 330px; top: 12px; font-size: 32px; }
+      .g-titlewrap { left: 318px; top: 44px; }
+      .g-title { font-size: 126px; }
+      .duo-scene .g-title { font-size: 98px; }
+      .g-line { left: 330px; top: 220px; width: 320px; height: 4px; }
+      .counter { left: 330px; top: 240px; font-size: 44px; letter-spacing: 0.08em; }
+      .g-subwrap { left: 0; top: 268px; width: 960px; text-align: center; }
+      .g-sub { font-size: 46px; }
 
       /* 3 · single stage */
       .st-a { left: 0; top: 0; width: 1080px; height: 1920px; }
       .st-a .halo { left: 40px; top: 400px; width: 1000px; height: 1000px; }
-      .st-a .spot { left: 240px; top: 260px; width: 600px; height: 920px; }
-      .st-a .podium { left: 230px; top: 1130px; width: 620px; height: 160px; }
+      .st-a .spot { left: 240px; top: 280px; width: 600px; height: 880px; }
+      .st-a .podium { left: 230px; top: 1110px; width: 620px; height: 160px; }
       .st-a .pd-top { height: 110px; }
       .st-a .pd-side { top: 55px; height: 95px; }
-      .st-a .prod { left: 240px; top: 425px; width: 600px; height: 800px; }
+      .st-a .prod { left: 240px; top: 405px; width: 600px; height: 800px; }
       .st-a .flare { left: 40px; top: 900px; width: 1000px; }
-      .infos { position: absolute; left: 80px; top: 1330px; width: 920px; height: 200px; }
-      .infos .info { left: 0; top: 0; width: 920px; align-items: center; text-align: center; gap: 22px; }
-      .infos .p-name { font-size: 74px; white-space: nowrap; }
-      .infos .p-price { align-self: center; font-size: 48px; padding: 14px 36px; }
+      .infos { position: absolute; left: 40px; top: 1290px; width: 1000px; height: 240px; }
+      .infos .info { left: 0; top: 0; width: 1000px; align-items: center; text-align: center; gap: 22px; }
+      .infos .p-name { font-size: 64px; white-space: nowrap; }
+      .infos .p-price { align-self: center; font-size: 58px; padding: 14px 42px; }
 
       /* 4 · 5 · twin stages */
       .st-l, .st-r { top: 0; width: 520px; height: 1920px; }
       .st-l { left: 20px; }
       .st-r { left: 540px; }
-      .st-l .halo, .st-r .halo { left: -60px; top: 640px; width: 640px; height: 640px; }
-      .st-l .spot, .st-r .spot { left: 60px; top: 560px; width: 400px; height: 700px; }
-      .st-l .podium, .st-r .podium { left: 50px; top: 1080px; width: 420px; height: 120px; }
+      .st-l .halo, .st-r .halo { left: -60px; top: 620px; width: 640px; height: 640px; }
+      .st-l .spot, .st-r .spot { left: 60px; top: 560px; width: 400px; height: 680px; }
+      .st-l .podium, .st-r .podium { left: 50px; top: 1060px; width: 420px; height: 120px; }
       .st-l .pd-top, .st-r .pd-top { height: 84px; }
       .st-l .pd-side, .st-r .pd-side { top: 42px; height: 72px; }
-      .st-l .prod, .st-r .prod { left: 20px; top: 514px; width: 480px; height: 640px; }
-      .st-l .info, .st-r .info { left: 20px; top: 1230px; width: 480px; align-items: center; text-align: center; gap: 18px; }
-      .st-l .p-name, .st-r .p-name { font-size: 50px; }
-      .st-l .p-price, .st-r .p-price { align-self: center; font-size: 40px; padding: 12px 30px; }
-      .duo-scene > .cam > .flare { left: 40px; top: 860px; width: 1000px; }
+      .st-l .prod, .st-r .prod { left: 20px; top: 494px; width: 480px; height: 640px; }
+      .st-l .info, .st-r .info { left: 0; top: 1200px; width: 520px; align-items: center; text-align: center; gap: 16px; }
+      .st-l .p-name, .st-r .p-name { font-size: 44px; }
+      .st-l .p-price, .st-r .p-price { align-self: center; font-size: 46px; padding: 12px 32px; }
+      .duo-scene > .cam > .flare { left: 40px; top: 840px; width: 1000px; }
 
       /* 6 */
-      .pay-head { position: absolute; left: 90px; top: 245px; }
-      .kick { font-size: 30px; }
-      .pay-head .head { font-size: 76px; line-height: 1.15; }
-      .cards { left: 90px; top: 470px; grid-template-columns: repeat(2, 435px); grid-auto-rows: 230px; gap: 30px; }
-      .tile { width: 370px; height: 156px; }
-      .c-name { font-size: 26px; margin-top: 16px; }
-      .more { font-size: 96px; }
-      .ship-head { position: absolute; left: 90px; top: 1030px; }
-      .route { left: 150px; top: 1130px; width: 820px; height: 380px; }
-      .r-track, .r-fill { left: 0; top: 0; width: 4px; height: 360px; }
-      .node { left: -15px; height: 70px; margin-top: -35px; flex-direction: row; }
-      .node i { width: 34px; height: 34px; }
-      .node span { font-size: 60px; margin-left: 44px; }
+      .pay-head { position: absolute; left: 70px; top: 235px; }
+      .kick { font-size: 40px; }
+      .pay-head .head { font-size: 80px; line-height: 1.12; }
+      .cards { left: 70px; top: 440px; grid-template-columns: repeat(2, 455px); grid-auto-rows: 250px; gap: 30px; }
+      .tile { width: 390px; height: 165px; }
+      .c-name { font-size: 32px; margin-top: 14px; letter-spacing: 0.12em; }
+      .more { font-size: 92px; }
+      .ship-head { position: absolute; left: 70px; top: 1010px; }
+      .route { left: 130px; top: 1125px; width: 880px; height: 380px; }
+      .r-track, .r-fill { left: 0; top: 0; width: 6px; height: 360px; }
+      .node { left: -17px; height: 80px; margin-top: -40px; flex-direction: row; }
+      .node i { width: 40px; height: 40px; }
+      .node span { font-size: 62px; margin-left: 40px; }
       .n1 { top: 0; } .n2 { top: 180px; } .n3 { top: 360px; }
 
       /* 7 */
-      .s7-cmd { position: absolute; left: 0; right: 0; top: 330px; text-align: center; }
-      .s7-cmd .in { font-size: 124px; line-height: 1.1; }
-      .s7-now { position: absolute; left: 470px; top: 440px; }
+      .s7-cmd { position: absolute; left: 0; right: 0; top: 290px; text-align: center; }
+      .s7-cmd .in { font-size: 128px; line-height: 1.1; letter-spacing: 0.02em; }
+      .s7-now { position: absolute; left: 340px; top: 430px; }
       .s7-now .in { font-size: 120px; line-height: 1.1; }
-      .wa { left: 0; right: 0; top: 670px; justify-content: center; gap: 24px; }
-      .wa .wa-dot { width: 90px; height: 90px; }
-      .wa span { font-size: 38px; letter-spacing: 0.28em; }
-      .phone { left: 0; right: 0; top: 830px; flex-wrap: wrap; justify-content: center; column-gap: 0.28em; row-gap: 6px; font-size: 150px; }
-      .pg0 { flex-basis: 100%; text-align: center; font-size: 170px; }
-      #s7 > .cam > .flare { left: 40px; top: 1080px; width: 1000px; }
+      .wa { left: 0; right: 0; top: 660px; justify-content: center; gap: 26px; }
+      .wa .wa-dot { width: 104px; height: 104px; }
+      .wa span { font-size: 48px; letter-spacing: 0.1em; }
+      .phone { left: 0; right: 0; top: 840px; flex-wrap: wrap; justify-content: center; column-gap: 0.22em; row-gap: 14px; font-size: 150px; }
+      .pg0 { flex-basis: 100%; text-align: center; font-size: 180px; }
+      #s7 > .cam > .flare { left: 40px; top: 1100px; width: 1000px; }
 
       /* 8 */
-      .s8-mark { position: absolute; left: 240px; top: 300px; width: 600px; height: 600px; }
-      .s8-logo { position: absolute; left: -22px; top: 33px; width: 600px; height: 600px; }
-      .s8-brand { position: absolute; left: 0; right: 0; top: 960px; text-align: center; }
-      .s8-brand .in { font-size: 92px; line-height: 1.1; }
-      .s8-by { position: absolute; left: 520px; top: 1068px; }
-      .s8-by .in { font-size: 110px; line-height: 1.1; }
-      .s8-slogan { position: absolute; left: 80px; right: 80px; top: 1195px; text-align: center; }
-      .s8-slogan .in { font-size: 84px; line-height: 1.15; }
+      .s8-mark { position: absolute; left: 260px; top: 240px; width: 560px; height: 560px; }
+      .s8-logo { position: absolute; left: -20px; top: 31px; width: 560px; height: 560px; }
+      .s8-brand { position: absolute; left: 50px; right: 50px; top: 830px; text-align: center; }
+      .s8-brand .in { font-size: 128px; line-height: 1.02; }
+      .s8-by { position: absolute; left: 470px; top: 1095px; }
+      .s8-by .in { font-size: 92px; line-height: 1.1; }
+      .s8-slogan { position: absolute; left: 50px; right: 50px; top: 1215px; text-align: center; }
+      .s8-slogan .in { font-size: 66px; line-height: 1.15; }
       .s8-slogan .sl { display: block; }
-      .s8-wa { left: 220px; width: 640px; top: 1420px; height: 96px; justify-content: center; gap: 22px; }
-      .s8-wa .wa-dot { width: 72px; height: 72px; }
-      .s8-num { font-size: 40px; }
+      .s8-wa { left: 160px; width: 760px; top: 1415px; height: 112px; justify-content: center; gap: 24px; }
+      .s8-wa .wa-dot { width: 84px; height: 84px; }
+      .s8-num { font-size: 52px; }
       #s8 > .cam > .flare { left: 40px; top: 1060px; width: 1000px; }
 
     </style>
@@ -343,7 +341,7 @@
           </div>
           <div class="s2-text">
             <div class="mask"><div class="in sans-caps blush s2-kicker">Bienvenue chez</div></div>
-            <div class="mask"><div class="in serif brand gold">SUBLIME BOOTY</div></div>
+            <div class="mask"><div class="in serif brand"><span class="w gold">SUBLIME</span> <span class="w gold">BOOTY</span></div></div>
             <div class="mask s2-bywrap"><div class="in script s2-by">by Chris</div></div>
             <div class="s2-values sans-caps">
               <span class="v v1">Beauté</span><i class="dot d1"></i><span class="v v2">Confiance</span><i class="dot d2"></i><span class="v v3">Bien-être</span>
@@ -357,7 +355,7 @@
       <section id="s3" class="scene clip" data-start="8.25" data-duration="12.5" data-track-index="1">
         <div class="cam">
           <div class="gamme">
-            <div class="g-num bodoni">01</div>
+            <div class="g-num bodoni gold">01</div>
             <div class="g-label sans-caps">La gamme</div>
             <div class="mask g-titlewrap"><div class="in g-title serif-i">Fessiers</div></div>
             <div class="g-line"></div>
@@ -389,7 +387,7 @@
       <section id="s4" class="scene clip duo-scene" data-start="20.15" data-duration="6.1" data-track-index="2">
         <div class="cam">
           <div class="gamme">
-            <div class="g-num bodoni">02</div>
+            <div class="g-num bodoni gold">02</div>
             <div class="g-label sans-caps">La gamme</div>
             <div class="mask g-titlewrap"><div class="in g-title serif-i">Poitrine</div></div>
             <div class="g-line"></div>
@@ -415,7 +413,7 @@
       <section id="s5" class="scene clip duo-scene" data-start="25.65" data-duration="7.5" data-track-index="1">
         <div class="cam">
           <div class="gamme">
-            <div class="g-num bodoni">03</div>
+            <div class="g-num bodoni gold">03</div>
             <div class="g-label sans-caps">La gamme</div>
             <div class="mask g-titlewrap"><div class="in g-title serif-i">Ventre plat</div></div>
             <div class="g-line"></div>
@@ -488,7 +486,7 @@
             <svg class="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" /><circle class="ring-in" cx="100" cy="100" r="89" /></svg>
             <img class="s8-logo" src="assets/logos/sb-crown.png" alt="" />
           </div>
-          <div class="s8-brand mask"><div class="in serif gold">SUBLIME BOOTY</div></div>
+          <div class="s8-brand mask"><div class="in serif"><span class="w gold">SUBLIME</span> <span class="w gold">BOOTY</span></div></div>
           <div class="s8-by mask"><div class="in script blush">by Chris</div></div>
           <div class="s8-slogan mask"><div class="in script"><span class="sl">Révélez la femme sublime</span> <span class="sl">qui est en vous</span></div></div>
           <div class="s8-wa">

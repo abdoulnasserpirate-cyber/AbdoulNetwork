@@ -6,7 +6,7 @@ arc: Accroche → Marque → 3 gammes produits → Paiement & livraison → Appe
 audience: Femmes de Maradi, du Niger et de l'international
 ---
 
-Version v2 (fond rose vif #FF00A8, demandé par la cliente) — images clés : `storyboard/16x9-sN.png`, `storyboard/9x16-sN.png`, planches
+Version v3 (rose vif #FF00A8 + typographie grande et épaisse : Cinzel, Playfair Black Italic, Montserrat ExtraBold) — images clés : `storyboard/16x9-sN.png`, `storyboard/9x16-sN.png`, planches
 `storyboard/planche-16x9.jpg` et `storyboard/planche-9x16.jpg`, page `storyboard.html`.
 
 **Fil conducteur** : le fond satin rose qui ne s'arrête jamais, et l'or (chiffres de gamme, prix, numéro) qui

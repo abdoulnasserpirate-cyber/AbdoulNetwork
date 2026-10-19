@@ -1,36 +1,36 @@
-      @font-face { font-family: "Bodoni Moda"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/BodoniModa-normal-400_900.woff2") format("woff2"); }
-      @font-face { font-family: "Great Vibes"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/GreatVibes-normal-400.woff2") format("woff2"); }
-      @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 200 700; font-display: block; src: url("assets/fonts/Montserrat-normal-200_700.woff2") format("woff2"); }
-      @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Cinzel"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/Cinzel-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/Montserrat-normal-400_900.woff2") format("woff2"); }
       @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-italic-400_900.woff2") format("woff2"); }
 
       :root {
         --rose: #FF00A8; --fuchsia: #D6008C; --magenta: #8C005C; --nuit: #FF00A8;
-        --vif: #FF4DC2; --blush: #FFE6F5; --or: #F0CF78; --or-clair: #FFF4C4; --ivoire: #FFF3F7;
+        --vif: #FF4DC2; --blush: #FFE6F5; --or: #F0CF78; --or-clair: #FFF4C4; --ivoire: #FFFFFF;
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { margin: 0; width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--nuit); }
       #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--nuit); color: var(--ivoire); }
 
-      /* ---------- type roles ---------- */
-      .serif { font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.06em; }
-      .serif-i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; }
-      .bodoni { font-family: "Bodoni Moda", serif; font-weight: 600; }
-      .script { font-family: "Great Vibes", cursive; font-weight: 400; }
-      .sans-caps { font-family: "Montserrat", sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: 0.42em; }
+      /* ---------- type roles: heavy, cinematic, readable on a phone ----------
+         Cinzel (titles, numbers) · Playfair Display Black Italic (accents) · Montserrat ExtraBold (labels) */
+      .serif { font-family: "Cinzel", serif; font-weight: 800; letter-spacing: 0.03em; }
+      .bodoni { font-family: "Cinzel", serif; font-weight: 900; letter-spacing: 0.02em; }
+      .serif-i, .script { font-family: "Playfair Display", serif; font-style: italic; font-weight: 800; letter-spacing: 0.005em; }
+      .sans-caps { font-family: "Montserrat", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; color: #FFFFFF; }
       .blush { color: var(--blush); }
-      /* bright pink canvas: every light glyph carries a soft magenta shadow for legibility */
-      .serif, .serif-i, .script, .sans-caps, .p-name, .node span { text-shadow: 0 2px 14px rgba(110, 0, 70, 0.55), 0 1px 2px rgba(110, 0, 70, 0.45); }
+      /* bright pink canvas: light glyphs sit on a hard magenta drop + soft cinematic glow */
+      .serif, .bodoni, .serif-i, .script, .sans-caps, .p-name, .node span, .c-name {
+        text-shadow: 0 3px 0 rgba(120, 0, 75, 0.55), 0 8px 26px rgba(90, 0, 55, 0.6);
+      }
       .gold.gold { text-shadow: none; }
-      .sans-caps { font-weight: 500; color: #FFFFFF; }
+      .w { display: inline-block; }
       .gold {
-        background: linear-gradient(180deg, #FFF8D8 0%, #F6DA8A 38%, #C9973A 58%, #F4D27E 78%, #FFF1BE 100%);
+        background: linear-gradient(180deg, #FFFBE6 0%, #FFE59A 30%, #E2B04E 52%, #B07A1E 60%, #F2CC72 80%, #FFF3C8 100%);
         -webkit-background-clip: text; background-clip: text; color: transparent;
-        filter: drop-shadow(0 2px 1px rgba(100, 0, 60, 0.75)) drop-shadow(0 6px 18px rgba(110, 0, 70, 0.5));
+        filter: drop-shadow(0 3px 0 rgba(110, 0, 65, 0.85)) drop-shadow(0 6px 12px rgba(90, 0, 55, 0.5));
       }
 
       /* masked line reveal: .mask clips, .in rises from the hidden baseline */
-      .mask { overflow: hidden; display: block; padding: 0.06em 0.08em 0.12em; }
+      .mask { overflow: hidden; display: block; padding: 0.2em 0.25em 0.3em; margin: -0.14em -0.17em -0.18em; }
       .mask > .in { display: block; will-change: transform; }
 
       /* ---------- backdrop ---------- */
@@ -74,10 +74,7 @@
 
       /* gamme header */
       .gamme { position: absolute; }
-      .g-num {
-        position: absolute; line-height: 0.8; color: transparent; -webkit-text-stroke: 3px var(--or-clair);
-        filter: drop-shadow(0 2px 6px rgba(110, 0, 70, 0.6));
-      }
+      .g-num { position: absolute; line-height: 0.85; }
       .g-label { position: absolute; color: #FFFFFF; white-space: nowrap; }
       .g-titlewrap { position: absolute; }
       .g-title { white-space: nowrap; color: var(--ivoire); line-height: 1; }
@@ -105,9 +102,9 @@
         -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%);
         mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%); }
       .info { position: absolute; display: flex; flex-direction: column; }
-      .p-name { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.05; color: var(--ivoire); }
+      .p-name { font-family: "Cinzel", serif; font-weight: 800; line-height: 1.08; letter-spacing: 0.01em; color: var(--ivoire); }
       .p-price {
-        display: inline-block; align-self: flex-start; font-family: "Montserrat", sans-serif; font-weight: 600;
+        display: inline-block; align-self: flex-start; font-family: "Montserrat", sans-serif; font-weight: 800;
         letter-spacing: 0.04em; color: #6E0048; border-radius: 999px; font-variant-numeric: lining-nums; white-space: nowrap;
         background: linear-gradient(180deg, #FFF4C4 0%, #F0CF78 45%, #D4A64C 100%);
         box-shadow: 0 8px 30px rgba(240, 207, 120, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -138,7 +135,7 @@
       .node { position: absolute; display: flex; align-items: center; }
       .node i { display: block; flex: none; border-radius: 50%; background: radial-gradient(circle, #FFF4C4 0%, #F0CF78 55%, #B98C34 100%);
         box-shadow: 0 0 0 6px rgba(240, 207, 120, 0.18), 0 0 30px rgba(240, 207, 120, 0.7); }
-      .node span { white-space: nowrap; color: var(--ivoire); font-weight: 600; letter-spacing: 0.02em; }
+      .node span { white-space: nowrap; color: var(--ivoire); font-family: "Cinzel", serif; font-weight: 800; letter-spacing: 0.02em; }
 
       /* call to action */
       .wa { position: absolute; display: flex; align-items: center; color: var(--ivoire); }
@@ -147,7 +144,7 @@
       .wa-dot svg { width: 64%; height: 64%; }
       .wa-bub { fill: none; stroke: #fff; stroke-width: 4; stroke-linejoin: round; }
       .wa-ph { fill: #fff; }
-      .phone { position: absolute; display: flex; white-space: nowrap; line-height: 1; font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.01em; font-variant-numeric: lining-nums; }
+      .phone { position: absolute; display: flex; white-space: nowrap; line-height: 1; font-family: "Cinzel", serif; font-weight: 900; letter-spacing: 0.01em; font-variant-numeric: lining-nums; }
       .pg { display: inline-block; overflow: hidden; padding: 0.04em 0.05em 0.1em; }
       .pg > span { display: inline-block; }
       .s7-cmd .in { color: var(--ivoire); letter-spacing: 0.1em; }
@@ -155,5 +152,5 @@
       /* end card */
       .s8-wa { position: absolute; display: flex; align-items: center; border-radius: 999px;
         background: rgba(120, 0, 78, 0.5); border: 1.5px solid rgba(240, 207, 120, 0.8); }
-      .s8-num { font-family: "Montserrat", sans-serif; font-weight: 600; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
+      .s8-num { font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
       .s8-slogan .in { color: var(--ivoire); }

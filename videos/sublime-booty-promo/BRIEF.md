@@ -29,7 +29,7 @@ Storyboard (1 image clé par scène, 2 formats) à valider avant le rendu final.
 ## Customizations
 
 - Palette v2 (retour cliente « je veux une vraie couleur rose ») : rose vif #FF00A8 dominant (référence assets/ref/rose-reference.jpg), profondeur #D6008C → #8C005C, or #F0CF78 / #FFF4C4.
-- Typo : Bodoni Moda / Playfair Display (titres), Great Vibes (script), Montserrat Light (sous-titres espacés).
+- Typo v3 (retour cliente « texte bien grand, polices bien visibles, rendu cinématographique ») : Cinzel Black/ExtraBold (titres, prix, numéro), Playfair Display Black Italic (accents), Montserrat ExtraBold (libellés). Tailles fortement augmentées.
 - Fond : rubans de satin rose ondulants, bokeh, light leaks rose et or, grain, vignettage.
 - Mouvements : révélations par masque, push-in permanent, flare anamorphique, transitions flash + zoom/blur.
 - Produits : podium brillant, projecteur, halo rose, reflet au sol, lévitation.
