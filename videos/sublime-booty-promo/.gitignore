@@ -1,0 +1,3 @@
+snapshots/*.png
+.hyperframes/frame-packets/
+node_modules/

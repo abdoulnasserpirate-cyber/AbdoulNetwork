@@ -1,0 +1,110 @@
+      /* ===== 16:9 layout (1920x1080) ===== */
+      .leak-a { width: 1400px; height: 1400px; left: -380px; top: -520px; }
+      .leak-b { width: 1200px; height: 1200px; left: 1100px; top: 300px; }
+
+      /* 1 */
+      .s1-mesdames { position: absolute; left: 150px; top: 140px; }
+      .s1-mesdames .in { font-size: 150px; line-height: 1.1; }
+      .s1-l1 { position: absolute; left: 160px; top: 350px; }
+      .s1-l2 { position: absolute; left: 400px; top: 440px; }
+      .s1-l1 .in, .s1-l2 .in { font-size: 76px; line-height: 1.1; }
+      .s1-sentir { position: absolute; left: 168px; top: 575px; }
+      .s1-sentir .in { font-size: 38px; }
+      .s1-sub { position: absolute; left: 120px; top: 625px; }
+      .s1-sub .in { font-size: 250px; line-height: 1.05; letter-spacing: 0.03em; }
+      .s1-sub .flare { left: -60px; top: 150px; width: 1750px; }
+
+      /* 2 */
+      .s2-mark { position: absolute; left: 330px; top: 270px; width: 540px; height: 540px; }
+      .s2-crown { position: absolute; left: 45px; top: 84px; width: 450px; height: 135px; }
+      .s2-sb { position: absolute; left: 45px; top: 210px; width: 450px; height: 225px; }
+      .s2-text { position: absolute; left: 980px; top: 320px; width: 880px; }
+      .s2-kicker { font-size: 30px; }
+      .s2-text .brand { font-size: 96px; line-height: 1.1; white-space: nowrap; }
+      .s2-bywrap { margin: -4px 0 0 470px; }
+      .s2-by { font-size: 124px; line-height: 1.1; color: var(--blush); }
+      .s2-values { display: flex; align-items: center; margin-top: 26px; font-size: 32px; letter-spacing: 0.3em; color: var(--ivoire); }
+      .dot { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--or); margin: 0 26px 0 14px; }
+      #s2 > .cam > .flare { left: 900px; top: 470px; width: 1000px; }
+
+      /* 3 · 4 · 5 gamme header */
+      .gamme { left: 140px; top: 110px; width: 700px; height: 860px; }
+      .g-num { left: -14px; top: 0; font-size: 380px; }
+      .g-label { left: 0; top: 400px; font-size: 28px; }
+      .g-titlewrap { left: -12px; top: 438px; }
+      .g-title { font-size: 130px; }
+      .g-line { left: 0; top: 640px; width: 380px; }
+      .counter { left: 0; top: 680px; font-size: 34px; }
+      .duo-scene .g-title { font-size: 116px; }
+      .g-subwrap { left: -8px; top: 670px; width: 600px; }
+      .g-sub { font-size: 64px; }
+
+      /* 3 · single stage */
+      .st-a { left: 640px; top: 0; width: 800px; height: 1080px; }
+      .st-a .halo { left: -50px; top: 80px; width: 900px; height: 900px; }
+      .st-a .spot { left: 100px; top: -20px; width: 600px; height: 880px; }
+      .st-a .podium { left: 120px; top: 800px; width: 560px; height: 150px; }
+      .st-a .pd-top { height: 100px; }
+      .st-a .pd-side { top: 50px; height: 90px; }
+      .st-a .prod { left: 160px; top: 242px; width: 480px; height: 640px; }
+      .st-a .flare { left: -100px; top: 430px; width: 1000px; }
+      .infos { position: absolute; left: 1440px; top: 400px; width: 430px; height: 400px; }
+      .infos .info { left: 0; top: 0; width: 430px; gap: 28px; }
+      .infos .p-name { font-size: 68px; }
+      .infos .p-price { font-size: 42px; padding: 14px 32px; }
+
+      /* 4 · 5 · twin stages */
+      .st-l, .st-r { top: 0; width: 520px; height: 1080px; }
+      .st-l { left: 800px; }
+      .st-r { left: 1340px; }
+      .st-l .halo, .st-r .halo { left: -90px; top: 110px; width: 700px; height: 700px; }
+      .st-l .spot, .st-r .spot { left: 40px; top: -20px; width: 440px; height: 760px; }
+      .st-l .podium, .st-r .podium { left: 50px; top: 660px; width: 420px; height: 120px; }
+      .st-l .pd-top, .st-r .pd-top { height: 80px; }
+      .st-l .pd-side, .st-r .pd-side { top: 40px; height: 70px; }
+      .st-l .prod, .st-r .prod { left: 50px; top: 168px; width: 420px; height: 560px; }
+      .st-l .info, .st-r .info { left: 10px; top: 810px; width: 500px; align-items: center; text-align: center; gap: 18px; }
+      .st-l .p-name, .st-r .p-name { font-size: 50px; }
+      .st-l .p-price, .st-r .p-price { align-self: center; font-size: 38px; padding: 12px 30px; }
+      .duo-scene > .cam > .flare { left: 760px; top: 420px; width: 1150px; }
+
+      /* 6 */
+      .pay-head { position: absolute; left: 160px; top: 100px; }
+      .kick { font-size: 30px; }
+      .pay-head .head { font-size: 84px; line-height: 1.15; }
+      .cards { left: 160px; top: 330px; grid-template-columns: repeat(4, 370px); grid-auto-rows: 250px; gap: 30px; }
+      .tile { width: 320px; height: 144px; }
+      .c-name { font-size: 26px; margin-top: 20px; }
+      .more { font-size: 96px; }
+      .ship-head { position: absolute; left: 160px; top: 650px; }
+      .route { left: 260px; top: 760px; width: 1400px; height: 200px; }
+      .r-track, .r-fill { left: 0; top: 15px; width: 1400px; height: 4px; }
+      .node { top: 0; width: 600px; margin-left: -300px; flex-direction: column; }
+      .node i { width: 34px; height: 34px; }
+      .node span { font-size: 56px; margin-top: 26px; }
+      .n1 { left: 0; } .n2 { left: 700px; } .n3 { left: 1400px; }
+
+      /* 7 */
+      .s7-cmd { position: absolute; left: 0; right: 0; top: 110px; text-align: center; }
+      .s7-cmd .in { font-size: 190px; line-height: 1.1; }
+      .s7-now { position: absolute; left: 1090px; top: 300px; }
+      .s7-now .in { font-size: 130px; line-height: 1.1; }
+      .wa { left: 0; right: 0; top: 520px; justify-content: center; gap: 28px; }
+      .wa .wa-dot { width: 96px; height: 96px; }
+      .wa span { font-size: 40px; letter-spacing: 0.3em; }
+      .phone { left: 0; right: 0; top: 690px; justify-content: center; column-gap: 0.3em; font-size: 165px; }
+      #s7 > .cam > .flare { left: 160px; top: 800px; width: 1600px; }
+
+      /* 8 */
+      .s8-mark { position: absolute; left: 760px; top: 70px; width: 400px; height: 400px; }
+      .s8-logo { position: absolute; left: -15px; top: 22px; width: 400px; height: 400px; }
+      .s8-brand { position: absolute; left: 0; right: 0; top: 480px; text-align: center; }
+      .s8-brand .in { font-size: 100px; line-height: 1.1; }
+      .s8-by { position: absolute; left: 1080px; top: 600px; }
+      .s8-by .in { font-size: 110px; line-height: 1.1; }
+      .s8-slogan { position: absolute; left: 0; right: 0; top: 750px; text-align: center; }
+      .s8-slogan .in { font-size: 84px; line-height: 1.15; }
+      .s8-wa { left: 640px; width: 640px; top: 905px; height: 100px; justify-content: center; gap: 22px; }
+      .s8-wa .wa-dot { width: 74px; height: 74px; }
+      .s8-num { font-size: 42px; }
+      #s8 > .cam > .flare { left: 300px; top: 560px; width: 1320px; }

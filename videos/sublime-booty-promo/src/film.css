@@ -1,0 +1,155 @@
+      @font-face { font-family: "Bodoni Moda"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/BodoniModa-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Great Vibes"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/GreatVibes-normal-400.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 200 700; font-display: block; src: url("assets/fonts/Montserrat-normal-200_700.woff2") format("woff2"); }
+      @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-italic-400_900.woff2") format("woff2"); }
+
+      :root {
+        --rose: #C4104F; --prune: #7A0A33; --nuit: #22030F;
+        --vif: #FF2D7A; --blush: #FFC9DC; --or: #F0CF78; --or-clair: #FFF4C4; --ivoire: #FFF3F7;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: {{W}}px; height: {{H}}px; overflow: hidden; background: var(--nuit); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--nuit); color: var(--ivoire); }
+
+      /* ---------- type roles ---------- */
+      .serif { font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.06em; }
+      .serif-i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; }
+      .bodoni { font-family: "Bodoni Moda", serif; font-weight: 600; }
+      .script { font-family: "Great Vibes", cursive; font-weight: 400; }
+      .sans-caps { font-family: "Montserrat", sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: 0.42em; }
+      .blush { color: var(--blush); }
+      .gold {
+        background: linear-gradient(180deg, #FFF8D8 0%, #F6DA8A 38%, #C9973A 58%, #F4D27E 78%, #FFF1BE 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 4px 18px rgba(240, 207, 120, 0.28));
+      }
+
+      /* masked line reveal: .mask clips, .in rises from the hidden baseline */
+      .mask { overflow: hidden; display: block; padding: 0.06em 0.08em 0.12em; }
+      .mask > .in { display: block; will-change: transform; }
+
+      /* ---------- backdrop ---------- */
+      #bg, #fx, .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .bg-base {
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse 70% 55% at 50% 38%, rgba(196, 16, 79, 0.85) 0%, rgba(122, 10, 51, 0.65) 45%, rgba(34, 3, 15, 0) 80%),
+          radial-gradient(ellipse 90% 70% at 50% 100%, rgba(122, 10, 51, 0.9) 0%, rgba(34, 3, 15, 0) 70%),
+          var(--nuit);
+      }
+      #silk { position: absolute; inset: -6%; width: 112%; height: 112%; opacity: 0.62; mix-blend-mode: screen; }
+      .rib { opacity: 0.85; }
+      #rib3 { opacity: 0.55; }
+      .leak { position: absolute; border-radius: 50%; mix-blend-mode: screen; pointer-events: none; }
+      .leak-a { background: radial-gradient(circle, rgba(255, 45, 122, 0.45) 0%, rgba(255, 45, 122, 0) 65%); }
+      .leak-b { background: radial-gradient(circle, rgba(240, 207, 120, 0.32) 0%, rgba(240, 207, 120, 0) 65%); }
+      #bokeh { position: absolute; inset: 0; }
+      .bk { position: absolute; border-radius: 50%; mix-blend-mode: screen; }
+
+      /* ---------- finishing layers ---------- */
+      .flash { position: absolute; inset: 0; opacity: 0; mix-blend-mode: screen;
+        background: radial-gradient(ellipse at 50% 50%, rgba(255, 244, 196, 1) 0%, rgba(255, 160, 196, 0.9) 35%, rgba(196, 16, 79, 0.6) 75%); }
+      .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 75% 70% at 50% 50%, rgba(10, 0, 5, 0) 55%, rgba(10, 0, 5, 0.72) 100%); }
+      .grain { position: absolute; inset: -40px; background: url("assets/grain.png") repeat; opacity: 0.07; mix-blend-mode: overlay; }
+
+      /* ---------- shared pieces ---------- */
+      .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+      .flare {
+        position: absolute; height: 6px; border-radius: 6px; opacity: 0; mix-blend-mode: screen; pointer-events: none;
+        background: linear-gradient(90deg, rgba(255, 201, 220, 0) 0%, rgba(255, 201, 220, 0.75) 30%, #fffdf2 50%, rgba(240, 207, 120, 0.75) 70%, rgba(240, 207, 120, 0) 100%);
+        box-shadow: 0 0 24px 6px rgba(255, 230, 200, 0.55), 0 0 90px 20px rgba(255, 45, 122, 0.35);
+      }
+      .flare::after {
+        content: ""; position: absolute; left: 50%; top: 50%; width: 180px; height: 180px; margin: -90px 0 0 -90px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 252, 235, 0.95) 0%, rgba(255, 210, 225, 0.35) 30%, rgba(255, 45, 122, 0) 70%);
+      }
+      .ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+      .ring circle { fill: none; stroke: var(--or); stroke-width: 1.4; }
+      .ring .ring-in { stroke: rgba(255, 201, 220, 0.45); stroke-width: 0.6; }
+
+      /* gamme header */
+      .gamme { position: absolute; }
+      .g-num {
+        position: absolute; line-height: 0.8; color: transparent; -webkit-text-stroke: 2px var(--or);
+        text-shadow: 0 0 40px rgba(240, 207, 120, 0.25);
+      }
+      .g-label { position: absolute; color: var(--blush); white-space: nowrap; }
+      .g-titlewrap { position: absolute; }
+      .g-title { white-space: nowrap; color: var(--ivoire); line-height: 1; }
+      .g-line { position: absolute; height: 2px; background: linear-gradient(90deg, var(--or), rgba(240, 207, 120, 0)); }
+      .g-subwrap { position: absolute; }
+      .g-sub { line-height: 1.1; }
+
+      /* product stage: halo, spotlight, glossy podium, levitating packshot + floor reflection */
+      .stage { position: absolute; }
+      .halo { position: absolute; border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 45, 122, 0.55) 0%, rgba(196, 16, 79, 0.28) 38%, rgba(196, 16, 79, 0) 68%); }
+      .spot { position: absolute; mix-blend-mode: screen;
+        clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+        background: linear-gradient(180deg, rgba(255, 244, 230, 0.45) 0%, rgba(255, 201, 220, 0.12) 70%, rgba(255, 201, 220, 0) 100%); }
+      .podium { position: absolute; }
+      .pd-top { position: absolute; left: 0; top: 0; width: 100%; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 40%, #5a0a2a 0%, #2a0414 60%, #12010a 100%);
+        box-shadow: inset 0 0 0 2px rgba(240, 207, 120, 0.85), inset 0 6px 18px rgba(255, 201, 220, 0.25), 0 0 40px rgba(255, 45, 122, 0.35); }
+      .pd-side { position: absolute; left: 0; width: 100%; border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        background: linear-gradient(90deg, #12010a 0%, #4a0820 30%, #7a1a3e 42%, #2a0414 70%, #0a0005 100%);
+        box-shadow: inset 0 -2px 0 rgba(240, 207, 120, 0.6); }
+      .prod { position: absolute; }
+      .prod img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+      .prod .refl { transform-origin: 50% 95%; transform: scaleY(-1); opacity: 0.32;
+        -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%);
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%); }
+      .info { position: absolute; display: flex; flex-direction: column; }
+      .p-name { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.05; color: var(--ivoire); }
+      .p-price {
+        display: inline-block; align-self: flex-start; font-family: "Montserrat", sans-serif; font-weight: 600;
+        letter-spacing: 0.04em; color: #2a0414; border-radius: 999px; white-space: nowrap;
+        background: linear-gradient(180deg, #FFF4C4 0%, #F0CF78 45%, #D4A64C 100%);
+        box-shadow: 0 8px 30px rgba(240, 207, 120, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      }
+      .counter { position: absolute; display: flex; align-items: center; gap: 0.5em; color: var(--blush); }
+      .c-roll { display: inline-block; overflow: hidden; height: 1.2em; line-height: 1.2em; color: var(--or); font-weight: 600; }
+      .c-roll span { display: block; }
+
+      /* payment cards */
+      .cards { position: absolute; display: grid; }
+      .card {
+        position: relative; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 201, 220, 0.07) 60%, rgba(255, 255, 255, 0.1) 100%);
+        border: 1.5px solid rgba(255, 220, 235, 0.38);
+        box-shadow: 0 24px 60px rgba(20, 0, 8, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      }
+      .tile { background: #fff; border-radius: 18px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .tile img { width: 100%; height: 100%; object-fit: contain; display: block; }
+      .c-wave .tile { background: linear-gradient(90deg, #00BCFB, #029BF9); }
+      .c-name { color: var(--blush); white-space: nowrap; }
+      .more { line-height: 1; }
+
+      /* delivery route */
+      .route { position: absolute; }
+      .r-track, .r-fill { position: absolute; background: rgba(255, 201, 220, 0.22); }
+      .r-fill { background: linear-gradient(90deg, #B98C34, #FFF4C4, #F0CF78); box-shadow: 0 0 18px rgba(240, 207, 120, 0.6); }
+      .node { position: absolute; display: flex; align-items: center; }
+      .node i { display: block; flex: none; border-radius: 50%; background: radial-gradient(circle, #FFF4C4 0%, #F0CF78 55%, #B98C34 100%);
+        box-shadow: 0 0 0 6px rgba(240, 207, 120, 0.18), 0 0 30px rgba(240, 207, 120, 0.7); }
+      .node span { white-space: nowrap; color: var(--ivoire); font-weight: 600; letter-spacing: 0.02em; }
+
+      /* call to action */
+      .wa { position: absolute; display: flex; align-items: center; color: var(--ivoire); }
+      .wa-dot { flex: none; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #4BE38A 0%, #25D366 55%, #128C4A 100%);
+        box-shadow: 0 0 0 8px rgba(37, 211, 102, 0.16), 0 10px 40px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; }
+      .wa-dot svg { width: 64%; height: 64%; }
+      .wa-bub { fill: none; stroke: #fff; stroke-width: 4; stroke-linejoin: round; }
+      .wa-ph { fill: #fff; }
+      .phone { position: absolute; display: flex; white-space: nowrap; line-height: 1; font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.01em; }
+      .pg { display: inline-block; overflow: hidden; padding: 0.04em 0.05em 0.1em; }
+      .pg > span { display: inline-block; }
+      .s7-cmd .in { color: var(--ivoire); letter-spacing: 0.1em; }
+
+      /* end card */
+      .s8-wa { position: absolute; display: flex; align-items: center; border-radius: 999px;
+        background: rgba(34, 3, 15, 0.55); border: 1.5px solid rgba(240, 207, 120, 0.6); }
+      .s8-num { font-family: "Montserrat", sans-serif; font-weight: 600; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
+      .s8-slogan .in { color: var(--ivoire); }

@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url("../assets/fonts/fonts.css");
+  html, body { margin: 0; background: transparent; }
+  body { display: flex; flex-wrap: wrap; gap: 0; }
+  .pack { width: 600px; height: 800px; position: relative; }
+  .pack svg { width: 600px; height: 800px; display: block; overflow: visible; }
+  #logo { width: 800px; height: 800px; }
+  #logo svg { width: 800px; height: 800px; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+/* Sublime Booty packshot generator: every product is drawn in local coords
+   (x centred on 0, y=0 on the ground) and placed with a <g transform>. */
+const P = {
+  pink:  { d: "#4a021c", m: "#C4104F", l: "#FF4F8E", h: "#FFD3E3" },
+  black: { d: "#030102", m: "#170510", l: "#3d1426", h: "#F7B9D0" },
+  pearl: { d: "#b99aa7", m: "#efe2e7", l: "#fffafc", h: "#ffffff" },
+  blush: { d: "#c97c9a", m: "#FFC9DC", l: "#ffe4ee", h: "#fff7fa" },
+  plum:  { d: "#22030F", m: "#7A0A33", l: "#B3245A", h: "#FFC9DC" },
+  gold:  { d: "#5e430f", m: "#B98C34", l: "#F0CF78", h: "#FFF4C4" },
+};
+let uid = 0;
+const id = (p) => `${p}${++uid}`;
+let defs = "";
+
+function cylGrad(pal) {
+  const g = id("cg");
+  defs += `<linearGradient id="${g}" x1="0" x2="1" y1="0" y2="0">
+    <stop offset="0" stop-color="${pal.d}"/><stop offset=".07" stop-color="${pal.m}"/>
+    <stop offset=".2" stop-color="${pal.l}"/><stop offset=".27" stop-color="${pal.h}"/>
+    <stop offset=".33" stop-color="${pal.l}"/><stop offset=".58" stop-color="${pal.m}"/>
+    <stop offset=".86" stop-color="${pal.d}"/><stop offset=".94" stop-color="${pal.m}"/>
+    <stop offset="1" stop-color="${pal.d}"/></linearGradient>`;
+  return `url(#${g})`;
+}
+function shadeGrad() {
+  const g = id("sh");
+  defs += `<linearGradient id="${g}" x1="0" x2="1">
+    <stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset=".14" stop-color="#000" stop-opacity=".08"/>
+    <stop offset=".26" stop-color="#fff" stop-opacity=".22"/><stop offset=".32" stop-color="#fff" stop-opacity="0"/>
+    <stop offset=".7" stop-color="#000" stop-opacity=".1"/><stop offset="1" stop-color="#000" stop-opacity=".6"/></linearGradient>`;
+  return `url(#${g})`;
+}
+function goldText() {
+  const g = id("gt");
+  defs += `<linearGradient id="${g}" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#FFF4C4"/><stop offset=".45" stop-color="#F0CF78"/>
+    <stop offset=".55" stop-color="#C99A3E"/><stop offset="1" stop-color="#FFE7A6"/></linearGradient>`;
+  return `url(#${g})`;
+}
+function vGrad(stops) {
+  const g = id("vg");
+  defs += `<linearGradient id="${g}" x1="0" x2="0" y1="0" y2="1">${stops
+    .map(([o, c, a = 1]) => `<stop offset="${o}" stop-color="${c}" stop-opacity="${a}"/>`).join("")}</linearGradient>`;
+  return `url(#${g})`;
+}
+function rGrad(stops, cx = 0.5, cy = 0.5, r = 0.5) {
+  const g = id("rg");
+  defs += `<radialGradient id="${g}" cx="${cx}" cy="${cy}" r="${r}">${stops
+    .map(([o, c, a = 1]) => `<stop offset="${o}" stop-color="${c}" stop-opacity="${a}"/>`).join("")}</radialGradient>`;
+  return `url(#${g})`;
+}
+function diagSheen() {
+  const g = id("ds");
+  defs += `<linearGradient id="${g}" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".3" stop-color="#fff" stop-opacity=".18"/>
+    <stop offset=".38" stop-color="#fff" stop-opacity=".02"/><stop offset=".62" stop-color="#fff" stop-opacity=".0"/>
+    <stop offset=".7" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>`;
+  return `url(#${g})`;
+}
+
+/* crown: drawn in a 100x64 box, centred on (x,y top) with width w */
+function crown(x, y, w, fill) {
+  const s = w / 100;
+  return `<g transform="translate(${x - w / 2},${y}) scale(${s})" fill="${fill}">
+    <path d="M8 52 L2 16 L27 36 L50 4 L73 36 L98 16 L92 52 Z"/>
+    <rect x="8" y="54" width="84" height="9" rx="2"/>
+    <circle cx="2" cy="13" r="5"/><circle cx="50" cy="4" r="6"/><circle cx="98" cy="13" r="5"/>
+    <circle cx="27" cy="34" r="3.5"/><circle cx="73" cy="34" r="3.5"/></g>`;
+}
+function mono(x, y, size, fill) {
+  return `<text x="${x}" y="${y}" text-anchor="middle" font-family="Bodoni Moda" font-weight="800"
+    font-size="${size}" letter-spacing="${-size * 0.12}" fill="${fill}">SB</text>`;
+}
+function label(t, x, y, size, fill, opts = {}) {
+  const fam = opts.fam || "Playfair Display";
+  const w = opts.weight || 700;
+  const ls = opts.ls ?? size * 0.08;
+  const maxW = opts.maxW || 9999;
+  return `<text class="fit" data-maxw="${maxW}" x="${x}" y="${y}" text-anchor="middle" font-family="${fam}"
+    font-weight="${w}" font-size="${size}" letter-spacing="${ls}" fill="${fill}"
+    ${opts.italic ? 'font-style="italic"' : ""}>${t}</text>`;
+}
+
+/* printed brand block: crown, SB, lines of name, small brand line */
+function print(x, top, w, ink, accent, lines, o = {}) {
+  const k = o.k || 1;
+  let s = crown(x, top, 46 * k, accent);
+  s += mono(x, top + 92 * k, 66 * k, accent);
+  let y = top + 92 * k + 42 * k;
+  s += `<rect x="${x - 40 * k}" y="${y - 22 * k}" width="${80 * k}" height="${2 * k}" fill="${accent}" opacity=".8"/>`;
+  lines.forEach((ln, i) => {
+    s += label(ln, x, y + 12 * k, (o.size || 30) * k, ink, { maxW: w });
+    y += (o.size || 30) * 1.15 * k;
+  });
+  s += label("SUBLIME BOOTY", x, y + 18 * k, 12 * k, accent, { fam: "Montserrat", weight: 500, ls: 5 * k, maxW: w });
+  return s;
+}
+
+/* ---------- primitives (local coords: x centred, y=0 ground) ---------- */
+function jar({ w = 300, h = 210, lidH = 90, body = P.pink, lid = P.gold, ink = "#FFF4C4", accent, lines, k = 1, size }) {
+  const e = w * 0.1, L = -w / 2, R = w / 2, top = -h;
+  const lw = w * 1.03, lL = -lw / 2, lR = lw / 2, lt = top - lidH + e * 0.5;
+  let s = `<path d="M${L},${top} L${R},${top} L${R},${-e} A${w / 2},${e} 0 0 1 ${L},${-e} Z" fill="${cylGrad(body)}"/>`;
+  s += print(0, top + e + 16 * k, w * 0.62, ink, accent || goldText(), lines, { k, size });
+  s += `<path d="M${L},${top} L${R},${top} L${R},${-e} A${w / 2},${e} 0 0 1 ${L},${-e} Z" fill="${shadeGrad()}"/>`;
+  // lid
+  s += `<path d="M${lL},${lt} L${lR},${lt} L${lR},${top + e * 0.4} A${lw / 2},${e} 0 0 1 ${lL},${top + e * 0.4} Z" fill="${cylGrad(lid)}"/>`;
+  s += `<path d="M${lL},${top + e * 0.4} A${lw / 2},${e} 0 0 0 ${lR},${top + e * 0.4}" fill="none" stroke="${lid.d}" stroke-width="3" opacity=".7"/>`;
+  s += `<ellipse cx="0" cy="${lt}" rx="${lw / 2}" ry="${e}" fill="${rGrad([[0, lid.h], [0.55, lid.l], [1, lid.m]], 0.38, 0.35, 0.75)}"/>`;
+  s += `<ellipse cx="0" cy="${lt}" rx="${lw / 2 - 4}" ry="${e - 2}" fill="none" stroke="${lid.h}" stroke-width="2" opacity=".6"/>`;
+  return s;
+}
+
+function bottle({ w = 200, h = 380, body = P.pink, ink = "#FFF4C4", accent, lines, k = 1, size }) {
+  const L = -w / 2, R = w / 2, top = -h, nw = 66;
+  const path = `M${L},-26 Q${L},0 ${L + 26},0 L${R - 26},0 Q${R},0 ${R},-26 L${R},${top + 70}
+     C${R},${top + 18} ${nw / 2 + 14},${top + 6} ${nw / 2},${top - 8} L${nw / 2},${top - 44} L${-nw / 2},${top - 44}
+     L${-nw / 2},${top - 8} C${-nw / 2 - 14},${top + 6} ${L},${top + 18} ${L},${top + 70} Z`;
+  let s = `<path d="${path}" fill="${cylGrad(body)}"/>`;
+  // liquid depth
+  s += `<path d="${path}" fill="${vGrad([[0, "#000", 0], [0.4, "#000", 0], [1, "#2a0010", 0.45]])}"/>`;
+  // label
+  const lt = top + 96, lh = h - 140;
+  s += `<rect x="${L + 16}" y="${lt}" width="${w - 32}" height="${lh}" rx="10" fill="${cylGrad(P.black)}"/>`;
+  s += `<rect x="${L + 22}" y="${lt + 6}" width="${w - 44}" height="${lh - 12}" rx="7" fill="none" stroke="#F0CF78" stroke-width="1.6" opacity=".9"/>`;
+  s += print(0, lt + 22 * k, w * 0.7, ink, accent || goldText(), lines, { k, size });
+  s += `<path d="${path}" fill="${shadeGrad()}"/>`;
+  // glass highlight
+  s += `<rect x="${L + w * 0.18}" y="${top + 70}" width="${w * 0.07}" height="${h - 110}" rx="${w * 0.035}" fill="#fff" opacity=".35"/>`;
+  // cap
+  const cw = 92, ch = 104, ct = top - 44 - ch + 8;
+  s += `<rect x="${-cw / 2}" y="${ct}" width="${cw}" height="${ch}" rx="8" fill="${cylGrad(P.gold)}"/>`;
+  for (let i = 0; i < 9; i++) s += `<rect x="${-cw / 2 + 6 + i * 10}" y="${ct + 8}" width="2" height="${ch - 16}" fill="#5e430f" opacity=".22"/>`;
+  s += `<ellipse cx="0" cy="${ct}" rx="${cw / 2}" ry="7" fill="${P.gold.h}" opacity=".9"/>`;
+  return s;
+}
+
+function box({ w = 300, h = 330, d = 120, face = P.pink, ink = "#FFF4C4", accent, lines, k = 1, size, tag }) {
+  const dx = d * 0.62, dy = -d * 0.38;
+  const x0 = -(w + dx) / 2, y0 = -h;
+  let s = "";
+  s += `<polygon points="${x0 + w},${y0} ${x0 + w + dx},${y0 + dy} ${x0 + w + dx},${dy} ${x0 + w},0" fill="${vGrad([[0, face.m], [1, face.d]])}"/>`;
+  s += `<polygon points="${x0 + w},${y0} ${x0 + w + dx},${y0 + dy} ${x0 + w + dx},${dy} ${x0 + w},0" fill="#000" opacity=".35"/>`;
+  s += `<polygon points="${x0},${y0} ${x0 + dx},${y0 + dy} ${x0 + w + dx},${y0 + dy} ${x0 + w},${y0}" fill="${vGrad([[0, face.h], [1, face.l]])}"/>`;
+  s += `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="${vGrad([[0, face.l], [0.5, face.m], [1, face.d]])}"/>`;
+  // gold foil frame + band
+  s += `<rect x="${x0 + 14}" y="${y0 + 14}" width="${w - 28}" height="${h - 28}" fill="none" stroke="#F0CF78" stroke-width="2"/>`;
+  s += `<rect x="${x0}" y="${y0 + h - 46}" width="${w}" height="14" fill="${goldText()}" opacity=".95"/>`;
+  s += print(x0 + w / 2, y0 + 34 * k, w * 0.78, ink, accent || goldText(), lines, { k, size });
+  if (tag) s += label(tag, x0 + w / 2, y0 + h - 60, 15, accent || "#F0CF78", { fam: "Montserrat", weight: 600, ls: 6, maxW: w * 0.8 });
+  s += `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="${diagSheen()}"/>`;
+  // edges
+  s += `<polyline points="${x0},${y0} ${x0 + w},${y0} ${x0 + w + dx},${y0 + dy}" fill="none" stroke="#FFF4C4" stroke-width="2" opacity=".55"/>`;
+  s += `<line x1="${x0 + w}" y1="${y0}" x2="${x0 + w}" y2="0" stroke="#FFF4C4" stroke-width="1.5" opacity=".35"/>`;
+  return s;
+}
+
+function pouch({ w = 290, h = 420, body = P.blush, ink = "#7A0A33", accent = "#B98C34", lines, k = 1, size, window: win }) {
+  const L = -w / 2, R = w / 2, top = -h;
+  const path = `M${L},${top + 20} L${R},${top + 20} L${R + 8},-60 Q${R + 4},0 ${R - 20},0 L${L + 20},0 Q${L - 4},0 ${L - 8},-60 Z`;
+  let s = `<path d="${path}" fill="${cylGrad(body)}"/>`;
+  // top seal with serration
+  let zig = `M${L},${top + 22}`;
+  for (let x = L; x <= R; x += 10) zig += ` L${x},${top + 22} L${x + 5},${top + 16}`;
+  s += `<path d="M${L},${top} L${R},${top} L${R},${top + 22} L${L},${top + 22} Z" fill="${cylGrad(body)}"/>`;
+  for (let x = L + 4; x < R; x += 9) s += `<rect x="${x}" y="${top + 3}" width="2" height="14" fill="#000" opacity=".08"/>`;
+  s += `<line x1="${L}" y1="${top + 26}" x2="${R}" y2="${top + 26}" stroke="#000" stroke-opacity=".12" stroke-width="2"/>`;
+  s += `<circle cx="${R - 20}" cy="${top + 11}" r="4" fill="#000" opacity=".25"/>`;
+  // gold top band
+  s += `<rect x="${L + 6}" y="${top + 40}" width="${w - 12}" height="8" fill="${goldText()}" opacity=".9"/>`;
+  s += print(0, top + 72 * k, w * 0.74, ink, accent, lines, { k, size });
+  if (win) s += `<rect x="${L + w * 0.3}" y="-120" width="${w * 0.4}" height="70" rx="35" fill="${win}" opacity=".85"/>`;
+  s += `<path d="${path}" fill="${shadeGrad()}"/>`;
+  // soft crinkles
+  s += `<path d="M${L + 30},${top + 60} Q${L + 50},${top + 200} ${L + 34},-30" stroke="#fff" stroke-opacity=".22" stroke-width="10" fill="none"/>`;
+  s += `<path d="M${R - 40},${top + 80} Q${R - 30},${top + 240} ${R - 48},-20" stroke="#000" stroke-opacity=".08" stroke-width="14" fill="none"/>`;
+  return s;
+}
+
+function tube({ w = 150, h = 400, body = P.pearl, ink = "#7A0A33", accent = "#B98C34", lines, k = 1, size }) {
+  const capH = 70, capW = w * 0.62, bw = w * 0.74;
+  const top = -h;
+  const path = `M${-bw / 2},${-capH} L${bw / 2},${-capH} L${w / 2},${top + 30} L${-w / 2},${top + 30} Z`;
+  let s = `<rect x="${-capW / 2}" y="${-capH}" width="${capW}" height="${capH}" rx="10" fill="${cylGrad(P.gold)}"/>`;
+  s += `<path d="${path}" fill="${cylGrad(body)}"/>`;
+  s += `<rect x="${-w / 2 - 2}" y="${top}" width="${w + 4}" height="34" rx="3" fill="${cylGrad(body)}"/>`;
+  for (let i = 0; i < 6; i++) s += `<line x1="${-w / 2}" y1="${top + 5 + i * 5}" x2="${w / 2}" y2="${top + 5 + i * 5}" stroke="#000" stroke-opacity=".12"/>`;
+  s += print(0, top + 70 * k, w * 0.8, ink, accent, lines, { k, size });
+  s += `<path d="${path}" fill="${shadeGrad()}"/>`;
+  return s;
+}
+
+function soap({ w = 250, h = 64, body = P.pink }) {
+  const t = 70; // top-face depth
+  let s = `<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h}" rx="30" fill="${vGrad([[0, body.m], [1, body.d]])}"/>`;
+  s += `<rect x="${-w / 2 + 6}" y="${-h - t + 18}" width="${w - 12}" height="${t + 10}" rx="34" fill="${rGrad([[0, body.h], [0.5, body.l], [1, body.m]], 0.4, 0.3, 0.8)}"/>`;
+  s += `<g transform="translate(0,${-h - t / 2 + 34}) scale(1,.5)">${mono(2, 22, 70, body.d)}${mono(0, 20, 70, "#FFD3E3")}</g>`;
+  return s;
+}
+
+/* ---------- products ---------- */
+const G = (x, y, sc, inner) => `<g transform="translate(${x},${y}) scale(${sc})">${inner}</g>`;
+const products = {
+  "creme-vip": () => G(300, 760, 1.25, jar({ w: 330, h: 240, lines: ["CRÈME", "VIP"], size: 34, k: 0.78 })),
+  "creme-imperiale": () => G(300, 760, 1.2, jar({ w: 360, h: 250, lidH: 104, body: P.black, lines: ["CRÈME", "IMPÉRIALE"], size: 32, k: 0.8 })),
+  "caolin": () => G(300, 760, 1.2, jar({ w: 360, h: 190, lidH: 80, body: P.pearl, lid: P.gold, ink: "#7A0A33", accent: "#B98C34", lines: ["CAOLIN", "FESSIER"], size: 32, k: 0.68 })),
+  "savon": () => G(300, 760, 1.15,
+      G(10, -40, 1, box({ w: 330, h: 230, d: 110, face: P.plum, lines: ["SAVON", "FESSIER"], size: 28, k: 0.82 })) +
+      G(-40, 30, 0.9, soap({}))),
+  "cereales": () => G(300, 760, 1.05, jar({ w: 300, h: 470, lidH: 70, body: P.blush, ink: "#7A0A33", accent: "#B98C34", lines: ["CÉRÉALES", "BOOTY GAIN"], size: 30 })),
+  "sirop": () => G(300, 762, 1.2, bottle({ w: 220, h: 400, lines: ["SIROP", "SEXY LADY"], size: 25, k: 0.9 })),
+  "kit-gros-lolo": () => G(300, 760, 1.05,
+      G(30, -60, 1, box({ w: 330, h: 380, d: 130, face: P.pink, lines: ["KIT", "GROS LOLO"], size: 34 })) +
+      G(-150, 20, 0.5, bottle({ w: 220, h: 400, lines: ["SÉRUM"], size: 28, k: 0.8 })) +
+      G(150, 26, 0.48, jar({ w: 330, h: 230, body: P.black, lines: ["CRÈME"], size: 34, k: 0.85 }))),
+  "kit-raffermissant": () => G(300, 760, 1.05,
+      G(30, -60, 1, box({ w: 330, h: 380, d: 130, face: P.pearl, ink: "#7A0A33", accent: "#B98C34", lines: ["KIT", "RAFFERMISSANT", "SEINS"], size: 28 })) +
+      G(-140, 20, 0.55, tube({ lines: ["GEL"], size: 30, k: 0.75 })) +
+      G(150, 26, 0.48, jar({ w: 330, h: 230, body: P.pink, lines: ["CRÈME"], size: 34, k: 0.85 }))),
+  "the-perte": () => G(300, 760, 1.12, pouch({ w: 300, h: 470, body: P.blush, lines: ["THÉ", "PERTE", "DE POIDS"], size: 32 })),
+  "duo-ventre": () => G(300, 760, 1.0,
+      G(-70, -10, 0.92, pouch({ w: 300, h: 470, body: P.blush, lines: ["THÉ", "VENTRE PLAT"], size: 30 })) +
+      G(150, 30, 0.82, tube({ w: 160, h: 420, body: P.pink, ink: "#FFF4C4", accent: "#F0CF78", lines: ["CRÈME", "VENTRE", "PLAT"], size: 22, k: 0.85 }))),
+};
+
+const stage = document.getElementById("stage");
+let html = "";
+for (const [name, fn] of Object.entries(products)) {
+  defs = "";
+  const inner = fn();
+  html += `<div class="pack" id="${name}"><svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg"><defs>${defs}</defs>${inner}</svg></div>`;
+}
+// brand logo: crown + SB monogram in gold
+defs = "";
+const gt = goldText();
+html += `<div class="pack" id="logo"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"><defs>${defs}</defs>
+  ${crown(400, 70, 300, gt)}
+  <text x="400" y="640" text-anchor="middle" font-family="Bodoni Moda" font-weight="800" font-size="470"
+    letter-spacing="-60" fill="${gt}" stroke="#7a5418" stroke-width="2">SB</text></svg></div>`;
+// the same mark split in two, so the crown can descend onto the monogram
+html += `<div class="pack" id="logo-crown" style="width:800px;height:240px"><svg viewBox="0 30 800 240" style="width:800px;height:240px" xmlns="http://www.w3.org/2000/svg">
+  ${crown(400, 70, 300, gt)}</svg></div>`;
+html += `<div class="pack" id="logo-sb" style="width:800px;height:400px"><svg viewBox="0 280 800 400" style="width:800px;height:400px" xmlns="http://www.w3.org/2000/svg">
+  <text x="400" y="640" text-anchor="middle" font-family="Bodoni Moda" font-weight="800" font-size="470"
+    letter-spacing="-60" fill="${gt}" stroke="#7a5418" stroke-width="2">SB</text></svg></div>`;
+stage.innerHTML = html;
+
+document.fonts.ready.then(() => {
+  document.querySelectorAll("text.fit").forEach((t) => {
+    const max = +t.dataset.maxw, len = t.getComputedTextLength();
+    if (len > max) t.setAttribute("font-size", (parseFloat(t.getAttribute("font-size")) * max) / len);
+  });
+  window.READY = true;
+});
+</script>
+</body>
+</html>

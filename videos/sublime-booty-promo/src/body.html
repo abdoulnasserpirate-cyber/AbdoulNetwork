@@ -1,0 +1,230 @@
+    <div id="root" data-composition-id="main" data-start="0" data-duration="48.875" data-width="{{W}}" data-height="{{H}}">
+
+      <!-- persistent backdrop: satin ribbons, light leaks, bokeh -->
+      <div id="bg" class="clip" data-start="0" data-duration="48.875" data-track-index="0">
+        <div class="bg-base"></div>
+        <svg id="silk" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="satinA" gradientUnits="userSpaceOnUse" x1="0" y1="200" x2="1000" y2="800">
+              <stop offset="0" stop-color="#5a0322" /><stop offset=".22" stop-color="#C4104F" />
+              <stop offset=".34" stop-color="#FF7FAE" /><stop offset=".39" stop-color="#FFD9E7" />
+              <stop offset=".46" stop-color="#E0306E" /><stop offset=".64" stop-color="#7A0A33" />
+              <stop offset=".8" stop-color="#FF4F8E" /><stop offset="1" stop-color="#4a021c" />
+            </linearGradient>
+            <linearGradient id="satinB" gradientUnits="userSpaceOnUse" x1="1000" y1="0" x2="0" y2="1000">
+              <stop offset="0" stop-color="#22030F" /><stop offset=".3" stop-color="#9E0C43" />
+              <stop offset=".44" stop-color="#FF9CC0" /><stop offset=".5" stop-color="#FFF0F5" />
+              <stop offset=".57" stop-color="#D81E60" /><stop offset=".8" stop-color="#5a0322" />
+              <stop offset="1" stop-color="#22030F" />
+            </linearGradient>
+            <linearGradient id="satinGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1000" y2="1000">
+              <stop offset="0" stop-color="#7a5418" stop-opacity="0" /><stop offset=".45" stop-color="#F0CF78" />
+              <stop offset=".52" stop-color="#FFF4C4" /><stop offset=".6" stop-color="#B98C34" />
+              <stop offset="1" stop-color="#7a5418" stop-opacity="0" />
+            </linearGradient>
+            <filter id="silkBlur"><feGaussianBlur stdDeviation="3" /></filter>
+          </defs>
+          <path id="rib1" class="rib" fill="url(#satinA)" filter="url(#silkBlur)"
+            d="M-100,620 C150,520 380,760 620,600 C800,480 920,560 1100,470 L1100,640 C920,730 800,650 620,780 C380,940 150,700 -100,800 Z" />
+          <path id="rib2" class="rib" fill="url(#satinB)" filter="url(#silkBlur)"
+            d="M-100,180 C120,300 340,100 560,220 C760,330 900,180 1100,260 L1100,360 C900,290 760,450 560,340 C340,220 120,420 -100,300 Z" />
+          <path id="rib3" class="rib" fill="url(#satinGold)"
+            d="M-100,860 C200,760 420,960 700,840 C860,770 960,820 1100,780 L1100,796 C960,836 860,786 700,856 C420,976 200,776 -100,876 Z" />
+        </svg>
+        <div class="leak leak-a"></div>
+        <div class="leak leak-b"></div>
+        <div id="bokeh"></div>
+      </div>
+
+      <!-- 1 · Hook -->
+      <section id="s1" class="scene clip" data-start="0" data-duration="3.9" data-track-index="1">
+        <div class="cam">
+          <div class="s1-mesdames mask"><div class="in script blush">Mesdames,</div></div>
+          <div class="s1-l1 mask"><div class="in serif-i">et si aujourd'hui,</div></div>
+          <div class="s1-l2 mask"><div class="in serif-i">vous décidiez</div></div>
+          <div class="s1-sentir mask"><div class="in sans-caps">de vous sentir</div></div>
+          <div class="s1-sub">
+            <div class="mask"><div class="in bodoni gold">SUBLIMES</div></div>
+            <div class="flare"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 · Brand -->
+      <section id="s2" class="scene clip" data-start="3.3" data-duration="5.55" data-track-index="2">
+        <div class="cam">
+          <div class="s2-mark">
+            <svg class="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" /><circle class="ring-in" cx="100" cy="100" r="89" /></svg>
+            <img class="s2-crown" src="assets/logos/crown.png" alt="" />
+            <img class="s2-sb" src="assets/logos/sb.png" alt="" />
+          </div>
+          <div class="s2-text">
+            <div class="mask"><div class="in sans-caps blush s2-kicker">Bienvenue chez</div></div>
+            <div class="mask"><div class="in serif brand gold">SUBLIME BOOTY</div></div>
+            <div class="mask s2-bywrap"><div class="in script s2-by">by Chris</div></div>
+            <div class="s2-values sans-caps">
+              <span class="v v1">Beauté</span><i class="dot d1"></i><span class="v v2">Confiance</span><i class="dot d2"></i><span class="v v3">Bien-être</span>
+            </div>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 3 · Gamme 01 Fessiers -->
+      <section id="s3" class="scene clip" data-start="8.25" data-duration="12.5" data-track-index="1">
+        <div class="cam">
+          <div class="gamme">
+            <div class="g-num bodoni">01</div>
+            <div class="g-label sans-caps">La gamme</div>
+            <div class="mask g-titlewrap"><div class="in g-title serif-i">Fessiers</div></div>
+            <div class="g-line"></div>
+            <div class="counter sans-caps"><span class="c-roll"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span></span><span class="c-of">/ 06</span></div>
+          </div>
+          <div class="stage st-a">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod p1"><img class="refl" src="assets/products/creme-vip.png" alt="" /><img class="main" src="assets/products/creme-vip.png" alt="" /></div>
+            <div class="prod p2 key"><img class="refl" src="assets/products/creme-imperiale.png" alt="" /><img class="main" src="assets/products/creme-imperiale.png" alt="" /></div>
+            <div class="prod p3"><img class="refl" src="assets/products/caolin.png" alt="" /><img class="main" src="assets/products/caolin.png" alt="" /></div>
+            <div class="prod p4"><img class="refl" src="assets/products/savon.png" alt="" /><img class="main" src="assets/products/savon.png" alt="" /></div>
+            <div class="prod p5"><img class="refl" src="assets/products/cereales.png" alt="" /><img class="main" src="assets/products/cereales.png" alt="" /></div>
+            <div class="prod p6"><img class="refl" src="assets/products/sirop.png" alt="" /><img class="main" src="assets/products/sirop.png" alt="" /></div>
+            <div class="flare"></div>
+          </div>
+          <div class="infos">
+            <div class="info i1"><div class="p-name">Crème VIP</div><div class="p-price">10&#8239;000 FCFA</div></div>
+            <div class="info i2 key"><div class="p-name">Crème Impériale</div><div class="p-price">30&#8239;000 FCFA</div></div>
+            <div class="info i3"><div class="p-name">Caolin fessier</div><div class="p-price">10&#8239;000 FCFA</div></div>
+            <div class="info i4"><div class="p-name">Savon fessier</div><div class="p-price">10&#8239;000 FCFA</div></div>
+            <div class="info i5"><div class="p-name">Céréales Booty Gain</div><div class="p-price">25&#8239;000 FCFA</div></div>
+            <div class="info i6"><div class="p-name">Sirop Sexy Lady</div><div class="p-price">10&#8239;000 FCFA</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · Gamme 02 Poitrine -->
+      <section id="s4" class="scene clip duo-scene" data-start="20.15" data-duration="6.1" data-track-index="2">
+        <div class="cam">
+          <div class="gamme">
+            <div class="g-num bodoni">02</div>
+            <div class="g-label sans-caps">La gamme</div>
+            <div class="mask g-titlewrap"><div class="in g-title serif-i">Poitrine</div></div>
+            <div class="g-line"></div>
+            <div class="mask g-subwrap"><div class="in g-sub script blush">Pour une poitrine dont vous serez fière</div></div>
+          </div>
+          <div class="stage st-l">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/kit-gros-lolo.png" alt="" /><img class="main" src="assets/products/kit-gros-lolo.png" alt="" /></div>
+            <div class="info"><div class="p-name">Kit Gros Lolo</div><div class="p-price">30&#8239;000 FCFA</div></div>
+          </div>
+          <div class="stage st-r">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/kit-raffermissant.png" alt="" /><img class="main" src="assets/products/kit-raffermissant.png" alt="" /></div>
+            <div class="info"><div class="p-name">Kit Raffermissant Seins</div><div class="p-price">25&#8239;000 FCFA</div></div>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 5 · Gamme 03 Ventre plat -->
+      <section id="s5" class="scene clip duo-scene" data-start="25.65" data-duration="7.5" data-track-index="1">
+        <div class="cam">
+          <div class="gamme">
+            <div class="g-num bodoni">03</div>
+            <div class="g-label sans-caps">La gamme</div>
+            <div class="mask g-titlewrap"><div class="in g-title serif-i">Ventre plat</div></div>
+            <div class="g-line"></div>
+            <div class="mask g-subwrap"><div class="in g-sub script blush">Pour vous sentir légère</div></div>
+          </div>
+          <div class="stage st-l">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/the-perte.png" alt="" /><img class="main" src="assets/products/the-perte.png" alt="" /></div>
+            <div class="info"><div class="p-name">Thé perte de poids</div><div class="p-price">12&#8239;000 FCFA</div></div>
+          </div>
+          <div class="stage st-r">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/duo-ventre.png" alt="" /><img class="main" src="assets/products/duo-ventre.png" alt="" /></div>
+            <div class="info"><div class="p-name">Duo Thé + Crème ventre plat</div><div class="p-price">24&#8239;000 FCFA</div></div>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 6 · Paiement & livraison -->
+      <section id="s6" class="scene clip" data-start="32.55" data-duration="6.9" data-track-index="2">
+        <div class="cam">
+          <div class="pay-head">
+            <div class="mask"><div class="in sans-caps blush kick">Paiement</div></div>
+            <div class="mask"><div class="in serif-i head">Payez en toute simplicité</div></div>
+          </div>
+          <div class="cards">
+            <div class="card c-nita"><div class="tile"><img src="assets/logos/nita.png" alt="NITA" /></div><div class="c-name sans-caps">Nita</div></div>
+            <div class="card c-amana"><div class="tile"><img src="assets/logos/amana.png" alt="AMANA" /></div><div class="c-name sans-caps">Amana</div></div>
+            <div class="card c-wave"><div class="tile"><img src="assets/logos/wave.png" alt="Wave" /></div><div class="c-name sans-caps">Wave</div></div>
+            <div class="card c-more"><div class="more script gold">et autres</div><div class="c-name sans-caps">moyens</div></div>
+          </div>
+          <div class="ship-head">
+            <div class="mask"><div class="in sans-caps blush kick">Livraison</div></div>
+          </div>
+          <div class="route">
+            <div class="r-track"></div><div class="r-fill"></div>
+            <div class="node n1"><i></i><span class="serif">Maradi</span></div>
+            <div class="node n2"><i></i><span class="serif">Partout au Niger</span></div>
+            <div class="node n3"><i></i><span class="serif">International</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · Call to action -->
+      <section id="s7" class="scene clip" data-start="38.85" data-duration="6.4" data-track-index="1">
+        <div class="cam">
+          <div class="s7-cmd mask"><div class="in serif">COMMANDEZ</div></div>
+          <div class="s7-now mask"><div class="in script gold">maintenant</div></div>
+          <div class="wa">
+            <div class="wa-dot">
+              <svg viewBox="0 0 64 64"><path class="wa-bub" d="M32 7a25 25 0 0 0-21.6 37.6L7 57l12.8-3.3A25 25 0 1 0 32 7z" />
+                <path class="wa-ph" transform="translate(18 18) scale(1.17)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+            </div>
+            <span class="sans-caps">sur WhatsApp</span>
+          </div>
+          <div class="phone">
+            <span class="pg pg0"><span class="gold">+227</span></span><span class="pg pg1"><span class="gold">92</span></span><span class="pg pg2"><span class="gold">48</span></span><span class="pg pg3"><span class="gold">56</span></span><span class="pg pg4"><span class="gold">12</span></span>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 8 · End card -->
+      <section id="s8" class="scene clip" data-start="44.65" data-duration="4.225" data-track-index="2">
+        <div class="cam">
+          <div class="s8-mark">
+            <svg class="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" /><circle class="ring-in" cx="100" cy="100" r="89" /></svg>
+            <img class="s8-logo" src="assets/logos/sb-crown.png" alt="" />
+          </div>
+          <div class="s8-brand mask"><div class="in serif gold">SUBLIME BOOTY</div></div>
+          <div class="s8-by mask"><div class="in script blush">by Chris</div></div>
+          <div class="s8-slogan mask"><div class="in script"><span class="sl">Révélez la femme sublime</span> <span class="sl">qui est en vous</span></div></div>
+          <div class="s8-wa">
+            <div class="wa-dot">
+              <svg viewBox="0 0 64 64"><path class="wa-bub" d="M32 7a25 25 0 0 0-21.6 37.6L7 57l12.8-3.3A25 25 0 1 0 32 7z" />
+                <path class="wa-ph" transform="translate(18 18) scale(1.17)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+            </div>
+            <span class="s8-num">+227 92 48 56 12</span>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- finishing layers -->
+      <div id="fx" class="clip" data-start="0" data-duration="48.875" data-track-index="3">
+        <div class="flash"></div>
+        <div class="vignette"></div>
+        <div class="grain"></div>
+      </div>
+
+      <audio id="vo" src="assets/voice/voix_off.mp3" data-start="0" data-duration="48.875" data-track-index="10" data-volume="1"></audio>
+    </div>

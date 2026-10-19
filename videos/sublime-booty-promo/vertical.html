@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Bodoni Moda"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/BodoniModa-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Great Vibes"; font-style: normal; font-weight: 400; font-display: block; src: url("assets/fonts/GreatVibes-normal-400.woff2") format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 200 700; font-display: block; src: url("assets/fonts/Montserrat-normal-200_700.woff2") format("woff2"); }
+      @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-normal-400_900.woff2") format("woff2"); }
+      @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400 900; font-display: block; src: url("assets/fonts/PlayfairDisplay-italic-400_900.woff2") format("woff2"); }
+
+      :root {
+        --rose: #C4104F; --prune: #7A0A33; --nuit: #22030F;
+        --vif: #FF2D7A; --blush: #FFC9DC; --or: #F0CF78; --or-clair: #FFF4C4; --ivoire: #FFF3F7;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--nuit); color: var(--ivoire); }
+
+      /* ---------- type roles ---------- */
+      .serif { font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.06em; }
+      .serif-i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 500; }
+      .bodoni { font-family: "Bodoni Moda", serif; font-weight: 600; }
+      .script { font-family: "Great Vibes", cursive; font-weight: 400; }
+      .sans-caps { font-family: "Montserrat", sans-serif; font-weight: 300; text-transform: uppercase; letter-spacing: 0.42em; }
+      .blush { color: var(--blush); }
+      .gold {
+        background: linear-gradient(180deg, #FFF8D8 0%, #F6DA8A 38%, #C9973A 58%, #F4D27E 78%, #FFF1BE 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        filter: drop-shadow(0 4px 18px rgba(240, 207, 120, 0.28));
+      }
+
+      /* masked line reveal: .mask clips, .in rises from the hidden baseline */
+      .mask { overflow: hidden; display: block; padding: 0.06em 0.08em 0.12em; }
+      .mask > .in { display: block; will-change: transform; }
+
+      /* ---------- backdrop ---------- */
+      #bg, #fx, .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .bg-base {
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse 70% 55% at 50% 38%, rgba(196, 16, 79, 0.85) 0%, rgba(122, 10, 51, 0.65) 45%, rgba(34, 3, 15, 0) 80%),
+          radial-gradient(ellipse 90% 70% at 50% 100%, rgba(122, 10, 51, 0.9) 0%, rgba(34, 3, 15, 0) 70%),
+          var(--nuit);
+      }
+      #silk { position: absolute; inset: -6%; width: 112%; height: 112%; opacity: 0.62; mix-blend-mode: screen; }
+      .rib { opacity: 0.85; }
+      #rib3 { opacity: 0.55; }
+      .leak { position: absolute; border-radius: 50%; mix-blend-mode: screen; pointer-events: none; }
+      .leak-a { background: radial-gradient(circle, rgba(255, 45, 122, 0.45) 0%, rgba(255, 45, 122, 0) 65%); }
+      .leak-b { background: radial-gradient(circle, rgba(240, 207, 120, 0.32) 0%, rgba(240, 207, 120, 0) 65%); }
+      #bokeh { position: absolute; inset: 0; }
+      .bk { position: absolute; border-radius: 50%; mix-blend-mode: screen; }
+
+      /* ---------- finishing layers ---------- */
+      .flash { position: absolute; inset: 0; opacity: 0; mix-blend-mode: screen;
+        background: radial-gradient(ellipse at 50% 50%, rgba(255, 244, 196, 1) 0%, rgba(255, 160, 196, 0.9) 35%, rgba(196, 16, 79, 0.6) 75%); }
+      .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 75% 70% at 50% 50%, rgba(10, 0, 5, 0) 55%, rgba(10, 0, 5, 0.72) 100%); }
+      .grain { position: absolute; inset: -40px; background: url("assets/grain.png") repeat; opacity: 0.07; mix-blend-mode: overlay; }
+
+      /* ---------- shared pieces ---------- */
+      .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+      .flare {
+        position: absolute; height: 6px; border-radius: 6px; opacity: 0; mix-blend-mode: screen; pointer-events: none;
+        background: linear-gradient(90deg, rgba(255, 201, 220, 0) 0%, rgba(255, 201, 220, 0.75) 30%, #fffdf2 50%, rgba(240, 207, 120, 0.75) 70%, rgba(240, 207, 120, 0) 100%);
+        box-shadow: 0 0 24px 6px rgba(255, 230, 200, 0.55), 0 0 90px 20px rgba(255, 45, 122, 0.35);
+      }
+      .flare::after {
+        content: ""; position: absolute; left: 50%; top: 50%; width: 180px; height: 180px; margin: -90px 0 0 -90px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 252, 235, 0.95) 0%, rgba(255, 210, 225, 0.35) 30%, rgba(255, 45, 122, 0) 70%);
+      }
+      .ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+      .ring circle { fill: none; stroke: var(--or); stroke-width: 1.4; }
+      .ring .ring-in { stroke: rgba(255, 201, 220, 0.45); stroke-width: 0.6; }
+
+      /* gamme header */
+      .gamme { position: absolute; }
+      .g-num {
+        position: absolute; line-height: 0.8; color: transparent; -webkit-text-stroke: 2px var(--or);
+        text-shadow: 0 0 40px rgba(240, 207, 120, 0.25);
+      }
+      .g-label { position: absolute; color: var(--blush); white-space: nowrap; }
+      .g-titlewrap { position: absolute; }
+      .g-title { white-space: nowrap; color: var(--ivoire); line-height: 1; }
+      .g-line { position: absolute; height: 2px; background: linear-gradient(90deg, var(--or), rgba(240, 207, 120, 0)); }
+      .g-subwrap { position: absolute; }
+      .g-sub { line-height: 1.1; }
+
+      /* product stage: halo, spotlight, glossy podium, levitating packshot + floor reflection */
+      .stage { position: absolute; }
+      .halo { position: absolute; border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 45, 122, 0.55) 0%, rgba(196, 16, 79, 0.28) 38%, rgba(196, 16, 79, 0) 68%); }
+      .spot { position: absolute; mix-blend-mode: screen;
+        clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+        background: linear-gradient(180deg, rgba(255, 244, 230, 0.45) 0%, rgba(255, 201, 220, 0.12) 70%, rgba(255, 201, 220, 0) 100%); }
+      .podium { position: absolute; }
+      .pd-top { position: absolute; left: 0; top: 0; width: 100%; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 40%, #5a0a2a 0%, #2a0414 60%, #12010a 100%);
+        box-shadow: inset 0 0 0 2px rgba(240, 207, 120, 0.85), inset 0 6px 18px rgba(255, 201, 220, 0.25), 0 0 40px rgba(255, 45, 122, 0.35); }
+      .pd-side { position: absolute; left: 0; width: 100%; border-radius: 0 0 50% 50% / 0 0 100% 100%;
+        background: linear-gradient(90deg, #12010a 0%, #4a0820 30%, #7a1a3e 42%, #2a0414 70%, #0a0005 100%);
+        box-shadow: inset 0 -2px 0 rgba(240, 207, 120, 0.6); }
+      .prod { position: absolute; }
+      .prod img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+      .prod .refl { transform-origin: 50% 95%; transform: scaleY(-1); opacity: 0.32;
+        -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%);
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.9) 95%); }
+      .info { position: absolute; display: flex; flex-direction: column; }
+      .p-name { font-family: "Playfair Display", serif; font-weight: 600; line-height: 1.05; color: var(--ivoire); }
+      .p-price {
+        display: inline-block; align-self: flex-start; font-family: "Montserrat", sans-serif; font-weight: 600;
+        letter-spacing: 0.04em; color: #2a0414; border-radius: 999px; white-space: nowrap;
+        background: linear-gradient(180deg, #FFF4C4 0%, #F0CF78 45%, #D4A64C 100%);
+        box-shadow: 0 8px 30px rgba(240, 207, 120, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      }
+      .counter { position: absolute; display: flex; align-items: center; gap: 0.5em; color: var(--blush); }
+      .c-roll { display: inline-block; overflow: hidden; height: 1.2em; line-height: 1.2em; color: var(--or); font-weight: 600; }
+      .c-roll span { display: block; }
+
+      /* payment cards */
+      .cards { position: absolute; display: grid; }
+      .card {
+        position: relative; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 201, 220, 0.07) 60%, rgba(255, 255, 255, 0.1) 100%);
+        border: 1.5px solid rgba(255, 220, 235, 0.38);
+        box-shadow: 0 24px 60px rgba(20, 0, 8, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      }
+      .tile { background: #fff; border-radius: 18px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .tile img { width: 100%; height: 100%; object-fit: contain; display: block; }
+      .c-wave .tile { background: linear-gradient(90deg, #00BCFB, #029BF9); }
+      .c-name { color: var(--blush); white-space: nowrap; }
+      .more { line-height: 1; }
+
+      /* delivery route */
+      .route { position: absolute; }
+      .r-track, .r-fill { position: absolute; background: rgba(255, 201, 220, 0.22); }
+      .r-fill { background: linear-gradient(90deg, #B98C34, #FFF4C4, #F0CF78); box-shadow: 0 0 18px rgba(240, 207, 120, 0.6); }
+      .node { position: absolute; display: flex; align-items: center; }
+      .node i { display: block; flex: none; border-radius: 50%; background: radial-gradient(circle, #FFF4C4 0%, #F0CF78 55%, #B98C34 100%);
+        box-shadow: 0 0 0 6px rgba(240, 207, 120, 0.18), 0 0 30px rgba(240, 207, 120, 0.7); }
+      .node span { white-space: nowrap; color: var(--ivoire); font-weight: 600; letter-spacing: 0.02em; }
+
+      /* call to action */
+      .wa { position: absolute; display: flex; align-items: center; color: var(--ivoire); }
+      .wa-dot { flex: none; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #4BE38A 0%, #25D366 55%, #128C4A 100%);
+        box-shadow: 0 0 0 8px rgba(37, 211, 102, 0.16), 0 10px 40px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; }
+      .wa-dot svg { width: 64%; height: 64%; }
+      .wa-bub { fill: none; stroke: #fff; stroke-width: 4; stroke-linejoin: round; }
+      .wa-ph { fill: #fff; }
+      .phone { position: absolute; display: flex; white-space: nowrap; line-height: 1; font-family: "Playfair Display", serif; font-weight: 700; letter-spacing: 0.01em; }
+      .pg { display: inline-block; overflow: hidden; padding: 0.04em 0.05em 0.1em; }
+      .pg > span { display: inline-block; }
+      .s7-cmd .in { color: var(--ivoire); letter-spacing: 0.1em; }
+
+      /* end card */
+      .s8-wa { position: absolute; display: flex; align-items: center; border-radius: 999px;
+        background: rgba(34, 3, 15, 0.55); border: 1.5px solid rgba(240, 207, 120, 0.6); }
+      .s8-num { font-family: "Montserrat", sans-serif; font-weight: 600; letter-spacing: 0.06em; color: var(--or-clair); white-space: nowrap; }
+      .s8-slogan .in { color: var(--ivoire); }
+
+      /* ===== 9:16 layout (1080x1920) — key content kept between y=220 and y=1540 ===== */
+      .leak-a { width: 1300px; height: 1300px; left: -600px; top: -200px; }
+      .leak-b { width: 1200px; height: 1200px; left: 300px; top: 1000px; }
+
+      /* 1 */
+      .s1-mesdames { position: absolute; left: 80px; top: 420px; }
+      .s1-mesdames .in { font-size: 150px; line-height: 1.1; }
+      .s1-l1 { position: absolute; left: 90px; top: 650px; }
+      .s1-l2 { position: absolute; left: 230px; top: 750px; }
+      .s1-l1 .in, .s1-l2 .in { font-size: 80px; line-height: 1.1; }
+      .s1-sentir { position: absolute; left: 96px; top: 905px; }
+      .s1-sentir .in { font-size: 36px; }
+      .s1-sub { position: absolute; left: 0; right: 0; top: 975px; text-align: center; }
+      .s1-sub .in { font-size: 150px; line-height: 1.05; letter-spacing: 0.02em; }
+      .s1-sub .flare { left: 40px; top: 90px; width: 1000px; }
+
+      /* 2 */
+      .s2-mark { position: absolute; left: 240px; top: 300px; width: 600px; height: 600px; }
+      .s2-crown { position: absolute; left: 50px; top: 96px; width: 500px; height: 150px; }
+      .s2-sb { position: absolute; left: 50px; top: 240px; width: 500px; height: 250px; }
+      .s2-text { position: absolute; left: 40px; right: 40px; top: 960px; text-align: center; }
+      .s2-kicker { font-size: 30px; }
+      .s2-text .brand { font-size: 92px; line-height: 1.1; white-space: nowrap; }
+      .s2-bywrap { margin: 2px 0 0 0; }
+      .s2-by { font-size: 124px; line-height: 1.1; color: var(--blush); }
+      .s2-values { display: flex; justify-content: center; align-items: center; margin-top: 24px; font-size: 30px; letter-spacing: 0.26em; color: var(--ivoire); }
+      .dot { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--or); margin: 0 22px 0 12px; }
+      #s2 > .cam > .flare { left: 40px; top: 1100px; width: 1000px; }
+
+      /* 3 · 4 · 5 gamme header */
+      .gamme { left: 80px; top: 250px; width: 920px; height: 380px; }
+      .g-num { left: -8px; top: 0; font-size: 250px; }
+      .g-label { left: 330px; top: 30px; font-size: 26px; }
+      .g-titlewrap { left: 318px; top: 62px; }
+      .g-title { font-size: 116px; }
+      .duo-scene .g-title { font-size: 100px; }
+      .g-line { left: 330px; top: 220px; width: 300px; }
+      .counter { left: 330px; top: 245px; font-size: 32px; }
+      .g-subwrap { left: 0; top: 285px; width: 920px; text-align: center; }
+      .g-sub { font-size: 60px; }
+
+      /* 3 · single stage */
+      .st-a { left: 0; top: 0; width: 1080px; height: 1920px; }
+      .st-a .halo { left: 40px; top: 400px; width: 1000px; height: 1000px; }
+      .st-a .spot { left: 240px; top: 260px; width: 600px; height: 920px; }
+      .st-a .podium { left: 230px; top: 1130px; width: 620px; height: 160px; }
+      .st-a .pd-top { height: 110px; }
+      .st-a .pd-side { top: 55px; height: 95px; }
+      .st-a .prod { left: 240px; top: 425px; width: 600px; height: 800px; }
+      .st-a .flare { left: 40px; top: 900px; width: 1000px; }
+      .infos { position: absolute; left: 80px; top: 1330px; width: 920px; height: 200px; }
+      .infos .info { left: 0; top: 0; width: 920px; align-items: center; text-align: center; gap: 22px; }
+      .infos .p-name { font-size: 74px; white-space: nowrap; }
+      .infos .p-price { align-self: center; font-size: 48px; padding: 14px 36px; }
+
+      /* 4 · 5 · twin stages */
+      .st-l, .st-r { top: 0; width: 520px; height: 1920px; }
+      .st-l { left: 20px; }
+      .st-r { left: 540px; }
+      .st-l .halo, .st-r .halo { left: -60px; top: 640px; width: 640px; height: 640px; }
+      .st-l .spot, .st-r .spot { left: 60px; top: 560px; width: 400px; height: 700px; }
+      .st-l .podium, .st-r .podium { left: 50px; top: 1080px; width: 420px; height: 120px; }
+      .st-l .pd-top, .st-r .pd-top { height: 84px; }
+      .st-l .pd-side, .st-r .pd-side { top: 42px; height: 72px; }
+      .st-l .prod, .st-r .prod { left: 20px; top: 514px; width: 480px; height: 640px; }
+      .st-l .info, .st-r .info { left: 20px; top: 1230px; width: 480px; align-items: center; text-align: center; gap: 18px; }
+      .st-l .p-name, .st-r .p-name { font-size: 50px; }
+      .st-l .p-price, .st-r .p-price { align-self: center; font-size: 40px; padding: 12px 30px; }
+      .duo-scene > .cam > .flare { left: 40px; top: 860px; width: 1000px; }
+
+      /* 6 */
+      .pay-head { position: absolute; left: 90px; top: 245px; }
+      .kick { font-size: 30px; }
+      .pay-head .head { font-size: 76px; line-height: 1.15; }
+      .cards { left: 90px; top: 470px; grid-template-columns: repeat(2, 435px); grid-auto-rows: 230px; gap: 30px; }
+      .tile { width: 370px; height: 156px; }
+      .c-name { font-size: 26px; margin-top: 16px; }
+      .more { font-size: 96px; }
+      .ship-head { position: absolute; left: 90px; top: 1030px; }
+      .route { left: 150px; top: 1130px; width: 820px; height: 380px; }
+      .r-track, .r-fill { left: 0; top: 0; width: 4px; height: 360px; }
+      .node { left: -15px; height: 70px; margin-top: -35px; flex-direction: row; }
+      .node i { width: 34px; height: 34px; }
+      .node span { font-size: 60px; margin-left: 44px; }
+      .n1 { top: 0; } .n2 { top: 180px; } .n3 { top: 360px; }
+
+      /* 7 */
+      .s7-cmd { position: absolute; left: 0; right: 0; top: 330px; text-align: center; }
+      .s7-cmd .in { font-size: 124px; line-height: 1.1; }
+      .s7-now { position: absolute; left: 470px; top: 440px; }
+      .s7-now .in { font-size: 120px; line-height: 1.1; }
+      .wa { left: 0; right: 0; top: 670px; justify-content: center; gap: 24px; }
+      .wa .wa-dot { width: 90px; height: 90px; }
+      .wa span { font-size: 38px; letter-spacing: 0.28em; }
+      .phone { left: 0; right: 0; top: 830px; flex-wrap: wrap; justify-content: center; column-gap: 0.28em; row-gap: 6px; font-size: 150px; }
+      .pg0 { flex-basis: 100%; text-align: center; font-size: 170px; }
+      #s7 > .cam > .flare { left: 40px; top: 1080px; width: 1000px; }
+
+      /* 8 */
+      .s8-mark { position: absolute; left: 240px; top: 300px; width: 600px; height: 600px; }
+      .s8-logo { position: absolute; left: -22px; top: 33px; width: 600px; height: 600px; }
+      .s8-brand { position: absolute; left: 0; right: 0; top: 960px; text-align: center; }
+      .s8-brand .in { font-size: 92px; line-height: 1.1; }
+      .s8-by { position: absolute; left: 520px; top: 1068px; }
+      .s8-by .in { font-size: 110px; line-height: 1.1; }
+      .s8-slogan { position: absolute; left: 80px; right: 80px; top: 1195px; text-align: center; }
+      .s8-slogan .in { font-size: 84px; line-height: 1.15; }
+      .s8-slogan .sl { display: block; }
+      .s8-wa { left: 220px; width: 640px; top: 1420px; height: 96px; justify-content: center; gap: 22px; }
+      .s8-wa .wa-dot { width: 72px; height: 72px; }
+      .s8-num { font-size: 40px; }
+      #s8 > .cam > .flare { left: 40px; top: 1060px; width: 1000px; }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="48.875" data-width="1080" data-height="1920">
+
+      <!-- persistent backdrop: satin ribbons, light leaks, bokeh -->
+      <div id="bg" class="clip" data-start="0" data-duration="48.875" data-track-index="0">
+        <div class="bg-base"></div>
+        <svg id="silk" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="satinA" gradientUnits="userSpaceOnUse" x1="0" y1="200" x2="1000" y2="800">
+              <stop offset="0" stop-color="#5a0322" /><stop offset=".22" stop-color="#C4104F" />
+              <stop offset=".34" stop-color="#FF7FAE" /><stop offset=".39" stop-color="#FFD9E7" />
+              <stop offset=".46" stop-color="#E0306E" /><stop offset=".64" stop-color="#7A0A33" />
+              <stop offset=".8" stop-color="#FF4F8E" /><stop offset="1" stop-color="#4a021c" />
+            </linearGradient>
+            <linearGradient id="satinB" gradientUnits="userSpaceOnUse" x1="1000" y1="0" x2="0" y2="1000">
+              <stop offset="0" stop-color="#22030F" /><stop offset=".3" stop-color="#9E0C43" />
+              <stop offset=".44" stop-color="#FF9CC0" /><stop offset=".5" stop-color="#FFF0F5" />
+              <stop offset=".57" stop-color="#D81E60" /><stop offset=".8" stop-color="#5a0322" />
+              <stop offset="1" stop-color="#22030F" />
+            </linearGradient>
+            <linearGradient id="satinGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1000" y2="1000">
+              <stop offset="0" stop-color="#7a5418" stop-opacity="0" /><stop offset=".45" stop-color="#F0CF78" />
+              <stop offset=".52" stop-color="#FFF4C4" /><stop offset=".6" stop-color="#B98C34" />
+              <stop offset="1" stop-color="#7a5418" stop-opacity="0" />
+            </linearGradient>
+            <filter id="silkBlur"><feGaussianBlur stdDeviation="3" /></filter>
+          </defs>
+          <path id="rib1" class="rib" fill="url(#satinA)" filter="url(#silkBlur)"
+            d="M-100,620 C150,520 380,760 620,600 C800,480 920,560 1100,470 L1100,640 C920,730 800,650 620,780 C380,940 150,700 -100,800 Z" />
+          <path id="rib2" class="rib" fill="url(#satinB)" filter="url(#silkBlur)"
+            d="M-100,180 C120,300 340,100 560,220 C760,330 900,180 1100,260 L1100,360 C900,290 760,450 560,340 C340,220 120,420 -100,300 Z" />
+          <path id="rib3" class="rib" fill="url(#satinGold)"
+            d="M-100,860 C200,760 420,960 700,840 C860,770 960,820 1100,780 L1100,796 C960,836 860,786 700,856 C420,976 200,776 -100,876 Z" />
+        </svg>
+        <div class="leak leak-a"></div>
+        <div class="leak leak-b"></div>
+        <div id="bokeh"></div>
+      </div>
+
+      <!-- 1 · Hook -->
+      <section id="s1" class="scene clip" data-start="0" data-duration="3.9" data-track-index="1">
+        <div class="cam">
+          <div class="s1-mesdames mask"><div class="in script blush">Mesdames,</div></div>
+          <div class="s1-l1 mask"><div class="in serif-i">et si aujourd'hui,</div></div>
+          <div class="s1-l2 mask"><div class="in serif-i">vous décidiez</div></div>
+          <div class="s1-sentir mask"><div class="in sans-caps">de vous sentir</div></div>
+          <div class="s1-sub">
+            <div class="mask"><div class="in bodoni gold">SUBLIMES</div></div>
+            <div class="flare"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 · Brand -->
+      <section id="s2" class="scene clip" data-start="3.3" data-duration="5.55" data-track-index="2">
+        <div class="cam">
+          <div class="s2-mark">
+            <svg class="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" /><circle class="ring-in" cx="100" cy="100" r="89" /></svg>
+            <img class="s2-crown" src="assets/logos/crown.png" alt="" />
+            <img class="s2-sb" src="assets/logos/sb.png" alt="" />
+          </div>
+          <div class="s2-text">
+            <div class="mask"><div class="in sans-caps blush s2-kicker">Bienvenue chez</div></div>
+            <div class="mask"><div class="in serif brand gold">SUBLIME BOOTY</div></div>
+            <div class="mask s2-bywrap"><div class="in script s2-by">by Chris</div></div>
+            <div class="s2-values sans-caps">
+              <span class="v v1">Beauté</span><i class="dot d1"></i><span class="v v2">Confiance</span><i class="dot d2"></i><span class="v v3">Bien-être</span>
+            </div>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 3 · Gamme 01 Fessiers -->
+      <section id="s3" class="scene clip" data-start="8.25" data-duration="12.5" data-track-index="1">
+        <div class="cam">
+          <div class="gamme">
+            <div class="g-num bodoni">01</div>
+            <div class="g-label sans-caps">La gamme</div>
+            <div class="mask g-titlewrap"><div class="in g-title serif-i">Fessiers</div></div>
+            <div class="g-line"></div>
+            <div class="counter sans-caps"><span class="c-roll"><span>01</span><span>02</span><span>03</span><span>04</span><span>05</span><span>06</span></span><span class="c-of">/ 06</span></div>
+          </div>
+          <div class="stage st-a">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod p1"><img class="refl" src="assets/products/creme-vip.png" alt="" /><img class="main" src="assets/products/creme-vip.png" alt="" /></div>
+            <div class="prod p2 key"><img class="refl" src="assets/products/creme-imperiale.png" alt="" /><img class="main" src="assets/products/creme-imperiale.png" alt="" /></div>
+            <div class="prod p3"><img class="refl" src="assets/products/caolin.png" alt="" /><img class="main" src="assets/products/caolin.png" alt="" /></div>
+            <div class="prod p4"><img class="refl" src="assets/products/savon.png" alt="" /><img class="main" src="assets/products/savon.png" alt="" /></div>
+            <div class="prod p5"><img class="refl" src="assets/products/cereales.png" alt="" /><img class="main" src="assets/products/cereales.png" alt="" /></div>
+            <div class="prod p6"><img class="refl" src="assets/products/sirop.png" alt="" /><img class="main" src="assets/products/sirop.png" alt="" /></div>
+            <div class="flare"></div>
+          </div>
+          <div class="infos">
+            <div class="info i1"><div class="p-name">Crème VIP</div><div class="p-price">10&#8239;000 FCFA</div></div>
+            <div class="info i2 key"><div class="p-name">Crème Impériale</div><div class="p-price">30&#8239;000 FCFA</div></div>
+            <div class="info i3"><div class="p-name">Caolin fessier</div><div class="p-price">10&#8239;000 FCFA</div></div>
+            <div class="info i4"><div class="p-name">Savon fessier</div><div class="p-price">10&#8239;000 FCFA</div></div>
+            <div class="info i5"><div class="p-name">Céréales Booty Gain</div><div class="p-price">25&#8239;000 FCFA</div></div>
+            <div class="info i6"><div class="p-name">Sirop Sexy Lady</div><div class="p-price">10&#8239;000 FCFA</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 · Gamme 02 Poitrine -->
+      <section id="s4" class="scene clip duo-scene" data-start="20.15" data-duration="6.1" data-track-index="2">
+        <div class="cam">
+          <div class="gamme">
+            <div class="g-num bodoni">02</div>
+            <div class="g-label sans-caps">La gamme</div>
+            <div class="mask g-titlewrap"><div class="in g-title serif-i">Poitrine</div></div>
+            <div class="g-line"></div>
+            <div class="mask g-subwrap"><div class="in g-sub script blush">Pour une poitrine dont vous serez fière</div></div>
+          </div>
+          <div class="stage st-l">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/kit-gros-lolo.png" alt="" /><img class="main" src="assets/products/kit-gros-lolo.png" alt="" /></div>
+            <div class="info"><div class="p-name">Kit Gros Lolo</div><div class="p-price">30&#8239;000 FCFA</div></div>
+          </div>
+          <div class="stage st-r">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/kit-raffermissant.png" alt="" /><img class="main" src="assets/products/kit-raffermissant.png" alt="" /></div>
+            <div class="info"><div class="p-name">Kit Raffermissant Seins</div><div class="p-price">25&#8239;000 FCFA</div></div>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 5 · Gamme 03 Ventre plat -->
+      <section id="s5" class="scene clip duo-scene" data-start="25.65" data-duration="7.5" data-track-index="1">
+        <div class="cam">
+          <div class="gamme">
+            <div class="g-num bodoni">03</div>
+            <div class="g-label sans-caps">La gamme</div>
+            <div class="mask g-titlewrap"><div class="in g-title serif-i">Ventre plat</div></div>
+            <div class="g-line"></div>
+            <div class="mask g-subwrap"><div class="in g-sub script blush">Pour vous sentir légère</div></div>
+          </div>
+          <div class="stage st-l">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/the-perte.png" alt="" /><img class="main" src="assets/products/the-perte.png" alt="" /></div>
+            <div class="info"><div class="p-name">Thé perte de poids</div><div class="p-price">12&#8239;000 FCFA</div></div>
+          </div>
+          <div class="stage st-r">
+            <div class="halo"></div><div class="spot"></div>
+            <div class="podium"><div class="pd-side"></div><div class="pd-top"></div></div>
+            <div class="prod"><img class="refl" src="assets/products/duo-ventre.png" alt="" /><img class="main" src="assets/products/duo-ventre.png" alt="" /></div>
+            <div class="info"><div class="p-name">Duo Thé + Crème ventre plat</div><div class="p-price">24&#8239;000 FCFA</div></div>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 6 · Paiement & livraison -->
+      <section id="s6" class="scene clip" data-start="32.55" data-duration="6.9" data-track-index="2">
+        <div class="cam">
+          <div class="pay-head">
+            <div class="mask"><div class="in sans-caps blush kick">Paiement</div></div>
+            <div class="mask"><div class="in serif-i head">Payez en toute simplicité</div></div>
+          </div>
+          <div class="cards">
+            <div class="card c-nita"><div class="tile"><img src="assets/logos/nita.png" alt="NITA" /></div><div class="c-name sans-caps">Nita</div></div>
+            <div class="card c-amana"><div class="tile"><img src="assets/logos/amana.png" alt="AMANA" /></div><div class="c-name sans-caps">Amana</div></div>
+            <div class="card c-wave"><div class="tile"><img src="assets/logos/wave.png" alt="Wave" /></div><div class="c-name sans-caps">Wave</div></div>
+            <div class="card c-more"><div class="more script gold">et autres</div><div class="c-name sans-caps">moyens</div></div>
+          </div>
+          <div class="ship-head">
+            <div class="mask"><div class="in sans-caps blush kick">Livraison</div></div>
+          </div>
+          <div class="route">
+            <div class="r-track"></div><div class="r-fill"></div>
+            <div class="node n1"><i></i><span class="serif">Maradi</span></div>
+            <div class="node n2"><i></i><span class="serif">Partout au Niger</span></div>
+            <div class="node n3"><i></i><span class="serif">International</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7 · Call to action -->
+      <section id="s7" class="scene clip" data-start="38.85" data-duration="6.4" data-track-index="1">
+        <div class="cam">
+          <div class="s7-cmd mask"><div class="in serif">COMMANDEZ</div></div>
+          <div class="s7-now mask"><div class="in script gold">maintenant</div></div>
+          <div class="wa">
+            <div class="wa-dot">
+              <svg viewBox="0 0 64 64"><path class="wa-bub" d="M32 7a25 25 0 0 0-21.6 37.6L7 57l12.8-3.3A25 25 0 1 0 32 7z" />
+                <path class="wa-ph" transform="translate(18 18) scale(1.17)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+            </div>
+            <span class="sans-caps">sur WhatsApp</span>
+          </div>
+          <div class="phone">
+            <span class="pg pg0"><span class="gold">+227</span></span><span class="pg pg1"><span class="gold">92</span></span><span class="pg pg2"><span class="gold">48</span></span><span class="pg pg3"><span class="gold">56</span></span><span class="pg pg4"><span class="gold">12</span></span>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- 8 · End card -->
+      <section id="s8" class="scene clip" data-start="44.65" data-duration="4.225" data-track-index="2">
+        <div class="cam">
+          <div class="s8-mark">
+            <svg class="ring" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" /><circle class="ring-in" cx="100" cy="100" r="89" /></svg>
+            <img class="s8-logo" src="assets/logos/sb-crown.png" alt="" />
+          </div>
+          <div class="s8-brand mask"><div class="in serif gold">SUBLIME BOOTY</div></div>
+          <div class="s8-by mask"><div class="in script blush">by Chris</div></div>
+          <div class="s8-slogan mask"><div class="in script"><span class="sl">Révélez la femme sublime</span> <span class="sl">qui est en vous</span></div></div>
+          <div class="s8-wa">
+            <div class="wa-dot">
+              <svg viewBox="0 0 64 64"><path class="wa-bub" d="M32 7a25 25 0 0 0-21.6 37.6L7 57l12.8-3.3A25 25 0 1 0 32 7z" />
+                <path class="wa-ph" transform="translate(18 18) scale(1.17)" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+            </div>
+            <span class="s8-num">+227 92 48 56 12</span>
+          </div>
+          <div class="flare"></div>
+        </div>
+      </section>
+
+      <!-- finishing layers -->
+      <div id="fx" class="clip" data-start="0" data-duration="48.875" data-track-index="3">
+        <div class="flash"></div>
+        <div class="vignette"></div>
+        <div class="grain"></div>
+      </div>
+
+      <audio id="vo" src="assets/voice/voix_off.mp3" data-start="0" data-duration="48.875" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      // Sublime Booty by Chris — shared timeline for both formats. FMT is "land" or "port".
+      const FMT = "port";
+      const P = FMT === "port";
+
+      // seeded PRNG so the bokeh field is identical on every render
+      let seed = 20261019;
+      const rnd = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+      const W = P ? 1080 : 1920, H = P ? 1920 : 1080;
+      const bokeh = document.getElementById("bokeh");
+      for (let i = 0; i < 34; i++) {
+        const d = 6 + Math.pow(rnd(), 2.2) * 70;
+        const gold = rnd() < 0.35;
+        const el = document.createElement("div");
+        el.className = "bk";
+        el.style.cssText = `width:${d}px;height:${d}px;left:${rnd() * W}px;top:${rnd() * H}px;` +
+          `opacity:${0.18 + rnd() * 0.5};filter:blur(${d > 30 ? 6 : 1.5}px);` +
+          `background:radial-gradient(circle, ${gold ? "rgba(255,240,190,.95)" : "rgba(255,210,228,.95)"} 0%, ${gold ? "rgba(240,207,120,0)" : "rgba(255,45,122,0)"} 70%)`;
+        bokeh.appendChild(el);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>
