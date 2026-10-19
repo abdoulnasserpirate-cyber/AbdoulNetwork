@@ -5,3 +5,5 @@ renders/*.mp4
 !renders/sublime_booty_16x9.mp4
 !renders/sublime_booty_9x16.mp4
 renders/*.txt
+renders/work-*/
+renders/.*hf-transaction*/
