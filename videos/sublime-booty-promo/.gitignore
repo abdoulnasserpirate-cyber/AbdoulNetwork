@@ -4,3 +4,4 @@ node_modules/
 renders/*.mp4
 !renders/sublime_booty_16x9.mp4
 !renders/sublime_booty_9x16.mp4
+renders/*.txt
