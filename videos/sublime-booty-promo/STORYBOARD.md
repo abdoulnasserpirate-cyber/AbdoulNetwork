@@ -6,12 +6,12 @@ arc: Accroche → Marque → 3 gammes produits → Paiement & livraison → Appe
 audience: Femmes de Maradi, du Niger et de l'international
 ---
 
-Version v1 — images clés : `storyboard/16x9-sN.png`, `storyboard/9x16-sN.png`, planches
+Version v2 (fond rose vif #FF00A8, demandé par la cliente) — images clés : `storyboard/16x9-sN.png`, `storyboard/9x16-sN.png`, planches
 `storyboard/planche-16x9.jpg` et `storyboard/planche-9x16.jpg`, page `storyboard.html`.
 
 **Fil conducteur** : le fond satin rose qui ne s'arrête jamais, et l'or (chiffres de gamme, prix, numéro) qui
 guide l'œil. Transitions : flash lumineux + zoom/blur, toujours vers l'avant (push-in).
-**Interdits** : rose bonbon plat, clipart, emoji, frais de livraison, texte dans les zones TikTok.
+**Interdits** : aplat rose sans relief, clipart, emoji, frais de livraison, texte dans les zones TikTok.
 
 Repères voix off (pauses mesurées) : Mesdames 0,83 · SUBLIMES ≈2,8 · Bienvenue 3,80 · by Chris ≈5,1 ·
 beauté ≈6,6 · confiance 7,04 · bien-être ≈7,75 · gamme fessiers 8,75 · produits 11,90 / 13,47 / 14,90 /

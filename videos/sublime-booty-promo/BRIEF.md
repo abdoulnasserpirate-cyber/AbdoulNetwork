@@ -28,7 +28,7 @@ Storyboard (1 image clé par scène, 2 formats) à valider avant le rendu final.
 
 ## Customizations
 
-- Palette : #C4104F → #7A0A33 → #22030F, rose vif #FF2D7A, blush #FFC9DC, or #F0CF78 / #FFF4C4.
+- Palette v2 (retour cliente « je veux une vraie couleur rose ») : rose vif #FF00A8 dominant (référence assets/ref/rose-reference.jpg), profondeur #D6008C → #8C005C, or #F0CF78 / #FFF4C4.
 - Typo : Bodoni Moda / Playfair Display (titres), Great Vibes (script), Montserrat Light (sous-titres espacés).
 - Fond : rubans de satin rose ondulants, bokeh, light leaks rose et or, grain, vignettage.
 - Mouvements : révélations par masque, push-in permanent, flare anamorphique, transitions flash + zoom/blur.
