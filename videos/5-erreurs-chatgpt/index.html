@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>5 erreurs ChatGPT — Abdoul Network</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        src: url(assets/fonts/Inter-normal-500-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        src: url(assets/fonts/Inter-normal-500-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        src: url(assets/fonts/Inter-normal-700-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        src: url(assets/fonts/Inter-normal-700-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 700;
+        src: url(assets/fonts/Poppins-italic-700-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 700;
+        src: url(assets/fonts/Poppins-italic-700-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 800;
+        src: url(assets/fonts/Poppins-italic-800-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: italic;
+        font-weight: 800;
+        src: url(assets/fonts/Poppins-italic-800-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        src: url(assets/fonts/Poppins-normal-500-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        src: url(assets/fonts/Poppins-normal-500-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        src: url(assets/fonts/Poppins-normal-700-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        src: url(assets/fonts/Poppins-normal-700-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 800;
+        src: url(assets/fonts/Poppins-normal-800-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 800;
+        src: url(assets/fonts/Poppins-normal-800-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 900;
+        src: url(assets/fonts/Poppins-normal-900-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 900;
+        src: url(assets/fonts/Poppins-normal-900-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      :root {
+        --navy: #0b1026;
+        --navy2: #141b3d;
+        --orange: #ff7a1a;
+        --orange-d: #c95608;
+        --cream: #fff4e6;
+        --red: #e5372b;
+        --green: #1aa35a;
+        --white: #ffffff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px; overflow: hidden;
+        background: var(--navy);
+      }
+      #root {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        background: var(--navy);
+        font-family: Poppins, Inter, sans-serif;
+        color: var(--white);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ---------- backgrounds ---------- */
+      #bg { position: absolute; inset: 0; overflow: hidden; }
+      .bg-layer { position: absolute; inset: 0; overflow: hidden; }
+      #bg-dark { background: linear-gradient(160deg, #141b3d 0%, #0e1430 45%, #0b1026 100%); }
+      #bg-light { background: linear-gradient(165deg, #fff6ec 0%, #fdebd9 55%, #f9e1cb 100%); opacity: 0; }
+      .halo {
+        position: absolute; border-radius: 50%;
+        filter: blur(90px);
+      }
+      #halo-d1 { width: 980px; height: 980px; right: -420px; top: -360px;
+        background: radial-gradient(circle, rgba(196,98,52,0.85) 0%, rgba(140,62,40,0.5) 40%, rgba(11,16,38,0) 70%); }
+      #halo-d2 { width: 900px; height: 900px; left: -460px; bottom: -300px;
+        background: radial-gradient(circle, rgba(70,62,150,0.55) 0%, rgba(11,16,38,0) 70%); }
+      #halo-l1 { width: 900px; height: 900px; right: -380px; top: -340px;
+        background: radial-gradient(circle, rgba(255,160,90,0.65) 0%, rgba(255,190,140,0.3) 45%, rgba(255,246,236,0) 72%); }
+      #halo-l2 { width: 800px; height: 800px; left: -420px; bottom: -200px;
+        background: radial-gradient(circle, rgba(255,186,130,0.35) 0%, rgba(255,246,236,0) 70%); }
+      #grid {
+        position: absolute; left: 0; top: -120px; width: 1080px; height: 2160px;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.045) 2px, transparent 2px),
+          linear-gradient(90deg, rgba(255,255,255,0.045) 2px, transparent 2px);
+        background-size: 90px 90px;
+        -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 20%, transparent 80%);
+                mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 20%, transparent 80%);
+      }
+      .pt { position: absolute; border-radius: 50%; background: #ff8a33; box-shadow: 0 0 14px 3px rgba(255,122,26,0.55); }
+      .pt-l { background: #ff9a4d; box-shadow: 0 0 10px 2px rgba(255,122,26,0.35); }
+
+      /* ---------- scenes ---------- */
+      .scene { position: absolute; inset: 0; }
+      .cam { position: absolute; inset: 0; transform-origin: 515px 900px; }
+      .shake { position: absolute; inset: 0; }
+      .col { position: absolute; left: 90px; width: 850px; text-align: center; }
+      .w { display: inline-block; }
+      .o { color: var(--orange); }
+      .light .o { color: var(--orange-d); }
+      .title {
+        font-weight: 800; font-size: 96px; line-height: 1.02; letter-spacing: -0.045em;
+      }
+      .dark .title { color: var(--white); }
+      .light .title { color: var(--navy); }
+
+      /* tag (pastille) */
+      .tag-wrap { position: absolute; left: 90px; width: 850px; display: flex; justify-content: center; gap: 22px; align-items: center; }
+      .tag-tilt { rotate: -2deg; display: block; }
+      .tag-tilt.r { rotate: 2.5deg; }
+      .tag {
+        display: flex; align-items: center; gap: 18px;
+        height: 112px; padding: 0 34px 0 22px; border-radius: 22px;
+        background: var(--cream); color: var(--navy);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+      }
+      .light .tag { background: #ffffff; box-shadow: 0 18px 40px rgba(201,86,8,0.18); }
+      .tag-check {
+        width: 60px; height: 60px; border-radius: 50%; background: var(--orange);
+        display: flex; align-items: center; justify-content: center; flex: none;
+      }
+      .tag-txt { font-weight: 800; font-style: italic; font-size: 52px; letter-spacing: -0.02em; }
+      .tag-num {
+        display: inline-block; font-weight: 900; font-size: 92px; line-height: 1; color: var(--orange);
+        letter-spacing: -0.04em; margin-left: 2px;
+      }
+      .light .tag-num { color: #e0650f; }
+      .tag-hot {
+        display: flex; align-items: center; gap: 12px; height: 92px; padding: 0 28px;
+        border-radius: 20px; background: var(--orange); color: var(--navy); white-space: nowrap;
+        font-weight: 800; font-size: 40px; letter-spacing: -0.02em;
+        box-shadow: 0 16px 36px rgba(255,122,26,0.35);
+      }
+
+      /* cards */
+      .card {
+        position: absolute; border-radius: 30px; background: #ffffff; color: var(--navy);
+        box-shadow: 0 26px 60px rgba(11,16,38,0.16), 0 4px 12px rgba(11,16,38,0.06);
+      }
+      .dark .card { box-shadow: 0 30px 70px rgba(0,0,0,0.38); }
+      .card.navy { background: var(--navy2); color: #fff; border: 2px solid rgba(255,255,255,0.08); }
+      .card.cream { background: var(--cream); }
+      .mark {
+        position: absolute; width: 96px; height: 96px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.25); border: 6px solid #fff;
+      }
+      .mark.bad { background: var(--red); }
+      .mark.good { background: var(--green); }
+      .ch { display: none; }
+      .caret { display: inline-block; width: 4px; height: 46px; background: var(--orange); vertical-align: -8px; margin-left: 3px; border-radius: 2px; }
+
+      /* chat bar (scene 2) */
+      #s2-bar { left: 105px; top: 740px; width: 820px; height: 116px; padding: 30px 110px 30px 36px; overflow: hidden; }
+      #s2-bar .txt { font-weight: 500; font-size: 42px; line-height: 56px; text-align: left; }
+      .send {
+        position: absolute; right: 22px; bottom: 20px; width: 76px; height: 76px; border-radius: 50%;
+        background: var(--orange); display: flex; align-items: center; justify-content: center;
+      }
+      .hl { border-radius: 10px; padding: 0 4px; }
+      #s2-bad { left: 105px; top: 1070px; width: 820px; height: 220px; padding: 34px 40px; }
+      #s2-good { left: 105px; top: 1070px; width: 820px; height: 262px; padding: 30px 36px; display: flex; gap: 30px; align-items: center; }
+      .ai-row { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 40px; }
+      .ai-dot { width: 26px; height: 26px; border-radius: 50%; background: var(--orange); flex: none; }
+      .gbar { height: 22px; border-radius: 11px; background: #e7e3ea; margin-top: 18px; }
+      .dots { display: flex; gap: 14px; margin-top: 26px; }
+      .dots i { display: block; width: 22px; height: 22px; border-radius: 50%; background: #c9c3cf; }
+      .poster {
+        width: 150px; height: 200px; border-radius: 18px; flex: none; position: relative; overflow: hidden;
+        background: linear-gradient(160deg, #ff9a4d, #ff7a1a 55%, #c95608);
+      }
+      .poster b { position: absolute; left: 16px; right: 16px; height: 14px; border-radius: 7px; background: rgba(255,255,255,0.9); }
+      .poster .pnum { position: absolute; left: 14px; bottom: 16px; font-weight: 900; font-size: 46px; color: var(--navy); letter-spacing: -0.04em; }
+
+      /* scene 3 */
+      #s3-card { left: 90px; top: 720px; width: 850px; height: 340px; padding: 34px 40px; }
+      .vtxt { position: absolute; left: 40px; right: 40px; top: 108px; font-weight: 500; font-size: 42px; line-height: 56px; text-align: left; }
+      .vtag { position: absolute; right: 30px; top: 30px; height: 56px; padding: 0 20px; border-radius: 28px; background: var(--orange); color: var(--navy);
+        font-weight: 800; font-size: 40px; display: flex; align-items: center; }
+      .sub { font-weight: 700; font-size: 52px; line-height: 1.18; letter-spacing: -0.02em; }
+      .btn-row { position: absolute; left: 90px; width: 850px; display: flex; justify-content: center; gap: 22px; }
+      .chip {
+        display: flex; align-items: center; justify-content: center; height: 96px; padding: 0 30px; border-radius: 48px;
+        background: var(--orange); color: var(--navy); font-weight: 800; font-size: 42px; letter-spacing: -0.02em;
+        box-shadow: 0 14px 30px rgba(255,122,26,0.35); white-space: nowrap;
+      }
+
+      /* scene 4 */
+      #s4-card { left: 105px; top: 740px; width: 820px; height: 360px; }
+      #s4-prompt { position: absolute; left: 40px; right: 120px; bottom: 30px; font-weight: 500; font-size: 44px; line-height: 58px; text-align: left; color: #fff; }
+      #s4-badge-wrap { position: absolute; left: 36px; top: 34px; rotate: -3deg; }
+      #s4-badge {
+        display: block; padding: 18px 30px; border-radius: 22px; background: var(--orange); color: var(--navy);
+        font-weight: 800; font-size: 44px; line-height: 1.12; letter-spacing: -0.02em; text-align: left;
+        box-shadow: 0 16px 40px rgba(255,122,26,0.45);
+      }
+      .ripple { position: absolute; width: 300px; height: 300px; border-radius: 50%; border: 8px solid var(--orange); }
+      .stars { position: absolute; left: 90px; width: 850px; display: flex; justify-content: center; gap: 18px; }
+      .star { width: 70px; height: 70px; display: block; }
+
+      /* scene 5 */
+      #s5-card { left: 105px; top: 730px; width: 820px; height: 390px; padding: 34px 40px; }
+      #s5-num { position: absolute; left: 40px; top: 30px; font-weight: 900; font-size: 124px; line-height: 1; letter-spacing: -0.05em; color: var(--navy); transform-origin: 50% 55%; }
+      #s5-src { position: absolute; right: 34px; top: 40px; height: 60px; padding: 0 22px; border-radius: 30px; background: rgba(11,16,38,0.07);
+        font-weight: 700; font-size: 40px; display: flex; align-items: center; gap: 10px; color: var(--navy); }
+      #s5-text { position: absolute; left: 40px; right: 40px; top: 176px; font-weight: 500; font-size: 42px; line-height: 54px; text-align: left; }
+      #s5-date { position: absolute; left: 40px; top: 300px; display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 46px; color: var(--navy); }
+      #s5-date-u { position: absolute; left: 100px; top: 360px; width: 330px; height: 8px; border-radius: 4px; background: var(--red); transform-origin: 0 50%; }
+      #s5-ring { position: absolute; left: 14px; top: 14px; width: 360px; height: 160px; overflow: visible; }
+      #lens { position: absolute; left: 0; top: 0; width: 300px; height: 300px; }
+      #stamp-wrap { position: absolute; left: 490px; top: 736px; width: 400px; height: 160px; }
+      #stamp {
+        position: absolute; inset: 0; border: 9px solid var(--red); border-radius: 20px;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--red); font-weight: 900; font-size: 68px; letter-spacing: -0.02em; white-space: nowrap;
+        background: rgba(255,244,230,0.55);
+        box-shadow: inset 0 0 0 6px rgba(255,244,230,0.6), inset 0 0 0 10px var(--red);
+      }
+
+      /* scene 6 */
+      .tabs { position: absolute; left: 90px; width: 850px; display: flex; justify-content: center; gap: 20px; }
+      .tab {
+        display: flex; align-items: center; height: 84px; padding: 0 30px; border-radius: 42px;
+        border: 4px solid var(--navy); color: var(--navy); background: rgba(255,255,255,0.6);
+        font-weight: 800; font-size: 42px; letter-spacing: -0.02em;
+      }
+      #fmt { position: absolute; left: 115px; top: 850px; width: 800px; height: 440px; }
+      .fbg { position: absolute; left: 0; top: 0; width: 800px; border-radius: 28px; transform-origin: 50% 0; }
+      .fbg.white { background: #fff; box-shadow: 0 26px 60px rgba(11,16,38,0.16); }
+      .fbg.wa { background: #d9fdd3; box-shadow: 0 26px 60px rgba(11,16,38,0.16); border-top-left-radius: 6px; }
+      .fbg .deco { position: absolute; }
+      .fi { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 42px; line-height: 58px; }
+      .fi.n { font-weight: 500; }
+      .fi.p { font-weight: 700; }
+      #s6-ask-wrap { position: absolute; right: 150px; top: 1262px; rotate: -3deg; }
+      #s6-ask { display: block; padding: 14px 30px; border-radius: 20px; background: var(--orange); color: var(--navy); font-weight: 800; font-size: 50px; letter-spacing: -0.02em;
+        box-shadow: 0 16px 36px rgba(255,122,26,0.4); }
+
+      /* scene 7 */
+      .nums { position: absolute; left: 90px; width: 850px; display: flex; justify-content: center; gap: 26px; }
+      .nb { width: 124px; height: 124px; border-radius: 34px; background: #fff; color: var(--navy); display: flex; align-items: center; justify-content: center;
+        font-weight: 900; font-size: 66px; box-shadow: 0 16px 34px rgba(0,0,0,0.3); }
+      #s7-bubble { left: 160px; top: 900px; width: 710px; height: 140px; border-radius: 34px; display: flex; align-items: center; gap: 24px; padding: 0 32px; }
+      .avatar { width: 84px; height: 84px; border-radius: 50%; flex: none; background: linear-gradient(140deg, #ff9a4d, #ff7a1a); display: flex; align-items: center; justify-content: center; color: var(--navy); font-weight: 900; font-size: 42px; }
+      .bub-meta { font-weight: 600; font-size: 40px; color: #7a7f95; line-height: 1.1; }
+      .bub-txt { font-weight: 800; font-size: 58px; color: var(--navy); line-height: 1.1; }
+      #s7-banner-wrap { position: absolute; left: 110px; width: 810px; top: 1085px; rotate: -2deg; }
+      #s7-banner { display: block; padding: 20px 30px 24px; border-radius: 26px; background: var(--orange); color: var(--navy); text-align: center;
+        font-weight: 800; font-size: 60px; line-height: 1.08; letter-spacing: -0.03em; box-shadow: 0 20px 48px rgba(255,122,26,0.4); }
+      .act { position: absolute; left: 105px; width: 820px; height: 150px; display: flex; align-items: center; gap: 30px; padding: 0 30px; border-radius: 30px;
+        background: rgba(20,27,61,0.92); border: 2px solid rgba(255,255,255,0.1); box-shadow: 0 24px 50px rgba(0,0,0,0.35); }
+      .act-ico { width: 104px; height: 104px; border-radius: 30px; background: var(--orange); flex: none; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+      .act-txt { font-weight: 800; font-size: 46px; line-height: 1.12; letter-spacing: -0.02em; text-align: left; color: #fff; }
+
+      /* counter */
+      #counter { position: absolute; left: 90px; top: 186px; width: 850px; height: 112px; }
+      #counter-move { position: absolute; inset: 0; display: flex; justify-content: center; transform-origin: 50% 50%; }
+      .counter-pill { display: flex; gap: 14px; padding: 16px 20px; border-radius: 30px; background: rgba(20,27,61,0.94);
+        border: 2px solid rgba(255,255,255,0.12); box-shadow: 0 18px 40px rgba(11,16,38,0.3); }
+      .box { position: relative; width: 76px; height: 76px; border-radius: 20px; border: 4px solid rgba(255,255,255,0.32); display: flex; align-items: center; justify-content: center; }
+      .box .bf { position: absolute; inset: -4px; border-radius: 20px; background: var(--orange); opacity: 0; }
+      .box .bn { position: relative; font-weight: 800; font-size: 40px; color: rgba(255,255,255,0.4); }
+      .box svg { position: absolute; left: 10px; top: 10px; width: 48px; height: 48px; }
+      .box .burst { position: absolute; left: -22px; top: -22px; width: 112px; height: 112px; border-radius: 50%; border: 5px solid var(--orange); opacity: 0; }
+
+      /* signature */
+      #sig { position: absolute; left: 90px; top: 1388px; width: 820px; height: 132px; }
+      #sig-in { position: absolute; inset: 0; display: flex; align-items: center; gap: 24px; }
+      #sig-photo { width: 124px; height: 124px; border-radius: 50%; flex: none; padding: 5px; background: var(--orange);
+        box-shadow: 0 0 0 5px #fff, 0 12px 28px rgba(0,0,0,0.25); }
+      #sig-photo img { width: 114px; height: 114px; border-radius: 50%; display: block; object-fit: cover; }
+      #sig-name { font-weight: 700; font-size: 46px; line-height: 1.12; letter-spacing: -0.02em; color: #fff; }
+      #sig-role { font-weight: 500; font-size: 36px; line-height: 1.2; color: var(--orange); }
+
+      /* wipe + outro */
+      #wipe { position: absolute; inset: 0; overflow: hidden; }
+      .wipe-bar { position: absolute; top: -300px; left: 0; width: 1800px; height: 2520px; rotate: 12deg; }
+      #wipe-a { background: var(--orange); }
+      #wipe-b { background: var(--navy2); }
+      #outro { position: absolute; inset: 0; }
+      #logo-wrap { position: absolute; left: 335px; top: 640px; width: 360px; height: 360px; }
+      #logo { position: absolute; inset: 0; border-radius: 72px; overflow: hidden; box-shadow: 0 30px 80px rgba(48,96,255,0.45); }
+      #logo img { width: 100%; height: 100%; display: block; }
+      #logo-ring { position: absolute; left: -60px; top: -60px; width: 480px; height: 480px; border-radius: 50%; border: 8px solid var(--orange); opacity: 0; }
+      #handle { position: absolute; left: 90px; width: 850px; top: 1060px; text-align: center; font-weight: 800; font-size: 66px; letter-spacing: -0.03em; }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-sjtw" id="root" data-composition-id="main" data-start="0" data-duration="66" data-width="1080" data-height="1920">
+
+      <!-- ===================== BACKGROUND (dark + light, crossfaded per scene) ===================== -->
+      <div data-hf-id="hf-l9gd" id="bg" class="clip" data-start="0" data-duration="66" data-track-index="0">
+        <div data-hf-id="hf-mi5n" id="bg-dark" class="bg-layer">
+          <div data-hf-id="hf-gs5t" id="grid"></div>
+          <div data-hf-id="hf-e88e" id="halo-d1" class="halo"></div>
+          <div data-hf-id="hf-aa4d" id="halo-d2" class="halo"></div>
+          <div data-hf-id="hf-arcr" id="pts-d"></div>
+        </div>
+        <div data-hf-id="hf-rrsp" id="bg-light" class="bg-layer">
+          <div data-hf-id="hf-magm" id="halo-l1" class="halo"></div>
+          <div data-hf-id="hf-g4qt" id="halo-l2" class="halo"></div>
+          <div data-hf-id="hf-26yb" id="pts-l"></div>
+        </div>
+      </div>
+
+      <!-- ===================== SCENE 1 — ACCROCHE (dark) ===================== -->
+      <section data-hf-id="hf-3shb" id="s1" class="clip scene dark" data-start="0" data-duration="8.4" data-track-index="1">
+        <div data-hf-id="hf-12x1" class="cam"><div data-hf-id="hf-ndnt" class="shake" id="s1-shake">
+          <div data-hf-id="hf-n7cf" class="col" style="top: 400px">
+            <div data-hf-id="hf-ohrl" class="title" id="s1-title" style="font-size: 132px; font-weight: 900; letter-spacing: -0.05em">
+              <span data-hf-id="hf-uish" class="w o" id="s1-five">5</span> <span data-hf-id="hf-ler2" class="w" id="s1-err">ERREURS</span>
+            </div>
+            <div data-hf-id="hf-pnno" id="s1-under" style="margin: 6px auto 0; width: 560px; height: 14px; border-radius: 7px; background: var(--orange); transform-origin: 0 50%"></div>
+          </div>
+          <div data-hf-id="hf-8ewd" class="col sub" style="top: 610px; font-size: 58px">
+            <span data-hf-id="hf-swdm" class="w" data-at="0.40">que</span> <span data-hf-id="hf-zdfx" class="w" data-at="0.48">tout</span> <span data-hf-id="hf-gdcn" class="w" data-at="0.56">le</span> <span data-hf-id="hf-l6c6" class="w" data-at="0.62">monde</span> <span data-hf-id="hf-tffk" class="w" data-at="0.70">fait</span> <span data-hf-id="hf-vaoj" class="w" data-at="0.78">avec</span>
+          </div>
+          <div data-hf-id="hf-7clt" class="col" style="top: 712px; display: flex; justify-content: center">
+            <div data-hf-id="hf-orq1" style="rotate: -2deg">
+              <div data-hf-id="hf-tjui" id="s1-gpt" style="padding: 10px 46px 18px; border-radius: 30px; background: var(--orange); color: var(--navy); font-weight: 900; font-size: 128px; letter-spacing: -0.05em; line-height: 1.05; box-shadow: 0 24px 60px rgba(255,122,26,0.35); position: relative; overflow: hidden">
+                ChatGPT
+                <div data-hf-id="hf-kewg" id="s1-shine" data-layout-allow-overflow style="position: absolute; top: -20px; left: 0; width: 120px; height: 240px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.55), rgba(255,255,255,0)); rotate: 18deg"></div>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-uap4" class="col sub" style="top: 1236px; font-size: 52px">
+            <span data-hf-id="hf-8u8v" class="w" data-at="6.08">Compte</span> <span data-hf-id="hf-f69n" class="w o" data-at="6.64">combien</span> <span data-hf-id="hf-t7zr" class="w" data-at="7.04">tu</span> <span data-hf-id="hf-qaxh" class="w" data-at="7.28">en</span> <span data-hf-id="hf-034i" class="w" data-at="7.52">fais.</span>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- ===================== SCENE 2 — ERREUR 1 : question trop courte (light) ===================== -->
+      <section data-hf-id="hf-8q1l" id="s2" class="clip scene light" data-start="7.95" data-duration="11.85" data-track-index="2">
+        <div data-hf-id="hf-wcpl" class="cam"><div data-hf-id="hf-owc6" class="shake" id="s2-shake">
+          <div data-hf-id="hf-kemx" class="tag-wrap" style="top: 340px">
+            <div data-hf-id="hf-3d5s" class="tag-tilt"><div data-hf-id="hf-uf6s" class="tag" data-at="8.24" data-anim="tag">
+              <span data-hf-id="hf-ufyw" class="tag-check"><svg data-hf-id="hf-kd5g" width="34" height="34" viewBox="0 0 24 24"><path data-hf-id="hf-ha7x" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0b1026" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span data-hf-id="hf-sdih" class="tag-txt">Erreur</span><span data-hf-id="hf-neli" class="tag-num" data-at="9.12" data-anim="elastic">1</span>
+            </div></div>
+          </div>
+          <div data-hf-id="hf-i5vz" class="col title" style="top: 486px">
+            <span data-hf-id="hf-i0o0" class="w" data-at="10.24">Des</span> <span data-hf-id="hf-omdr" class="w" data-at="10.40">questions</span> <span data-hf-id="hf-pvfr" class="w o" data-at="10.72">trop</span> <span data-hf-id="hf-od13" class="w o" data-at="10.96">courtes</span>
+          </div>
+          <div data-hf-id="hf-rfnb" id="s2-bar" class="card" data-at="11.30" data-anim="rise">
+            <div data-hf-id="hf-kvio" class="txt"><span data-hf-id="hf-b98x" id="s2-short">Fais-moi une affiche.</span><span data-hf-id="hf-131d" id="s2-long">Fais-moi une affiche pour <span data-hf-id="hf-523q" class="hl" id="hl-quoi">la promo de mon salon</span>, destinée <span data-hf-id="hf-f9ll" class="hl" id="hl-qui">aux étudiantes</span>, style <span data-hf-id="hf-xjcz" class="hl" id="hl-style">moderne et chic</span>.</span><span data-hf-id="hf-yp8p" class="caret" id="s2-caret"></span></div>
+            <div data-hf-id="hf-20bu" class="send"><svg data-hf-id="hf-prjo" width="38" height="38" viewBox="0 0 24 24"><path data-hf-id="hf-66ch" d="M4 12h14M12 5l7 7-7 7" fill="none" stroke="#0b1026" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div data-hf-id="hf-czt1" id="s2-bad" class="card cream" data-at="13.12" data-anim="rise" data-out="15.55">
+            <div data-hf-id="hf-229h" class="ai-row"><span data-hf-id="hf-e0wp" class="ai-dot"></span><span data-hf-id="hf-8dlt">Réponse</span></div>
+            <div data-hf-id="hf-rphy" class="dots" id="s2-dots"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i></div>
+            <div data-hf-id="hf-b9ma" id="s2-bad-txt" style="position: absolute; left: 40px; top: 100px; right: 40px; text-align: left">
+              <div data-hf-id="hf-edzu" style="font-weight: 500; font-size: 44px">Voici une affiche.</div>
+              <div data-hf-id="hf-x23u" class="gbar" style="width: 70%"></div>
+              <div data-hf-id="hf-nelf" class="gbar" style="width: 46%"></div>
+            </div>
+            <div data-hf-id="hf-blpe" class="mark bad" style="right: -18px; top: -30px" data-at="14.80" data-anim="pop">
+              <svg data-hf-id="hf-fpqu" width="44" height="44" viewBox="0 0 24 24"><path data-hf-id="hf-ivxv" d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div data-hf-id="hf-sha3" id="s2-good" class="card" data-at="18.42" data-anim="rise">
+            <div data-hf-id="hf-mhuf" class="poster"><b data-hf-id="hf-dtwm" style="top: 22px; width: 70%"></b><b data-hf-id="hf-tweo" style="top: 48px; width: 50%"></b><b data-hf-id="hf-z6ts" style="top: 74px; width: 60%; opacity: .6"></b><span data-hf-id="hf-zroh" class="pnum">-20%</span></div>
+            <div data-hf-id="hf-7yfl" style="text-align: left">
+              <div data-hf-id="hf-8wom" class="ai-row" style="margin-bottom: 10px"><span data-hf-id="hf-okbx" class="ai-dot"></span><span data-hf-id="hf-8bds">Affiche prête</span></div>
+              <div data-hf-id="hf-ej89" style="font-weight: 800; font-size: 46px; line-height: 1.1; letter-spacing: -0.02em">Promo Étudiantes</div>
+              <div data-hf-id="hf-fbsh" style="font-weight: 500; font-size: 40px; color: #5a5f78; margin-top: 8px">Orange &amp; noir · moderne</div>
+            </div>
+            <div data-hf-id="hf-vkgy" class="mark good" style="right: -18px; top: -30px" data-at="18.80" data-anim="pop">
+              <svg data-hf-id="hf-7iqa" width="46" height="46" viewBox="0 0 24 24"><path data-hf-id="hf-h4am" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- ===================== SCENE 3 — ERREUR 2 : accepter la 1re réponse (dark) ===================== -->
+      <section data-hf-id="hf-jhnf" id="s3" class="clip scene dark" data-start="19.35" data-duration="9.85" data-track-index="1">
+        <div data-hf-id="hf-xjmo" class="cam"><div data-hf-id="hf-u5ze" class="shake">
+          <div data-hf-id="hf-ho8d" class="tag-wrap" style="top: 340px">
+            <div data-hf-id="hf-mafs" class="tag-tilt"><div data-hf-id="hf-mw1e" class="tag" data-at="19.68" data-anim="tag">
+              <span data-hf-id="hf-3z5c" class="tag-check"><svg data-hf-id="hf-ff70" width="34" height="34" viewBox="0 0 24 24"><path data-hf-id="hf-lmvl" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0b1026" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span data-hf-id="hf-3t5p" class="tag-txt">Erreur</span><span data-hf-id="hf-fah2" class="tag-num" data-at="20.56" data-anim="elastic">2</span>
+            </div></div>
+          </div>
+          <div data-hf-id="hf-71ym" class="col title" style="top: 486px; font-size: 92px">
+            <span data-hf-id="hf-eruc" class="w" data-at="21.12">Tu</span> <span data-hf-id="hf-f8xd" class="w" data-at="21.36">acceptes</span> <span data-hf-id="hf-4ve0" class="w" data-at="21.92">la</span> <span data-hf-id="hf-qmy0" class="w o" data-at="22.08">première</span> <span data-hf-id="hf-lwm6" class="w o" data-at="22.40">réponse</span>
+          </div>
+          <div data-hf-id="hf-fxli" id="s3-card" class="card cream" data-at="22.62" data-anim="rise">
+            <div data-hf-id="hf-oqax" class="ai-row"><span data-hf-id="hf-pr90" class="ai-dot"></span><span data-hf-id="hf-sagl">Réponse</span></div>
+            <div data-hf-id="hf-n2u5" class="vtag" id="s3-vtag"><span data-hf-id="hf-aehb" class="vl" id="s3-l0">Version 1</span><span data-hf-id="hf-4pqz" class="vl" id="s3-l1" style="display: none">Version 2</span><span data-hf-id="hf-9omd" class="vl" id="s3-l2" style="display: none">Version 3</span><span data-hf-id="hf-29rz" class="vl" id="s3-l3" style="display: none">Version 4</span></div>
+            <div data-hf-id="hf-vu9v" class="vtxt" id="s3-v0">Bonjour, je suis très heureux de vous présenter mon entreprise qui propose divers services de qualité pour tous vos besoins…</div>
+            <div data-hf-id="hf-ly5a" class="vtxt" id="s3-v1" style="opacity: 0">Bonjour ! Découvrez nos services de qualité.</div>
+            <div data-hf-id="hf-0lti" class="vtxt" id="s3-v2" style="opacity: 0">Bonjour ! On vous aide, vite et bien.</div>
+            <div data-hf-id="hf-dyhp" class="vtxt" id="s3-v3" style="opacity: 0">Notre équipe vous accompagne avec des solutions sur mesure.</div>
+          </div>
+          <div data-hf-id="hf-gohl" class="col sub" style="top: 1092px">
+            <span data-hf-id="hf-dhej" class="w" data-at="23.20">L’IA</span> <span data-hf-id="hf-0rp9" class="w" data-at="23.76">s’améliore</span> <span data-hf-id="hf-7f0g" class="w" data-at="24.48">quand</span> <span data-hf-id="hf-vq7g" class="w" data-at="24.64">tu</span> <span data-hf-id="hf-qftl" class="w" data-at="24.72">la</span> <span data-hf-id="hf-daki" class="w o" data-at="24.88">corriges.</span>
+          </div>
+          <div data-hf-id="hf-q9sq" class="btn-row" style="top: 1236px" data-layout-allow-overlap>
+            <div data-hf-id="hf-68zj" class="chip" id="s3-b1">Plus court</div>
+            <div data-hf-id="hf-rbi3" class="chip" id="s3-b2">Plus simple</div>
+            <div data-hf-id="hf-06nh" class="chip" id="s3-b3">Plus pro</div>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- ===================== SCENE 4 — ERREUR 3 : pas de rôle (light) ===================== -->
+      <section data-hf-id="hf-tj86" id="s4" class="clip scene light" data-start="28.75" data-duration="8.25" data-track-index="2">
+        <div data-hf-id="hf-x5bn" class="cam"><div data-hf-id="hf-k0xk" class="shake" id="s4-shake">
+          <div data-hf-id="hf-iv5g" class="tag-wrap" style="top: 340px">
+            <div data-hf-id="hf-l3ip" class="tag-tilt"><div data-hf-id="hf-vknj" class="tag" data-at="29.04" data-anim="tag">
+              <span data-hf-id="hf-2s89" class="tag-check"><svg data-hf-id="hf-e89x" width="34" height="34" viewBox="0 0 24 24"><path data-hf-id="hf-mtso" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0b1026" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span data-hf-id="hf-502s" class="tag-txt">Erreur</span><span data-hf-id="hf-6lo8" class="tag-num" data-at="29.92" data-anim="elastic">3</span>
+            </div></div>
+          </div>
+          <div data-hf-id="hf-qbn3" class="col title" style="top: 486px">
+            <span data-hf-id="hf-um4v" class="w" data-at="30.40">Tu</span> <span data-hf-id="hf-doyn" class="w" data-at="30.64">ne</span> <span data-hf-id="hf-0h33" class="w" data-at="30.72">lui</span> <span data-hf-id="hf-7flo" class="w" data-at="30.96">donnes</span> <span data-hf-id="hf-job2" class="w o" data-at="31.20">pas</span> <span data-hf-id="hf-1m10" class="w o" data-at="31.36">de</span> <span data-hf-id="hf-r114" class="w o" data-at="31.52">rôle</span>
+          </div>
+          <div data-hf-id="hf-sbud" id="s4-card" class="card navy" data-at="32.16" data-anim="rise">
+            <div data-hf-id="hf-frg7" id="s4-prompt"><span data-hf-id="hf-svku" id="s4-ptxt">Écris une pub pour mon restaurant.</span><span data-hf-id="hf-oe6r" class="caret" id="s4-caret"></span></div>
+            <div data-hf-id="hf-3p4e" class="send"><svg data-hf-id="hf-4szw" width="38" height="38" viewBox="0 0 24 24"><path data-hf-id="hf-ue9h" d="M4 12h14M12 5l7 7-7 7" fill="none" stroke="#0b1026" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div data-hf-id="hf-nxyv" class="ripple" id="s4-rip1" style="left: 180px; top: -60px; opacity: 0"></div>
+            <div data-hf-id="hf-pb30" class="ripple" id="s4-rip2" style="left: 180px; top: -60px; opacity: 0"></div>
+            <div data-hf-id="hf-epg3" id="s4-badge-wrap"><div data-hf-id="hf-uhcv" id="s4-badge">« Agis comme un expert<br data-hf-id="hf-x5px" />en marketing. »</div></div>
+          </div>
+          <div data-hf-id="hf-75m4" class="col title" style="top: 1124px; font-size: 104px">
+            <span data-hf-id="hf-vyhd" class="w" data-at="35.36">Et</span> <span data-hf-id="hf-wih9" class="w" data-at="35.68">tout</span> <span data-hf-id="hf-o4ot" class="w o" data-at="36.00">change.</span>
+          </div>
+          <div data-hf-id="hf-hvpy" class="stars" style="top: 1250px">
+            <svg data-hf-id="hf-teoc" class="star" viewBox="0 0 24 24"><path data-hf-id="hf-ui5k" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#ff7a1a"/></svg>
+            <svg data-hf-id="hf-ayzo" class="star" viewBox="0 0 24 24"><path data-hf-id="hf-eu00" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#ff7a1a"/></svg>
+            <svg data-hf-id="hf-9s2l" class="star" viewBox="0 0 24 24"><path data-hf-id="hf-dn2x" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#ff7a1a"/></svg>
+            <svg data-hf-id="hf-a6dm" class="star" viewBox="0 0 24 24"><path data-hf-id="hf-e1dy" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#ff7a1a"/></svg>
+            <svg data-hf-id="hf-c5wr" class="star" viewBox="0 0 24 24"><path data-hf-id="hf-cugv" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="#ff7a1a"/></svg>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- ===================== SCENE 5 — ERREUR 4 : croire tout (dark, scène forte) ===================== -->
+      <section data-hf-id="hf-9qlt" id="s5" class="clip scene dark" data-start="36.7" data-duration="9.9" data-track-index="1">
+        <div data-hf-id="hf-v5si" class="cam"><div data-hf-id="hf-357x" class="shake" id="s5-shake">
+          <div data-hf-id="hf-iguf" class="tag-wrap" style="top: 340px">
+            <div data-hf-id="hf-lhtq" class="tag-tilt"><div data-hf-id="hf-gdig" class="tag" data-at="36.98" data-anim="tag">
+              <span data-hf-id="hf-36ja" class="tag-check"><svg data-hf-id="hf-emky" width="34" height="34" viewBox="0 0 24 24"><path data-hf-id="hf-mfhn" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0b1026" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span data-hf-id="hf-4lrr" class="tag-txt">Erreur</span><span data-hf-id="hf-mgas" class="tag-num" data-at="37.92" data-anim="elastic">4</span>
+            </div></div>
+            <div data-hf-id="hf-ln0q" class="tag-tilt r"><div data-hf-id="hf-1o5z" class="tag-hot" data-at="38.32" data-anim="slam">
+              <svg data-hf-id="hf-ko12" width="40" height="40" viewBox="0 0 24 24"><path data-hf-id="hf-idjy" d="M12 2c1 3.5-1.6 5-1.6 8 0 1.4.9 2.4 2 2.4s2-1 2-2.5c2 1.6 3.1 3.7 3.1 6A5.5 5.5 0 0 1 12 21.5 5.5 5.5 0 0 1 6.5 16c0-4.6 4.6-7.6 5.5-14z" fill="#0b1026"/></svg>
+              La plus fréquente
+            </div></div>
+          </div>
+          <div data-hf-id="hf-pxc2" class="col title" style="top: 486px">
+            <span data-hf-id="hf-0cq5" class="w" data-at="39.52">Tu</span> <span data-hf-id="hf-0rpt" class="w" data-at="39.68">crois</span> <span data-hf-id="hf-gilc" class="w o" data-at="40.08">tout</span> <span data-hf-id="hf-moe9" class="w" data-at="40.24">ce</span> <span data-hf-id="hf-at63" class="w" data-at="40.32">qu’elle</span> <span data-hf-id="hf-iwdq" class="w" data-at="40.64">dit</span>
+          </div>
+          <div data-hf-id="hf-ho57" id="s5-card" class="card cream" data-at="40.78" data-anim="rise">
+            <svg data-hf-id="hf-lyke" id="s5-ring" viewBox="0 0 360 160"><ellipse data-hf-id="hf-hl47" id="s5-ell" cx="180" cy="80" rx="168" ry="70" fill="none" stroke="#e5372b" stroke-width="8" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" transform="rotate(-4 180 80)"/></svg>
+            <div data-hf-id="hf-py0g" id="s5-num">87&nbsp;%</div>
+            <div data-hf-id="hf-z8n4" id="s5-src"><span data-hf-id="hf-pcxz" class="ai-dot"></span>Sûr à 100&nbsp;%</div>
+            <div data-hf-id="hf-x4wo" id="s5-text">des clients lisent les avis avant d’acheter.</div>
+            <div data-hf-id="hf-emze" id="s5-date">
+              <svg data-hf-id="hf-gcly" width="46" height="46" viewBox="0 0 24 24"><rect data-hf-id="hf-syrn" x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="#0b1026" stroke-width="2.4"/><path data-hf-id="hf-98ws" d="M3 10h18M8 3v4M16 3v4" stroke="#0b1026" stroke-width="2.4" stroke-linecap="round"/></svg>
+              <span data-hf-id="hf-o9zj" id="s5-date-txt">Étude du 14 mars 2021</span>
+            </div>
+            <div data-hf-id="hf-3y7g" id="s5-date-u"></div>
+            <svg data-hf-id="hf-9vab" id="lens" viewBox="0 0 300 300">
+              <circle data-hf-id="hf-nnjq" cx="120" cy="120" r="96" fill="rgba(255,255,255,0.18)" stroke="#ff7a1a" stroke-width="14"/>
+              <path data-hf-id="hf-mwax" d="M70 92a58 58 0 0 1 40-36" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="10" stroke-linecap="round"/>
+              <path data-hf-id="hf-8h4x" d="M190 190l78 78" stroke="#0b1026" stroke-width="30" stroke-linecap="round"/>
+              <path data-hf-id="hf-xqog" d="M190 190l78 78" stroke="#ff7a1a" stroke-width="16" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div data-hf-id="hf-9trr" id="stamp-wrap" data-layout-allow-overlap><div data-hf-id="hf-7s18" id="stamp">À VÉRIFIER</div></div>
+          <div data-hf-id="hf-nv8f" class="col sub" style="top: 1152px; font-size: 56px">
+            <span data-hf-id="hf-q5mo" class="w" data-at="41.12">L’IA</span> <span data-hf-id="hf-r0xp" class="w" data-at="41.76">peut</span> <span data-hf-id="hf-u755" class="w" data-at="41.92">se</span> <span data-hf-id="hf-yn0k" class="w" data-at="42.08">tromper…</span>
+            <span data-hf-id="hf-7aym" class="w o" data-at="42.72">avec</span> <span data-hf-id="hf-ygfl" class="w o" data-at="43.12">assurance.</span>
+          </div>
+        </div></div>
+      </section>
+
+      <!-- ===================== SCENE 6 — ERREUR 5 : pas de format (light) ===================== -->
+      <section data-hf-id="hf-oo25" id="s6" class="clip scene light" data-start="46.15" data-duration="7.85" data-track-index="2">
+        <div data-hf-id="hf-urhh" class="cam"><div data-hf-id="hf-s232" class="shake">
+          <div data-hf-id="hf-jnri" class="tag-wrap" style="top: 340px">
+            <div data-hf-id="hf-kawn" class="tag-tilt"><div data-hf-id="hf-03ik" class="tag" data-at="46.48" data-anim="tag">
+              <span data-hf-id="hf-1zm7" class="tag-check"><svg data-hf-id="hf-ko37" width="34" height="34" viewBox="0 0 24 24"><path data-hf-id="hf-kfyi" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#0b1026" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span data-hf-id="hf-5sou" class="tag-txt">Erreur</span><span data-hf-id="hf-9am9" class="tag-num" data-at="47.44" data-anim="elastic">5</span>
+            </div></div>
+          </div>
+          <div data-hf-id="hf-cxpu" class="col title" style="top: 486px; font-size: 92px">
+            <span data-hf-id="hf-4r8s" class="w" data-at="48.00">Tu</span> <span data-hf-id="hf-korf" class="w" data-at="48.16">ne</span> <span data-hf-id="hf-s5ra" class="w" data-at="48.32">précises</span> <span data-hf-id="hf-56xg" class="w" data-at="48.88">jamais</span> <span data-hf-id="hf-qdqp" class="w o" data-at="49.12">le</span> <span data-hf-id="hf-t0k2" class="w o" data-at="49.28">format</span>
+          </div>
+          <div data-hf-id="hf-izcx" class="tabs" style="top: 732px">
+            <div data-hf-id="hf-4dut" class="tab" id="tab1">Tableau</div>
+            <div data-hf-id="hf-ylz1" class="tab" id="tab2">Liste</div>
+            <div data-hf-id="hf-ri75" class="tab" id="tab3">WhatsApp</div>
+          </div>
+          <div data-hf-id="hf-pvd6" id="fmt" data-layout-allow-overlap>
+            <div data-hf-id="hf-yyq1" class="fbg white" id="fbg-block"></div>
+            <div data-hf-id="hf-xmva" class="fbg white" id="fbg-table"></div>
+            <div data-hf-id="hf-waku" class="fbg white" id="fbg-list"></div>
+            <div data-hf-id="hf-7777" class="fbg wa" id="fbg-wa"></div>
+            <div data-hf-id="hf-au53" id="fitems"></div>
+          </div>
+          <div data-hf-id="hf-sq3v" id="s6-ask-wrap"><div data-hf-id="hf-bhgb" id="s6-ask">Demande-le&nbsp;!</div></div>
+        </div></div>
+      </section>
+
+      <!-- ===================== SCENE 7 — CTA (dark) ===================== -->
+      <section data-hf-id="hf-lb87" id="s7" class="clip scene dark" data-start="53.7" data-duration="8.7" data-track-index="1">
+        <div data-hf-id="hf-vyek" class="cam"><div data-hf-id="hf-sge3" class="shake">
+          <div data-hf-id="hf-vrvm" class="col title" style="top: 410px; font-size: 128px; font-weight: 900; letter-spacing: -0.05em">
+            <span data-hf-id="hf-0e45" class="w" data-at="54.80">Tu</span> <span data-hf-id="hf-mgkq" class="w" data-at="55.04">en</span> <span data-hf-id="hf-1nxi" class="w" data-at="55.20">fais</span> <span data-hf-id="hf-b8w4" class="w o" data-at="55.44">combien&nbsp;?</span>
+          </div>
+          <div data-hf-id="hf-pyhu" id="s7-phaseA">
+            <div data-hf-id="hf-8bce" class="nums" style="top: 730px">
+              <div data-hf-id="hf-u79q" class="nb" id="nb1">1</div><div data-hf-id="hf-mp92" class="nb" id="nb2">2</div><div data-hf-id="hf-0jqm" class="nb" id="nb3">3</div><div data-hf-id="hf-wfjy" class="nb" id="nb4">4</div><div data-hf-id="hf-gc4u" class="nb" id="nb5">5</div>
+            </div>
+            <div data-hf-id="hf-svl9" id="s7-bubble" class="card">
+              <div data-hf-id="hf-93ry" class="avatar">A</div>
+              <div data-hf-id="hf-o1ol" style="text-align: left">
+                <div data-hf-id="hf-qtcc" class="bub-meta">toi · à l’instant</div>
+                <div data-hf-id="hf-1suk" class="bub-txt"><span data-hf-id="hf-g56w" id="bub-3" style="display: none">3</span><span data-hf-id="hf-xasr" id="bub-e" style="display: none">&nbsp;😅</span><span data-hf-id="hf-hedk" class="caret" id="s7-caret"></span></div>
+              </div>
+            </div>
+          </div>
+          <div data-hf-id="hf-m0dt" id="s7-phaseB">
+            <div data-hf-id="hf-46j2" class="act" id="act1" style="top: 730px">
+              <div data-hf-id="hf-h2x4" class="act-ico"><svg data-hf-id="hf-jxbi" width="62" height="62" viewBox="0 0 24 24"><path data-hf-id="hf-lx5i" id="bm-path" d="M6 3.5h12a1 1 0 0 1 1 1V21l-7-4.6L5 21V4.5a1 1 0 0 1 1-1z" fill="#0b1026" fill-opacity="0" stroke="#0b1026" stroke-width="2.4" stroke-linejoin="round"/></svg></div>
+              <div data-hf-id="hf-y51v" class="act-txt"><span data-hf-id="hf-od4b" class="w" data-at="57.84">Enregistre</span> <span data-hf-id="hf-kvdh" class="w" data-at="58.48">cette</span> <span data-hf-id="hf-dync" class="w" data-at="58.72">vidéo</span></div>
+            </div>
+            <div data-hf-id="hf-6r70" class="act" id="act2" style="top: 900px">
+              <div data-hf-id="hf-rs74" class="act-ico"><svg data-hf-id="hf-u6yz" id="share-ico" width="62" height="62" viewBox="0 0 24 24"><path data-hf-id="hf-wdvl" d="M14 4l7 7-7 7M21 11H10a6 6 0 0 0-6 6v2" fill="none" stroke="#0b1026" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div data-hf-id="hf-j59v" class="act-txt"><span data-hf-id="hf-rv3c" class="w" data-at="59.36">Envoie-la</span> <span data-hf-id="hf-xy5r" class="w" data-at="60.00">à</span> <span data-hf-id="hf-ety3" class="w" data-at="60.08">l’ami</span> <span data-hf-id="hf-f87e" class="w" data-at="60.40">qui</span> <span data-hf-id="hf-s230" class="w" data-at="60.56">fait</span> <span data-hf-id="hf-fn9z" class="w o" data-at="60.72">l’erreur</span> <span data-hf-id="hf-hprg" class="w o" data-at="61.52">4</span></div>
+            </div>
+          </div>
+          <div data-hf-id="hf-7ui7" id="s7-banner-wrap"><div data-hf-id="hf-kdum" id="s7-banner">
+            <span data-hf-id="hf-jv6e" class="w" data-at="56.08">Écris</span> <span data-hf-id="hf-rkji" class="w" data-at="56.56">ton</span> <span data-hf-id="hf-isvm" class="w" data-at="56.72">chiffre</span><br data-hf-id="hf-rsrt" /><span data-hf-id="hf-5v40" class="w" data-at="57.04">en</span> <span data-hf-id="hf-p36s" class="w" data-at="57.12">commentaire</span>
+          </div></div>
+        </div></div>
+      </section>
+
+      <!-- ===================== WIPE (orange mask) ===================== -->
+      <div data-hf-id="hf-fn6r" id="wipe" class="clip" data-start="36.4" data-duration="17.75" data-track-index="3">
+        <div data-hf-id="hf-bf6x" class="wipe-bar" id="wipe-a" data-layout-allow-overflow></div>
+        <div data-hf-id="hf-fday" class="wipe-bar" id="wipe-b" data-layout-allow-overflow></div>
+      </div>
+
+      <!-- ===================== OUTRO LOGO ===================== -->
+      <div data-hf-id="hf-2chs" id="outro" class="clip" data-start="61.9" data-duration="4.1" data-track-index="6">
+        <div data-hf-id="hf-c77p" id="logo-wrap">
+          <div data-hf-id="hf-oo9f" id="logo-ring"></div>
+          <div data-hf-id="hf-ea14" id="logo"><img data-hf-id="hf-562u" src="assets/images/logo.png" alt="Abdoul Network" /></div>
+        </div>
+        <div data-hf-id="hf-bojf" id="handle"><span data-hf-id="hf-nu7k" class="w" data-at="62.55">@abdoul</span><span data-hf-id="hf-63kr" class="w o" data-at="62.7">network</span></div>
+      </div>
+
+      <!-- ===================== COMPTEUR (persistant) ===================== -->
+      <div data-hf-id="hf-gttt" id="counter" class="clip" data-start="6.0" data-duration="56.4" data-track-index="4">
+        <div data-hf-id="hf-luvf" id="counter-move"><div data-hf-id="hf-2k40" class="counter-pill">
+          <div data-hf-id="hf-rvrt" class="box" id="box1"><div data-hf-id="hf-lfpk" class="bf"></div><div data-hf-id="hf-qvya" class="burst"></div><span data-hf-id="hf-l03c" class="bn">1</span><svg data-hf-id="hf-ulu9" viewBox="0 0 24 24"><path data-hf-id="hf-wutv" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></div>
+          <div data-hf-id="hf-vtvu" class="box" id="box2"><div data-hf-id="hf-buww" class="bf"></div><div data-hf-id="hf-hw2u" class="burst"></div><span data-hf-id="hf-jt69" class="bn">2</span><svg data-hf-id="hf-1tol" viewBox="0 0 24 24"><path data-hf-id="hf-r9mb" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></div>
+          <div data-hf-id="hf-1zln" class="box" id="box3"><div data-hf-id="hf-anzt" class="bf"></div><div data-hf-id="hf-iadv" class="burst"></div><span data-hf-id="hf-k7ha" class="bn">3</span><svg data-hf-id="hf-30lo" viewBox="0 0 24 24"><path data-hf-id="hf-qvba" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></div>
+          <div data-hf-id="hf-ei44" class="box" id="box4"><div data-hf-id="hf-b2au" class="bf"></div><div data-hf-id="hf-ioow" class="burst"></div><span data-hf-id="hf-j0k7" class="bn">4</span><svg data-hf-id="hf-2man" viewBox="0 0 24 24"><path data-hf-id="hf-qh09" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></div>
+          <div data-hf-id="hf-f9rx" class="box" id="box5"><div data-hf-id="hf-9vdr" class="bf"></div><div data-hf-id="hf-fwjp" class="burst"></div><span data-hf-id="hf-jev8" class="bn">5</span><svg data-hf-id="hf-3t7q" viewBox="0 0 24 24"><path data-hf-id="hf-q2p8" d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"/></svg></div>
+        </div></div>
+      </div>
+
+      <!-- ===================== SIGNATURE (permanente) ===================== -->
+      <div data-hf-id="hf-mavc" id="sig" class="clip" data-start="0" data-duration="66" data-track-index="5">
+        <div data-hf-id="hf-7mt8" id="sig-in">
+          <div data-hf-id="hf-symj" id="sig-photo"><img data-hf-id="hf-bfa1" src="assets/images/photo-rond.jpg" alt="Abdoul Network" /></div>
+          <div data-hf-id="hf-yeow">
+            <div data-hf-id="hf-wkfl" id="sig-name">Abdoul Network</div>
+            <div data-hf-id="hf-099y" id="sig-role">Communication &amp; Formateur IA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== AUDIO ===================== -->
+      <audio data-hf-id="hf-lrw5" id="vo" src="assets/voice/voix-off.wav" data-start="0" data-duration="62" data-track-index="10" data-volume="1"></audio>
+      <audio data-hf-id="hf-b871" id="bgm" src="assets/bgm/musique-ducked.wav" data-start="0" data-duration="66" data-track-index="11" data-volume="1"></audio>
+      <audio data-hf-id="hf-5pzg" id="sfx-impact-1" src="assets/sfx/impact.wav" data-start="0.02" data-duration="1.2" data-track-index="12" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-ycdz" id="sfx-wh-1" src="assets/sfx/whoosh.wav" data-start="7.77" data-duration="0.55" data-track-index="13" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-kl87" id="sfx-wh-2" src="assets/sfx/whoosh.wav" data-start="19.17" data-duration="0.55" data-track-index="13" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-b0lm" id="sfx-wh-3" src="assets/sfx/whoosh.wav" data-start="28.57" data-duration="0.55" data-track-index="13" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-5buh" id="sfx-wh-4" src="assets/sfx/whoosh.wav" data-start="36.47" data-duration="0.55" data-track-index="13" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-jyub" id="sfx-wh-5" src="assets/sfx/whoosh.wav" data-start="45.97" data-duration="0.55" data-track-index="13" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-oak4" id="sfx-wh-6" src="assets/sfx/whoosh.wav" data-start="53.47" data-duration="0.55" data-track-index="13" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-65s0" id="sfx-pop-1" src="assets/sfx/pop.wav" data-start="19.15" data-duration="0.16" data-track-index="14" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-oi8r" id="sfx-pop-2" src="assets/sfx/pop.wav" data-start="28.6" data-duration="0.16" data-track-index="14" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-h99a" id="sfx-pop-3" src="assets/sfx/pop.wav" data-start="36.45" data-duration="0.16" data-track-index="14" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-fqgo" id="sfx-pop-4" src="assets/sfx/pop.wav" data-start="46.05" data-duration="0.16" data-track-index="14" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-1l55" id="sfx-pop-5" src="assets/sfx/pop.wav" data-start="53.3" data-duration="0.16" data-track-index="14" data-volume="0.3"></audio>
+      <audio data-hf-id="hf-mllb" id="sfx-stamp-1" src="assets/sfx/stamp.wav" data-start="33.2" data-duration="0.6" data-track-index="15" data-volume="0.22"></audio>
+      <audio data-hf-id="hf-o7aa" id="sfx-stamp-2" src="assets/sfx/stamp.wav" data-start="43.92" data-duration="0.6" data-track-index="15" data-volume="0.4"></audio>
+      <audio data-hf-id="hf-h5q2" id="sfx-impact-2" src="assets/sfx/impact.wav" data-start="62.05" data-duration="1.2" data-track-index="12" data-volume="0.3"></audio>
+    </div>
+
+    <script>
+      // ------------------------------------------------------------------
+      // Table de timing (secondes) — alignée sur voix-off.wav (timing/words.json)
+      // Les apparitions mot à mot sont dans le HTML : attribut data-at="t".
+      // ------------------------------------------------------------------
+      const T = {
+        cuts: [8.05, 19.45, 28.85, 36.75, 46.25, 53.75],   // changements de scène (pauses de la voix)
+        light: [[8.05, 19.45], [28.85, 36.75], [46.25, 53.75]], // fenêtres à fond clair
+        checks: [19.15, 28.6, 36.45, 46.05, 53.3],          // cases du compteur
+        wipes: [36.75, 53.75],                               // balayages orange
+        end: 66,
+      };
+
+      // Deterministic PRNG (mulberry32) — no Math.random
+      function prng(seed) {
+        return function () {
+          seed |= 0; seed = (seed + 0x6d2b79f5) | 0;
+          let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => Array.from(document.querySelectorAll(s));
+
+      // Split text into per-character spans (keeps nested spans) for typing effects
+      function splitChars(el) {
+        const out = [];
+        (function walk(node) {
+          Array.from(node.childNodes).forEach((c) => {
+            if (c.nodeType === 3) {
+              const frag = document.createDocumentFragment();
+              for (const ch of c.textContent) {
+                const s = document.createElement("span");
+                s.className = "ch";
+                s.textContent = ch;
+                frag.appendChild(s);
+                out.push(s);
+              }
+              node.replaceChild(frag, c);
+            } else if (c.nodeType === 1 && !c.classList.contains("caret")) {
+              walk(c);
+            }
+          });
+        })(el);
+        return out;
+      }
+
+      function build() {
+        const tl = gsap.timeline({ paused: true });
+
+        // ---------------- generic entrance presets ----------------
+        const IN = {
+          word: (el, t) => tl.fromTo(el, { opacity: 0, y: 34, filter: "blur(8px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.42, ease: "power3.out" }, t),
+          rise: (el, t) => tl.fromTo(el, { opacity: 0, y: 70, scale: 0.96, filter: "blur(10px)" }, { opacity: 1, y: 0, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, t),
+          tag: (el, t) => tl.fromTo(el, { opacity: 0, y: -40, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "back.out(2.2)" }, t),
+          pop: (el, t) => tl.fromTo(el, { opacity: 0, scale: 0.3, rotation: -25 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2.6)" }, t),
+          elastic: (el, t) => tl.fromTo(el, { opacity: 0, scale: 0, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.95, ease: "elastic.out(1, 0.42)" }, t),
+          slam: (el, t) => tl.fromTo(el, { opacity: 0, scale: 1.9 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.7)" }, t),
+        };
+        $$("[data-at]").forEach((el) => {
+          const kind = el.dataset.anim || "word";
+          IN[kind](el, parseFloat(el.dataset.at));
+        });
+        $$("[data-out]").forEach((el) => {
+          tl.to(el, { opacity: 0, scale: 0.94, filter: "blur(10px)", duration: 0.32, ease: "power2.in" }, parseFloat(el.dataset.out));
+        });
+
+        // ---------------- background ----------------
+        T.light.forEach(([a, b]) => {
+          const fa = T.wipes.includes(a) ? 0.12 : 0.5, fb = T.wipes.includes(b) ? 0.12 : 0.5;
+          tl.to("#bg-light", { opacity: 1, duration: fa, ease: "sine.inOut" }, a - fa / 2);
+          tl.to("#bg-light", { opacity: 0, duration: fb, ease: "sine.inOut" }, b - fb / 2);
+          // signature colour inverts with the ground
+          tl.to("#sig-name", { color: "#0b1026", duration: fa }, a - fa / 2);
+          tl.to("#sig-role", { color: "#c95608", duration: fa }, a - fa / 2);
+          tl.to("#sig-name", { color: "#ffffff", duration: fb }, b - fb / 2);
+          tl.to("#sig-role", { color: "#ff7a1a", duration: fb }, b - fb / 2);
+        });
+        // breathing halos + drifting grid
+        [["#halo-d1", 1.14, 4.2], ["#halo-d2", 1.1, 5.4], ["#halo-l1", 1.12, 4.6], ["#halo-l2", 1.1, 5.8]].forEach(([s, sc, d]) => {
+          tl.fromTo(s, { scale: 1 }, { scale: sc, duration: d, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(T.end / d) - 1) }, 0);
+        });
+        tl.fromTo("#grid", { y: 0 }, { y: 90, duration: T.end, ease: "none" }, 0);
+        // particles (seeded)
+        const rnd = prng(1020);
+        [["#pts-d", 26, "pt"], ["#pts-l", 14, "pt pt-l"]].forEach(([host, n, cls]) => {
+          const h = $(host);
+          for (let i = 0; i < n; i++) {
+            const p = document.createElement("div");
+            p.className = cls;
+            const size = 4 + rnd() * 8;
+            p.style.width = p.style.height = size + "px";
+            p.style.left = 30 + rnd() * 1000 + "px";
+            p.style.top = 200 + rnd() * 1700 + "px";
+            h.appendChild(p);
+            const op = 0.25 + rnd() * 0.5;
+            tl.fromTo(p, { y: 0, x: 0, opacity: op }, { y: -(260 + rnd() * 520), x: (rnd() - 0.5) * 160, duration: T.end, ease: "none" }, 0);
+            const pd = 2 + rnd() * 3;
+            tl.to(p, { opacity: op * 0.25, duration: pd, ease: "sine.inOut", yoyo: true, repeat: Math.max(0, Math.floor(T.end / pd) - 1) }, rnd() * 2);
+          }
+        });
+
+        // ---------------- scene camera: entry / slow zoom / exit ----------------
+        const scenes = ["#s1", "#s2", "#s3", "#s4", "#s5", "#s6", "#s7"];
+        const starts = [0, ...T.cuts];
+        const ends = [...T.cuts, 61.95];
+        scenes.forEach((s, i) => {
+          const cam = $(s + " .cam");
+          const a = starts[i], b = ends[i];
+          const wipeIn = T.wipes.includes(a);
+          let zoomFrom = a;
+          if (i > 0) {
+            if (wipeIn) {
+              tl.fromTo(cam, { opacity: 1, scale: 1.08, filter: "blur(0px)" }, { scale: 1, duration: 0.6, ease: "power3.out" }, a);
+            } else {
+              tl.fromTo(cam, { opacity: 0, scale: 0.92, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out" }, a - 0.1);
+            }
+            zoomFrom = a + 0.6;
+          }
+          const exitAt = b - 0.12;
+          tl.fromTo(cam, { scale: 1 }, { scale: 1.03, duration: exitAt - zoomFrom, ease: "none", immediateRender: false }, zoomFrom);
+          const wipeOut = T.wipes.includes(b);
+          if (!wipeOut) {
+            tl.to(cam, { opacity: 0, scale: 1.1, filter: "blur(16px)", duration: 0.4, ease: "power2.in" }, exitAt);
+          } else {
+            tl.set(cam, { opacity: 0 }, b); // cut happens under the wipe
+          }
+        });
+        // orange mask wipes (cover → cut → uncover)
+        T.wipes.forEach((w) => {
+          tl.fromTo("#wipe-a", { x: -2100 }, { x: -360, duration: 0.3, ease: "power3.in" }, w - 0.3);
+          tl.fromTo("#wipe-b", { x: -2100 }, { x: -360, duration: 0.3, ease: "power3.in" }, w - 0.24);
+          tl.to("#wipe-b", { x: 1500, duration: 0.38, ease: "power3.out" }, w + 0.06);
+          tl.to("#wipe-a", { x: 1500, duration: 0.38, ease: "power3.out" }, w + 0.12);
+        });
+
+        // camera shake helper (deterministic keyframes)
+        function shake(target, t, amp = 14) {
+          const k = [[1, -0.6], [-0.8, 0.9], [0.7, -0.4], [-0.5, 0.5], [0.3, -0.2], [0, 0]];
+          k.forEach(([x, y], i) => tl.to(target, { x: x * amp, y: y * amp, duration: 0.045, ease: "none" }, t + i * 0.045));
+        }
+
+        // ---------------- SCENE 1 ----------------
+        tl.fromTo("#s1-title", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 0);
+        shake("#s1-shake", 0.32, 18);
+        tl.fromTo("#s1-gpt", { opacity: 0, y: 80, scale: 0.6, rotation: 8 }, { opacity: 1, y: 0, scale: 1, rotation: 0, duration: 0.6, ease: "back.out(1.8)" }, 0.88);
+        tl.fromTo("#s1-shine", { x: -200 }, { x: 900, duration: 0.9, ease: "power2.inOut" }, 2.1);
+        tl.fromTo("#s1-shine", { x: -200 }, { x: 900, duration: 0.9, ease: "power2.inOut", immediateRender: false }, 3.9);
+        tl.fromTo("#s1-five", { scale: 1 }, { scale: 1.32, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, 4.96);
+        tl.fromTo("#s1-under", { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "power3.inOut" }, 5.28);
+
+        // ---------------- COMPTEUR ----------------
+        tl.fromTo("#counter-move", { opacity: 0, y: 920, scale: 0.6 }, { opacity: 1, y: 900, scale: 1.25, duration: 0.6, ease: "back.out(1.8)" }, 6.08);
+        tl.fromTo(".counter-pill .box", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, stagger: 0.09, ease: "back.out(2)" }, 6.2);
+        tl.to("#counter-move", { y: 0, scale: 1, duration: 0.7, ease: "power3.inOut" }, 7.9);
+        T.checks.forEach((t, i) => {
+          const b = "#box" + (i + 1);
+          tl.to(b + " .bf", { opacity: 1, duration: 0.12 }, t);
+          tl.to(b + " .bn", { opacity: 0, duration: 0.1 }, t);
+          tl.to(b + " path", { strokeDashoffset: 0, duration: 0.28, ease: "power2.out" }, t + 0.06);
+          tl.fromTo(b, { scale: 1 }, { scale: 1.32, duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+          tl.fromTo(b + " .burst", { opacity: 0.9, scale: 0.5 }, { opacity: 0, scale: 1.5, duration: 0.5, ease: "power2.out" }, t);
+        });
+        tl.to(".counter-pill .box", { scale: 1.18, duration: 0.16, stagger: 0.07, yoyo: true, repeat: 1, ease: "power2.out" }, 54.08);
+        tl.to("#counter-move", { opacity: 0, y: -30, filter: "blur(8px)", duration: 0.4, ease: "power2.in" }, 61.85);
+
+        // ---------------- SIGNATURE ----------------
+        tl.fromTo("#sig-in", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+
+        // ---------------- SCENE 2 : question trop courte ----------------
+        const shortCh = splitChars($("#s2-short"));
+        const longCh = splitChars($("#s2-long"));
+        const typeIt = (chars, t0, t1) => chars.forEach((c, i) => tl.set(c, { display: "inline" }, t0 + ((t1 - t0) * i) / chars.length));
+        const eraseIt = (chars, t0, t1) => chars.slice().reverse().forEach((c, i) => tl.set(c, { display: "none" }, t0 + ((t1 - t0) * i) / chars.length));
+        typeIt(shortCh, 11.52, 12.5);
+        tl.fromTo("#s2-caret", { opacity: 1 }, { opacity: 0, duration: 0.35, yoyo: true, repeat: 21, ease: "steps(1)" }, 11.3);
+        tl.fromTo("#s2-dots i", { y: 0 }, { y: -14, duration: 0.2, stagger: 0.1, yoyo: true, repeat: 3, ease: "sine.inOut" }, 13.2);
+        tl.to("#s2-dots", { opacity: 0, duration: 0.15 }, 14.0);
+        tl.fromTo("#s2-bad-txt", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 14.08);
+        tl.fromTo("#s2-bad", { x: 0 }, { keyframes: { x: [0, -14, 12, -8, 5, 0] }, duration: 0.4, ease: "none", immediateRender: false }, 14.86);
+        eraseIt(shortCh, 15.62, 15.9);
+        tl.to("#s2-bar", { height: 290, duration: 0.45, ease: "power3.inOut" }, 15.75);
+        typeIt(longCh, 15.95, 16.85);
+        [["#hl-qui", 16.96], ["#hl-quoi", 17.6], ["#hl-style", 18.24]].forEach(([s, t]) => {
+          tl.fromTo(s, { backgroundColor: "rgba(255,122,26,0)", color: "#0b1026" }, { backgroundColor: "rgba(255,122,26,0.22)", color: "#c95608", duration: 0.25, ease: "power2.out" }, t);
+          tl.fromTo(s, { scale: 1 }, { scale: 1.06, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+        });
+
+        // ---------------- SCENE 3 : accepter la 1re réponse ----------------
+        tl.fromTo("#s3-card", { boxShadow: "0 0 0 0 rgba(255,122,26,0)" }, { boxShadow: "0 0 0 14px rgba(255,122,26,0.35)", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 25.6);
+        const s3 = [["#s3-b1", 26.4, "#s3-v1", 1], ["#s3-b2", 27.2, "#s3-v2", 2], ["#s3-b3", 28.0, "#s3-v3", 3]];
+        let prevV = "#s3-v0";
+        s3.forEach(([b, t, v, label]) => {
+          tl.fromTo(b, { opacity: 0, y: -340, rotation: -10 }, { opacity: 1, y: 0, rotation: 0, duration: 0.5, ease: "bounce.out" }, t - 0.05);
+          tl.to(b, { scale: 0.88, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out" }, t + 0.42);
+          tl.to(b, { backgroundColor: "#ffffff", duration: 0.12 }, t + 0.42);
+          tl.to(prevV, { opacity: 0, y: -18, filter: "blur(6px)", duration: 0.22, ease: "power2.in" }, t + 0.45);
+          tl.fromTo(v, { opacity: 0, y: 22, filter: "blur(6px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out" }, t + 0.6);
+          tl.fromTo("#s3-vtag", { scale: 1 }, { scale: 1.25, duration: 0.12, yoyo: true, repeat: 1 }, t + 0.6);
+          tl.set("#s3-l" + (label - 1), { display: "none" }, t + 0.6);
+          tl.set("#s3-l" + label, { display: "inline" }, t + 0.6);
+          tl.fromTo("#s3-card", { scale: 1 }, { scale: 1.03, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t + 0.6);
+          prevV = v;
+        });
+
+        // ---------------- SCENE 4 : pas de rôle ----------------
+        const s4ch = splitChars($("#s4-ptxt"));
+        typeIt(s4ch, 32.3, 33.0);
+        tl.fromTo("#s4-caret", { opacity: 1 }, { opacity: 0, duration: 0.35, yoyo: true, repeat: 11, ease: "steps(1)" }, 32.16);
+        tl.fromTo("#s4-badge", { opacity: 0, scale: 2.6, rotation: -12 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.32, ease: "power4.in" }, 32.92);
+        shake("#s4-shake", 33.24, 10);
+        ["#s4-rip1", "#s4-rip2"].forEach((r, i) => tl.fromTo(r, { opacity: 0.95, scale: 0.3 }, { opacity: 0, scale: 2.4, duration: 0.8, ease: "power2.out" }, 33.24 + i * 0.14));
+        tl.fromTo("#s4-card", { boxShadow: "0 0 0 0 rgba(255,122,26,0)" }, { boxShadow: "0 0 0 10px rgba(255,122,26,0.55)", duration: 0.35, ease: "power2.out", immediateRender: false }, 35.68);
+        tl.fromTo("#s4 .star", { opacity: 0, scale: 0, rotation: -60 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.5, stagger: 0.08, ease: "back.out(2.5)" }, 36.0);
+
+        // ---------------- SCENE 5 : croire tout (scène forte) ----------------
+        tl.fromTo("#lens", { opacity: 0, x: 700, y: 520, scale: 0.6, rotation: 20 }, { opacity: 1, x: 70, y: -28, scale: 1, rotation: 0, duration: 0.6, ease: "power3.out" }, 41.12);
+        tl.to("#lens", { x: 96, y: -20, duration: 0.8, ease: "sine.inOut" }, 41.75);
+        tl.fromTo("#s5-num", { scale: 1 }, { scale: 1.16, duration: 0.3, ease: "power2.out" }, 41.55);
+        [0, 1, 2, 3, 4, 5].forEach((k) => tl.set("#s5-num", { color: k % 2 === 0 ? "#e5372b" : "#0b1026" }, 42.08 + k * 0.11));
+        tl.set("#s5-num", { color: "#e5372b" }, 42.75);
+        tl.to("#lens", { opacity: 0, x: 760, y: 420, scale: 0.7, rotation: 25, duration: 0.45, ease: "power3.in" }, 43.5);
+        tl.to("#s5-num", { scale: 1, duration: 0.3, ease: "power2.inOut" }, 43.6);
+        tl.fromTo("#stamp-wrap", { opacity: 0, scale: 3.2, rotation: -32 }, { opacity: 1, scale: 1, rotation: -12, duration: 0.24, ease: "power4.in" }, 43.7);
+        shake("#s5-shake", 43.94, 20);
+        tl.fromTo("#s5-card", { y: 0 }, { y: 10, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, 43.94);
+        tl.to("#s5-ell", { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 45.12);
+        tl.to("#s5-date", { color: "#e5372b", duration: 0.2 }, 45.68);
+        tl.to("#s5-date path, #s5-date rect", { stroke: "#e5372b", duration: 0.2 }, 45.68);
+        tl.fromTo("#s5-date-u", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power3.out" }, 45.68);
+
+        // ---------------- SCENE 6 : pas de format (FLIP) ----------------
+        const items = [["Riz gras", "500 F"], ["Poulet", "1 500 F"], ["Pizza", "2 500 F"], ["Livraison", "300 F"]];
+        const cv = document.createElement("canvas").getContext("2d");
+        const wd = (txt, weight) => { cv.font = weight + " 42px Poppins"; return cv.measureText(txt).width; };
+        const host = $("#fitems");
+        const els = items.map(([n, p], i) => {
+          const mk = (cls, txt) => { const e = document.createElement("span"); e.className = "fi " + cls; e.textContent = txt; host.appendChild(e); return e; };
+          return { n: mk("n", n), p: mk("p", p), c: mk("n", i < 3 ? "," : "."), nw: wd(n, 500), pw: wd(p, 700) };
+        });
+        const PAD = 36, W = 800 - PAD * 2, LH = 58, SP = wd(" ", 500), CW = wd(",", 500);
+        // layout: block paragraph (greedy wrap)
+        const L = { block: [], table: [], list: [], wa: [] };
+        let x = PAD, y = 30;
+        els.forEach((e) => {
+          if (x + e.nw > PAD + W) { x = PAD; y += LH; }
+          const nx = x; x += e.nw + SP;
+          if (x + e.pw + CW > PAD + W) { x = PAD; y += LH; }
+          L.block.push({ n: [nx, y], p: [x, y], c: [x + e.pw, y] });
+          x += e.pw + CW + SP;
+        });
+        const hBlock = y + LH + 30;
+        els.forEach((e, i) => L.table.push({ n: [PAD, 104 + i * 74], p: [PAD + W - e.pw, 104 + i * 74] }));
+        const hTable = 104 + 4 * 74 + 18;
+        els.forEach((e, i) => L.list.push({ n: [PAD + 44, 30 + i * 70], p: [PAD + 44 + e.nw + 22, 30 + i * 70] }));
+        const hList = 30 + 4 * 70 + 16;
+        els.forEach((e, i) => L.wa.push({ n: [PAD + 34, 100 + i * 60], p: [PAD + 34 + e.nw + 18, 100 + i * 60] }));
+        const hWa = 100 + 4 * 60 + 68;
+        // decorations
+        const deco = (hostSel, html, css) => { const d = document.createElement("div"); d.className = "deco"; d.innerHTML = html; Object.assign(d.style, css); $(hostSel).appendChild(d); };
+        $("#fbg-block").style.height = hBlock + "px";
+        $("#fbg-table").style.height = hTable + "px";
+        $("#fbg-list").style.height = hList + "px";
+        $("#fbg-wa").style.height = hWa + "px";
+        deco("#fbg-table", "", { left: "0", top: "0", width: "800px", height: "86px", background: "#fff1e2", borderRadius: "28px 28px 0 0" });
+        deco("#fbg-table", "Plat", { left: PAD + "px", top: "14px", font: "800 42px Poppins", color: "#0b1026" });
+        deco("#fbg-table", "Prix", { right: PAD + "px", top: "14px", font: "800 42px Poppins", color: "#0b1026" });
+        for (let i = 1; i < 4; i++) deco("#fbg-table", "", { left: PAD + "px", top: 100 + i * 74 - 6 + "px", width: W + "px", height: "3px", background: "#efe7df" });
+        for (let i = 0; i < 4; i++) deco("#fbg-list", "", { left: PAD + 4 + "px", top: 30 + i * 70 + 20 + "px", width: "20px", height: "20px", borderRadius: "50%", background: "#ff7a1a" });
+        deco("#fbg-wa", "Salut&nbsp;! Voici nos prix 👇", { left: PAD + "px", top: "26px", font: "700 42px Poppins", color: "#111b21" });
+        for (let i = 0; i < 4; i++) deco("#fbg-wa", "•", { left: PAD + 6 + "px", top: 100 + i * 60 + "px", font: "700 42px/58px Poppins", color: "#111b21" });
+        deco("#fbg-wa", "10:24 ✓✓", { right: "30px", bottom: "16px", font: "500 40px Poppins", color: "#4f8fb3" });
+        deco("#fbg-wa", "", { left: "-18px", top: "0", width: "0", height: "0", borderTop: "0 solid transparent", borderRight: "26px solid #d9fdd3", borderBottom: "30px solid transparent" });
+
+        const COL = { block: ["#777c93", "#777c93"], table: ["#0b1026", "#c95608"], list: ["#0b1026", "#c95608"], wa: ["#111b21", "#111b21"] };
+        const place = (mode) => els.forEach((e, i) => {
+          tl.set(e.n, { x: L[mode][i].n[0], y: L[mode][i].n[1], color: COL[mode][0] }, 0);
+          tl.set(e.p, { x: L[mode][i].p[0], y: L[mode][i].p[1], color: COL[mode][1] }, 0);
+          tl.set(e.c, { x: L.block[i].c[0], y: L.block[i].c[1], color: COL.block[0] }, 0);
+        });
+        place("block");
+        const tBlock = 49.6;
+        tl.fromTo("#fbg-block", { opacity: 0, y: 60, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power3.out" }, tBlock);
+        tl.fromTo("#fitems .fi", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.02 }, tBlock + 0.1);
+        ["#fbg-table", "#fbg-list", "#fbg-wa"].forEach((s) => tl.set(s, { opacity: 0 }, 0));
+        tl.set(".tab", { opacity: 0 }, 0);
+        const morph = (from, to, t, tab, prevTab) => {
+          tl.to("#fbg-" + from, { opacity: 0, scale: 0.97, duration: 0.3, ease: "power2.in" }, t);
+          tl.fromTo("#fbg-" + to, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, t + 0.08);
+          els.forEach((e, i) => {
+            tl.to(e.n, { x: L[to][i].n[0], y: L[to][i].n[1], color: COL[to][0], duration: 0.55, ease: "power3.inOut" }, t + i * 0.04);
+            tl.to(e.p, { x: L[to][i].p[0], y: L[to][i].p[1], color: COL[to][1], duration: 0.55, ease: "power3.inOut" }, t + 0.02 + i * 0.04);
+          });
+          tl.fromTo(tab, { opacity: 0, y: 30, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(2.2)" }, t);
+          tl.to(tab, { backgroundColor: "#ff7a1a", borderColor: "#ff7a1a", duration: 0.2 }, t + 0.1);
+          if (prevTab) tl.to(prevTab, { backgroundColor: "rgba(255,255,255,0.6)", borderColor: "#0b1026", duration: 0.2 }, t + 0.1);
+        };
+        tl.to("#fitems .fi.n:nth-child(3n)", { opacity: 0, duration: 0.2 }, 50.08);
+        morph("block", "table", 50.08, "#tab1", null);
+        morph("table", "list", 50.88, "#tab2", "#tab1");
+        morph("list", "wa", 51.44, "#tab3", "#tab2");
+        tl.fromTo("#s6-ask", { opacity: 0, scale: 2, rotation: 10 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 52.8);
+        tl.to(".tab", { backgroundColor: "#ff7a1a", borderColor: "#ff7a1a", duration: 0.2, stagger: 0.06 }, 52.85);
+        tl.to(".tab", { scale: 1.08, duration: 0.14, stagger: 0.06, yoyo: true, repeat: 1 }, 52.85);
+
+        // ---------------- SCENE 7 : CTA ----------------
+        tl.fromTo("#s7 .nb", { opacity: 0, y: 60, scale: 0.5 }, { opacity: 1, y: 0, scale: 1, duration: 0.42, stagger: 0.09, ease: "back.out(2.2)" }, 55.5);
+        tl.fromTo("#s7-bubble", { opacity: 0, y: 50, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "back.out(1.8)" }, 55.84);
+        tl.fromTo("#s7-caret", { opacity: 1 }, { opacity: 0, duration: 0.3, yoyo: true, repeat: 5, ease: "steps(1)" }, 55.84);
+        tl.set("#bub-3", { display: "inline" }, 56.05);
+        tl.set("#bub-e", { display: "inline" }, 56.3);
+        tl.to("#nb3", { backgroundColor: "#ff7a1a", scale: 1.15, duration: 0.25, ease: "back.out(3)" }, 56.05);
+        tl.fromTo("#s7-banner", { opacity: 0, scale: 1.6, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.7)" }, 55.98);
+        tl.to("#s7-phaseA", { opacity: 0, y: -50, filter: "blur(10px)", duration: 0.35, ease: "power2.in" }, 57.5);
+        tl.fromTo("#act1", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 57.78);
+        tl.fromTo("#act1 .act-ico", { scale: 0.4, rotation: -20 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(2.4)" }, 57.84);
+        tl.to("#bm-path", { fillOpacity: 1, duration: 0.3 }, 58.2);
+        tl.fromTo("#bm-path", { y: 0 }, { y: 4, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, 58.2);
+        tl.fromTo("#act2", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 59.3);
+        tl.fromTo("#share-ico", { x: -50, y: 30, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.45, ease: "back.out(2)" }, 59.4);
+        tl.to("#share-ico", { x: 70, y: -40, opacity: 0, duration: 0.35, ease: "power2.in" }, 60.3);
+        tl.fromTo("#share-ico", { x: -70, y: 40, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, 60.65);
+        tl.fromTo("#s7-banner", { rotation: 0 }, { rotation: 1.5, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut", immediateRender: false }, 58.0);
+
+        // ---------------- OUTRO : logo ----------------
+        tl.fromTo("#logo", { opacity: 0, scale: 0.55, filter: "blur(18px)", clipPath: "circle(0% at 50% 50%)" },
+          { opacity: 1, scale: 1, filter: "blur(0px)", clipPath: "circle(75% at 50% 50%)", duration: 0.8, ease: "power3.out" }, 62.05);
+        tl.fromTo("#logo-ring", { opacity: 0.9, scale: 0.6 }, { opacity: 0, scale: 1.5, duration: 0.9, ease: "power2.out" }, 62.2);
+        tl.fromTo("#logo-wrap", { y: 0 }, { y: -12, duration: 2.4, ease: "sine.inOut" }, 62.85);
+        tl.to(["#logo-wrap", "#handle"], { opacity: 0, scale: 1.04, filter: "blur(8px)", duration: 1.3, ease: "power2.in" }, 64.55);
+
+        window.__timelines["main"] = tl;
+      }
+
+      Promise.all([
+        document.fonts.load("500 42px Poppins"),
+        document.fonts.load("700 42px Poppins"),
+        document.fonts.load("800 42px Poppins"),
+        document.fonts.load("900 42px Poppins"),
+        document.fonts.load("italic 800 42px Poppins"),
+      ]).then(build, build);
+    </script>
+  </body>
+</html>

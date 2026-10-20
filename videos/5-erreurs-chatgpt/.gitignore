@@ -1,0 +1,5 @@
+snapshots/*.png
+.hyperframes/
+# regenerable with: python3 scripts/build_audio.py
+assets/mix-preview.wav
+assets/bgm/musique-lofi.wav
