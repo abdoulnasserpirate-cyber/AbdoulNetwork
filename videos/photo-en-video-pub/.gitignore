@@ -1,0 +1,6 @@
+snapshots/*.png
+.hyperframes/frame-packets/
+renders/work-*
+renders/.*
+renders/*-raw.mp4
+.hyperframes/
