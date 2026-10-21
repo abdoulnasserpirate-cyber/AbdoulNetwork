@@ -1,0 +1,12 @@
+#root{position:absolute;inset:0;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff}
+.bg{position:absolute;inset:0}
+.cam{position:absolute;inset:0}
+.mask{display:block;overflow:hidden;padding:0 .1em .14em;margin:0 -.1em -.14em}
+.mask>span{display:inline-block}
+.gold{background:linear-gradient(100deg,#B8802F 0%,#F6D58E 38%,#D9A54B 62%,#F8DF9F 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spark{position:absolute;width:40px;height:40px}
+.spark svg{display:block;width:100%;height:100%}
+.bokeh{position:absolute;border-radius:50%}
+.silk{position:absolute;inset:0;width:100%;height:100%}
+.silk path{fill:none;stroke-linecap:round}
+.ico{display:block}

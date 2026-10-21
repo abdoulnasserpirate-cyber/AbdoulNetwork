@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    %FONTS%
+    %COMMON%
+    #f4-bg{background:radial-gradient(1000px 700px at 6% 0%,rgba(255,46,147,.42),rgba(255,46,147,0) 70%),radial-gradient(900px 700px at 100% 100%,rgba(255,46,147,.32),rgba(255,46,147,0) 70%),#1A0611}
+    #f4-lines{position:absolute;inset:0;width:100%;height:100%}
+    #f4-head{position:absolute;left:90px;top:70px;display:flex;align-items:baseline;gap:26px}
+    #f4-eyebrow{font:700 24px Montserrat;letter-spacing:.38em;color:#E8B964}
+    #f4-title{font:900 84px/1.1 'Playfair Display';color:#fff}
+    #f4-title em{font-style:italic;font-weight:700;color:#FF4FA6}
+    .f4-card{position:absolute;border:2px solid rgba(232,185,100,.6);border-radius:26px;background:rgba(255,255,255,.045);overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+    .f4-ch{display:flex;align-items:center;gap:16px;height:76px;padding:0 30px;background:linear-gradient(90deg,#FF2E93,#C2106B);font:900 38px 'Playfair Display';letter-spacing:.04em;color:#fff;text-transform:uppercase}
+    .f4-ch i{display:block;width:12px;height:12px;border-radius:50%;background:#F6D58E}
+    .f4-row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px;height:62px;padding:0 18px 0 30px;border-top:1px solid rgba(255,255,255,.09);font:500 28px Montserrat;color:#fff;white-space:nowrap}
+    .f4-hl{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,46,147,.55),rgba(255,46,147,0));opacity:0}
+    .f4-nm{position:relative}
+    .f4-pr{position:relative;flex:none;min-width:170px;padding:7px 18px;border-radius:10px;background:linear-gradient(180deg,#F8DF9F,#D9A54B);color:#2A1206;font:800 27px Montserrat;text-align:center}
+    #f4-a{left:90px;top:220px;width:880px}
+    #f4-b{left:1020px;top:220px;width:810px}
+    #f4-c{left:1020px;top:480px;width:810px}
+    #f4-cta{position:absolute;left:1020px;top:760px;width:810px;height:110px;display:flex;align-items:center;justify-content:center;gap:22px;border-radius:100px;background:#25D366;font:800 44px Montserrat;color:#fff;box-shadow:0 20px 50px rgba(37,211,102,.35)}
+    #f4-cta svg{width:62px;height:62px}
+    #f4-sig{position:absolute;left:1020px;top:900px;width:810px;text-align:center;font:400 64px 'Great Vibes'}
+    /*IF:port*/
+    #f4-head{left:0;right:0;top:120px;flex-direction:column;align-items:center;gap:6px}
+    #f4-title{font-size:92px}
+    .f4-ch{height:84px;font-size:40px}
+    .f4-row{height:68px;font-size:30px;padding-left:28px}
+    .f4-pr{font-size:28px;min-width:178px}
+    #f4-a{left:60px;top:340px;width:960px}
+    #f4-b{left:60px;top:1000px;width:960px}
+    #f4-c{left:60px;top:1260px;width:960px}
+    #f4-cta{left:90px;top:1560px;width:900px;height:120px}
+    #f4-sig{left:0;top:1720px;width:1080px;font-size:72px}
+    /*/IF*/
+  </style>
+  <div id="root" data-composition-id="%ID%" data-start="0" data-duration="%DUR%" data-width="%W%" data-height="%H%">
+    <div id="f4-bg" class="bg clip" data-start="0" data-duration="%DUR%" data-track-index="0"></div>
+    <div id="f4-cam" class="cam">
+      <!--IF:land-->
+      <svg id="f4-lines" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <path class="f4-ln" pathLength="1" d="M1500,-20 C1700,200 1820,300 1940,320" fill="none" stroke="#E8B964" stroke-opacity=".5" stroke-width="2"/>
+        <path class="f4-ln" pathLength="1" d="M-20,880 C200,980 380,1040 600,1100" fill="none" stroke="#E8B964" stroke-opacity=".5" stroke-width="2"/>
+        <path class="f4-ln" pathLength="1" d="M1600,-20 C1760,140 1860,200 1940,210" fill="none" stroke="#FF2E93" stroke-opacity=".6" stroke-width="3"/>
+      </svg>
+      <!--/IF-->
+      <!--IF:port-->
+      <svg id="f4-lines" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+        <path class="f4-ln" pathLength="1" d="M700,-20 C880,120 1000,180 1100,190" fill="none" stroke="#E8B964" stroke-opacity=".5" stroke-width="2"/>
+        <path class="f4-ln" pathLength="1" d="M-20,1800 C150,1860 300,1900 460,1940" fill="none" stroke="#E8B964" stroke-opacity=".5" stroke-width="2"/>
+        <path class="f4-ln" pathLength="1" d="M800,-20 C930,90 1020,130 1100,135" fill="none" stroke="#FF2E93" stroke-opacity=".6" stroke-width="3"/>
+      </svg>
+      <!--/IF-->
+      <div id="f4-head">
+        <div id="f4-eyebrow">SUBLIME BOOTY BY CHRIS</div>
+        <span class="mask"><span id="f4-title">Toute la <em>gamme</em></span></span>
+      </div>
+      <div class="f4-card" id="f4-a">
+        <div class="f4-ch"><i></i>Produits fessiers</div>
+        <div class="f4-row" id="f4-a1"><span class="f4-hl"></span><span class="f4-nm">Crème VIP</span><span class="f4-pr">10 000 F</span></div>
+        <div class="f4-row" id="f4-a2"><span class="f4-hl"></span><span class="f4-nm">Caolin fessier</span><span class="f4-pr">10 000 F</span></div>
+        <div class="f4-row" id="f4-a3"><span class="f4-hl"></span><span class="f4-nm">Savon fessier</span><span class="f4-pr">10 000 F</span></div>
+        <div class="f4-row" id="f4-a4"><span class="f4-hl"></span><span class="f4-nm">Sirop Sexy Lady</span><span class="f4-pr">10 000 F</span></div>
+        <div class="f4-row" id="f4-a5"><span class="f4-hl"></span><span class="f4-nm">Sirop prise de poids</span><span class="f4-pr">10 000 F</span></div>
+        <div class="f4-row" id="f4-a6"><span class="f4-hl"></span><span class="f4-nm">Suppositoires fesses, hanches &amp; creux</span><span class="f4-pr">20 000 F</span></div>
+        <div class="f4-row" id="f4-a7"><span class="f4-hl"></span><span class="f4-nm">Céréales Booty Gain</span><span class="f4-pr">25 000 F</span></div>
+        <div class="f4-row" id="f4-a8"><span class="f4-hl"></span><span class="f4-nm">Crème Impériale</span><span class="f4-pr">30 000 F</span></div>
+      </div>
+      <div class="f4-card" id="f4-b">
+        <div class="f4-ch"><i></i>Kits pour les seins</div>
+        <div class="f4-row" id="f4-b1"><span class="f4-hl"></span><span class="f4-nm">Kit Gros Lolo</span><span class="f4-pr">30 000 F</span></div>
+        <div class="f4-row" id="f4-b2"><span class="f4-hl"></span><span class="f4-nm">Kit Raffermissant Seins</span><span class="f4-pr">25 000 F</span></div>
+      </div>
+      <div class="f4-card" id="f4-c">
+        <div class="f4-ch"><i></i>Gamme ventre plat</div>
+        <div class="f4-row" id="f4-c1"><span class="f4-hl"></span><span class="f4-nm">Thé + crème ventre plat</span><span class="f4-pr">24 000 F</span></div>
+        <div class="f4-row" id="f4-c2"><span class="f4-hl"></span><span class="f4-nm">Thé perte de poids</span><span class="f4-pr">12 000 F</span></div>
+      </div>
+      <div id="f4-cta"><svg viewBox="0 0 24 24"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z" fill="#fff"/><path d="M8.6 7.3c.2-.4.4-.4.7-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.6.8c-.1.2-.2.3 0 .6.5.9 1.2 1.7 2 2.3.7.5 1.3.8 1.6.9.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.4.4 0 .2 0 1-.4 1.6-.4.6-1.5 1.1-2.1 1.1-.6 0-1.3.2-4-1-3.2-1.5-5.1-4.8-5.3-5-.1-.2-1.2-1.6-1.2-3.1 0-1.4.7-2.1 1-2.4z" fill="#25D366"/></svg>87 32 55 96</div>
+      <div id="f4-sig" class="gold">Votre confiance, notre priorité</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      %HELPERS%
+      var C = %CUES%, D = %DUR%, P = "%O%" === "port";
+      var tl = gsap.timeline({ paused: true });
+      tl.fromTo("#f4-cam", { scale: 1.0 }, { scale: 1.025, duration: D, ease: "none" }, 0);
+      tl.fromTo(".f4-ln", { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.6, stagger: 0.2, ease: "power2.out" }, 0.1);
+      tl.fromTo("#f4-eyebrow", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.7, ease: "expo.out" }, 0.0);
+      tl.fromTo("#f4-title", { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.1);
+
+      function card(sel, t, rows) {
+        tl.fromTo(sel, { y: 60, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }, t);
+        tl.fromTo(sel + " .f4-ch", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55, ease: "power3.out" }, t + 0.1);
+        tl.fromTo(rows, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, stagger: 0.09, ease: "power3.out" }, t + 0.3);
+      }
+      function hit(sel, t) {
+        tl.fromTo(sel + " .f4-hl", { opacity: 0 }, { keyframes: [{ opacity: 1, duration: 0.2 }, { opacity: 0.35, duration: 0.9 }], ease: "power1.out", immediateRender: false }, t);
+        tl.fromTo(sel + " .f4-pr", { scale: 1 }, { keyframes: { scale: [1, 1.14, 1] }, duration: 0.45, ease: "power1.inOut", immediateRender: false }, t + 0.05);
+      }
+      card("#f4-a", C.fessiers, "#f4-a .f4-row");
+      [["#f4-a1", C.vip], ["#f4-a2", C.caolin], ["#f4-a3", C.savon], ["#f4-a4", C.sexy], ["#f4-a8", C.imperiale]].forEach(function (h) { hit(h[0], h[1]); });
+      card("#f4-b", C.seins, "#f4-b .f4-row");
+      tl.to("#f4-a", { opacity: 0.45, duration: 0.5, ease: "power2.out" }, C.seins);
+      [["#f4-b1", C.lolo], ["#f4-b2", C.raff]].forEach(function (h) { hit(h[0], h[1]); });
+      card("#f4-c", C.ventre, "#f4-c .f4-row");
+      tl.to("#f4-b", { opacity: 0.45, duration: 0.5, ease: "power2.out" }, C.ventre);
+      [["#f4-c2", C.the], ["#f4-c1", C.creme]].forEach(function (h) { hit(h[0], h[1]); });
+      tl.to(["#f4-a", "#f4-b"], { opacity: 1, duration: 0.5, ease: "power2.out" }, C.all);
+      tl.fromTo("#f4-cta", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "back.out(2)" }, C.ventre + 0.55);
+      tl.fromTo("#f4-sig", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "power2.inOut" }, C.ventre + 0.9);
+      window.__timelines["%ID%"] = tl;
+    })();
+  </script>
+</template>

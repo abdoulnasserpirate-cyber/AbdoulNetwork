@@ -1,0 +1,73 @@
+{
+  "total": 51.0,
+  "bgm": { "src": "assets/bgm/sublime-groove.wav", "volume": 0.22 },
+  "scenes": [
+    {
+      "id": "01-accroche",
+      "start": 0,
+      "dur": 3.5,
+      "tail": 0,
+      "voice": { "src": "assets/voice/scratch/01.wav", "at": 0.3, "dur": 2.93 },
+      "cues": { "mesdames": 0.3, "courbes": 1.05, "devenaient": 1.55, "signature": 2.25 },
+      "sfx": [["whoosh", 0.05, 0.25], ["ding", 2.35, 0.18]]
+    },
+    {
+      "id": "02-marque",
+      "start": 3.5,
+      "dur": 3.9,
+      "tail": 0.45,
+      "voice": { "src": "assets/voice/scratch/02.wav", "at": 0.25, "dur": 3.35 },
+      "cues": { "emblem": 0.05, "word": 0.35, "beaute": 1.95, "confiance": 2.5, "bienetre": 3.0 },
+      "sfx": [["pop", 2.0, 0.2], ["pop", 2.55, 0.2], ["pop", 3.05, 0.22]]
+    },
+    {
+      "id": "03-vedette",
+      "start": 7.4,
+      "dur": 12.6,
+      "tail": 0,
+      "voice": { "src": "assets/voice/scratch/03.wav", "at": 0.2, "dur": 12.19 },
+      "cues": {
+        "star": 0.2, "title": 1.1, "secret": 2.96, "naturel": 4.61, "plantes": 5.53,
+        "mix": 6.45, "lait": 7.45, "yaourt": 7.8, "eau": 8.5, "format": 9.1, "seal": 9.75, "price": 11.2
+      },
+      "sfx": [["whoosh", 0.0, 0.3], ["pop", 4.61, 0.25], ["pop", 5.53, 0.25], ["pop", 6.45, 0.25], ["stamp", 9.75, 0.4], ["coin", 11.25, 0.4], ["ding", 12.05, 0.3]]
+    },
+    {
+      "id": "04-gamme",
+      "start": 20.0,
+      "dur": 14.0,
+      "tail": 0,
+      "voice": { "src": "assets/voice/scratch/04.wav", "at": 0.25, "dur": 13.42 },
+      "cues": {
+        "fessiers": 0.25, "vip": 1.5, "caolin": 2.55, "savon": 3.25, "sexy": 4.05, "imperiale": 5.0,
+        "seins": 5.9, "lolo": 7.2, "raff": 8.5, "ventre": 10.75, "the": 11.75, "creme": 12.6, "all": 13.2
+      },
+      "sfx": [["tick", 1.5, 0.3], ["tick", 2.55, 0.3], ["tick", 3.25, 0.3], ["tick", 4.05, 0.3], ["tick", 5.0, 0.3], ["pop", 5.9, 0.22], ["tick", 7.2, 0.3], ["tick", 8.5, 0.3], ["pop", 10.75, 0.22], ["tick", 11.75, 0.3], ["tick", 12.6, 0.3]]
+    },
+    {
+      "id": "05-paiement",
+      "start": 34.0,
+      "dur": 7.2,
+      "tail": 0.6,
+      "voice": { "src": "assets/voice/scratch/05.wav", "at": 0.2, "dur": 6.68 },
+      "cues": { "title": 0.2, "nita": 1.5, "amana": 2.2, "wave": 2.85, "livraison": 3.25, "maradi": 3.9, "niger": 4.95 },
+      "sfx": [["pop", 1.5, 0.25], ["pop", 2.2, 0.25], ["pop", 2.85, 0.25], ["whoosh", 3.3, 0.25], ["coin", 4.4, 0.3], ["coin", 5.95, 0.3]]
+    },
+    {
+      "id": "06-commande",
+      "start": 41.2,
+      "dur": 9.8,
+      "tail": 0,
+      "voice": { "src": "assets/voice/scratch/06.wav", "at": 0.2, "dur": 8.96 },
+      "cues": { "cmd": 0.2, "wa": 1.5, "n1": 2.3, "n2": 3.2, "n3": 3.9, "n4": 4.7, "socials": 5.1, "brand": 5.85, "tag1": 7.2, "tag2": 8.0 },
+      "sfx": [["pop", 1.5, 0.3], ["tick", 2.3, 0.35], ["tick", 3.2, 0.35], ["tick", 3.9, 0.35], ["tick", 4.7, 0.35], ["ding", 5.9, 0.3], ["ding", 8.1, 0.25]]
+    }
+  ],
+  "transitions": [
+    { "at": 3.5, "type": "sweep" },
+    { "at": 7.4, "type": "zoom" },
+    { "at": 20.0, "type": "sweep" },
+    { "at": 34.0, "type": "sweep" },
+    { "at": 41.2, "type": "iris" }
+  ]
+}

@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    %FONTS%
+    %COMMON%
+    #f2-bg{background:radial-gradient(ellipse at 50% 42%,#FFFFFF 0%,#FFEAF4 45%,#FFC2DD 100%)}
+    #f2-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:90px}
+    #f2-medal{position:relative;width:400px;height:400px;flex:none}
+    #f2-disc{position:absolute;inset:20px;border-radius:50%;background:#fff;box-shadow:0 30px 80px rgba(194,16,107,.25);overflow:hidden}
+    #f2-disc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    #f2-ring{position:absolute;inset:0;width:100%;height:100%}
+    #f2-word{display:flex;flex-direction:column;align-items:flex-start;color:#C2106B}
+    #f2-sub{display:block;font:400 200px/1 'Great Vibes';padding:0 30px 0 6px;margin-bottom:-36px}
+    #f2-booty{display:flex;font:900 150px/1 'Playfair Display';letter-spacing:.06em;color:#D4127A}
+    #f2-booty span{display:inline-block}
+    #f2-by{display:flex;align-items:center;gap:22px;margin-top:14px;font:600 30px Montserrat;letter-spacing:.5em;color:#8A1250;padding-left:.5em}
+    .f2-rule{display:block;width:90px;height:2px;background:#E8B964}
+    #f2-pills{display:flex;gap:18px;margin-top:40px}
+    .f2-pill{display:flex;align-items:center;gap:12px;font:700 32px Montserrat;color:#C2106B;background:#fff;border:2px solid rgba(255,46,147,.35);border-radius:100px;padding:14px 30px;box-shadow:0 10px 30px rgba(194,16,107,.12)}
+    .f2-pill i{display:block;width:14px;height:14px;border-radius:50%;background:#FF2E93}
+    /*IF:port*/
+    #f2-wrap{flex-direction:column;gap:40px}
+    #f2-word{align-items:center}
+    #f2-sub{font-size:190px;padding:0 30px}
+    #f2-booty{font-size:148px}
+    #f2-pills{flex-direction:column;align-items:center;gap:18px;margin-top:46px}
+    .f2-pill{font-size:38px;padding:16px 44px}
+    /*/IF*/
+  </style>
+  <div id="root" data-composition-id="%ID%" data-start="0" data-duration="%DUR%" data-width="%W%" data-height="%H%">
+    <div id="f2-bg" class="bg clip" data-start="0" data-duration="%DUR%" data-track-index="0"></div>
+    <div id="f2-cam" class="cam">
+      <div id="f2-bokeh" class="cam"></div>
+      <div id="f2-wrap">
+        <div id="f2-medal">
+          <div id="f2-disc"><img src="assets/img/emblem.png" alt=""></div>
+          <svg id="f2-ring" viewBox="0 0 400 400">
+            <circle id="f2-rc" cx="200" cy="200" r="194" pathLength="1" fill="none" stroke="#E8B964" stroke-width="5" stroke-dasharray="1 1" stroke-dashoffset="1" transform="rotate(-90 200 200)"/>
+            <circle id="f2-rc2" cx="200" cy="200" r="186" pathLength="1" fill="none" stroke="#FF2E93" stroke-opacity=".35" stroke-width="2" stroke-dasharray="1 1" stroke-dashoffset="1" transform="rotate(90 200 200)"/>
+          </svg>
+        </div>
+        <div id="f2-word">
+          <span id="f2-sub" class="gold">Sublime</span>
+          <div id="f2-booty"><span>B</span><span>O</span><span>O</span><span>T</span><span>Y</span></div>
+          <div id="f2-by"><span class="f2-rule"></span>BY CHRIS<span class="f2-rule"></span></div>
+          <div id="f2-pills">
+            <div class="f2-pill" id="f2-p1"><i></i>Beauté</div>
+            <div class="f2-pill" id="f2-p2"><i></i>Confiance</div>
+            <div class="f2-pill" id="f2-p3"><i></i>Bien-être</div>
+          </div>
+        </div>
+      </div>
+      <div id="f2-sparks" class="cam"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      %HELPERS%
+      var C = %CUES%, D = %DUR%, W = %W%, H = %H%, P = "%O%" === "port";
+      var tl = gsap.timeline({ paused: true });
+      var bk = SB.bokeh(document.getElementById("f2-bokeh"), 12, 21, W, H, "rgba(255,46,147,.35)", 80, 260);
+      SB.drift(tl, bk, D);
+      var sp = SB.sparkles(document.getElementById("f2-sparks"), 9, 8, P ? [140, 160, 940, 900] : [300, 220, 1650, 560], "#E8B964", 16, 40);
+      SB.twinkle(tl, sp, 0.5, D, 9);
+
+      tl.fromTo("#f2-cam", { scale: 1.0 }, { scale: 1.04, duration: D, ease: "none" }, 0);
+      tl.fromTo("#f2-medal", { scale: 0.2, opacity: 0, rotation: -25 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.8, ease: "back.out(1.6)" }, C.emblem);
+      tl.fromTo("#f2-rc", { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.1, ease: "power2.inOut" }, C.emblem + 0.2);
+      tl.fromTo("#f2-rc2", { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.1, ease: "power2.inOut" }, C.emblem + 0.35);
+      tl.fromTo("#f2-sub", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "power2.out" }, C.word);
+      tl.fromTo("#f2-booty span", { y: 70, opacity: 0, rotationX: -70 }, { y: 0, opacity: 1, rotationX: 0, duration: 0.6, stagger: 0.06, ease: "back.out(1.8)" }, C.word + 0.35);
+      tl.fromTo("#f2-by", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.7, ease: "expo.out" }, C.word + 0.75);
+      [["#f2-p1", C.beaute], ["#f2-p2", C.confiance], ["#f2-p3", C.bienetre]].forEach(function (p) {
+        tl.fromTo(p[0], { scale: 0.4, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(2.2)" }, p[1]);
+      });
+      tl.fromTo("#f2-disc img", { scale: 1.15 }, { scale: 1, duration: D, ease: "none" }, 0);
+      window.__timelines["%ID%"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #000; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #FF2E93; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #wipe { position: absolute; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; }
+      .wp { position: absolute; top: -30%; height: 160%; left: -60%; width: 220%; border-radius: 50% / 50%; }
+      #wp-a { background: linear-gradient(90deg, #F6D58E, #E8B964); }
+      #wp-b { background: linear-gradient(90deg, #FF6EB5, #FF2E93); }
+      #wp-c { background: linear-gradient(90deg, #FF2E93, #C2106B); }
+      #iris-ring { position: absolute; left: 50%; top: 50%; width: 3305px; height: 3305px; margin: -1652.5px 0 0 -1652.5px; border-radius: 50%; opacity: 0; border: 14px solid #F6D58E; box-shadow: 0 0 40px rgba(255,255,255,.6); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="51" data-width="1920" data-height="1080">
+      <div id="el-01-accroche" class="scene clip" data-composition-id="01-accroche" data-composition-src="compositions/land/01-accroche.html" data-start="0" data-duration="3.5" data-track-index="0" data-width="1920" data-height="1080"></div>
+      <audio id="el-01-accroche-voice" src="assets/voice/scratch/01.wav" data-start="0.3" data-duration="2.93" data-track-index="10" data-volume="1"></audio>
+      <div id="el-02-marque" class="scene clip" data-composition-id="02-marque" data-composition-src="compositions/land/02-marque.html" data-start="3.5" data-duration="4.35" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <audio id="el-02-marque-voice" src="assets/voice/scratch/02.wav" data-start="3.75" data-duration="3.35" data-track-index="10" data-volume="1"></audio>
+      <div id="el-03-vedette" class="scene clip" data-composition-id="03-vedette" data-composition-src="compositions/land/03-vedette.html" data-start="7.4" data-duration="12.6" data-track-index="0" data-width="1920" data-height="1080"></div>
+      <audio id="el-03-vedette-voice" src="assets/voice/scratch/03.wav" data-start="7.6" data-duration="12.19" data-track-index="10" data-volume="1"></audio>
+      <div id="el-04-gamme" class="scene clip" data-composition-id="04-gamme" data-composition-src="compositions/land/04-gamme.html" data-start="20" data-duration="14" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <audio id="el-04-gamme-voice" src="assets/voice/scratch/04.wav" data-start="20.25" data-duration="13.42" data-track-index="10" data-volume="1"></audio>
+      <div id="el-05-paiement" class="scene clip" data-composition-id="05-paiement" data-composition-src="compositions/land/05-paiement.html" data-start="34" data-duration="7.8" data-track-index="0" data-width="1920" data-height="1080"></div>
+      <audio id="el-05-paiement-voice" src="assets/voice/scratch/05.wav" data-start="34.2" data-duration="6.68" data-track-index="10" data-volume="1"></audio>
+      <div id="el-06-commande" class="scene clip" data-composition-id="06-commande" data-composition-src="compositions/land/06-commande.html" data-start="41.2" data-duration="9.8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <audio id="el-06-commande-voice" src="assets/voice/scratch/06.wav" data-start="41.4" data-duration="8.96" data-track-index="10" data-volume="1"></audio>
+      <audio id="el-bgm" src="assets/bgm/sublime-groove.wav" data-start="0" data-duration="51" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="el-sfx-0" src="assets/sfx/whoosh.wav" data-start="0.05" data-duration="0.55" data-track-index="20" data-volume="0.25"></audio>
+      <audio id="el-sfx-1" src="assets/sfx/ding.wav" data-start="2.35" data-duration="1.4" data-track-index="21" data-volume="0.18"></audio>
+      <audio id="el-sfx-2" src="assets/sfx/pop.wav" data-start="5.5" data-duration="0.18" data-track-index="22" data-volume="0.2"></audio>
+      <audio id="el-sfx-3" src="assets/sfx/pop.wav" data-start="6.05" data-duration="0.18" data-track-index="23" data-volume="0.2"></audio>
+      <audio id="el-sfx-4" src="assets/sfx/pop.wav" data-start="6.55" data-duration="0.18" data-track-index="24" data-volume="0.22"></audio>
+      <audio id="el-sfx-5" src="assets/sfx/whoosh.wav" data-start="7.4" data-duration="0.55" data-track-index="25" data-volume="0.3"></audio>
+      <audio id="el-sfx-6" src="assets/sfx/pop.wav" data-start="12.01" data-duration="0.18" data-track-index="20" data-volume="0.25"></audio>
+      <audio id="el-sfx-7" src="assets/sfx/pop.wav" data-start="12.93" data-duration="0.18" data-track-index="21" data-volume="0.25"></audio>
+      <audio id="el-sfx-8" src="assets/sfx/pop.wav" data-start="13.85" data-duration="0.18" data-track-index="22" data-volume="0.25"></audio>
+      <audio id="el-sfx-9" src="assets/sfx/stamp.wav" data-start="17.15" data-duration="0.5" data-track-index="23" data-volume="0.4"></audio>
+      <audio id="el-sfx-10" src="assets/sfx/coin.wav" data-start="18.65" data-duration="0.9" data-track-index="24" data-volume="0.4"></audio>
+      <audio id="el-sfx-11" src="assets/sfx/ding.wav" data-start="19.45" data-duration="1.4" data-track-index="25" data-volume="0.3"></audio>
+      <audio id="el-sfx-12" src="assets/sfx/tick.wav" data-start="21.5" data-duration="0.12" data-track-index="20" data-volume="0.3"></audio>
+      <audio id="el-sfx-13" src="assets/sfx/tick.wav" data-start="22.55" data-duration="0.12" data-track-index="21" data-volume="0.3"></audio>
+      <audio id="el-sfx-14" src="assets/sfx/tick.wav" data-start="23.25" data-duration="0.12" data-track-index="22" data-volume="0.3"></audio>
+      <audio id="el-sfx-15" src="assets/sfx/tick.wav" data-start="24.05" data-duration="0.12" data-track-index="23" data-volume="0.3"></audio>
+      <audio id="el-sfx-16" src="assets/sfx/tick.wav" data-start="25" data-duration="0.12" data-track-index="24" data-volume="0.3"></audio>
+      <audio id="el-sfx-17" src="assets/sfx/pop.wav" data-start="25.9" data-duration="0.18" data-track-index="25" data-volume="0.22"></audio>
+      <audio id="el-sfx-18" src="assets/sfx/tick.wav" data-start="27.2" data-duration="0.12" data-track-index="20" data-volume="0.3"></audio>
+      <audio id="el-sfx-19" src="assets/sfx/tick.wav" data-start="28.5" data-duration="0.12" data-track-index="21" data-volume="0.3"></audio>
+      <audio id="el-sfx-20" src="assets/sfx/pop.wav" data-start="30.75" data-duration="0.18" data-track-index="22" data-volume="0.22"></audio>
+      <audio id="el-sfx-21" src="assets/sfx/tick.wav" data-start="31.75" data-duration="0.12" data-track-index="23" data-volume="0.3"></audio>
+      <audio id="el-sfx-22" src="assets/sfx/tick.wav" data-start="32.6" data-duration="0.12" data-track-index="24" data-volume="0.3"></audio>
+      <audio id="el-sfx-23" src="assets/sfx/pop.wav" data-start="35.5" data-duration="0.18" data-track-index="25" data-volume="0.25"></audio>
+      <audio id="el-sfx-24" src="assets/sfx/pop.wav" data-start="36.2" data-duration="0.18" data-track-index="20" data-volume="0.25"></audio>
+      <audio id="el-sfx-25" src="assets/sfx/pop.wav" data-start="36.85" data-duration="0.18" data-track-index="21" data-volume="0.25"></audio>
+      <audio id="el-sfx-26" src="assets/sfx/whoosh.wav" data-start="37.3" data-duration="0.55" data-track-index="22" data-volume="0.25"></audio>
+      <audio id="el-sfx-27" src="assets/sfx/coin.wav" data-start="38.4" data-duration="0.9" data-track-index="23" data-volume="0.3"></audio>
+      <audio id="el-sfx-28" src="assets/sfx/coin.wav" data-start="39.95" data-duration="0.9" data-track-index="24" data-volume="0.3"></audio>
+      <audio id="el-sfx-29" src="assets/sfx/pop.wav" data-start="42.7" data-duration="0.18" data-track-index="25" data-volume="0.3"></audio>
+      <audio id="el-sfx-30" src="assets/sfx/tick.wav" data-start="43.5" data-duration="0.12" data-track-index="20" data-volume="0.35"></audio>
+      <audio id="el-sfx-31" src="assets/sfx/tick.wav" data-start="44.4" data-duration="0.12" data-track-index="21" data-volume="0.35"></audio>
+      <audio id="el-sfx-32" src="assets/sfx/tick.wav" data-start="45.1" data-duration="0.12" data-track-index="22" data-volume="0.35"></audio>
+      <audio id="el-sfx-33" src="assets/sfx/tick.wav" data-start="45.9" data-duration="0.12" data-track-index="23" data-volume="0.35"></audio>
+      <audio id="el-sfx-34" src="assets/sfx/ding.wav" data-start="47.1" data-duration="1.4" data-track-index="24" data-volume="0.3"></audio>
+      <audio id="el-sfx-35" src="assets/sfx/ding.wav" data-start="49.3" data-duration="1.4" data-track-index="25" data-volume="0.25"></audio>
+      <div id="wipe"><div class="wp" id="wp-a" data-layout-allow-overflow></div><div class="wp" id="wp-b" data-layout-allow-overflow></div><div class="wp" id="wp-c" data-layout-allow-overflow></div><div id="iris-ring"></div></div>
+    </div>
+    <script>
+      (function () {
+        var tl = gsap.timeline({ paused: true });
+        tl.fromTo("#wp-a", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut" }, 2.79);
+        tl.fromTo("#wp-b", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut" }, 2.87);
+        tl.fromTo("#wp-c", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut" }, 2.95);
+        tl.fromTo("#el-02-marque", { scale: 1.08 }, { scale: 1, duration: 0.9, ease: "power3.out", immediateRender: false }, 3.5);
+        tl.to("#el-02-marque", { scale: 1.7, opacity: 0, filter: "blur(10px)", duration: 0.45, ease: "power3.in" }, 7.4);
+        tl.fromTo("#el-03-vedette", { scale: 0.6, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out", immediateRender: false }, 7.4);
+        tl.fromTo("#wp-a", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut", immediateRender: false }, 19.29);
+        tl.fromTo("#wp-b", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut", immediateRender: false }, 19.37);
+        tl.fromTo("#wp-c", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut", immediateRender: false }, 19.45);
+        tl.fromTo("#el-04-gamme", { scale: 1.08 }, { scale: 1, duration: 0.9, ease: "power3.out", immediateRender: false }, 20);
+        tl.fromTo("#wp-a", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut", immediateRender: false }, 33.29);
+        tl.fromTo("#wp-b", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut", immediateRender: false }, 33.37);
+        tl.fromTo("#wp-c", { x: -3264 }, { x: 3264, duration: 1.1, ease: "sine.inOut", immediateRender: false }, 33.45);
+        tl.fromTo("#el-05-paiement", { scale: 1.08 }, { scale: 1, duration: 0.9, ease: "power3.out", immediateRender: false }, 34);
+        tl.fromTo("#el-06-commande", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(75% at 50% 50%)", duration: 0.7, ease: "power3.inOut", immediateRender: false }, 41.2);
+        tl.fromTo("#iris-ring", { scale: 0, opacity: 1 }, { scale: 1, opacity: 0, duration: 0.8, ease: "power3.inOut", immediateRender: false }, 41.2);
+        tl.to({}, { duration: 51 }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

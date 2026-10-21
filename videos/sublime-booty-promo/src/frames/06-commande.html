@@ -1,0 +1,122 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    %FONTS%
+    %COMMON%
+    #f6-bg{background:radial-gradient(ellipse at 40% 45%,#F42C8C 0%,#E41A80 48%,#B80A66 100%)}
+    #f6-medal{position:absolute;left:170px;top:250px;width:500px;height:538px;border-radius:44px;overflow:hidden;background:#fff;border:6px solid #fff;box-shadow:0 40px 90px rgba(100,0,50,.45)}
+    #f6-medal img{display:block;width:100%;height:100%;object-fit:cover}
+    #f6-glint{position:absolute;top:-20%;left:0;width:140px;height:140%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.85),rgba(255,255,255,0));transform-origin:50% 50%}
+    #f6-ring{position:absolute;left:130px;top:210px;width:580px;height:618px;border-radius:64px;border:3px solid rgba(246,213,142,.85)}
+    #f6-copy{position:absolute;left:800px;top:150px;width:1060px}
+    .f6-t{font:900 116px/1.02 'Playfair Display';text-shadow:0 10px 34px rgba(110,0,55,.3)}
+    .f6-t em{font-style:italic;font-weight:700}
+    #f6-wa{display:flex;align-items:center;gap:28px;margin-top:40px}
+    #f6-wai{position:relative;width:124px;height:124px;flex:none}
+    #f6-wai svg{position:relative;display:block;width:100%;height:100%}
+    .f6-pulse{position:absolute;inset:0;border-radius:50%;border:4px solid #fff}
+    #f6-num{display:flex;gap:26px;font:800 112px/1 Montserrat;letter-spacing:.01em}
+    #f6-num span{display:inline-block}
+    #f6-soc{display:flex;align-items:center;gap:20px;margin-top:34px}
+    .f6-s{width:74px;height:74px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(110,0,55,.25)}
+    .f6-s svg{width:40px;height:40px}
+    #f6-handle{font:700 32px Montserrat;margin-left:10px}
+    #f6-tag{margin-top:34px}
+    .f6-g{display:block;font:400 88px/1.12 'Great Vibes';padding-right:20px;color:#FFF2C9}
+    #f6-recap{display:none}
+    /*IF:port*/
+    #f6-medal{left:315px;top:110px;width:450px;height:484px}
+    #f6-ring{left:279px;top:74px;width:522px;height:556px}
+    #f6-copy{left:0;top:680px;width:1080px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .f6-t{font-size:104px}
+    #f6-wa{gap:22px;margin-top:44px}
+    #f6-wai{width:112px;height:112px}
+    #f6-num{font-size:96px;gap:20px}
+    #f6-soc{margin-top:40px}
+    #f6-tag{margin-top:40px}
+    .f6-g{font-size:90px;padding:0 20px}
+    #f6-recap{display:flex;gap:16px;margin-top:46px}
+    .f6-r{padding:12px 26px;border-radius:100px;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.55);font:700 28px Montserrat}
+    /*/IF*/
+  </style>
+  <div id="root" data-composition-id="%ID%" data-start="0" data-duration="%DUR%" data-width="%W%" data-height="%H%">
+    <div id="f6-bg" class="bg clip" data-start="0" data-duration="%DUR%" data-track-index="0"></div>
+    <div id="f6-cam" class="cam">
+      <div id="f6-bokeh" class="cam"></div>
+      <!--IF:land-->
+      <svg class="silk" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <path class="f6-sl" pathLength="1" d="M-100,900 C300,700 620,1060 1000,840 S1700,520 2020,720" stroke="rgba(255,255,255,.3)" stroke-width="4"/>
+        <path class="f6-sl" pathLength="1" d="M-100,160 C400,10 700,380 1100,220 S1700,-40 2020,120" stroke="rgba(246,213,142,.5)" stroke-width="3"/>
+        <path class="f6-sl" pathLength="1" d="M-100,760 C350,580 650,960 1050,700 S1650,390 2020,580" stroke="rgba(255,255,255,.09)" stroke-width="100"/>
+      </svg>
+      <!--/IF-->
+      <!--IF:port-->
+      <svg class="silk" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+        <path class="f6-sl" pathLength="1" d="M-100,1700 C250,1480 640,1880 1180,1560" stroke="rgba(255,255,255,.3)" stroke-width="4"/>
+        <path class="f6-sl" pathLength="1" d="M-100,560 C300,360 700,780 1180,470" stroke="rgba(246,213,142,.5)" stroke-width="3"/>
+        <path class="f6-sl" pathLength="1" d="M-100,1400 C250,1200 640,1600 1180,1280" stroke="rgba(255,255,255,.09)" stroke-width="100"/>
+      </svg>
+      <!--/IF-->
+      <div id="f6-ring"></div>
+      <div id="f6-medal"><img src="assets/img/logo-full.jpg" alt="Sublime Booty by Chris"><div id="f6-glint"></div></div>
+      <div id="f6-copy">
+        <span class="mask f6-t"><span id="f6-t1">Commandez</span></span>
+        <span class="mask f6-t"><span id="f6-t2"><em>maintenant</em></span></span>
+        <div id="f6-wa">
+          <div id="f6-wai">
+            <div class="f6-pulse"></div><div class="f6-pulse"></div>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#25D366"/><g transform="translate(3.2 3.2) scale(.73)"><path d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z" fill="#fff"/><path d="M8.6 7.3c.2-.4.4-.4.7-.4h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.6.8c-.1.2-.2.3 0 .6.5.9 1.2 1.7 2 2.3.7.5 1.3.8 1.6.9.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.4.4 0 .2 0 1-.4 1.6-.4.6-1.5 1.1-2.1 1.1-.6 0-1.3.2-4-1-3.2-1.5-5.1-4.8-5.3-5-.1-.2-1.2-1.6-1.2-3.1 0-1.4.7-2.1 1-2.4z" fill="#25D366"/></g></svg>
+          </div>
+          <div id="f6-num"><span class="mask"><span id="f6-n1">87</span></span><span class="mask"><span id="f6-n2">32</span></span><span class="mask"><span id="f6-n3">55</span></span><span class="mask"><span id="f6-n4">96</span></span></div>
+        </div>
+        <div id="f6-soc">
+          <div class="f6-s"><svg viewBox="0 0 24 24"><path d="M14.5 3h3c.2 1.8 1.4 3.2 3.3 3.5v3.1c-1.2 0-2.3-.3-3.3-.9v6.1a5.6 5.6 0 1 1-5.6-5.6l.9.1v3.2a2.5 2.5 0 1 0 1.7 2.3z" fill="#1A0611"/></svg></div>
+          <div class="f6-s"><svg viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14c-2.5 0-4 1.6-4 4V11H7.5v3.5H10V21h3.5v-6.5H16l.5-3.5h-3V8.8c0-.5.3-.8.5-.8z" fill="#1877F2"/></svg></div>
+          <div class="f6-s"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="#E1306C" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#E1306C" stroke-width="2.2"/><circle cx="17.3" cy="6.7" r="1.3" fill="#E1306C"/></svg></div>
+          <span id="f6-handle">Sublime Booty by Chris</span>
+        </div>
+        <div id="f6-tag">
+          <span class="f6-g" id="f6-g1">Prenez soin de vous,</span>
+          <span class="f6-g" id="f6-g2">révélez votre beauté !</span>
+        </div>
+        <div id="f6-recap"><span class="f6-r">NITA</span><span class="f6-r">AMANA</span><span class="f6-r">Wave</span><span class="f6-r">Livraison Niger</span></div>
+      </div>
+      <div id="f6-sparks" class="cam"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      %HELPERS%
+      var C = %CUES%, D = %DUR%, W = %W%, H = %H%, P = "%O%" === "port";
+      var tl = gsap.timeline({ paused: true });
+      var bk = SB.bokeh(document.getElementById("f6-bokeh"), 14, 61, W, H, "rgba(255,255,255,.5)", 60, 220);
+      SB.drift(tl, bk, D);
+      var sp = SB.sparkles(document.getElementById("f6-sparks"), 14, 23, P ? [120, 60, 960, 1860] : [100, 120, 1860, 1000], "#FFF4C8", 16, 44);
+      SB.twinkle(tl, sp, 0.6, D, 29);
+
+      tl.fromTo("#f6-cam", { scale: 1.0 }, { scale: 1.035, duration: D, ease: "none" }, 0);
+      tl.fromTo(".f6-sl", { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.8, stagger: 0.18, ease: "power2.inOut" }, 0.1);
+      tl.fromTo("#f6-medal", { scale: 0.7, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.9, ease: "back.out(1.5)" }, 0.05);
+      tl.fromTo("#f6-ring", { scale: 0.8, opacity: 0, rotation: 4 }, { scale: 1, opacity: 1, rotation: 0, duration: 1.0, ease: "expo.out" }, 0.25);
+      tl.fromTo("#f6-ring", { rotation: 0 }, { rotation: -4, duration: D - 1.3, ease: "sine.inOut", immediateRender: false }, 1.3);
+      tl.fromTo(["#f6-t1", "#f6-t2"], { yPercent: 110 }, { yPercent: 0, duration: 0.7, stagger: 0.2, ease: "expo.out" }, C.cmd);
+      tl.fromTo("#f6-wai", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(2.2)" }, C.wa);
+      gsap.utils.toArray("#f6-wai .f6-pulse").forEach(function (el, i) {
+        tl.set(el, { scale: 1, opacity: 0 }, 0);
+        for (var t = C.wa + 0.5 + i * 0.6; t < D - 1.2; t += 1.2) {
+          tl.fromTo(el, { scale: 1, opacity: 0.8 }, { scale: 1.7, opacity: 0, duration: 1.2, ease: "power2.out", immediateRender: false }, t);
+        }
+      });
+      [["#f6-n1", C.n1], ["#f6-n2", C.n2], ["#f6-n3", C.n3], ["#f6-n4", C.n4]].forEach(function (n) {
+        tl.fromTo(n[0], { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "back.out(1.6)" }, n[1]);
+      });
+      tl.fromTo("#f6-soc > *", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: "back.out(1.8)" }, C.socials);
+      tl.fromTo("#f6-medal", { scale: 1 }, { keyframes: { scale: [1, 1.05, 1] }, duration: 0.6, ease: "power1.inOut", immediateRender: false }, C.brand);
+      tl.fromTo("#f6-glint", { x: -200, rotation: 18 }, { x: 640, rotation: 18, duration: 0.9, ease: "power2.inOut" }, C.brand);
+      tl.fromTo("#f6-g1", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9, ease: "power2.inOut" }, C.tag1);
+      tl.fromTo("#f6-g2", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.0, ease: "power2.inOut" }, C.tag2);
+      if (P) tl.fromTo("#f6-recap > *", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, stagger: 0.08, ease: "back.out(2)" }, C.tag2 + 0.6);
+      window.__timelines["%ID%"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,151 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700 900;font-display:block;src:url('assets/fonts/PlayfairDisplay-normal-700_900.woff2') format('woff2');}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/PlayfairDisplay-italic-400_900.woff2') format('woff2');}
+@font-face{font-family:'Great Vibes';font-style:normal;font-weight:400;font-display:block;src:url('assets/fonts/GreatVibes-400.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Montserrat-normal-400_800.woff2') format('woff2');}
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff}
+.bg{position:absolute;inset:0}
+.cam{position:absolute;inset:0}
+.mask{display:block;overflow:hidden;padding:0 .1em .14em;margin:0 -.1em -.14em}
+.mask>span{display:inline-block}
+.gold{background:linear-gradient(100deg,#B8802F 0%,#F6D58E 38%,#D9A54B 62%,#F8DF9F 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spark{position:absolute;width:40px;height:40px}
+.spark svg{display:block;width:100%;height:100%}
+.bokeh{position:absolute;border-radius:50%}
+.silk{position:absolute;inset:0;width:100%;height:100%}
+.silk path{fill:none;stroke-linecap:round}
+.ico{display:block}
+
+    #f1-bg{background:radial-gradient(ellipse at 50% 45%,#F42C8C 0%,#E41A80 48%,#B80A66 100%)}
+    #f1-glow{position:absolute;left:50%;top:50%;width:1400px;height:1400px;margin:-700px 0 0 -700px;border-radius:50%;background:radial-gradient(circle,rgba(255,170,215,.28) 0%,rgba(255,255,255,0) 60%)}
+    #f1-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    #f1-eyebrow{font:700 34px Montserrat;text-shadow:0 2px 14px rgba(110,0,55,.5);letter-spacing:.42em;text-transform:uppercase;margin-bottom:30px;padding-left:.42em}
+    .f1-line{font:800 118px/1.04 'Playfair Display';letter-spacing:-.01em;text-shadow:0 4px 24px rgba(110,0,55,.45)}
+    #f1-sigwrap{position:relative;margin-top:4px}
+    #f1-sig{display:block;font:400 236px/1.05 'Great Vibes';padding:0 40px;text-shadow:0 10px 40px rgba(120,0,60,.35)}
+    #f1-under{position:absolute;left:8%;right:8%;bottom:6px;height:40px}
+    
+    #f1-eyebrow{font-size:32px}
+    .f1-line{font-size:96px}
+    #f1-sig{font-size:196px}
+    
+  </style>
+  <div id="root" data-composition-id="01-accroche" data-start="0" data-duration="3.5" data-width="1080" data-height="1920">
+    <div id="f1-bg" class="bg clip" data-start="0" data-duration="3.5" data-track-index="0"></div>
+    <div id="f1-cam" class="cam">
+      <div id="f1-glow"></div>
+      <div id="f1-bokeh" class="cam"></div>
+      
+      
+      <svg class="silk" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+        <path class="f1-s" pathLength="1" d="M-100,1520 C200,1250 620,1720 1180,1350" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+        <path class="f1-s" pathLength="1" d="M-100,520 C300,290 700,770 1180,420" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+        <path class="f1-s" pathLength="1" d="M-100,1760 C400,1640 700,1910 1180,1690" stroke="rgba(246,213,142,.55)" stroke-width="3"/>
+        <path class="f1-s" pathLength="1" d="M-100,1300 C250,1080 640,1500 1180,1160" stroke="rgba(255,255,255,.10)" stroke-width="90"/>
+      </svg>
+      
+      <div id="f1-text">
+        <div id="f1-eyebrow">Mesdames…</div>
+        <span class="mask f1-line"><span id="f1-l1">Et si vos courbes</span></span>
+        <span class="mask f1-line"><span id="f1-l2">devenaient votre</span></span>
+        <div id="f1-sigwrap">
+          <span id="f1-sig">signature ?</span>
+          <svg id="f1-under" viewBox="0 0 600 40" preserveAspectRatio="none"><path id="f1-up" pathLength="1" d="M5,30 C150,8 420,8 595,22" fill="none" stroke="#F6D58E" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"/></svg>
+        </div>
+      </div>
+      <div id="f1-sparks" class="cam"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var SB = (function () {
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6d2b79f5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  var STAR = '<svg viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="currentColor"/></svg>';
+  // n sparkles inside box [x0,y0,x1,y1] (px); returns the elements
+  function sparkles(host, n, seed, box, color, smin, smax) {
+    var r = rng(seed), out = [];
+    for (var i = 0; i < n; i++) {
+      var el = document.createElement("div");
+      el.className = "spark";
+      var s = smin + r() * (smax - smin);
+      el.style.width = el.style.height = s + "px";
+      el.style.left = box[0] + r() * (box[2] - box[0]) - s / 2 + "px";
+      el.style.top = box[1] + r() * (box[3] - box[1]) - s / 2 + "px";
+      el.style.color = color;
+      el.innerHTML = STAR;
+      host.appendChild(el);
+      out.push(el);
+    }
+    return out;
+  }
+  // twinkle every sparkle between t0 and t1 with finite repeats
+  function twinkle(tl, els, t0, t1, seed) {
+    var r = rng(seed);
+    els.forEach(function (el) {
+      var period = 0.9 + r() * 0.9, start = t0 + r() * period;
+      tl.set(el, { scale: 0, opacity: 0 }, 0);
+      for (var t = start; t + period <= t1 + 0.001; t += period + r() * 0.4) {
+        tl.fromTo(el, { scale: 0, opacity: 0, rotation: -30 }, { keyframes: [{ scale: 1, opacity: 1, rotation: 0, duration: period * 0.4, ease: "power2.out" }, { scale: 0, opacity: 0, rotation: 30, duration: period * 0.6, ease: "power2.in" }], immediateRender: false }, t);
+      }
+    });
+  }
+  // soft drifting light discs
+  function bokeh(host, n, seed, W, H, color, smin, smax) {
+    var r = rng(seed), out = [];
+    for (var i = 0; i < n; i++) {
+      var el = document.createElement("div");
+      el.className = "bokeh";
+      var s = smin + r() * (smax - smin);
+      el.style.width = el.style.height = s + "px";
+      el.style.left = r() * W - s / 2 + "px";
+      el.style.top = r() * H - s / 2 + "px";
+      el.style.background = "radial-gradient(circle," + color + " 0%,rgba(255,255,255,0) 70%)";
+      el.style.opacity = (0.35 + r() * 0.5).toFixed(2);
+      el.dataset.dx = ((r() - 0.5) * 160).toFixed(1);
+      el.dataset.dy = (-40 - r() * 140).toFixed(1);
+      host.appendChild(el);
+      out.push(el);
+    }
+    return out;
+  }
+  function drift(tl, els, dur) {
+    els.forEach(function (el) {
+      tl.fromTo(el, { x: 0, y: 0 }, { x: +el.dataset.dx, y: +el.dataset.dy, duration: dur, ease: "none" }, 0);
+    });
+  }
+  function fmt(n) {
+    return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+  }
+  return { rng: rng, sparkles: sparkles, twinkle: twinkle, bokeh: bokeh, drift: drift, fmt: fmt };
+})();
+
+      var C = {"mesdames":0.3,"courbes":1.05,"devenaient":1.55,"signature":2.25}, D = 3.5, W = 1080, H = 1920, P = "port" === "port";
+      var tl = gsap.timeline({ paused: true });
+      var bk = SB.bokeh(document.getElementById("f1-bokeh"), 14, 11, W, H, "rgba(255,255,255,.55)", 60, 220);
+      SB.drift(tl, bk, D);
+      var sp = SB.sparkles(document.getElementById("f1-sparks"), 12, 5, P ? [120, 620, 960, 1340] : [380, 260, 1540, 860], "#FFF4C8", 18, 46);
+      SB.twinkle(tl, sp, C.signature + 0.2, D, 3);
+
+      tl.fromTo("#f1-cam", { scale: 1.0 }, { scale: 1.06, duration: D, ease: "none" }, 0);
+      tl.fromTo("#f1-glow", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.4, ease: "power2.out" }, 0);
+      tl.fromTo(".f1-s", { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.7, stagger: 0.15, ease: "power2.inOut" }, 0.0);
+      tl.fromTo("#f1-eyebrow", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.8, ease: "expo.out" }, C.mesdames);
+      tl.fromTo("#f1-l1", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, C.courbes);
+      tl.fromTo("#f1-l2", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, C.devenaient);
+      tl.fromTo("#f1-sig", { clipPath: "inset(0% 100% 0% 0%)", scale: 0.94 }, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.9, ease: "power2.out" }, C.signature);
+      tl.fromTo("#f1-up", { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power2.out" }, C.signature + 0.6);
+      tl.fromTo("#f1-text", { y: 0 }, { y: P ? -20 : -14, duration: D, ease: "none" }, 0);
+      window.__timelines["01-accroche"] = tl;
+    })();
+  </script>
+</template>

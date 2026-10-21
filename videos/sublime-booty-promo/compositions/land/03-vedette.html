@@ -1,0 +1,199 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700 900;font-display:block;src:url('assets/fonts/PlayfairDisplay-normal-700_900.woff2') format('woff2');}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;font-display:block;src:url('assets/fonts/PlayfairDisplay-italic-400_900.woff2') format('woff2');}
+@font-face{font-family:'Great Vibes';font-style:normal;font-weight:400;font-display:block;src:url('assets/fonts/GreatVibes-400.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:400 800;font-display:block;src:url('assets/fonts/Montserrat-normal-400_800.woff2') format('woff2');}
+    #root{position:absolute;inset:0;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff}
+.bg{position:absolute;inset:0}
+.cam{position:absolute;inset:0}
+.mask{display:block;overflow:hidden;padding:0 .1em .14em;margin:0 -.1em -.14em}
+.mask>span{display:inline-block}
+.gold{background:linear-gradient(100deg,#B8802F 0%,#F6D58E 38%,#D9A54B 62%,#F8DF9F 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spark{position:absolute;width:40px;height:40px}
+.spark svg{display:block;width:100%;height:100%}
+.bokeh{position:absolute;border-radius:50%}
+.silk{position:absolute;inset:0;width:100%;height:100%}
+.silk path{fill:none;stroke-linecap:round}
+.ico{display:block}
+
+    #f3-bg{background:linear-gradient(160deg,#F0288A 0%,#E41A80 42%,#B00C63 100%)}
+    #f3-stage{position:absolute;left:1020px;top:40px;width:820px;height:1000px}
+    #f3-rays{position:absolute;left:50%;top:50%;width:1700px;height:1700px;margin:-850px 0 0 -850px;border-radius:50%;background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.16) 0deg 6deg,rgba(255,255,255,0) 6deg 18deg);-webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.6) 30%,transparent 62%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.6) 30%,transparent 62%)}
+    #f3-halo{position:absolute;left:50%;top:50%;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.75) 0%,rgba(255,220,238,.35) 35%,rgba(255,255,255,0) 68%)}
+    #f3-float{position:absolute;left:50%;top:50%;width:560px;height:863px;margin:-431px 0 0 -280px}
+    #f3-pouch{display:block;width:100%;height:100%;filter:drop-shadow(0 40px 50px rgba(90,0,45,.45))}
+    #f3-shadow{position:absolute;left:50%;bottom:-40px;width:480px;height:60px;margin-left:-240px;border-radius:50%;background:radial-gradient(ellipse,rgba(90,0,45,.45) 0%,rgba(90,0,45,0) 70%)}
+    #f3-seal{position:absolute;right:-10px;top:30px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8E1458,#5B0A36 70%);border:5px solid #E8B964;box-shadow:0 20px 50px rgba(60,0,30,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    #f3-seal b{display:block;font:800 30px/1.1 Montserrat;color:#fff;letter-spacing:.04em}
+    #f3-seal strong{display:block;font:900 36px/1.05 'Playfair Display';letter-spacing:.02em}
+    #f3-seal small{display:block;margin-top:6px;font:600 17px/1.2 Montserrat;color:#FFD9EA}
+    #f3-copy{position:absolute;left:130px;top:120px;width:900px}
+    #f3-eyebrow{font:700 28px Montserrat;letter-spacing:.35em;color:#fff;text-shadow:0 2px 12px rgba(90,0,45,.5);margin-bottom:18px}
+    .f3-t{font:900 104px/1.02 'Playfair Display';text-shadow:0 10px 30px rgba(110,0,55,.3)}
+    #f3-secret{display:block;margin-top:10px;font:400 72px/1.15 'Great Vibes';color:#FFF2C9;padding-right:20px}
+    #f3-chips{position:absolute;left:130px;top:610px;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+    .f3-chip{display:flex;align-items:center;gap:18px;height:92px;padding:0 34px 0 14px;background:#fff;border-radius:100px;box-shadow:0 16px 40px rgba(110,0,55,.25);font:700 36px Montserrat;color:#C2106B;white-space:nowrap}
+    .f3-ic{width:66px;height:66px;border-radius:50%;background:linear-gradient(140deg,#FF6EB5,#FF2E93);display:flex;align-items:center;justify-content:center}
+    .f3-ic svg{width:38px;height:38px}
+    .f3-mini{display:inline-block;padding:8px 18px;border-radius:40px;background:rgba(255,46,147,.1);color:#C2106B;font:700 30px Montserrat}
+    #f3-offer{position:absolute;left:130px;top:600px;display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+    #f3-gram{display:flex;align-items:center;gap:16px;height:76px;padding:0 30px;border-radius:100px;border:3px solid #F6D58E;font:700 32px Montserrat;color:#fff;letter-spacing:.06em}
+    #f3-gram b{font:900 44px 'Playfair Display';color:#FFE6A8;letter-spacing:0}
+    #f3-card{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;padding:26px 44px 30px;border-radius:30px;background:linear-gradient(150deg,#fff 0%,#FFF1F7 100%);box-shadow:0 30px 70px rgba(110,0,55,.35)}
+    #f3-card small{font:800 28px Montserrat;letter-spacing:.3em;color:#C2106B}
+    #f3-pr{display:flex;align-items:baseline;gap:18px;margin-top:4px}
+    #f3-num{font:900 150px/1 'Playfair Display';color:#D4127A;letter-spacing:-.01em}
+    #f3-seal .f3-s2{margin-top:0}
+    #f3-cur{font:800 54px Montserrat;color:#B8802F}
+    #f3-shine{position:absolute;top:-20%;left:0;width:120px;height:140%;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.9),rgba(255,255,255,0))}
+    
+  </style>
+  <div id="root" data-composition-id="03-vedette" data-start="0" data-duration="12.6" data-width="1920" data-height="1080">
+    <div id="f3-bg" class="bg clip" data-start="0" data-duration="12.6" data-track-index="0"></div>
+    <div id="f3-cam" class="cam">
+      <div id="f3-bokeh" class="cam"></div>
+      <div id="f3-stage">
+        <div id="f3-rays" data-layout-allow-overflow></div>
+        <div id="f3-halo"></div>
+        <div id="f3-float">
+          <div id="f3-shadow"></div>
+          <img id="f3-pouch" src="assets/img/pouch.png" alt="">
+        </div>
+        <div id="f3-seal"><b>NOUVELLE</b><strong class="gold">FORMULE</strong><small>encore plus</small><small class="f3-s2">efficace !</small></div>
+      </div>
+      <div id="f3-copy">
+        <div id="f3-eyebrow">★ NOTRE STAR ★</div>
+        <span class="mask f3-t"><span id="f3-t1">Céréales</span></span>
+        <span class="mask f3-t"><span id="f3-t2">Booty Gain VIP</span></span>
+        <span id="f3-secret">Le secret des courbes féminines</span>
+      </div>
+      <div id="f3-chips">
+        <div class="f3-chip" id="f3-c1"><span class="f3-ic"><svg viewBox="0 0 24 24"><path d="M5 19C5 10 11 5 20 5c0 9-5 14-14 14z M5 19l8-8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>100 % naturel</div>
+        <div class="f3-chip" id="f3-c2"><span class="f3-ic"><svg viewBox="0 0 24 24"><path d="M12 21v-9 M12 13C12 9 9 6.5 4.5 6.5c0 4.5 3 6.5 7.5 6.5z M12 11c0-4 3-6.5 7.5-6.5 0 4.5-3 6.5-7.5 6.5z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>À base de plantes</div>
+        <div class="f3-chip" id="f3-c3"><span class="f3-ic"><svg viewBox="0 0 24 24"><path d="M7 3h10l-1.5 18h-7z M7.4 8h9.2" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="f3-mini" id="f3-m1">Lait</span><span class="f3-mini" id="f3-m2">Yaourt</span><span class="f3-mini" id="f3-m3">Eau</span></div>
+      </div>
+      <div id="f3-offer">
+        <div id="f3-gram">FORMAT <b>500 g</b></div>
+        <div id="f3-card">
+          <small>PRIX SPÉCIAL</small>
+          <div id="f3-pr"><span id="f3-num">0</span><span id="f3-cur">FCFA</span></div>
+          <div id="f3-shine"></div>
+        </div>
+      </div>
+      <div id="f3-sparks" class="cam"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var SB = (function () {
+  function rng(seed) {
+    return function () {
+      seed |= 0; seed = (seed + 0x6d2b79f5) | 0;
+      var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  var STAR = '<svg viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z" fill="currentColor"/></svg>';
+  // n sparkles inside box [x0,y0,x1,y1] (px); returns the elements
+  function sparkles(host, n, seed, box, color, smin, smax) {
+    var r = rng(seed), out = [];
+    for (var i = 0; i < n; i++) {
+      var el = document.createElement("div");
+      el.className = "spark";
+      var s = smin + r() * (smax - smin);
+      el.style.width = el.style.height = s + "px";
+      el.style.left = box[0] + r() * (box[2] - box[0]) - s / 2 + "px";
+      el.style.top = box[1] + r() * (box[3] - box[1]) - s / 2 + "px";
+      el.style.color = color;
+      el.innerHTML = STAR;
+      host.appendChild(el);
+      out.push(el);
+    }
+    return out;
+  }
+  // twinkle every sparkle between t0 and t1 with finite repeats
+  function twinkle(tl, els, t0, t1, seed) {
+    var r = rng(seed);
+    els.forEach(function (el) {
+      var period = 0.9 + r() * 0.9, start = t0 + r() * period;
+      tl.set(el, { scale: 0, opacity: 0 }, 0);
+      for (var t = start; t + period <= t1 + 0.001; t += period + r() * 0.4) {
+        tl.fromTo(el, { scale: 0, opacity: 0, rotation: -30 }, { keyframes: [{ scale: 1, opacity: 1, rotation: 0, duration: period * 0.4, ease: "power2.out" }, { scale: 0, opacity: 0, rotation: 30, duration: period * 0.6, ease: "power2.in" }], immediateRender: false }, t);
+      }
+    });
+  }
+  // soft drifting light discs
+  function bokeh(host, n, seed, W, H, color, smin, smax) {
+    var r = rng(seed), out = [];
+    for (var i = 0; i < n; i++) {
+      var el = document.createElement("div");
+      el.className = "bokeh";
+      var s = smin + r() * (smax - smin);
+      el.style.width = el.style.height = s + "px";
+      el.style.left = r() * W - s / 2 + "px";
+      el.style.top = r() * H - s / 2 + "px";
+      el.style.background = "radial-gradient(circle," + color + " 0%,rgba(255,255,255,0) 70%)";
+      el.style.opacity = (0.35 + r() * 0.5).toFixed(2);
+      el.dataset.dx = ((r() - 0.5) * 160).toFixed(1);
+      el.dataset.dy = (-40 - r() * 140).toFixed(1);
+      host.appendChild(el);
+      out.push(el);
+    }
+    return out;
+  }
+  function drift(tl, els, dur) {
+    els.forEach(function (el) {
+      tl.fromTo(el, { x: 0, y: 0 }, { x: +el.dataset.dx, y: +el.dataset.dy, duration: dur, ease: "none" }, 0);
+    });
+  }
+  function fmt(n) {
+    return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "\u00a0");
+  }
+  return { rng: rng, sparkles: sparkles, twinkle: twinkle, bokeh: bokeh, drift: drift, fmt: fmt };
+})();
+
+      var C = {"star":0.2,"title":1.1,"secret":2.96,"naturel":4.61,"plantes":5.53,"mix":6.45,"lait":7.45,"yaourt":7.8,"eau":8.5,"format":9.1,"seal":9.75,"price":11.2}, D = 12.6, W = 1920, H = 1080, P = "land" === "port";
+      var tl = gsap.timeline({ paused: true });
+      var bk = SB.bokeh(document.getElementById("f3-bokeh"), 16, 31, W, H, "rgba(255,255,255,.5)", 40, 180);
+      SB.drift(tl, bk, D);
+      var sp = SB.sparkles(document.getElementById("f3-sparks"), 14, 13, P ? [140, 520, 940, 1380] : [1040, 80, 1840, 1000], "#FFF4C8", 16, 44);
+      SB.twinkle(tl, sp, 0.8, D, 17);
+
+      tl.fromTo("#f3-cam", { scale: 1.0 }, { scale: 1.035, duration: D, ease: "none" }, 0);
+      tl.fromTo("#f3-rays", { rotation: 0, opacity: 0 }, { rotation: 50, opacity: 1, duration: D, ease: "none" }, 0);
+      tl.fromTo("#f3-halo", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo("#f3-pouch", { y: 360, opacity: 0, rotation: -9 }, { y: 0, opacity: 1, rotation: -3, duration: 1.2, ease: "expo.out" }, 0.0);
+      var bob = 1.6, reps = Math.max(0, Math.floor((D - 1.2) / bob) - 1);
+      tl.fromTo("#f3-float", { y: 0 }, { y: -22, duration: bob / 2, ease: "sine.inOut", yoyo: true, repeat: reps * 2 + 1 }, 1.2);
+      tl.fromTo("#f3-pouch", { rotation: -3 }, { rotation: 2, duration: D - 1.2, ease: "sine.inOut", immediateRender: false }, 1.2);
+
+      tl.fromTo("#f3-eyebrow", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, C.star);
+      tl.fromTo(["#f3-t1", "#f3-t2"], { yPercent: 110 }, { yPercent: 0, duration: 0.7, stagger: 0.18, ease: "expo.out" }, C.title);
+      tl.fromTo("#f3-secret", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "power2.inOut" }, C.secret);
+
+      [["#f3-c1", C.naturel], ["#f3-c2", C.plantes], ["#f3-c3", C.mix]].forEach(function (c) {
+        tl.fromTo(c[0], { x: P ? 0 : -80, y: P ? 40 : 0, scale: 0.7, opacity: 0 }, { x: 0, y: 0, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.8)" }, c[1]);
+      });
+      [["#f3-m1", C.lait], ["#f3-m2", C.yaourt], ["#f3-m3", C.eau]].forEach(function (m) {
+        tl.fromTo(m[0], { backgroundColor: "rgba(255,46,147,0.1)", color: "#C2106B" }, { backgroundColor: "#FF2E93", color: "#ffffff", duration: 0.25, ease: "power2.out", immediateRender: false }, m[1]);
+        tl.fromTo(m[0], { scale: 1 }, { keyframes: { scale: [1, 1.18, 1] }, duration: 0.4, ease: "power1.inOut", immediateRender: false }, m[1]);
+      });
+      tl.to(["#f3-c1", "#f3-c2", "#f3-c3"], { opacity: 0, x: P ? 0 : -60, y: P ? -30 : 0, duration: 0.35, stagger: 0.06, ease: "power2.in" }, C.format - 0.45);
+
+      tl.fromTo("#f3-gram", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, C.format);
+      tl.fromTo("#f3-seal", { scale: 2.4, opacity: 0, rotation: -40 }, { scale: 1, opacity: 1, rotation: -10, duration: 0.3, ease: "power3.in" }, C.seal);
+      tl.fromTo("#f3-seal", { rotation: -10 }, { rotation: 8, duration: D - C.seal - 0.3, ease: "sine.inOut", immediateRender: false }, C.seal + 0.3);
+      tl.fromTo("#f3-stage", { x: 0 }, { keyframes: { x: [0, -8, 6, -3, 0] }, duration: 0.3, ease: "none" }, C.seal + 0.3);
+      tl.fromTo("#f3-card", { scale: 0.6, opacity: 0, y: 40 }, { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.7)" }, C.price - 0.45);
+      var num = document.getElementById("f3-num"), o = { v: 0 };
+      tl.fromTo(o, { v: 0 }, { v: 25000, duration: 0.9, ease: "power2.out", onUpdate: function () { num.textContent = SB.fmt(Math.round(o.v / 100) * 100); } }, C.price - 0.25);
+      tl.fromTo("#f3-num", { scale: 1 }, { keyframes: { scale: [1, 1.1, 1] }, duration: 0.45, ease: "power1.inOut", immediateRender: false }, C.price + 0.65);
+      tl.fromTo("#f3-shine", { x: -160 }, { x: 760, duration: 0.8, ease: "power2.inOut" }, C.price + 0.8);
+      window.__timelines["03-vedette"] = tl;
+    })();
+  </script>
+</template>

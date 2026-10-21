@@ -1,0 +1,75 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    %FONTS%
+    %COMMON%
+    #f1-bg{background:radial-gradient(ellipse at 50% 45%,#F42C8C 0%,#E41A80 48%,#B80A66 100%)}
+    #f1-glow{position:absolute;left:50%;top:50%;width:1400px;height:1400px;margin:-700px 0 0 -700px;border-radius:50%;background:radial-gradient(circle,rgba(255,170,215,.28) 0%,rgba(255,255,255,0) 60%)}
+    #f1-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    #f1-eyebrow{font:700 34px Montserrat;text-shadow:0 2px 14px rgba(110,0,55,.5);letter-spacing:.42em;text-transform:uppercase;margin-bottom:30px;padding-left:.42em}
+    .f1-line{font:800 118px/1.04 'Playfair Display';letter-spacing:-.01em;text-shadow:0 4px 24px rgba(110,0,55,.45)}
+    #f1-sigwrap{position:relative;margin-top:4px}
+    #f1-sig{display:block;font:400 236px/1.05 'Great Vibes';padding:0 40px;text-shadow:0 10px 40px rgba(120,0,60,.35)}
+    #f1-under{position:absolute;left:8%;right:8%;bottom:6px;height:40px}
+    /*IF:port*/
+    #f1-eyebrow{font-size:32px}
+    .f1-line{font-size:96px}
+    #f1-sig{font-size:196px}
+    /*/IF*/
+  </style>
+  <div id="root" data-composition-id="%ID%" data-start="0" data-duration="%DUR%" data-width="%W%" data-height="%H%">
+    <div id="f1-bg" class="bg clip" data-start="0" data-duration="%DUR%" data-track-index="0"></div>
+    <div id="f1-cam" class="cam">
+      <div id="f1-glow"></div>
+      <div id="f1-bokeh" class="cam"></div>
+      <!--IF:land-->
+      <svg class="silk" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+        <path class="f1-s" pathLength="1" d="M-100,820 C300,600 620,1010 1000,760 S1700,420 2020,640" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+        <path class="f1-s" pathLength="1" d="M-100,300 C400,110 700,520 1100,350 S1700,70 2020,230" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+        <path class="f1-s" pathLength="1" d="M-100,990 C500,860 900,1090 1300,925 S1800,780 2020,860" stroke="rgba(246,213,142,.55)" stroke-width="3"/>
+        <path class="f1-s" pathLength="1" d="M-100,700 C350,520 650,900 1050,640 S1650,330 2020,520" stroke="rgba(255,255,255,.10)" stroke-width="90"/>
+      </svg>
+      <!--/IF-->
+      <!--IF:port-->
+      <svg class="silk" viewBox="0 0 1080 1920" preserveAspectRatio="none">
+        <path class="f1-s" pathLength="1" d="M-100,1520 C200,1250 620,1720 1180,1350" stroke="rgba(255,255,255,.35)" stroke-width="4"/>
+        <path class="f1-s" pathLength="1" d="M-100,520 C300,290 700,770 1180,420" stroke="rgba(255,255,255,.25)" stroke-width="3"/>
+        <path class="f1-s" pathLength="1" d="M-100,1760 C400,1640 700,1910 1180,1690" stroke="rgba(246,213,142,.55)" stroke-width="3"/>
+        <path class="f1-s" pathLength="1" d="M-100,1300 C250,1080 640,1500 1180,1160" stroke="rgba(255,255,255,.10)" stroke-width="90"/>
+      </svg>
+      <!--/IF-->
+      <div id="f1-text">
+        <div id="f1-eyebrow">Mesdames…</div>
+        <span class="mask f1-line"><span id="f1-l1">Et si vos courbes</span></span>
+        <span class="mask f1-line"><span id="f1-l2">devenaient votre</span></span>
+        <div id="f1-sigwrap">
+          <span id="f1-sig">signature ?</span>
+          <svg id="f1-under" viewBox="0 0 600 40" preserveAspectRatio="none"><path id="f1-up" pathLength="1" d="M5,30 C150,8 420,8 595,22" fill="none" stroke="#F6D58E" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 1" stroke-dashoffset="1"/></svg>
+        </div>
+      </div>
+      <div id="f1-sparks" class="cam"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      %HELPERS%
+      var C = %CUES%, D = %DUR%, W = %W%, H = %H%, P = "%O%" === "port";
+      var tl = gsap.timeline({ paused: true });
+      var bk = SB.bokeh(document.getElementById("f1-bokeh"), 14, 11, W, H, "rgba(255,255,255,.55)", 60, 220);
+      SB.drift(tl, bk, D);
+      var sp = SB.sparkles(document.getElementById("f1-sparks"), 12, 5, P ? [120, 620, 960, 1340] : [380, 260, 1540, 860], "#FFF4C8", 18, 46);
+      SB.twinkle(tl, sp, C.signature + 0.2, D, 3);
+
+      tl.fromTo("#f1-cam", { scale: 1.0 }, { scale: 1.06, duration: D, ease: "none" }, 0);
+      tl.fromTo("#f1-glow", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.4, ease: "power2.out" }, 0);
+      tl.fromTo(".f1-s", { attr: { "stroke-dasharray": "1 1", "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 1.7, stagger: 0.15, ease: "power2.inOut" }, 0.0);
+      tl.fromTo("#f1-eyebrow", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.8, ease: "expo.out" }, C.mesdames);
+      tl.fromTo("#f1-l1", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, C.courbes);
+      tl.fromTo("#f1-l2", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, C.devenaient);
+      tl.fromTo("#f1-sig", { clipPath: "inset(0% 100% 0% 0%)", scale: 0.94 }, { clipPath: "inset(0% 0% 0% 0%)", scale: 1, duration: 0.9, ease: "power2.out" }, C.signature);
+      tl.fromTo("#f1-up", { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power2.out" }, C.signature + 0.6);
+      tl.fromTo("#f1-text", { y: 0 }, { y: P ? -20 : -14, duration: D, ease: "none" }, 0);
+      window.__timelines["%ID%"] = tl;
+    })();
+  </script>
+</template>
