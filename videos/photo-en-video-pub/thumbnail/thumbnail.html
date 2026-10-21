@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8">
+<style>
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-latin-800-normal.woff2"); font-weight: 800; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-latin-700-normal.woff2"); font-weight: 700; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-latin-900-italic.woff2"); font-weight: 900; font-style: italic; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-latin-800-italic.woff2"); font-weight: 800; font-style: italic; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1280px; height: 720px; overflow: hidden; }
+body { position: relative; font-family: "Poppins", sans-serif; color: #fff;
+  background: radial-gradient(90% 120% at 82% 40%, #2A2F6B 0%, #141B3D 40%, #0B1026 75%); }
+.grid { position: absolute; inset: 0; opacity: .09;
+  background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(60% 70% at 40% 50%, #000, transparent); }
+.glow { position: absolute; border-radius: 50%; }
+.g1 { width: 820px; height: 820px; right: -170px; top: -60px; background: radial-gradient(circle, rgba(255,122,26,.75), rgba(255,122,26,0) 62%); }
+.g2 { width: 600px; height: 600px; left: -220px; bottom: -300px; background: radial-gradient(circle, rgba(157,180,255,.35), rgba(157,180,255,0) 65%); }
+.stripe { position: absolute; width: 260px; height: 1100px; right: 250px; top: -200px; transform: rotate(18deg);
+  background: linear-gradient(180deg, #FF7A1A, #FFB066); opacity: .95; box-shadow: 0 0 80px rgba(255,122,26,.6); }
+.stripe.b { width: 26px; right: 200px; background: #fff; opacity: .9; }
+.person { position: absolute; right: -40px; bottom: -150px; height: 860px;
+  filter: drop-shadow(0 0 0 #fff) drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
+.logo { position: absolute; left: 44px; top: 36px; width: 250px; }
+.h { position: absolute; left: 40px; top: 96px; font-weight: 900; font-style: italic; letter-spacing: -0.045em; line-height: .95; }
+.h1 { font-size: 112px; color: #fff; text-shadow: 0 8px 0 rgba(0,0,0,.35); }
+.h2 { display: inline-block; margin-top: 10px; padding: 6px 26px 14px 18px; font-size: 104px; background: #FF7A1A; color: #0B1026; transform: rotate(-2deg);
+  border-radius: 18px; box-shadow: 0 14px 0 #B84F05, 0 26px 50px rgba(255,122,26,.45); }
+.sub { position: absolute; left: 44px; top: 352px; display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 30px; letter-spacing: .02em; }
+.sub i { width: 14px; height: 14px; border-radius: 50%; background: #FF7A1A; box-shadow: 0 0 14px #FF7A1A; }
+.card { position: absolute; border-radius: 22px; overflow: hidden; border: 6px solid #fff; box-shadow: 0 24px 50px rgba(0,0,0,.55); }
+.card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.before { left: 52px; top: 430px; width: 220px; height: 240px; transform: rotate(-7deg); }
+.before img { filter: grayscale(.7) brightness(.62) blur(1px); }
+.after { left: 360px; top: 400px; width: 200px; height: 300px; transform: rotate(5deg); border-color: #FF7A1A;
+  box-shadow: 0 0 0 6px rgba(255,122,26,.35), 0 0 60px rgba(255,122,26,.7), 0 24px 50px rgba(0,0,0,.55); }
+.after img { filter: saturate(1.25) contrast(1.08); object-position: 50% 55%; }
+.after::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,240,220,.45) 48%, transparent 60%); }
+.tag { position: absolute; left: 12px; top: 12px; z-index: 2; padding: 3px 14px; border-radius: 30px; font-weight: 800; font-size: 20px; letter-spacing: .05em; }
+.tag.gray { background: #8b90a3; } .tag.or { background: #FF7A1A; color: #0B1026; }
+.play { position: absolute; left: 50%; top: 52%; width: 74px; height: 74px; margin: -37px 0 0 -37px; border-radius: 50%; background: #FF7A1A; z-index: 2;
+  box-shadow: 0 0 0 10px rgba(255,122,26,.3); }
+.play::before { content: ""; position: absolute; left: 29px; top: 22px; border-left: 26px solid #fff; border-top: 15px solid transparent; border-bottom: 15px solid transparent; }
+.arrow { position: absolute; left: 268px; top: 505px; width: 100px; height: 70px; }
+.spark { position: absolute; color: #FFD08A; font-size: 40px; text-shadow: 0 0 20px #FF7A1A; }
+.app { position: absolute; display: flex; align-items: center; gap: 12px; padding: 10px 22px 10px 10px; border-radius: 22px; background: rgba(11,16,38,.88);
+  border: 2px solid rgba(255,255,255,.25); box-shadow: 0 16px 40px rgba(0,0,0,.5); font-weight: 800; font-size: 28px; white-space: nowrap; }
+.app img { width: 64px; height: 64px; border-radius: 16px; display: block; }
+.k { left: 620px; top: 470px; transform: rotate(-4deg); }
+.c { left: 640px; top: 572px; transform: rotate(3deg); }
+.ia { position: absolute; right: 36px; top: 34px; padding: 8px 22px; border-radius: 40px; background: #fff; color: #0B1026; font-weight: 900; font-style: italic; font-size: 30px;
+  transform: rotate(4deg); box-shadow: 0 12px 30px rgba(0,0,0,.4); }
+.ia b { color: #FF7A1A; }
+</style></head>
+<body>
+  <div class="grid"></div>
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="stripe"></div><div class="stripe b"></div>
+  <img class="person" src="person.png" alt="">
+  <img class="logo" src="../assets/img/logo.png" alt="">
+  <div class="h"><div class="h1">TA PHOTO</div><div class="h2">= PUB VIDÉO</div></div>
+  <div class="sub"><i></i>Avec l'IA · 4 étapes · Gratuit</div>
+  <div class="card before"><span class="tag gray">AVANT</span><img src="../assets/img/produit-sq.jpg" alt=""></div>
+  <svg class="arrow" viewBox="0 0 100 70"><path d="M6 40 C 30 10, 60 10, 80 30" fill="none" stroke="#FF7A1A" stroke-width="9" stroke-linecap="round"/><path d="M66 18 L 88 34 L 64 46" fill="none" stroke="#FF7A1A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="card after"><span class="tag or">APRÈS</span><img src="../assets/img/produit.jpg" alt=""><span class="play"></span></div>
+  <span class="spark" style="left:548px;top:380px">✦</span><span class="spark" style="left:340px;top:640px;font-size:28px">✦</span>
+  <div class="app k"><img src="kling-icon.png" alt="">Kling AI</div>
+  <div class="app c"><img src="capcut-icon.png" alt="">CapCut</div>
+  <div class="ia"><b>100%</b> téléphone</div>
+</body></html>
