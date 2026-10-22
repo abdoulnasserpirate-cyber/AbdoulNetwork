@@ -47,3 +47,5 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060
 #s9-wall { left: -60px; top: -40px; width: 2040px; height: 1160px; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(4, 1fr); gap: 16px; }
 #s9-logo { left: 825px; top: 70px; width: 270px; height: 270px; } #s9-lead { top: 380px; font-size: 62px; } #s9-big { top: 460px; font-size: 210px; }
 #s9-pill { top: 730px; } #s9-pill .pill { font-size: 46px; } #s9-info { top: 845px; font-size: 48px; }
+
+#s5-sp { width: 340px; height: 340px; }

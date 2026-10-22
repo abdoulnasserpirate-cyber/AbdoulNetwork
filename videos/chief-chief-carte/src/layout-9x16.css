@@ -50,3 +50,5 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: #d6060
 #s9-wall { left: -40px; top: -40px; width: 1160px; height: 2000px; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(6, 1fr); gap: 14px; }
 #s9-logo { left: 330px; top: 360px; width: 420px; height: 420px; } #s9-lead { top: 860px; font-size: 58px; } #s9-big { top: 940px; font-size: 170px; }
 #s9-pill { top: 1230px; } #s9-pill .pill { font-size: 40px; } #s9-info { top: 1345px; font-size: 36px; }
+
+#s5-sp { width: 320px; height: 320px; }

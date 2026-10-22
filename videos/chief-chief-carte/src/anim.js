@@ -44,7 +44,7 @@
         "src/plat-du-chef.jpg", "cut/pate-blanche.png", "cut/pate-rouge.png", "cut/pate-noire.png", "src/burger.jpg",
         "src/chawarma.jpg", "src/poulet-frites.jpg", "src/frites.jpg", "src/pizza.jpg", "src/poulet-complet.jpg",
         "src/salade-verte.jpg", "src/salade-crudites.jpg", "cut/sandwich.png", "src/formule-riz-creole.jpg", "src/formule-attieke.jpg",
-        "src/plateau-partage.jpg", "cut/pate-noire.png", "src/burger.jpg", "src/pizza.jpg", "src/plat-du-chef.jpg",
+        "src/plateau-partage.jpg", "src/spaghetti.jpg", "src/burger.jpg", "src/pizza.jpg", "src/plat-du-chef.jpg",
       ];
       const wall = document.getElementById("s9-wall");
       const nTiles = VERT ? 18 : 20;
@@ -205,6 +205,7 @@
       tl.fromTo("#s5-i3", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 38.15);
       count(14, 38.2);
       drift("#s5-sw", 37.9, 2.4, { rotation: 20 });
+      drift("#s5-sp", 38.6, 1.8, { rotation: -18 });
       leadIn("#s5-end", 39.0);
       wipe(40.4, "#wp-r");
 

@@ -321,8 +321,8 @@
 /* ---- carte additions ---- */
 .ctr { left: 0; width: 100%; text-align: center; }
 .ghost { font-family: "MontX", sans-serif; font-weight: 900; font-style: italic; line-height: 0.8; color: transparent; white-space: nowrap; }
-.ghost.on-white { -webkit-text-stroke: 5px rgba(214, 6, 15, 0.16); }
-.ghost.on-red { -webkit-text-stroke: 5px rgba(255, 255, 255, 0.2); }
+.ghost.on-white { color: rgba(214, 6, 15, 0.07); -webkit-text-stroke: 5px rgba(214, 6, 15, 0.16); }
+.ghost.on-red { color: rgba(255, 255, 255, 0.07); -webkit-text-stroke: 5px rgba(255, 255, 255, 0.2); }
 .chap .pill { box-shadow: 0 8px 20px rgba(60, 0, 6, 0.25); }
 .tag .pill { box-shadow: 0 10px 24px rgba(60, 0, 6, 0.3); }
 #s0-book { perspective: 2200px; }
