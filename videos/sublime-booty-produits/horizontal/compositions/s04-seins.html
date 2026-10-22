@@ -21,31 +21,41 @@
     <div id="s04-title" class="sb-caps">Seins</div>
     <div id="s04-tagA" class="sb-tag dark">Kit Gros Lolo Luxe</div>
     <div id="s04-tagB" class="sb-tag dark">Kit Raffermissant Luxe</div>
+    <div id="s04-cover" class="sb-fill" style="background: #0b0508"></div>
   </div>
   <script>
     (function () {
-      const { timeline3d, make, spinIn, BRAND } = window.SB3D;
+      const M = window.SBM;
+      const { timeline3d, make, spinIn } = window.SB3D;
       const tl = timeline3d("s04", 2.95, {
         canvas: "s04-cv",
         rim: 0xffffff,
         items: {
           portrait: [
-            make("siropSeins", { x: 0.35, y: 0.2, z: -0.4, pose: spinIn(0.05) }),
-            make("siropSeins", { x: 1.5, y: 0.2, z: -0.4, pose: spinIn(0.12) }),
-            make("cremeSeins", { x: 0.95, y: 0.2, z: 0.8, s: 0.8, pose: spinIn(0.2) }),
-            make("theCaolin", { x: 0.4, y: -2.9, z: -0.2, pose: spinIn(0.35) }),
-            make("huile", { x: 1.55, y: -2.9, z: 0.4, pose: spinIn(0.45) }),
+            make("siropSeins", { x: 0.35, y: 0.2, z: -0.4, pose: spinIn(0.25) }),
+            make("siropSeins", { x: 1.5, y: 0.2, z: -0.4, pose: spinIn(0.33) }),
+            make("cremeSeins", { x: 0.95, y: 0.2, z: 0.8, s: 0.8, pose: spinIn(0.42) }),
+            make("theCaolin", { x: 0.4, y: -2.9, z: -0.2, pose: spinIn(1.0) }),
+            make("huile", { x: 1.55, y: -2.9, z: 0.4, pose: spinIn(1.1) }),
           ],
           landscape: [
-            make("siropSeins", { x: -1.9, z: -0.4, pose: spinIn(0.05) }),
-            make("siropSeins", { x: -0.8, z: -0.4, pose: spinIn(0.12) }),
-            make("cremeSeins", { x: -1.35, z: 0.8, s: 0.8, pose: spinIn(0.2) }),
-            make("theCaolin", { x: 1.7, z: -0.2, pose: spinIn(0.35) }),
-            make("huile", { x: 2.9, z: 0.4, pose: spinIn(0.45) }),
+            make("siropSeins", { x: -1.9, z: -0.4, pose: spinIn(0.25) }),
+            make("siropSeins", { x: -0.8, z: -0.4, pose: spinIn(0.33) }),
+            make("cremeSeins", { x: -1.35, z: 0.8, s: 0.8, pose: spinIn(0.42) }),
+            make("theCaolin", { x: 1.7, z: -0.2, pose: spinIn(1.0) }),
+            make("huile", { x: 2.9, z: 0.4, pose: spinIn(1.1) }),
           ],
         },
         camera: { portrait: { y: 2.2, z: 19, lookY: 0.1 }, landscape: { y: 2.0, z: 13, lookY: 1.6 } },
       });
+      // Colour flood: the black studio of the last shot wipes up off the pink world.
+      M.wipeUp(tl, "#s04-cover", 0, { d: 0.34 });
+      M.blurIn(tl, "#s04-kicker", 0.2);
+      M.slam(tl, "#s04-title", 0.28);
+      M.tag(tl, "#s04-tagA", 0.75);
+      M.tag(tl, "#s04-tagB", 1.4);
+      tl.fromTo("#s04-sil", { y: 0 }, { y: -70, duration: 2.95, ease: "none" }, 0);
+      M.end(tl, 2.95);
       window.__timelines = window.__timelines || {};
       window.__timelines["s04"] = tl;
     })();

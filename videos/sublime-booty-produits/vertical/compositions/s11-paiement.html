@@ -1,7 +1,7 @@
 <template>
   <style>
     #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
-    #s11-num { position: absolute; left: 60px; top: 60px; font-size: 440px; color: transparent; -webkit-text-stroke: 8px var(--black); }
+    #s11-num { position: absolute; left: 60px; top: 60px; font-size: 440px; color: var(--pink); -webkit-text-stroke: 8px var(--black); }
     #s11-t1 { position: absolute; left: 340px; top: 220px; color: var(--white); font-size: 96px; }
     #s11-t2 { position: absolute; left: 340px; top: 320px; color: var(--black); font-size: 88px; font-style: italic; }
     #s11-grid { position: absolute; left: 60px; top: 520px; width: 960px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
@@ -24,6 +24,7 @@
     }
   </style>
   <div id="root" data-composition-id="s11" data-width="1080" data-height="1920">
+    <div id="s11-whip" class="sb-fill">
     <div id="s11-num" class="sb-title">3</div>
     <div id="s11-t1" class="sb-caps">Payez</div>
     <div id="s11-t2" class="sb-title">en toute simplicité</div>
@@ -34,14 +35,28 @@
       <div class="s11-tile" id="s11-wu"><img src="assets/logos/westernunion.svg" alt="" /><span>Western<br />Union</span></div>
       <div class="s11-tile"><img src="assets/logos/ria.png" alt="Ria" /></div>
     </div>
+    </div>
     <img id="s11-parcel" src="assets/products/parcel.png" alt="" />
     <div id="s11-deliver" class="sb-caps">On vous</div>
     <div id="s11-deliver2" class="sb-title">livre&nbsp;!</div>
   </div>
   <script>
     (function () {
+      const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      tl.set({}, {}, 3.05);
+      M.whipIn(tl, "#s11-whip", 0, { dx: 900 });
+      M.pop(tl, "#s11-num", 0.1, { from: 0.2, rot: -20 });
+      M.slam(tl, "#s11-t1", 0.85);
+      M.blurIn(tl, "#s11-t2", 1.05);
+      // One logo per beat-ish, while "faites votre paiement" plays.
+      M.pop(tl, ".s11-tile", 0.95, { from: 0.2, stagger: 0.13, d: 0.4 });
+      // "et on vous livre": the parcel slides in and lands.
+      tl.fromTo("#s11-parcel", { x: 900, rotation: 18 }, { x: 0, rotation: 0, duration: 0.5, ease: "back.out(1.4)" }, 1.95);
+      M.slam(tl, "#s11-deliver", 2.05);
+      M.slam(tl, "#s11-deliver2", 2.3);
+      // Exit: the parcel flies up and away toward the map.
+      tl.to("#s11-parcel", { y: -500, scale: 0.3, opacity: 0, duration: 0.25, ease: "power3.in" }, 2.8);
+      M.end(tl, 3.05);
       window.__timelines = window.__timelines || {};
       window.__timelines["s11"] = tl;
     })();

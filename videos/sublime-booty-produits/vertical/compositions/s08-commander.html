@@ -4,8 +4,8 @@
     #s08-sil { color: var(--pink); opacity: 0.12; width: 1100px; height: 1640px; left: 300px; top: 320px; }
     #s08-l1 { position: absolute; left: 70px; top: 480px; color: var(--white); font-size: 128px; }
     #s08-l2 { position: absolute; left: 84px; top: 640px; color: var(--pink); font-size: 110px; }
-    #s08-slab { position: absolute; left: 40px; top: 790px; width: 1000px; height: 300px; background: var(--pink); transform: rotate(-3deg); }
-    #s08-l3 { position: absolute; left: 90px; top: 800px; color: var(--white); font-size: 200px; font-style: italic; transform: rotate(-3deg); white-space: nowrap; }
+    #s08-slab { position: absolute; left: 40px; top: 790px; width: 1000px; height: 300px; background: var(--pink); }
+    #s08-l3 { position: absolute; left: 90px; top: 800px; color: var(--white); font-size: 200px; font-style: italic; white-space: nowrap; }
     @media (orientation: landscape) {
       #s08-sil { width: 760px; height: 1132px; left: 1250px; top: 0; }
       #s08-l1 { left: 160px; top: 170px; }
@@ -16,15 +16,27 @@
   </style>
   <div id="root" data-composition-id="s08" data-width="1080" data-height="1920">
     <div id="s08-sil" class="sb-sil"></div>
+    <div id="s08-g" class="sb-fill">
     <div id="s08-l1" class="sb-caps">Commander,</div>
     <div id="s08-l2" class="sb-caps">c'est</div>
+    </div>
+    <div id="s08-hit" class="sb-fill">
     <div id="s08-slab"></div>
     <div id="s08-l3" class="sb-title">très facile&nbsp;!</div>
+    </div>
   </div>
   <script>
     (function () {
+      const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      tl.set({}, {}, 1.8);
+      M.glitch(tl, "#s08-g", 0);
+      M.slam(tl, "#s08-l1", 0.02, { from: 1.8 });
+      M.slam(tl, "#s08-l2", 0.62);
+      tl.fromTo("#s08-slab", { scaleX: 0, rotation: -3 }, { scaleX: 1, rotation: -3, duration: 0.28, ease: "power4.out", transformOrigin: "0% 50%" }, 0.78);
+      tl.fromTo("#s08-l3", { opacity: 0, scale: 2.2, rotation: -3, filter: "blur(12px)" }, { opacity: 1, scale: 1, rotation: -3, filter: "blur(0px)", duration: 0.3, ease: "expo.out", transformOrigin: "30% 50%" }, 0.92);
+      M.shake(tl, "#s08-hit", 1.12);
+      tl.fromTo("#s08-sil", { y: 0 }, { y: -50, duration: 1.8, ease: "none" }, 0);
+      M.end(tl, 1.8);
       window.__timelines = window.__timelines || {};
       window.__timelines["s08"] = tl;
     })();

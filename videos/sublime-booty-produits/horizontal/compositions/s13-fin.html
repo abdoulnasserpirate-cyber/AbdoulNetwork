@@ -3,6 +3,7 @@
     #root { position: absolute; inset: 0; overflow: hidden; background: var(--black); }
     #s13-sil { color: var(--pink); opacity: 0.14; width: 900px; height: 1340px; left: -300px; top: -120px; }
     #s13-logo { position: absolute; left: 110px; top: 270px; width: 860px; }
+    #s13-tag span { display: inline-block; }
     #s13-tag { position: absolute; left: 0; right: 0; top: 760px; text-align: center; color: var(--white); font-size: 34px; }
     #s13-cta { position: absolute; left: 0; right: 0; top: 880px; height: 470px; background: var(--pink); }
     #s13-cta-k { position: absolute; left: 0; right: 0; top: 930px; text-align: center; color: var(--black); font-size: 40px; }
@@ -24,8 +25,8 @@
   </style>
   <div id="root" data-composition-id="s13" data-width="1920" data-height="1080">
     <div id="s13-sil" class="sb-sil"></div>
-    <img id="s13-logo" src="assets/logos/logo-sbbc.png" alt="Sublime Booty ByChris" />
-    <div id="s13-tag" class="sb-kicker" data-var-text="tagline">Beauté • Confiance • Bien-être</div>
+    <div id="s13-logo-g" class="sb-fill"><img id="s13-logo" src="assets/logos/logo-sbbc.png" alt="Sublime Booty ByChris" /></div>
+    <div id="s13-tag" class="sb-kicker"><span id="s13-w1">Beauté •</span> <span id="s13-w2">Confiance •</span> <span id="s13-w3">Bien-être</span></div>
     <div id="s13-cta"></div>
     <div id="s13-cta-k" class="sb-kicker">Commandez sur WhatsApp</div>
     <div id="s13-num">
@@ -36,8 +37,22 @@
   </div>
   <script>
     (function () {
+      const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      tl.set({}, {}, 4.05);
+      // The world from the map shrinks to a pink point that grows into the logo.
+      tl.fromTo("#s13-logo", { scale: 0.05, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out", transformOrigin: "20% 50%" }, 0.1);
+      M.glitch(tl, "#s13-logo-g", 0.6);
+      tl.fromTo("#s13-cta", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power4.out" }, 0.9);
+      M.blurIn(tl, "#s13-cta-k", 1.1);
+      M.pop(tl, "#s13-wa", 1.2);
+      M.slam(tl, "#s13-number", 1.3, { origin: "50% 50%" });
+      M.blurIn(tl, "#s13-ship", 1.6);
+      // Signature words land as they are spoken.
+      M.blurIn(tl, "#s13-w1", 1.9);
+      M.blurIn(tl, "#s13-w2", 2.35);
+      M.blurIn(tl, "#s13-w3", 2.9);
+      tl.fromTo("#s13-sil", { y: 0 }, { y: -60, duration: 4.05, ease: "none" }, 0);
+      M.end(tl, 4.05);
       window.__timelines = window.__timelines || {};
       window.__timelines["s13"] = tl;
     })();

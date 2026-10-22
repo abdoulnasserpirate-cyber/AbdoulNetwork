@@ -1,0 +1,1754 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 26,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/glitch-1.mp3 at 0-1.6s, assets/sfx/whoosh.mp3 at 1.52-2.09s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/impact-bass-1.mp3 at 2.23-4.23s, assets/sfx/whoosh-short.mp3 at 3.92-4.5s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/whoosh-short.mp3 at 3.92-4.5s, assets/sfx/pop.mp3 at 4.43-5.15s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 4.43-5.15s, assets/sfx/pop.mp3 at 4.63-5.35s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 4.43-5.15s, assets/sfx/pop.mp3 at 4.83-5.55s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 4.63-5.35s, assets/sfx/pop.mp3 at 4.83-5.55s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/sparkle.mp3 at 18.25-20.05s, assets/sfx/glitch-3.mp3 at 19.47-20.67s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/glitch-3.mp3 at 19.47-20.67s, assets/sfx/impact-bass-1.mp3 at 20.41-22.41s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/impact-bass-1.mp3 at 20.41-22.41s, assets/sfx/whoosh.mp3 at 21.25-21.82s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/notification.mp3 at 24.45-26.45s, assets/sfx/pop.mp3 at 25.61-26.33s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/notification.mp3 at 24.45-26.45s, assets/sfx/pop.mp3 at 26.16-26.88s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 25.61-26.33s, assets/sfx/pop.mp3 at 26.16-26.88s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.85-31.57s, assets/sfx/pop.mp3 at 30.98-31.7s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.85-31.57s, assets/sfx/pop.mp3 at 31.11-31.83s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.85-31.57s, assets/sfx/pop.mp3 at 31.24-31.96s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.85-31.57s, assets/sfx/pop.mp3 at 31.37-32.09s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.98-31.7s, assets/sfx/pop.mp3 at 31.11-31.83s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.98-31.7s, assets/sfx/pop.mp3 at 31.24-31.96s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.98-31.7s, assets/sfx/pop.mp3 at 31.37-32.09s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 31.11-31.83s, assets/sfx/pop.mp3 at 31.24-31.96s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 31.11-31.83s, assets/sfx/pop.mp3 at 31.37-32.09s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 31.24-31.96s, assets/sfx/pop.mp3 at 31.37-32.09s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 31.24-31.96s, assets/sfx/whoosh-short.mp3 at 31.85-32.43s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 31.37-32.09s, assets/sfx/whoosh-short.mp3 at 31.85-32.43s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/whoosh.mp3 at 34.85-35.43s, assets/sfx/impact-bass-2.mp3 at 34.65-37.24s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      },
+      {
+        "code": "duplicate_audio_track",
+        "severity": "warning",
+        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/impact-bass-2.mp3 at 34.65-37.24s, assets/sfx/sparkle.mp3 at 36.7-38.5s). This causes layered audio playback.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Use non-overlapping time windows or different track indices."
+      }
+    ],
+    "filesScanned": 14
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x14f407e63800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.692,
+        "url": "http://127.0.0.1:36801/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x14f407e63800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.692,
+        "url": "http://127.0.0.1:36801/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x4ac02ebf600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 11.153,
+        "url": "http://127.0.0.1:36801/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x4ac02ebf600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 11.153,
+        "url": "http://127.0.0.1:36801/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x14f403316e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 15.614,
+        "url": "http://127.0.0.1:36801/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x14f403316e00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 15.614,
+        "url": "http://127.0.0.1:36801/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 4,
+    "infoCount": 15,
+    "findings": [
+      {
+        "code": "text_not_painted",
+        "severity": "error",
+        "time": 24.536,
+        "selector": "#s10-num",
+        "message": "Text paints with an effectively transparent fill (-webkit-text-fill-color / color), so its glyphs are invisible.",
+        "rect": {
+          "left": 60,
+          "top": -31,
+          "right": 298.92,
+          "bottom": 555,
+          "width": 238.92,
+          "height": 586
+        },
+        "text": "2",
+        "fixHint": "Set an explicit, opaque `color` on the text — and an explicit `-webkit-text-fill-color` if an ancestor makes the fill transparent. If the transparency is intentional gradient text, add `background-clip: text`.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 60,
+          "y": -31,
+          "width": 238.92,
+          "height": 586
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 24.536,
+        "selector": "#s10-phone",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 180,
+          "top": 690,
+          "right": 900,
+          "bottom": 2090,
+          "width": 720,
+          "height": 1400
+        },
+        "containerSelector": "#s10 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 170
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 180,
+          "y": 690,
+          "width": 720,
+          "height": 1400
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 24.536,
+        "selector": "#s10-avatar > img:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 232,
+          "top": 771.59,
+          "right": 352,
+          "bottom": 832.39,
+          "width": 120,
+          "height": 60.8
+        },
+        "containerSelector": "#s10-avatar",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 232,
+          "top": 764,
+          "right": 308,
+          "bottom": 840,
+          "width": 76,
+          "height": 76
+        },
+        "overflow": {
+          "right": 44
+        },
+        "dataAttributes": {
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 232,
+          "y": 771.59,
+          "width": 120,
+          "height": 60.8
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "warning",
+        "time": 24.536,
+        "selector": "#s10-phone",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 180,
+          "top": 690,
+          "right": 900,
+          "bottom": 2090,
+          "width": 720,
+          "height": 1400
+        },
+        "containerSelector": "#root",
+        "text": "Sublime Booty ByChris en ligne Bonjour ! Je veux",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 170
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 180,
+          "y": 690,
+          "width": 720,
+          "height": 1400
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 33.458,
+        "selector": "#s12-kicker",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 80,
+          "top": 192,
+          "right": 386.2,
+          "bottom": 253,
+          "width": 306.2,
+          "height": 61
+        },
+        "containerSelector": "#s12-p1",
+        "text": "LIVRAISON",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": 80,
+          "y": 192,
+          "width": 306.2,
+          "height": 61
+        },
+        "firstSeen": 33.421,
+        "lastSeen": 33.87,
+        "occurrences": 4,
+        "heldMs": 448.99999999999807,
+        "times": [
+          33.421,
+          33.458,
+          33.645,
+          33.87
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -969.94,
+          "top": 1258,
+          "right": -601.74,
+          "bottom": 1314,
+          "width": 368.2,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "Kit Mini Rondeur",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 969.94
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -969.94,
+          "y": 1258,
+          "width": 368.2,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > i:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -555.74,
+          "top": 1258,
+          "right": -522.22,
+          "bottom": 1314,
+          "width": 33.52,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "✦",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 555.74
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -555.74,
+          "y": 1258,
+          "width": 33.52,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -476.22,
+          "top": 1258,
+          "right": -183.82,
+          "bottom": 1314,
+          "width": 292.4,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "Kit Sexy Lady",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 476.22
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -476.22,
+          "y": 1258,
+          "width": 292.4,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > i:nth-of-type(2)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -137.82,
+          "top": 1258,
+          "right": -104.3,
+          "bottom": 1314,
+          "width": 33.52,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "✦",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 137.82
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -137.82,
+          "y": 1258,
+          "width": 33.52,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(3)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": -58.3,
+          "top": 1258,
+          "right": 176.7,
+          "bottom": 1314,
+          "width": 235,
+          "height": 56
+        },
+        "containerSelector": "#s03-ticker",
+        "text": "Kit Curves",
+        "fixHint": "Text is 235px x 56px inside 1080px x 92px and overflows by up to 58px; widen the container to at least ~1138px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 1240,
+          "right": 1080,
+          "bottom": 1332,
+          "width": 1080,
+          "height": 92
+        },
+        "overflow": {
+          "left": 58.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -58.3,
+          "y": 1258,
+          "width": 235,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(3)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -58.3,
+          "top": 1258,
+          "right": 176.7,
+          "bottom": 1314,
+          "width": 235,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "Kit Curves",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 58.3
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -58.3,
+          "y": 1258,
+          "width": 235,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(5)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 852.11,
+          "top": 1258,
+          "right": 1425.75,
+          "bottom": 1314,
+          "width": 573.64,
+          "height": 56
+        },
+        "containerSelector": "#s03-ticker",
+        "text": "Kit Morphologie V Royale",
+        "fixHint": "Text is 574px x 56px inside 1080px x 92px and overflows by up to 346px; widen the container to at least ~1426px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 1240,
+          "right": 1080,
+          "bottom": 1332,
+          "width": 1080,
+          "height": 92
+        },
+        "overflow": {
+          "right": 345.75
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 852.11,
+          "y": 1258,
+          "width": 573.64,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(5)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 852.11,
+          "top": 1258,
+          "right": 1425.75,
+          "bottom": 1314,
+          "width": 573.64,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "Kit Morphologie V Royale",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 345.75
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 852.11,
+          "y": 1258,
+          "width": 573.64,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > i:nth-of-type(5)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1471.75,
+          "top": 1258,
+          "right": 1505.26,
+          "bottom": 1314,
+          "width": 33.51,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "✦",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 425.26
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 1471.75,
+          "y": 1258,
+          "width": 33.51,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row > span:nth-of-type(6)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1551.26,
+          "top": 1258,
+          "right": 2063.36,
+          "bottom": 1314,
+          "width": 512.1,
+          "height": 56
+        },
+        "containerSelector": "#root",
+        "text": "Kit Booster Ultra Dosé",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 983.36
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 1551.26,
+          "y": 1258,
+          "width": 512.1,
+          "height": 56
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-ticker-row",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -1009.94,
+          "top": 1240,
+          "right": 2063.36,
+          "bottom": 1332,
+          "width": 3073.3,
+          "height": 92
+        },
+        "containerSelector": "#s03-ticker",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 1240,
+          "right": 1080,
+          "bottom": 1332,
+          "width": 1080,
+          "height": 92
+        },
+        "overflow": {
+          "left": 1009.94,
+          "right": 983.36
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -1009.94,
+          "y": 1240,
+          "width": 3073.3,
+          "height": 92
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 15.614,
+        "selector": "#s07-shine",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -1296,
+          "top": 0,
+          "right": -216,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#s07 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1296
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s07-teint.html",
+        "bbox": {
+          "x": -1296,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 15.614,
+        "lastSeen": 15.614,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.614
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 24.536,
+        "selector": "#s10-num",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 60,
+          "top": -31,
+          "right": 298.92,
+          "bottom": 555,
+          "width": 238.92,
+          "height": 586
+        },
+        "containerSelector": "#root",
+        "text": "2",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "top": 31
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 60,
+          "y": -31,
+          "width": 238.92,
+          "height": 586
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 33.458,
+        "selector": "#s12-countries",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -23864.35,
+          "top": -15329.13,
+          "right": 23092.18,
+          "bottom": 11652.09,
+          "width": 46956.52,
+          "height": 26981.21
+        },
+        "containerSelector": "#s12-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 23864.35,
+          "right": 22012.18,
+          "top": 15329.13,
+          "bottom": 9732.09
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": -23864.35,
+          "y": -15329.13,
+          "width": 46956.52,
+          "height": 26981.21
+        },
+        "firstSeen": 33.458,
+        "lastSeen": 33.458,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          33.458
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 33.458,
+        "selector": "#s12-arcs",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -10202.61,
+          "top": -5431.02,
+          "right": 6991.3,
+          "bottom": 2342.46,
+          "width": 17193.91,
+          "height": 7773.48
+        },
+        "containerSelector": "#s12-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 10202.61,
+          "right": 5911.3,
+          "top": 5431.02,
+          "bottom": 422.46
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": -10202.61,
+          "y": -5431.02,
+          "width": 17193.91,
+          "height": 7773.48
+        },
+        "firstSeen": 33.458,
+        "lastSeen": 33.458,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          33.458
+        ]
+      }
+    ],
+    "duration": 40.15,
+    "samples": [
+      2.231,
+      6.692,
+      11.153,
+      15.614,
+      20.075,
+      24.536,
+      28.997,
+      33.458,
+      37.919
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 20,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.22:1; WCAG AA requires 4.5:1.",
+        "text": "en ligne",
+        "fg": "rgb(214,245,236)",
+        "bg": "rgb(0,128,105)",
+        "ratio": 4.22,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(232,250,245)",
+        "large": false,
+        "selector": "div > div:nth-of-type(10) > div > div:nth-of-type(6) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > i",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 326,
+          "y": 807,
+          "width": 343.84375,
+          "height": 33
+        },
+        "time": 28.997,
+        "times": [
+          28.997
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.19:1; WCAG AA requires 4.5:1.",
+        "text": "10:24 ✓✓",
+        "fg": "rgb(102,119,129)",
+        "bg": "rgb(217,253,211)",
+        "ratio": 4.19,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(97,113,123)",
+        "large": false,
+        "selector": "div > div:nth-of-type(10) > div > div:nth-of-type(6) > div > div > div:nth-of-type(2) > em",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 756.78125,
+          "y": 996.609375,
+          "width": 79.21875,
+          "height": 23.390625
+        },
+        "time": 28.997,
+        "times": [
+          28.997
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      2.231,
+      11.153,
+      20.075,
+      28.997,
+      37.919
+    ],
+    "checked": 29,
+    "passed": 27
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 7,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "first_frame_empty",
+        "severity": "warning",
+        "message": "Frame 0 shows only the background, and the first frame is the thumbnail on social players: have the title or key image already on screen at 0 s instead of entering from nothing; see references/review.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Beauté • Confiance • Bien-être\" (4 words) is on screen 1.10 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Beauté • Confiance • Bien-être",
+        "selector": "#s02-sub",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s02-logo.html",
+        "bbox": {
+          "x": 164.13,
+          "y": 1201,
+          "width": 751.75,
+          "height": 48
+        },
+        "time": 2.97,
+        "words": 4,
+        "seconds": 1.099,
+        "floorSeconds": 1.275
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Kit Mini Rondeur\" (3 words) is on screen 0.57 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Kit Mini Rondeur",
+        "selector": "#s03-ticker-row > span:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 0,
+          "y": 1261.63,
+          "width": 195.92,
+          "height": 48.74000000000001
+        },
+        "time": 4.567,
+        "words": 3,
+        "seconds": 0.568,
+        "floorSeconds": 1.05
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Kit Morphologie V Royale\" (4 words) is on screen 0.80 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Kit Morphologie V Royale",
+        "selector": "#s03-ticker-row > span:nth-of-type(5)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 1070.82,
+          "y": 1258,
+          "width": 9.180000000000064,
+          "height": 56
+        },
+        "time": 6.102,
+        "words": 4,
+        "seconds": 0.803,
+        "floorSeconds": 1.275
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"Sirop Sexy Lady\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "Sirop Sexy Lady",
+        "selector": "#s09-grid > div:nth-of-type(3) > b:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s09-etape1.html",
+        "bbox": {
+          "x": 297.08,
+          "y": 1329.83,
+          "width": 162.84,
+          "height": 28.52
+        },
+        "time": 21.945,
+        "times": [
+          21.821,
+          21.945,
+          21.945,
+          22.07
+        ],
+        "fontPx": 20.37,
+        "floorPx": 28,
+        "seconds": 1.497,
+        "elements": [
+          {
+            "selector": "#s09-grid > div:nth-of-type(3) > b:nth-of-type(1)",
+            "text": "Sirop Sexy Lady",
+            "fontPx": 20.37,
+            "time": 21.945,
+            "seconds": 1.497
+          },
+          {
+            "selector": "#s09-grid > div:nth-of-type(1) > b:nth-of-type(1)",
+            "text": "Crème Impériale",
+            "fontPx": 21.01,
+            "time": 21.821,
+            "seconds": 1.621
+          },
+          {
+            "selector": "#s09-grid > div:nth-of-type(4) > b:nth-of-type(1)",
+            "text": "Gamme Pure Glow",
+            "fontPx": 24.88,
+            "time": 22.07,
+            "seconds": 1.372
+          },
+          {
+            "selector": "#s09-pick > b:nth-of-type(1)",
+            "text": "Céréales Booty Gain",
+            "fontPx": 25,
+            "time": 21.945,
+            "seconds": 1.497
+          }
+        ]
+      },
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"10:25\" at 18 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "10:25",
+        "selector": "#s10-m2 > em:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 686.76,
+          "y": 1244.79,
+          "width": 42.32,
+          "height": 24.85
+        },
+        "time": 25.811,
+        "times": [
+          23.691,
+          24.813,
+          25.811
+        ],
+        "fontPx": 17.9,
+        "floorPx": 28,
+        "seconds": 4.239,
+        "elements": [
+          {
+            "selector": "#s10-m2 > em:nth-of-type(1)",
+            "text": "10:25",
+            "fontPx": 17.9,
+            "time": 25.811,
+            "seconds": 4.239
+          },
+          {
+            "selector": "#s10-m1 > em:nth-of-type(1)",
+            "text": "10:24 ✓✓",
+            "fontPx": 18,
+            "time": 24.813,
+            "seconds": 5.237
+          },
+          {
+            "selector": "#s10-head > div:nth-of-type(2) > i:nth-of-type(1)",
+            "text": "en ligne",
+            "fontPx": 22,
+            "time": 23.691,
+            "seconds": 6.359
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Partout au Niger\" (3 words) is on screen 0.93 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Partout au Niger",
+        "selector": "#s12-p2",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": 72,
+          "y": 208.04,
+          "width": 1008,
+          "height": 177.66
+        },
+        "time": 34.04,
+        "words": 3,
+        "seconds": 0.928,
+        "floorSeconds": 1.05
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 322
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

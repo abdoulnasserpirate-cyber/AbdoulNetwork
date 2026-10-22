@@ -15,16 +15,28 @@
     }
   </style>
   <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+    <div id="s01-zoom" class="sb-fill">
     <div id="s01-sil-ghost" class="sb-sil"></div>
     <div id="s01-sil" class="sb-sil"></div>
     <div id="s01-l1">Vous rêvez de</div>
     <div id="s01-l2" class="sb-title">formes</div>
-    <div id="s01-l3" class="sb-title">sublimes&nbsp;?</div>
+    <div id="s01-l3-g" class="sb-fill"><div id="s01-l3" class="sb-title">sublimes&nbsp;?</div></div>
+    </div>
   </div>
   <script>
     (function () {
+      const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      tl.set({}, {}, 1.65);
+      // Frame 0 already reads: the first line and the figure are on screen.
+      tl.fromTo("#s01-sil", { y: 120 }, { y: 0, duration: 0.7, ease: "expo.out" }, 0);
+      tl.fromTo("#s01-sil-ghost", { y: 150, x: -30 }, { y: 0, x: 0, duration: 0.8, ease: "expo.out" }, 0);
+      M.glitch(tl, "#s01-sil-ghost", 0.0, { k: 1.4 });
+      M.slam(tl, "#s01-l2", 0.42);
+      M.slam(tl, "#s01-l3", 0.86);
+      M.glitch(tl, "#s01-l3-g", 0.86);
+      // Exit: punch into the figure, which carries on as the logo's figure in the next shot.
+      tl.to("#s01-zoom", { scale: 1.35, filter: "blur(10px)", duration: 0.2, ease: "power3.in", transformOrigin: "70% 60%" }, 1.45);
+      M.end(tl, 1.65);
       window.__timelines = window.__timelines || {};
       window.__timelines["s01"] = tl;
     })();

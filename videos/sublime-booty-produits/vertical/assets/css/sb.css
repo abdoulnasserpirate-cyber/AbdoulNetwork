@@ -26,3 +26,6 @@
 .sb-tag.dark { background: var(--black); color: var(--white); }
 
 .sb-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* A full-frame wrapper used as a camera / glitch layer. */
+.sb-fill { position: absolute; inset: 0; }

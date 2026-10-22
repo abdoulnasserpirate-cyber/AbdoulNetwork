@@ -7,12 +7,11 @@
     #s12-map .ner { fill: #ff1a8c; stroke: #ffd6ea; stroke-width: 2px; }
     #s12-arcs path { fill: none; stroke: #ffffff; stroke-width: 5; stroke-linecap: round; }
     #s12-arcs circle { fill: #ffffff; }
-    #s12-kicker { position: absolute; left: 80px; top: 190px; color: var(--pink); font-size: 44px; }
-    .s12-place { position: absolute; left: 72px; top: 250px; color: var(--white); font-size: 100px; white-space: nowrap; }
-    #s12-p2, #s12-p3 { opacity: 0; }
+    #s12-kicker { position: absolute; left: 80px; top: 170px; color: var(--pink); font-size: 44px; }
+    .s12-place { position: absolute; left: 72px; top: 240px; color: var(--white); font-size: 100px; white-space: nowrap; }
     #s12-credit { position: absolute; right: 30px; top: 1290px; color: rgba(255, 255, 255, 0.55); font-family: var(--sans); font-size: 18px; }
     @media (orientation: landscape) {
-      #s12-kicker { left: 110px; top: 110px; font-size: 40px; }
+      #s12-kicker { left: 110px; top: 90px; font-size: 40px; }
       .s12-place { left: 100px; top: 160px; font-size: 120px; }
       #s12-credit { top: 1040px; }
     }
@@ -212,10 +211,10 @@
 <path class="c" data-iso="AFG" d="M1369.6 776.0 L1372.6 776.1 L1374.7 776.7 L1376.9 778.0 L1379.0 778.3 L1381.3 776.9 L1383.6 776.6 L1385.6 777.0 L1386.1 774.6 L1388.6 774.3 L1390.0 772.3 L1391.8 770.1 L1393.8 768.2 L1395.9 769.3 L1396.0 771.4 L1397.3 774.2 L1397.0 776.6 L1397.4 779.5 L1399.7 780.1 L1402.0 778.6 L1404.2 777.3 L1406.7 775.6 L1408.9 775.3 L1411.5 776.3 L1413.6 775.7 L1415.7 776.5 L1413.2 777.4 L1411.3 779.7 L1407.8 779.3 L1405.5 779.5 L1403.5 779.6 L1401.4 780.3 L1399.0 782.0 L1397.0 783.4 L1395.7 785.4 L1397.3 788.1 L1397.5 790.2 L1397.0 792.4 L1395.1 794.4 L1395.0 796.5 L1394.7 798.6 L1392.5 799.3 L1390.3 799.1 L1388.3 798.9 L1389.6 801.5 L1390.3 803.7 L1387.2 805.0 L1385.6 807.2 L1384.7 809.3 L1384.9 812.6 L1382.6 814.6 L1380.2 813.8 L1377.9 814.3 L1375.7 815.2 L1374.7 817.2 L1372.4 816.8 L1370.1 818.4 L1368.3 821.2 L1368.2 823.9 L1368.0 826.0 L1364.8 827.1 L1362.1 827.9 L1359.5 827.9 L1357.0 828.3 L1353.2 828.4 L1347.1 828.9 L1344.4 828.2 L1341.8 827.3 L1338.0 826.1 L1340.7 822.8 L1343.2 819.8 L1343.1 816.9 L1340.8 816.0 L1338.1 815.6 L1337.7 813.0 L1337.9 810.6 L1337.3 808.2 L1336.5 805.6 L1337.3 803.5 L1336.2 801.4 L1336.0 798.3 L1338.3 796.8 L1338.4 794.7 L1339.3 792.7 L1339.4 790.3 L1340.3 788.0 L1342.3 789.3 L1344.4 789.2 L1346.6 790.6 L1349.2 789.8 L1350.9 787.6 L1352.9 786.0 L1355.2 785.2 L1357.5 783.8 L1358.9 781.5 L1359.7 778.7 L1362.8 776.7 L1364.9 774.8 L1367.3 775.6 L1369.3 776.1Z"/>
 <path class="c" data-iso="KAS" d="M1428.0 791.4 L1427.1 789.2 L1429.4 788.7 L1431.8 788.9 L1429.4 790.6Z"/></g>
       <g id="s12-arcs"></g>
-      <g id="s12-pin">
+      <g id="s12-pin"><g id="s12-pin-in">
         <circle cx="0" cy="0" r="9" fill="#ffffff" />
         <circle cx="0" cy="0" r="4.5" fill="#ff1a8c" />
-      </g>
+      </g></g>
     </svg>
     <div id="s12-kicker" class="sb-kicker">Livraison</div>
     <div id="s12-p1" class="s12-place sb-caps">À Maradi</div>
@@ -226,6 +225,7 @@
   <script>
     (function () {
       const D = 3.1;
+      const M = window.SBM;
       const portrait = window.SB3D.isPortrait();
       const Wm = 2000;
       const proj = (lon, lat) => [((lon + 180) / 360) * Wm, (Wm / 2 / Math.PI) * (Math.PI - Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360)))];
@@ -264,16 +264,19 @@
       });
 
       const tl = gsap.timeline({ paused: true });
-      tl.to(cam, { cx: stops.niger[0], cy: stops.niger[1], w: stops.niger[2], duration: 0.55, ease: "power2.inOut", onUpdate: applyCam }, 0.85);
-      tl.to(cam, { cx: stops.world[0], cy: stops.world[1], w: stops.world[2], duration: 0.7, ease: "power3.inOut", onUpdate: applyCam }, 1.9);
+      tl.fromTo("#s12-pin-in", { scale: 0, y: -30 }, { scale: 1, y: 0, duration: 0.4, ease: "back.out(2.6)", svgOrigin: "0 0" }, 0.2);
+      tl.to(cam, { cx: stops.niger[0], cy: stops.niger[1], w: stops.niger[2], duration: 0.55, ease: "power2.inOut", onUpdate: applyCam }, 0.9);
+      tl.to(cam, { cx: stops.world[0], cy: stops.world[1], w: stops.world[2], duration: 0.7, ease: "power3.inOut", onUpdate: applyCam }, 1.95);
       arcEls.forEach((a, i) => {
         tl.fromTo(a.p, { strokeDashoffset: a.len }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 2.4 + i * 0.06);
         tl.fromTo(a.dot, { opacity: 0 }, { opacity: 1, duration: 0.1 }, 2.85 + i * 0.06);
       });
-      tl.to("#s12-p1", { opacity: 0, duration: 0.15 }, 0.85);
-      tl.to("#s12-p2", { opacity: 1, duration: 0.15 }, 0.95);
-      tl.to("#s12-p2", { opacity: 0, duration: 0.15 }, 1.9);
-      tl.to("#s12-p3", { opacity: 1, duration: 0.15 }, 2.0);
+      M.blurIn(tl, "#s12-kicker", 0.05);
+      M.slam(tl, "#s12-p1", 0.3);
+      tl.to("#s12-p1", { opacity: 0, filter: "blur(8px)", duration: 0.14 }, 0.88);
+      M.slam(tl, "#s12-p2", 1.0);
+      tl.to("#s12-p2", { opacity: 0, filter: "blur(8px)", duration: 0.14 }, 1.9);
+      M.slam(tl, "#s12-p3", 2.0);
       tl.set({}, {}, D);
       applyCam();
       window.__timelines = window.__timelines || {};
