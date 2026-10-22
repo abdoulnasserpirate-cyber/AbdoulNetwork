@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Chief-Chief — la carte 16:9</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/theme.css" />
+    <style>
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060f; }
+.chap { left: 80px; top: 56px; } .chap .pill { font-size: 34px; }
+.ghost { font-size: 620px; }
+#hud-in { left: 1490px; top: 52px; padding: 10px 30px 12px; font-size: 36px; }
+/* S0 */
+#s0-lead, #s0-lead2 { top: 330px; font-size: 64px; } #s0-big { top: 410px; font-size: 180px; } #s0-big2 { top: 410px; font-size: 150px; }
+#s0-book { left: 700px; top: 120px; width: 520px; height: 820px; } .cover-t { font-size: 110px; } .cover-s { font-size: 36px; }
+/* S1 */
+#s1-ghost { left: 40px; top: 180px; } #s1-lead { left: 120px; top: 330px; font-size: 60px; } #s1-big { left: 110px; top: 405px; font-size: 175px; }
+#s1-dish { left: 1060px; top: 230px; width: 760px; height: 580px; }
+#s1-a1 { left: 1100px; top: 150px; } #s1-a2 { left: 1370px; top: 800px; } #s1-a3 { left: 960px; top: 860px; } .tag .pill { font-size: 42px; }
+/* S2 */
+#s2-ghost { left: 1280px; top: 520px; } #s2-lead { top: 330px; font-size: 62px; } #s2-big { top: 410px; font-size: 145px; } #s2-fm { top: 620px; } #s2-fm .pill { font-size: 58px; }
+#s2-p1, #s2-p2, #s2-p3 { top: 150px; width: 470px; } #s2-p1 { left: 170px; } #s2-p2 { left: 725px; } #s2-p3 { left: 1280px; }
+.pcol .plate { width: 440px; height: 440px; } .pname { font-size: 60px; }
+#s2-sl { top: 790px; font-size: 56px; } #s2-sauces { top: 880px; } .sauce { font-size: 50px; padding: 14px 40px 16px; margin: 0 12px; }
+/* S3 */
+#s3-ghost { left: 40px; top: 470px; } #s3-lead { left: 120px; top: 360px; font-size: 62px; } #s3-big { left: 110px; top: 435px; font-size: 175px; }
+.dname { left: 110px; top: 380px; font-size: 150px; } #s3-n3 { top: 330px; font-size: 130px; } .dsub { left: 120px; top: 560px; font-size: 64px; }
+#s3-d1 { left: 1160px; top: 260px; width: 700px; height: 563px; } #s3-d2 { left: 1230px; top: 170px; width: 600px; height: 720px; }
+#s3-d3 { left: 1230px; top: 190px; width: 600px; height: 675px; } #s3-d4 { left: 1250px; top: 160px; width: 600px; height: 684px; }
+/* S4 */
+#s4-ghost { left: 1300px; top: 520px; } #s4-plateau { left: 150px; top: 150px; width: 500px; height: 860px; }
+#s4-big { left: 760px; top: 420px; font-size: 140px; } #s4-n1 { left: 760px; top: 150px; font-size: 170px; } #s4-n2 { left: 760px; top: 140px; font-size: 125px; }
+#s4-c1, #s4-c2 { left: 1220px; top: 400px; width: 580px; height: 600px; }
+/* S5 */
+#s5-ghost { left: 1300px; top: 40px; } #s5-lead { left: 120px; top: 130px; font-size: 58px; } #s5-big { left: 110px; top: 200px; font-size: 170px; }
+#s5-i1 { left: 100px; top: 450px; width: 640px; } #s5-i2 { left: 790px; top: 450px; width: 420px; } #s5-i3 { left: 1300px; top: 450px; width: 500px; }
+.lpic { height: 380px; width: 100%; } #s5-sv { width: 320px; height: 360px; left: -110px; } #s5-sc { width: 400px; height: 330px; left: 250px; top: 40px; }
+#s5-sw { width: 340px; height: 340px; } .ttile { width: 440px; height: 320px; } .ttile .big { font-size: 74px; }
+.lname { font-size: 54px; } #s5-end { top: 975px; font-size: 54px; }
+/* S6 */
+#s6-ghost { left: 60px; top: 480px; } #s6-lead { top: 120px; font-size: 60px; } #s6-big { top: 195px; font-size: 170px; }
+#s6-f1 { left: 250px; top: 430px; } #s6-f1 .card { width: 600px; height: 470px; } #s6-f2 { left: 1130px; top: 420px; } #s6-f2 .plate { width: 470px; height: 470px; }
+.fcol .pill { font-size: 46px; }
+/* S7 */
+#s7-k1, #s7-k2, #s7-k3 { top: 380px; width: 420px; height: 330px; } #s7-k1 { left: 190px; } #s7-k2 { left: 750px; } #s7-k3 { left: 1310px; }
+#s7-rider { left: 0px; top: 480px; width: 1000px; height: 568px; } #s7-par { left: 80px; top: 120px; font-size: 58px; }
+#s7-allo { left: 700px; top: 70px; width: 190px; height: 182px; border-radius: 26px; border: 6px solid #fff; }
+#s7-medal { left: 1260px; top: 230px; width: 500px; height: 650px; } #s7-ml { top: -110px; font-size: 54px; } #s7-num { top: 370px; font-size: 82px; }
+/* S8 */
+#s8-phone { left: 1440px; top: 90px; width: 400px; height: 900px; }
+#s8-lead { left: 120px; top: 170px; font-size: 62px; } #s8-big { left: 110px; top: 245px; font-size: 175px; }
+#s8-url { left: 110px; top: 480px; font-size: 84px; } #s8-wa { left: 110px; top: 630px; padding: 16px 36px 16px 22px; } .wa-ico { width: 90px; height: 90px; } .wa-t { font-size: 52px; }
+#s8-num { left: 110px; top: 780px; font-size: 150px; }
+/* S9 */
+#s9-wall { left: -60px; top: -40px; width: 2040px; height: 1160px; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(4, 1fr); gap: 16px; }
+#s9-logo { left: 825px; top: 70px; width: 270px; height: 270px; } #s9-lead { top: 380px; font-size: 62px; } #s9-big { top: 460px; font-size: 210px; }
+#s9-pill { top: 730px; } #s9-pill .pill { font-size: 46px; } #s9-info { top: 845px; font-size: 48px; }
+
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="62.59" data-fps="30" data-width="1920" data-height="1080">
+      <!-- S0 · Intro + menu cover (0 – 4.15) -->
+      <section id="s0" class="clip scene" data-start="0" data-duration="4.2" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s0-lead" class="abs ctr lead c-white">chez</div>
+        <div id="s0-big" class="abs ctr big c-white">Chief-Chief</div>
+        <div id="s0-lead2" class="abs ctr lead c-white">on ne mange pas…</div>
+        <div id="s0-big2" class="abs ctr big c-white">On se régale !</div>
+        <div id="s0-book" class="abs">
+          <div id="s0-page" class="abs"></div>
+          <div id="s0-cover" class="abs">
+            <img src="assets/cut/logo.png" alt="" class="cover-logo" />
+            <div class="cover-t big">La carte</div>
+            <div class="cover-s lead">16 plats · 6 univers</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- S1 · 01 Signature (4.1 – 10.9) -->
+      <section id="s1" class="clip scene" data-start="4.1" data-duration="6.85" data-track-index="1">
+        <div class="bg-white"></div>
+        <div id="s1-ghost" class="abs ghost on-white">01</div>
+        <div id="s1-chap" class="abs chap"><span class="pill red">01 · La signature</span></div>
+        <div id="s1-lead" class="abs lead c-ink">la signature de la maison</div>
+        <div id="s1-big" class="abs big c-red"><div>Le plat</div><div>du chef</div></div>
+        <img id="s1-dish" class="dish" src="assets/cut/plat-du-chef.png" alt="" />
+        <div id="s1-a1" class="abs tag"><span class="pill blk">Riz sauté</span></div>
+        <div id="s1-a2" class="abs tag"><span class="pill red">Viande fondante</span></div>
+        <div id="s1-a3" class="abs tag"><span class="pill blk">Légumes frais</span></div>
+      </section>
+
+      <!-- S2 · 02 Pâtes africaines (10.9 – 22.6) -->
+      <section id="s2" class="clip scene" data-start="10.9" data-duration="11.75" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s2-ghost" class="abs ghost on-red">02</div>
+        <div id="s2-chap" class="abs chap"><span class="pill wht">02 · Pâtes africaines</span></div>
+        <div id="s2-lead" class="abs ctr lead c-white">découvrez aussi nos</div>
+        <div id="s2-big" class="abs ctr big c-white">Pâtes africaines</div>
+        <div id="s2-fm" class="abs ctr"><span class="pill blk">faites maison</span></div>
+        <div id="s2-p1" class="pcol"><div class="plate"><img src="assets/cut/pate-blanche.png" alt="" /></div><div class="pname mid">Pâte blanche</div></div>
+        <div id="s2-p2" class="pcol"><div class="plate"><img src="assets/cut/pate-rouge.png" alt="" /></div><div class="pname mid">Pâte rouge</div></div>
+        <div id="s2-p3" class="pcol"><div class="plate"><img src="assets/cut/pate-noire.png" alt="" /></div><div class="pname mid">Pâte noire</div></div>
+        <div id="s2-sl" class="abs ctr lead c-white">avec la sauce de votre choix</div>
+        <div id="s2-sauces" class="abs ctr">
+          <span class="sauce">Tomate</span><span class="sauce">Gombo</span><span class="sauce">Légumes</span><span class="sauce">Arachide</span>
+        </div>
+      </section>
+
+      <!-- S3 · 03 Fast-food (22.6 – 30.7) -->
+      <section id="s3" class="clip scene" data-start="22.6" data-duration="8.15" data-track-index="1">
+        <div class="bg-white"></div>
+        <div id="s3-ghost" class="abs ghost on-white">03</div>
+        <div id="s3-chap" class="abs chap"><span class="pill red">03 · Fast-food</span></div>
+        <div id="s3-lead" class="abs lead c-ink">envie de</div>
+        <div id="s3-big" class="abs big c-red">Fast-food ?</div>
+        <div id="s3-n1" class="abs dname big c-red">Burgers</div><div id="s3-s1" class="abs dsub lead c-ink">généreux</div>
+        <img id="s3-d1" class="dish dslot" src="assets/cut/burger.png" alt="" />
+        <div id="s3-n2" class="abs dname big c-red">Chawarmas</div><div id="s3-s2" class="abs dsub lead c-ink">bien garnis</div>
+        <div id="s3-d2" class="card dslot"><img src="assets/src/chawarma.jpg" alt="" style="object-position: 50% 40%" /></div>
+        <div id="s3-n3" class="abs dname big c-red"><div>Poulet</div><div class="c-ink">croustillant</div></div>
+        <img id="s3-d3" class="dish dslot" src="assets/cut/poulet-frites.png" alt="" />
+        <div id="s3-n4" class="abs dname big c-red">Frites</div><div id="s3-s4" class="abs dsub lead c-ink">bien dorées</div>
+        <img id="s3-d4" class="dish dslot" src="assets/cut/frites.png" alt="" />
+      </section>
+
+      <!-- S4 · 04 À partager (30.7 – 34.1) -->
+      <section id="s4" class="clip scene" data-start="30.7" data-duration="3.45" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s4-ghost" class="abs ghost on-red">04</div>
+        <div id="s4-chap" class="abs chap"><span class="pill wht">04 · À partager</span></div>
+        <div id="s4-plateau" class="card"><img src="assets/src/plateau-partage.jpg" alt="" /></div>
+        <div id="s4-big" class="abs big c-white">À partager</div>
+        <div id="s4-n1" class="abs big c-white">Pizzas</div>
+        <div id="s4-c1" class="card"><img src="assets/src/pizza.jpg" alt="" /></div>
+        <div id="s4-n2" class="abs big c-white"><div>Poulet</div><div>complet</div></div>
+        <div id="s4-c2" class="card"><img src="assets/src/poulet-complet.jpg" alt="" style="object-position: 50% 45%" /></div>
+      </section>
+
+      <!-- S5 · 05 Plus léger (34.1 – 40.4) -->
+      <section id="s5" class="clip scene" data-start="34.1" data-duration="6.35" data-track-index="1">
+        <div class="bg-white"></div>
+        <div id="s5-ghost" class="abs ghost on-white">05</div>
+        <div id="s5-chap" class="abs chap"><span class="pill red">05 · Plus léger</span></div>
+        <div id="s5-lead" class="abs lead c-ink">vous préférez quelque chose de</div>
+        <div id="s5-big" class="abs big c-red">Plus léger ?</div>
+        <div id="s5-i1" class="lcol"><div class="lpic"><div class="card" id="s5-sv"><img src="assets/src/salade-verte.jpg" alt="" /></div><img id="s5-sc" class="dish" src="assets/cut/salade-crudites.png" alt="" /></div><div class="lname mid c-red">Salades fraîches</div></div>
+        <div id="s5-i2" class="lcol"><div class="lpic"><div class="plate" id="s5-sw"><img src="assets/cut/sandwich.png" alt="" /></div></div><div class="lname mid c-red">Sandwichs</div></div>
+        <div id="s5-i3" class="lcol"><div class="lpic"><div id="s5-sp" class="ttile"><svg viewBox="0 0 64 64" class="sp-ico"><circle cx="32" cy="36" r="22" fill="none" stroke="#fff" stroke-width="4" /><circle cx="32" cy="36" r="13" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 4" /><path d="M50 4v20M46 4v12M54 4v12M46 16h8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" /></svg></div></div><div class="lname mid c-red">Spaghetti</div></div>
+        <div id="s5-end" class="abs ctr lead c-ink">sont là pour vous <b>régaler</b></div>
+      </section>
+
+      <!-- S6 · 06 Formules (40.4 – 43.95) -->
+      <section id="s6" class="clip scene" data-start="40.4" data-duration="3.6" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s6-ghost" class="abs ghost on-red">06</div>
+        <div id="s6-chap" class="abs chap"><span class="pill wht">06 · Formules</span></div>
+        <div id="s6-lead" class="abs ctr lead c-white">se faire plaisir sans se ruiner</div>
+        <div id="s6-big" class="abs ctr big c-white">Nos formules</div>
+        <div id="s6-f1" class="fcol"><div class="card"><img src="assets/src/formule-riz-creole.jpg" alt="" style="object-position: 50% 50%" /></div><span class="pill wht">Formule riz créole</span></div>
+        <div id="s6-f2" class="fcol"><div class="plate"><img src="assets/cut/formule-attieke.png" alt="" /></div><span class="pill blk">Formule attiéké</span></div>
+      </section>
+
+      <!-- S7 · Service + livraison + 500 F (43.95 – 50.45) -->
+      <section id="s7" class="clip scene" data-start="43.95" data-duration="6.55" data-track-index="1">
+        <div class="rays red" id="s7-rays"></div>
+        <div class="vignette"></div>
+        <div id="s7-k1" class="tile svc"><svg viewBox="0 0 64 64" class="tile-ico"><path d="M8 26h48M14 26v26M50 26v26M10 18h44l2 8H8z" fill="none" stroke="#d6060f" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /></svg><div class="tile-t">Sur place</div></div>
+        <div id="s7-k2" class="tile svc"><svg viewBox="0 0 64 64" class="tile-ico"><path d="M14 22h36l-3 34H17zM24 22v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#d6060f" stroke-width="5" stroke-linejoin="round" /></svg><div class="tile-t">À emporter</div></div>
+        <div id="s7-k3" class="tile svc"><svg viewBox="0 0 64 64" class="tile-ico"><circle cx="16" cy="46" r="9" fill="none" stroke="#d6060f" stroke-width="5" /><circle cx="50" cy="46" r="9" fill="none" stroke="#d6060f" stroke-width="5" /><path d="M16 46l10-16h14l10 16M30 30l-4-10h-8M40 30l4-12h8" fill="none" stroke="#d6060f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg><div class="tile-t">Livraison</div></div>
+        <div id="s7-lines"></div>
+        <img id="s7-rider" class="dish" src="assets/cut/livreur.png" alt="" />
+        <div id="s7-par" class="abs lead c-white">livré chez vous par</div>
+        <img id="s7-allo" class="abs" src="assets/logos/allo.png" alt="Allô Multi-Services" />
+        <div id="s7-medal" class="medal">
+          <div id="s7-ml" class="abs ctr lead c-white">à partir de seulement</div>
+          <svg viewBox="0 0 200 260" class="medal-svg">
+            <path d="M62 0 L100 92 L138 0 L160 0 L112 110 L88 110 L40 0 Z" fill="#ffffff" />
+            <g id="s7-burst"></g>
+            <circle cx="100" cy="170" r="74" fill="#ffffff" />
+            <circle cx="100" cy="170" r="60" fill="none" stroke="#d6060f" stroke-width="4" />
+          </svg>
+          <div id="s7-num" class="big">0 F</div>
+        </div>
+      </section>
+
+      <!-- S8 · Commandez (50.45 – 58.35) -->
+      <section id="s8" class="clip scene" data-start="50.4" data-duration="8.0" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s8-phone" class="phone"><img id="s8-shot" src="assets/site/site-accueil.jpg" alt="" /></div>
+        <div id="s8-lead" class="abs lead c-white">dès maintenant</div>
+        <div id="s8-big" class="abs big c-white">Commandez</div>
+        <div id="s8-url" class="abs big c-white" style="text-transform: none"></div>
+        <div id="s8-wa" class="abs">
+          <svg class="wa-ico" viewBox="0 0 32 32"><path fill="#d6060f" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-2.6-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5a.6.6 0 0 0 0-.6c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.8 13.8 0 0 0 5.3 4.7c2 .8 2.7.9 3.6.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.2-.6-.4z" /></svg>
+          <div class="wa-t mid">WhatsApp</div>
+        </div>
+        <div id="s8-num" class="abs big c-white"><span class="w">88</span> <span class="w">84</span> <span class="w">49</span> <span class="w">84</span></div>
+      </section>
+
+      <!-- S9 · Mosaïque + signature (58.35 – 62.59) -->
+      <section id="s9" class="clip scene" data-start="58.3" data-duration="4.29" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s9-wall" class="abs"></div>
+        <div id="s9-veil" class="abs"></div>
+        <img id="s9-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+        <div id="s9-lead" class="abs ctr lead c-white">le goût qui vous ramène</div>
+        <div id="s9-big" class="abs ctr big c-white">Toujours</div>
+        <div id="s9-pill" class="abs ctr"><span class="pill wht">Sur place · À emporter · Livraison</span></div>
+        <div id="s9-info" class="abs ctr lead c-white">chiefchiefrestaurant.com · WhatsApp 88 84 49 84</div>
+      </section>
+
+      <!-- HUD: dish counter -->
+      <div id="hud" class="clip" data-start="6.5" data-duration="37.5" data-track-index="4">
+        <div id="hud-in" class="abs"><span class="hud-l">Plat</span> <span id="hud-n">01</span><span class="hud-l"> / 16</span></div>
+      </div>
+
+      <!-- Transition overlay -->
+      <div id="fx" class="clip scene" data-start="0" data-duration="62.59" data-track-index="5">
+        <div id="wp-w" class="wpanel" style="background: #ffffff"></div>
+        <div id="wp-r" class="wpanel" style="background: #d6060f"></div>
+        <div id="wp-k" class="wpanel" style="background: #121010"></div>
+      </div>
+
+      <audio id="voice" src="assets/voice/voix-off.mp3" data-start="0" data-duration="62.59" data-track-index="10" data-volume="1"></audio>
+      <audio id="music" src="assets/music/carte-groove.mp3" data-start="0" data-duration="62.59" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx" src="assets/sfx/sfx-mix.wav" data-start="0" data-duration="62.59" data-track-index="12" data-volume="0.45"></audio>
+
+    </div>
+    <script>
+      // Deterministic pseudo-random (seeded LCG) for decorative elements.
+      let seed = 777;
+      const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const W = document.getElementById("root").offsetWidth;
+      const H = document.getElementById("root").offsetHeight;
+      const VERT = H > W;
+
+      // speed lines (S7)
+      const linesHost = document.getElementById("s7-lines");
+      const lines = [];
+      for (let i = 0; i < 16; i++) {
+        const d = document.createElement("div");
+        const w = 160 + Math.round(rnd() * 420);
+        d.className = "sline";
+        d.style.cssText = `left:0;top:${Math.round(40 + rnd() * (H - 80))}px;width:${w}px;height:${4 + Math.round(rnd() * 8)}px;background:${i % 3 ? "rgba(255,255,255,0.75)" : "#121010"}`;
+        linesHost.appendChild(d);
+        lines.push({ el: d, w, speed: 0.3 + rnd() * 0.3, off: rnd() });
+      }
+      // medal rays (S7)
+      const burst = document.getElementById("s7-burst");
+      for (let i = 0; i < 14; i++) {
+        const e = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        e.setAttribute("x", "94");
+        e.setAttribute("y", "76");
+        e.setAttribute("width", "12");
+        e.setAttribute("height", "16");
+        e.setAttribute("rx", "6");
+        e.setAttribute("fill", "#ffffff");
+        e.setAttribute("transform", `rotate(${(i / 14) * 360} 100 170)`);
+        burst.appendChild(e);
+      }
+      // typed URL (S8)
+      const urlHost = document.getElementById("s8-url");
+      const urlChars = [];
+      for (const ch of "chiefchiefrestaurant.com") {
+        const s = document.createElement("span");
+        s.className = "w";
+        s.textContent = ch;
+        urlHost.appendChild(s);
+        urlChars.push(s);
+      }
+      // mosaic wall (S9) — every dish of the menu
+      const WALL = [
+        "src/plat-du-chef.jpg", "cut/pate-blanche.png", "cut/pate-rouge.png", "cut/pate-noire.png", "src/burger.jpg",
+        "src/chawarma.jpg", "src/poulet-frites.jpg", "src/frites.jpg", "src/pizza.jpg", "src/poulet-complet.jpg",
+        "src/salade-verte.jpg", "src/salade-crudites.jpg", "cut/sandwich.png", "src/formule-riz-creole.jpg", "src/formule-attieke.jpg",
+        "src/plateau-partage.jpg", "cut/pate-noire.png", "src/burger.jpg", "src/pizza.jpg", "src/plat-du-chef.jpg",
+      ];
+      const wall = document.getElementById("s9-wall");
+      const nTiles = VERT ? 18 : 20;
+      const tiles = [];
+      for (let i = 0; i < nTiles; i++) {
+        const t = document.createElement("div");
+        t.className = "wt";
+        const im = document.createElement("img");
+        im.src = "assets/" + WALL[i % WALL.length];
+        im.alt = "";
+        t.appendChild(im);
+        wall.appendChild(t);
+        tiles.push(t);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set(".wpanel", { xPercent: -110 }, 0);
+
+      // ---------- helpers ----------
+      function wipe(t, id, dir = 1) {
+        tl.fromTo(id, { xPercent: -110 * dir, skewX: -12 }, { xPercent: 0, skewX: -12, duration: 0.22, ease: "power3.in", immediateRender: false }, t - 0.22);
+        tl.to(id, { xPercent: 110 * dir, duration: 0.28, ease: "power3.out" }, t);
+      }
+      function punch(sel, t, d = 0.32) {
+        tl.fromTo(sel, { scale: 1.9, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: d, ease: "expo.out" }, t);
+      }
+      function leadIn(sel, t) {
+        tl.fromTo(sel, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, t);
+      }
+      function rise(sel, t, d = 0.4) {
+        tl.fromTo(sel, { yPercent: 70, opacity: 0, clipPath: "inset(0% 0% 100% 0%)" }, { yPercent: 0, opacity: 1, clipPath: "inset(0% 0% -20% 0%)", duration: d, ease: "expo.out" }, t);
+      }
+      function pushOut(sel, t, x = -260, d = 0.22) {
+        tl.to(sel, { x, opacity: 0, filter: "blur(16px)", duration: d, ease: "power3.in" }, t);
+      }
+      function cardIn(sel, t, rot = 4) {
+        tl.fromTo(sel, { x: VERT ? 0 : 700, y: VERT ? 900 : 0, rotation: rot + 14, opacity: 0 }, { x: 0, y: 0, rotation: rot, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, t);
+      }
+      function popIn(sel, t, d = 0.35, from = 0) {
+        tl.fromTo(sel, { scale: from, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "back.out(2.2)" }, t);
+      }
+      function drift(sel, t, d, props) {
+        tl.to(sel, { ...props, duration: d, ease: "sine.inOut" }, t);
+      }
+      function ghostIn(sel, t) {
+        tl.fromTo(sel, { x: -200, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, t);
+      }
+      function chapIn(sel, t) {
+        tl.fromTo(sel, { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, t);
+      }
+      // dish counter
+      function count(n, t) {
+        tl.set("#hud-n", { textContent: String(n).padStart(2, "0") }, t);
+        tl.fromTo("#hud-n", { scale: 1.8 }, { scale: 1, duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, t);
+      }
+
+      // ================= S0 · intro + menu cover (0 – 4.15) =================
+      leadIn("#s0-lead", 0.02);
+      punch("#s0-big", 0.15, 0.38);
+      pushOut(["#s0-lead", "#s0-big"], 1.0, -300);
+      leadIn("#s0-lead2", 1.1);
+      punch("#s0-big2", 2.05, 0.35);
+      pushOut(["#s0-lead2", "#s0-big2"], 2.78, -300);
+      tl.fromTo("#s0-book", { scale: 0.2, rotation: -25, opacity: 0, y: 300 }, { scale: 1, rotation: -3, opacity: 1, y: 0, duration: 0.55, ease: "back.out(1.5)" }, 2.85);
+      tl.to("#s0-book", { rotation: 0, duration: 0.4, ease: "sine.inOut" }, 3.4);
+      tl.fromTo("#s0-cover", { rotationY: 0 }, { rotationY: -165, duration: 0.55, ease: "power2.inOut" }, 3.45);
+      tl.to("#s0-book", { scale: 4.2, duration: 0.35, ease: "power3.in" }, 3.8);
+
+      // ================= S1 · 01 Signature (4.1 – 10.9) =================
+      ghostIn("#s1-ghost", 4.15);
+      chapIn("#s1-chap", 4.4);
+      tl.fromTo("#s1-dish", { x: 700, rotation: 40, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: 0.7, ease: "back.out(1.3)" }, 4.6);
+      drift("#s1-dish", 5.3, 5.5, { rotation: 8, scale: 1.05 });
+      leadIn("#s1-lead", 5.0);
+      rise("#s1-big > div", 6.55, 0.4);
+      tl.fromTo("#s1-big > div:nth-child(2)", { yPercent: 70 }, { yPercent: 0, duration: 0.4, ease: "expo.out", immediateRender: false }, 6.85);
+      popIn("#s1-a1", 7.9, 0.4);
+      popIn("#s1-a2", 8.95, 0.4);
+      popIn("#s1-a3", 9.8, 0.4);
+      ["#s1-a1", "#s1-a2", "#s1-a3"].forEach((a, i) => drift(a, 8.4 + i * 0.9, 1.2, { y: i % 2 ? -12 : 12 }));
+      tl.fromTo("#hud-in", { y: -90, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 6.55);
+      count(1, 6.6);
+      wipe(10.9, "#wp-r");
+
+      // ================= S2 · 02 Pâtes africaines (10.9 – 22.6) =================
+      ghostIn("#s2-ghost", 10.95);
+      chapIn("#s2-chap", 11.1);
+      leadIn("#s2-lead", 11.15);
+      punch("#s2-big", 12.25, 0.38);
+      popIn("#s2-fm", 13.0, 0.4);
+      tl.to(["#s2-lead", "#s2-big", "#s2-fm"], { y: -200, opacity: 0, filter: "blur(14px)", duration: 0.25, ease: "power3.in" }, 13.75);
+      [["#s2-p1", 14.05, 2], ["#s2-p2", 14.95, 3], ["#s2-p3", 15.95, 4]].forEach(([id, t, n], i) => {
+        tl.fromTo(id, { scale: 0, rotation: -120, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, t);
+        tl.to(id + " .plate", { rotation: i % 2 ? -25 : 25, duration: 6, ease: "none" }, t + 0.5);
+        count(n, t + 0.05);
+      });
+      leadIn("#s2-sl", 17.5);
+      [19.45, 19.9, 20.6, 21.3].forEach((t, i) => {
+        tl.fromTo(`#s2-sauces .sauce:nth-child(${i + 1})`, { y: 120, scale: 0.3, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2.4)" }, t);
+      });
+      wipe(22.6, "#wp-w");
+
+      // ================= S3 · 03 Fast-food (22.6 – 30.7) =================
+      ghostIn("#s3-ghost", 22.65);
+      chapIn("#s3-chap", 22.8);
+      leadIn("#s3-lead", 22.9);
+      punch("#s3-big", 23.25, 0.38);
+      pushOut(["#s3-lead", "#s3-big"], 24.3, -320);
+      const seq = [
+        { n: "#s3-n1", s: "#s3-s1", d: "#s3-d1", tin: 24.5, tsub: 25.55, tout: 26.2, c: 5 },
+        { n: "#s3-n2", s: "#s3-s2", d: "#s3-d2", tin: 26.32, tsub: 27.4, tout: 28.12, c: 6 },
+        { n: "#s3-n3", s: null, d: "#s3-d3", tin: 28.25, tsub: 0, tout: 29.25, c: 7 },
+        { n: "#s3-n4", s: "#s3-s4", d: "#s3-d4", tin: 29.35, tsub: 29.85, tout: 0, c: 8 },
+      ];
+      seq.forEach((q, i) => {
+        punch(q.n, q.tin, 0.3);
+        tl.fromTo(q.d, { x: VERT ? 0 : 800, y: VERT ? -900 : 0, rotation: 30, opacity: 0 }, { x: 0, y: 0, rotation: i % 2 ? 4 : -3, opacity: 1, duration: 0.45, ease: "back.out(1.5)" }, q.tin - 0.05);
+        count(q.c, q.tin + 0.05);
+        if (q.s) leadIn(q.s, q.tsub);
+        if (q.tout) {
+          pushOut([q.n, q.s].filter(Boolean), q.tout, -320, 0.18);
+          tl.to(q.d, { x: VERT ? 0 : -300, y: VERT ? 900 : 0, rotation: -20, opacity: 0, filter: "blur(14px)", duration: 0.2, ease: "power3.in" }, q.tout);
+        } else {
+          drift(q.d, q.tin + 0.4, 0.9, { rotation: 6, scale: 1.04 });
+        }
+      });
+      wipe(30.7, "#wp-r");
+
+      // ================= S4 · 04 À partager (30.7 – 34.1) =================
+      ghostIn("#s4-ghost", 30.72);
+      chapIn("#s4-chap", 30.8);
+      tl.fromTo("#s4-plateau", { x: VERT ? 0 : -700, y: VERT ? 900 : 0, rotation: -20, opacity: 0 }, { x: 0, y: 0, rotation: -5, opacity: 1, duration: 0.5, ease: "back.out(1.4)" }, 30.75);
+      punch("#s4-big", 30.9, 0.32);
+      pushOut("#s4-big", 31.4, 300, 0.18);
+      punch("#s4-n1", 31.5, 0.3);
+      cardIn("#s4-c1", 31.45, 4);
+      count(9, 31.55);
+      pushOut("#s4-n1", 32.55, 300, 0.18);
+      rise("#s4-n2 > div", 32.7, 0.35);
+      tl.fromTo("#s4-n2 > div:nth-child(2)", { yPercent: 70 }, { yPercent: 0, duration: 0.35, ease: "expo.out", immediateRender: false }, 33.0);
+      cardIn("#s4-c2", 32.65, -3);
+      tl.to("#s4-c1", { x: VERT ? -60 : 80, rotation: 10, duration: 0.45, ease: "power3.out" }, 32.7);
+      count(10, 32.75);
+      wipe(34.1, "#wp-w");
+
+      // ================= S5 · 05 Plus léger (34.1 – 40.4) =================
+      ghostIn("#s5-ghost", 34.12);
+      chapIn("#s5-chap", 34.2);
+      leadIn("#s5-lead", 34.3);
+      punch("#s5-big", 35.0, 0.36);
+      tl.fromTo("#s5-i1", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 36.2);
+      tl.fromTo("#s5-sv", { rotation: -25 }, { rotation: -6, duration: 0.6, ease: "back.out(1.5)" }, 36.2);
+      tl.fromTo("#s5-sc", { x: 200, rotation: 25 }, { x: 0, rotation: 0, duration: 0.6, ease: "back.out(1.5)" }, 36.3);
+      count(11, 36.3);
+      count(12, 36.75);
+      tl.fromTo("#s5-i2", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 37.45);
+      count(13, 37.5);
+      tl.fromTo("#s5-i3", { y: 200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.5)" }, 38.15);
+      count(14, 38.2);
+      drift("#s5-sw", 37.9, 2.4, { rotation: 20 });
+      leadIn("#s5-end", 39.0);
+      wipe(40.4, "#wp-r");
+
+      // ================= S6 · 06 Formules (40.4 – 43.95) =================
+      ghostIn("#s6-ghost", 40.42);
+      chapIn("#s6-chap", 40.5);
+      leadIn("#s6-lead", 40.6);
+      cardIn("#s6-f1", 41.3, -3);
+      count(15, 41.35);
+      tl.fromTo("#s6-f2", { y: VERT ? 900 : 0, x: VERT ? 0 : 800, rotation: 90, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, 41.75);
+      count(16, 41.8);
+      punch("#s6-big", 42.95, 0.34);
+      drift("#s6-f2 .plate", 42.3, 1.6, { rotation: 18 });
+      tl.to("#hud-in", { y: -90, opacity: 0, duration: 0.3, ease: "power3.in" }, 43.6);
+      wipe(43.95, "#wp-k", -1);
+
+      // ================= S7 · service + livraison + 500 F (43.95 – 50.45) =================
+      tl.fromTo("#s7-rays", { rotation: 0 }, { rotation: 45, duration: 6.5, ease: "none" }, 43.95);
+      [["#s7-k1", 44.1], ["#s7-k2", 44.7], ["#s7-k3", 45.4]].forEach(([id, t], i) => {
+        tl.fromTo(id, { y: 300, opacity: 0, rotation: i % 2 ? 8 : -8 }, { y: 0, opacity: 1, rotation: 0, duration: 0.45, ease: "back.out(1.8)" }, t);
+      });
+      tl.to(["#s7-k1", "#s7-k2", "#s7-k3"], { y: -H, rotation: -10, duration: 0.35, ease: "power3.in", stagger: 0.05 }, 46.05);
+      lines.forEach((l) => {
+        tl.fromTo(l.el, { x: W + l.off * 600 }, { x: -l.w - 100, duration: l.speed, ease: "none", repeat: Math.ceil(4.2 / l.speed) }, 46.2);
+      });
+      tl.fromTo("#s7-rider", { x: -W, filter: "blur(16px)" }, { x: 0, filter: "blur(0px)", duration: 0.7, ease: "expo.out" }, 46.25);
+      tl.to("#s7-rider", { y: -8, duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 23 }, 47.0);
+      leadIn("#s7-par", 46.4);
+      popIn("#s7-allo", 46.85, 0.45);
+      tl.fromTo("#s7-medal", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 48.3);
+      const counter = { v: 0 };
+      const numEl = document.getElementById("s7-num");
+      tl.fromTo(counter, { v: 0 }, { v: 500, duration: 0.6, ease: "power2.out", onUpdate: () => { numEl.textContent = Math.round(counter.v / 10) * 10 + " F"; } }, 49.4);
+      tl.to("#s7-medal", { scale: 1.08, duration: 0.2, ease: "power2.out", yoyo: true, repeat: 1 }, 50.0);
+      wipe(50.45, "#wp-r");
+
+      // ================= S8 · Commandez (50.4 – 58.35) =================
+      tl.fromTo("#s8-phone", { y: 1000, rotation: 10 }, { y: 0, rotation: -4, duration: 0.6, ease: "expo.out" }, 50.45);
+      tl.fromTo("#s8-shot", { scale: 1, transformOrigin: "50% 0%" }, { scale: 1.12, duration: 6.5, ease: "power1.inOut" }, 51.0);
+      drift("#s8-phone", 51.1, 6.8, { rotation: 2 });
+      punch("#s8-big", 50.5, 0.34);
+      leadIn("#s8-lead", 50.9);
+      tl.fromTo(urlChars, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.07, ease: "power2.out", stagger: 0.054 }, 51.6);
+      tl.fromTo("#s8-wa", { x: -500, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 53.0);
+      [54.35, 55.45, 56.55, 57.55].forEach((t, i) => punch(`#s8-num .w:nth-child(${i + 1})`, t, 0.3));
+      tl.to("#s8-num", { scale: 1.05, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, 57.9);
+
+      // ================= S9 · mosaic + signature (58.3 – 62.59) =================
+      tl.fromTo("#s9-wall", { scale: 2.6 }, { scale: 1, duration: 1.1, ease: "expo.out" }, 58.3);
+      tl.fromTo(tiles, { rotationY: 90, opacity: 0 }, { rotationY: 0, opacity: 1, duration: 0.4, ease: "power3.out", stagger: { each: 0.025, from: "center" } }, 58.3);
+      tl.to("#s9-wall", { scale: 1.08, duration: 3.0, ease: "none" }, 59.4);
+      tl.fromTo("#s9-veil", { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power2.out" }, 59.15);
+      tl.fromTo("#s9-logo", { scale: 0, rotation: -160 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(1.7)" }, 59.25);
+      leadIn("#s9-lead", 59.45);
+      punch("#s9-big", 60.45, 0.32);
+      tl.fromTo("#s9-pill", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 60.95);
+      tl.fromTo("#s9-info", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 61.15);
+
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>

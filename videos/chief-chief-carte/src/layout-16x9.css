@@ -1,0 +1,49 @@
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060f; }
+.chap { left: 80px; top: 56px; } .chap .pill { font-size: 34px; }
+.ghost { font-size: 620px; }
+#hud-in { left: 1490px; top: 52px; padding: 10px 30px 12px; font-size: 36px; }
+/* S0 */
+#s0-lead, #s0-lead2 { top: 330px; font-size: 64px; } #s0-big { top: 410px; font-size: 180px; } #s0-big2 { top: 410px; font-size: 150px; }
+#s0-book { left: 700px; top: 120px; width: 520px; height: 820px; } .cover-t { font-size: 110px; } .cover-s { font-size: 36px; }
+/* S1 */
+#s1-ghost { left: 40px; top: 180px; } #s1-lead { left: 120px; top: 330px; font-size: 60px; } #s1-big { left: 110px; top: 405px; font-size: 175px; }
+#s1-dish { left: 1060px; top: 230px; width: 760px; height: 580px; }
+#s1-a1 { left: 1100px; top: 150px; } #s1-a2 { left: 1370px; top: 800px; } #s1-a3 { left: 960px; top: 860px; } .tag .pill { font-size: 42px; }
+/* S2 */
+#s2-ghost { left: 1280px; top: 520px; } #s2-lead { top: 330px; font-size: 62px; } #s2-big { top: 410px; font-size: 145px; } #s2-fm { top: 620px; } #s2-fm .pill { font-size: 58px; }
+#s2-p1, #s2-p2, #s2-p3 { top: 150px; width: 470px; } #s2-p1 { left: 170px; } #s2-p2 { left: 725px; } #s2-p3 { left: 1280px; }
+.pcol .plate { width: 440px; height: 440px; } .pname { font-size: 60px; }
+#s2-sl { top: 790px; font-size: 56px; } #s2-sauces { top: 880px; } .sauce { font-size: 50px; padding: 14px 40px 16px; margin: 0 12px; }
+/* S3 */
+#s3-ghost { left: 40px; top: 470px; } #s3-lead { left: 120px; top: 360px; font-size: 62px; } #s3-big { left: 110px; top: 435px; font-size: 175px; }
+.dname { left: 110px; top: 380px; font-size: 150px; } #s3-n3 { top: 330px; font-size: 130px; } .dsub { left: 120px; top: 560px; font-size: 64px; }
+#s3-d1 { left: 1160px; top: 260px; width: 700px; height: 563px; } #s3-d2 { left: 1230px; top: 170px; width: 600px; height: 720px; }
+#s3-d3 { left: 1230px; top: 190px; width: 600px; height: 675px; } #s3-d4 { left: 1250px; top: 160px; width: 600px; height: 684px; }
+/* S4 */
+#s4-ghost { left: 1300px; top: 520px; } #s4-plateau { left: 150px; top: 150px; width: 500px; height: 860px; }
+#s4-big { left: 760px; top: 420px; font-size: 140px; } #s4-n1 { left: 760px; top: 150px; font-size: 170px; } #s4-n2 { left: 760px; top: 140px; font-size: 125px; }
+#s4-c1, #s4-c2 { left: 1220px; top: 400px; width: 580px; height: 600px; }
+/* S5 */
+#s5-ghost { left: 1300px; top: 40px; } #s5-lead { left: 120px; top: 130px; font-size: 58px; } #s5-big { left: 110px; top: 200px; font-size: 170px; }
+#s5-i1 { left: 100px; top: 450px; width: 640px; } #s5-i2 { left: 790px; top: 450px; width: 420px; } #s5-i3 { left: 1300px; top: 450px; width: 500px; }
+.lpic { height: 380px; width: 100%; } #s5-sv { width: 320px; height: 360px; left: -110px; } #s5-sc { width: 400px; height: 330px; left: 250px; top: 40px; }
+#s5-sw { width: 340px; height: 340px; } .ttile { width: 440px; height: 320px; } .ttile .big { font-size: 74px; }
+.lname { font-size: 54px; } #s5-end { top: 975px; font-size: 54px; }
+/* S6 */
+#s6-ghost { left: 60px; top: 480px; } #s6-lead { top: 120px; font-size: 60px; } #s6-big { top: 195px; font-size: 170px; }
+#s6-f1 { left: 250px; top: 430px; } #s6-f1 .card { width: 600px; height: 470px; } #s6-f2 { left: 1130px; top: 420px; } #s6-f2 .plate { width: 470px; height: 470px; }
+.fcol .pill { font-size: 46px; }
+/* S7 */
+#s7-k1, #s7-k2, #s7-k3 { top: 380px; width: 420px; height: 330px; } #s7-k1 { left: 190px; } #s7-k2 { left: 750px; } #s7-k3 { left: 1310px; }
+#s7-rider { left: 0px; top: 480px; width: 1000px; height: 568px; } #s7-par { left: 80px; top: 120px; font-size: 58px; }
+#s7-allo { left: 700px; top: 70px; width: 190px; height: 182px; border-radius: 26px; border: 6px solid #fff; }
+#s7-medal { left: 1260px; top: 230px; width: 500px; height: 650px; } #s7-ml { top: -110px; font-size: 54px; } #s7-num { top: 370px; font-size: 82px; }
+/* S8 */
+#s8-phone { left: 1440px; top: 90px; width: 400px; height: 900px; }
+#s8-lead { left: 120px; top: 170px; font-size: 62px; } #s8-big { left: 110px; top: 245px; font-size: 175px; }
+#s8-url { left: 110px; top: 480px; font-size: 84px; } #s8-wa { left: 110px; top: 630px; padding: 16px 36px 16px 22px; } .wa-ico { width: 90px; height: 90px; } .wa-t { font-size: 52px; }
+#s8-num { left: 110px; top: 780px; font-size: 150px; }
+/* S9 */
+#s9-wall { left: -60px; top: -40px; width: 2040px; height: 1160px; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(4, 1fr); gap: 16px; }
+#s9-logo { left: 825px; top: 70px; width: 270px; height: 270px; } #s9-lead { top: 380px; font-size: 62px; } #s9-big { top: 460px; font-size: 210px; }
+#s9-pill { top: 730px; } #s9-pill .pill { font-size: 46px; } #s9-info { top: 845px; font-size: 48px; }

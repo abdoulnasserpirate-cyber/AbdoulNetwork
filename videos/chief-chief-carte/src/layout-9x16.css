@@ -1,0 +1,52 @@
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #d6060f; }
+.chap { left: 60px; top: 70px; } .chap .pill { font-size: 34px; }
+.ghost { font-size: 520px; }
+#hud-in { left: 700px; top: 70px; padding: 10px 26px 12px; font-size: 32px; }
+/* S0 */
+#s0-lead, #s0-lead2 { top: 720px; font-size: 62px; } #s0-big { top: 800px; font-size: 115px; }
+#s0-big2 { top: 800px; font-size: 150px; white-space: normal; padding: 0 60px; }
+#s0-book { left: 210px; top: 430px; width: 660px; height: 1020px; } .cover-t { font-size: 130px; } .cover-s { font-size: 40px; }
+/* S1 */
+#s1-ghost { left: 30px; top: 150px; } #s1-dish { left: 120px; top: 330px; width: 840px; height: 641px; }
+#s1-a1 { left: 600px; top: 270px; } #s1-a2 { left: 60px; top: 960px; } #s1-a3 { left: 560px; top: 1040px; } .tag .pill { font-size: 40px; }
+#s1-lead { left: 80px; top: 1200px; font-size: 56px; } #s1-big { left: 70px; top: 1275px; font-size: 160px; }
+/* S2 */
+#s2-ghost { left: 520px; top: 1460px; } #s2-lead { top: 620px; font-size: 58px; } #s2-big { top: 700px; font-size: 150px; white-space: normal; padding: 0 60px; }
+#s2-fm { top: 1060px; } #s2-fm .pill { font-size: 56px; }
+#s2-p1, #s2-p2, #s2-p3 { width: 460px; } #s2-p1 { left: 60px; top: 220px; } #s2-p2 { left: 560px; top: 220px; } #s2-p3 { left: 310px; top: 760px; }
+.pcol .plate { width: 400px; height: 400px; } .pname { font-size: 50px; }
+#s2-sl { top: 1340px; font-size: 52px; } #s2-sauces { top: 1430px; padding: 0 60px; } .sauce { font-size: 46px; padding: 14px 36px 16px; margin: 0 8px 22px; }
+/* S3 */
+#s3-ghost { left: 30px; top: 1380px; } #s3-lead { left: 80px; top: 1130px; font-size: 58px; } #s3-big { left: 70px; top: 1205px; font-size: 118px; }
+.dname { left: 70px; top: 1180px; font-size: 120px; } #s3-n3 { top: 1150px; font-size: 110px; } .dsub { left: 80px; top: 1340px; font-size: 60px; }
+#s3-d1 { left: 140px; top: 330px; width: 800px; height: 643px; } #s3-d2 { left: 190px; top: 250px; width: 700px; height: 820px; }
+#s3-d3 { left: 190px; top: 240px; width: 700px; height: 787px; } #s3-d4 { left: 200px; top: 220px; width: 680px; height: 775px; }
+/* S4 */
+#s4-ghost { left: 520px; top: 1360px; } #s4-plateau { left: 250px; top: 200px; width: 580px; height: 1000px; }
+#s4-big { left: 70px; top: 1290px; font-size: 118px; } #s4-n1 { left: 70px; top: 1240px; font-size: 150px; } #s4-n2 { left: 70px; top: 1200px; font-size: 120px; }
+#s4-c1, #s4-c2 { left: 190px; top: 260px; width: 700px; height: 780px; }
+/* S5 */
+#s5-ghost { left: 520px; top: 1460px; } #s5-lead { left: 70px; top: 180px; font-size: 52px; } #s5-big { left: 60px; top: 250px; font-size: 104px; }
+#s5-i1 { left: 70px; top: 440px; width: 940px; } #s5-i2 { left: 40px; top: 1000px; width: 500px; } #s5-i3 { left: 540px; top: 1000px; width: 500px; }
+.lpic { width: 100%; } #s5-i1 .lpic { height: 400px; } #s5-i2 .lpic, #s5-i3 .lpic { height: 340px; }
+#s5-sv { width: 340px; height: 390px; left: -150px; } #s5-sc { width: 440px; height: 363px; left: 430px; top: 30px; }
+#s5-sw { width: 320px; height: 320px; } .ttile { width: 420px; height: 300px; } .ttile .big { font-size: 66px; }
+.lname { font-size: 48px; } #s5-end { top: 1560px; font-size: 52px; }
+/* S6 */
+#s6-ghost { left: 520px; top: 1460px; } #s6-lead { top: 220px; font-size: 52px; } #s6-big { top: 295px; font-size: 104px; }
+#s6-f1 { left: 190px; top: 480px; } #s6-f1 .card { width: 700px; height: 500px; } #s6-f2 { left: 270px; top: 1120px; } #s6-f2 .plate { width: 540px; height: 540px; }
+.fcol .pill { font-size: 44px; }
+/* S7 */
+#s7-k1, #s7-k2, #s7-k3 { left: 190px; width: 700px; height: 290px; } #s7-k1 { top: 420px; } #s7-k2 { top: 770px; } #s7-k3 { top: 1120px; }
+#s7-rider { left: 0px; top: 1200px; width: 1080px; height: 613px; } #s7-par { left: 80px; top: 170px; font-size: 54px; }
+#s7-allo { left: 790px; top: 120px; width: 200px; height: 191px; border-radius: 26px; border: 6px solid #fff; }
+#s7-medal { left: 300px; top: 520px; width: 480px; height: 624px; } #s7-ml { top: -100px; font-size: 52px; } #s7-num { top: 352px; font-size: 80px; }
+/* S8 */
+#s8-phone { left: 300px; top: 90px; width: 480px; height: 1000px; }
+#s8-lead { left: 80px; top: 1150px; font-size: 56px; } #s8-big { left: 70px; top: 1225px; font-size: 130px; }
+#s8-url { left: 60px; top: 1400px; font-size: 62px; } #s8-wa { left: 70px; top: 1520px; padding: 14px 32px 14px 20px; } .wa-ico { width: 80px; height: 80px; } .wa-t { font-size: 46px; }
+#s8-num { left: 70px; top: 1680px; font-size: 120px; }
+/* S9 */
+#s9-wall { left: -40px; top: -40px; width: 1160px; height: 2000px; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(6, 1fr); gap: 14px; }
+#s9-logo { left: 330px; top: 360px; width: 420px; height: 420px; } #s9-lead { top: 860px; font-size: 58px; } #s9-big { top: 940px; font-size: 170px; }
+#s9-pill { top: 1230px; } #s9-pill .pill { font-size: 40px; } #s9-info { top: 1345px; font-size: 36px; }
