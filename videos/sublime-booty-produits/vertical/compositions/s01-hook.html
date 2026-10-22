@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
+    #s01-sil-ghost { color: var(--deep); width: 1240px; height: 1848px; left: 330px; top: 640px; }
+    #s01-sil { color: var(--black); width: 1240px; height: 1848px; left: 302px; top: 628px; }
+    #s01-l1 { position: absolute; left: 80px; top: 190px; color: var(--white); font-size: 60px; font-family: var(--sans); font-weight: 700; }
+    #s01-l2 { position: absolute; left: 66px; top: 270px; color: var(--black); font-size: 250px; }
+    #s01-l3 { position: absolute; left: 70px; top: 500px; color: var(--white); font-size: 196px; font-style: italic; }
+    @media (orientation: landscape) {
+      #s01-sil-ghost { width: 760px; height: 1132px; left: 1150px; top: 20px; }
+      #s01-sil { width: 760px; height: 1132px; left: 1128px; top: 10px; }
+      #s01-l1 { left: 120px; top: 250px; font-size: 56px; }
+      #s01-l2 { left: 106px; top: 320px; font-size: 230px; }
+      #s01-l3 { left: 112px; top: 540px; font-size: 180px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s01" data-width="1080" data-height="1920">
+    <div id="s01-sil-ghost" class="sb-sil"></div>
+    <div id="s01-sil" class="sb-sil"></div>
+    <div id="s01-l1">Vous rêvez de</div>
+    <div id="s01-l2" class="sb-title">formes</div>
+    <div id="s01-l3" class="sb-title">sublimes&nbsp;?</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 1.65);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s01"] = tl;
+    })();
+  </script>
+</template>

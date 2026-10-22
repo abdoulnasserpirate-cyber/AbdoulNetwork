@@ -1,0 +1,49 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
+    #s11-num { position: absolute; left: 60px; top: 60px; font-size: 440px; color: transparent; -webkit-text-stroke: 8px var(--black); }
+    #s11-t1 { position: absolute; left: 340px; top: 220px; color: var(--white); font-size: 96px; }
+    #s11-t2 { position: absolute; left: 340px; top: 320px; color: var(--black); font-size: 88px; font-style: italic; }
+    #s11-grid { position: absolute; left: 60px; top: 520px; width: 960px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .s11-tile { width: 300px; height: 150px; border-radius: 26px; background: var(--white); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 12px 0 var(--deep); }
+    .s11-tile img { width: 100%; height: 100%; object-fit: cover; }
+    #s11-wu { background: #ffdd00; gap: 14px; }
+    #s11-wu img { width: 64px; height: auto; object-fit: contain; }
+    #s11-wu span { font-family: var(--sans); font-weight: 800; font-size: 30px; color: #000; line-height: 1; }
+    #s11-parcel { position: absolute; left: 520px; top: 900px; width: 520px; }
+    #s11-deliver { position: absolute; left: 70px; top: 1000px; color: var(--black); font-size: 110px; }
+    #s11-deliver2 { position: absolute; left: 70px; top: 1110px; color: var(--white); font-size: 120px; font-style: italic; }
+    @media (orientation: landscape) {
+      #s11-num { left: 100px; top: 0; font-size: 380px; }
+      #s11-t1 { left: 360px; top: 130px; }
+      #s11-t2 { left: 360px; top: 230px; }
+      #s11-grid { left: 100px; top: 470px; width: 1000px; justify-content: flex-start; }
+      #s11-parcel { left: 1240px; top: 120px; width: 580px; }
+      #s11-deliver { left: 1240px; top: 790px; font-size: 90px; }
+      #s11-deliver2 { left: 1240px; top: 880px; font-size: 100px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s11" data-width="1920" data-height="1080">
+    <div id="s11-num" class="sb-title">3</div>
+    <div id="s11-t1" class="sb-caps">Payez</div>
+    <div id="s11-t2" class="sb-title">en toute simplicité</div>
+    <div id="s11-grid">
+      <div class="s11-tile"><img src="assets/logos/nita.png" alt="NITA" /></div>
+      <div class="s11-tile"><img src="assets/logos/amana.png" alt="AMANA" /></div>
+      <div class="s11-tile"><img src="assets/logos/wave.png" alt="Wave" /></div>
+      <div class="s11-tile" id="s11-wu"><img src="assets/logos/westernunion.svg" alt="" /><span>Western<br />Union</span></div>
+      <div class="s11-tile"><img src="assets/logos/ria.png" alt="Ria" /></div>
+    </div>
+    <img id="s11-parcel" src="assets/products/parcel.png" alt="" />
+    <div id="s11-deliver" class="sb-caps">On vous</div>
+    <div id="s11-deliver2" class="sb-title">livre&nbsp;!</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 3.05);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s11"] = tl;
+    })();
+  </script>
+</template>

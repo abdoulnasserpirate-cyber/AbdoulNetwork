@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: radial-gradient(90% 60% at 50% 45%, #33081d 0%, var(--black) 70%); }
+    #s02-kicker { position: absolute; left: 0; right: 0; top: 560px; text-align: center; color: var(--pink); font-size: 46px; }
+    #s02-logo { position: absolute; left: 90px; top: 650px; width: 900px; }
+    #s02-slice1 { position: absolute; left: 0; width: 100%; top: 640px; height: 14px; background: var(--pink); }
+    #s02-slice2 { position: absolute; left: 0; width: 100%; top: 1130px; height: 6px; background: var(--white); }
+    #s02-sub { position: absolute; left: 0; right: 0; top: 1200px; text-align: center; color: var(--white); font-size: 34px; }
+    @media (orientation: landscape) {
+      #s02-kicker { top: 210px; font-size: 42px; }
+      #s02-logo { left: 460px; top: 290px; width: 1000px; }
+      #s02-slice1 { top: 280px; }
+      #s02-slice2 { top: 830px; }
+      #s02-sub { top: 880px; font-size: 32px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s02" data-width="1080" data-height="1920">
+    <div id="s02-slice1"></div>
+    <div id="s02-slice2"></div>
+    <div id="s02-kicker" class="sb-kicker">Découvrez</div>
+    <img id="s02-logo" src="assets/logos/logo-sbbc.png" alt="Sublime Booty ByChris" />
+    <div id="s02-sub" class="sb-kicker" data-var-text="tagline">Beauté • Confiance • Bien-être</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 2.4);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s02"] = tl;
+    })();
+  </script>
+</template>

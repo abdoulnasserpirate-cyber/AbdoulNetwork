@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
+    #s09-num { position: absolute; left: 60px; top: 60px; font-size: 440px; color: transparent; -webkit-text-stroke: 8px var(--black); }
+    #s09-t1 { position: absolute; left: 340px; top: 220px; color: var(--white); font-size: 96px; }
+    #s09-t2 { position: absolute; left: 340px; top: 320px; color: var(--black); font-size: 92px; font-style: italic; }
+    #s09-phone { position: absolute; left: 180px; top: 560px; width: 720px; height: 1460px; background: var(--black); border-radius: 80px; padding: 22px; }
+    #s09-screen { width: 100%; height: 100%; background: #fff5fa; border-radius: 60px; overflow: hidden; position: relative; }
+    #s09-bar { height: 150px; background: var(--black); display: flex; align-items: flex-end; padding: 0 34px 22px; gap: 18px; }
+    #s09-bar img { height: 74px; }
+    #s09-bar span { color: var(--white); font-family: var(--sans); font-weight: 700; font-size: 30px; line-height: 1.1; }
+    #s09-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; padding: 26px; }
+    .s09-card { background: var(--white); border-radius: 26px; height: 330px; display: flex; flex-direction: column; align-items: center; padding-top: 6px; box-shadow: 0 8px 24px rgba(120, 0, 60, 0.12); }
+    .s09-card img { height: 230px; }
+    .s09-card b { font-family: var(--sans); font-weight: 700; font-size: 25px; color: var(--black); text-align: center; line-height: 1.1; padding: 0 10px; }
+    #s09-pick { outline: 8px solid var(--pink); transform: scale(1.06); }
+    #s09-btn { position: absolute; left: 26px; right: 26px; top: 920px; height: 96px; border-radius: 22px; background: var(--pink); color: var(--white); font-family: var(--sans); font-weight: 800; font-size: 36px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; }
+    @media (orientation: landscape) {
+      #s09-num { left: 110px; top: 40px; font-size: 400px; }
+      #s09-t1 { left: 120px; top: 520px; font-size: 100px; }
+      #s09-t2 { left: 120px; top: 640px; font-size: 96px; }
+      #s09-phone { left: 1080px; top: 70px; width: 640px; height: 1300px; }
+      .s09-card { height: 290px; }
+      .s09-card img { height: 200px; }
+      #s09-btn { top: 830px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s09" data-width="1080" data-height="1920">
+    <div id="s09-num" class="sb-title">1</div>
+    <div id="s09-t1" class="sb-caps">Choisissez</div>
+    <div id="s09-t2" class="sb-title">votre produit</div>
+    <div id="s09-phone">
+      <div id="s09-screen">
+        <div id="s09-bar"><img src="assets/logos/logo-sbbc.png" alt="" /><span>Nos produits</span></div>
+        <div id="s09-grid">
+          <div class="s09-card"><img src="assets/products/imperiale.png" alt="" /><b>Crème Impériale</b></div>
+          <div class="s09-card" id="s09-pick"><img src="assets/products/cereales.png" alt="" /><b>Céréales Booty Gain</b></div>
+          <div class="s09-card"><img src="assets/products/sexyLady.png" alt="" /><b>Sirop Sexy Lady</b></div>
+          <div class="s09-card"><img src="assets/products/glowPump.png" alt="" /><b>Gamme Pure Glow</b></div>
+        </div>
+        <div id="s09-btn">Je commande</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 2.1);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s09"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,53 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
+    #s04-sil { color: var(--deep); opacity: 0.55; width: 1100px; height: 1640px; left: -420px; top: 420px; }
+    #s04-kicker { position: absolute; left: 80px; top: 190px; color: var(--black); font-size: 44px; }
+    #s04-title { position: absolute; left: 72px; top: 250px; color: var(--white); font-size: 176px; }
+    #s04-tagA { left: 80px; top: 1010px; font-size: 32px; }
+    #s04-tagB { left: 80px; top: 1290px; font-size: 32px; }
+    @media (orientation: landscape) {
+      #s04-sil { width: 760px; height: 1132px; left: 1300px; top: 60px; opacity: 0.45; }
+      #s04-kicker { left: 110px; top: 150px; font-size: 40px; }
+      #s04-title { left: 100px; top: 200px; font-size: 150px; }
+      #s04-tagA { left: 520px; top: 960px; }
+      #s04-tagB { left: 1260px; top: 960px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s04" data-width="1080" data-height="1920">
+    <div id="s04-sil" class="sb-sil"></div>
+    <canvas id="s04-cv" class="sb-canvas"></canvas>
+    <div id="s04-kicker" class="sb-kicker">Nos kits</div>
+    <div id="s04-title" class="sb-caps">Seins</div>
+    <div id="s04-tagA" class="sb-tag dark">Kit Gros Lolo Luxe</div>
+    <div id="s04-tagB" class="sb-tag dark">Kit Raffermissant Luxe</div>
+  </div>
+  <script>
+    (function () {
+      const { timeline3d, make, spinIn, BRAND } = window.SB3D;
+      const tl = timeline3d("s04", 2.95, {
+        canvas: "s04-cv",
+        rim: 0xffffff,
+        items: {
+          portrait: [
+            make("siropSeins", { x: 0.35, y: 0.2, z: -0.4, pose: spinIn(0.05) }),
+            make("siropSeins", { x: 1.5, y: 0.2, z: -0.4, pose: spinIn(0.12) }),
+            make("cremeSeins", { x: 0.95, y: 0.2, z: 0.8, s: 0.8, pose: spinIn(0.2) }),
+            make("theCaolin", { x: 0.4, y: -2.9, z: -0.2, pose: spinIn(0.35) }),
+            make("huile", { x: 1.55, y: -2.9, z: 0.4, pose: spinIn(0.45) }),
+          ],
+          landscape: [
+            make("siropSeins", { x: -1.9, z: -0.4, pose: spinIn(0.05) }),
+            make("siropSeins", { x: -0.8, z: -0.4, pose: spinIn(0.12) }),
+            make("cremeSeins", { x: -1.35, z: 0.8, s: 0.8, pose: spinIn(0.2) }),
+            make("theCaolin", { x: 1.7, z: -0.2, pose: spinIn(0.35) }),
+            make("huile", { x: 2.9, z: 0.4, pose: spinIn(0.45) }),
+          ],
+        },
+        camera: { portrait: { y: 2.2, z: 19, lookY: 0.1 }, landscape: { y: 2.0, z: 13, lookY: 1.6 } },
+      });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s04"] = tl;
+    })();
+  </script>
+</template>

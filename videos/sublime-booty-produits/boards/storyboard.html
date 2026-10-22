@@ -1,0 +1,253 @@
+<title>Storyboard Sublime Booty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Poppins:wght@400;600;800&display=swap">
+<style>
+/* Layout: one column of plans, each pairing the 9:16 and 16:9 stills with the voice line and the motion note. Single dark look taken from the brand. */
+:root {
+  --bg: #0b0508; --panel: #1a0a12; --line: #3a1427; --fg: #fbeef4; --muted: #c99ab1; --pink: #ff1a8c;
+  --display: "Playfair Display", Georgia, serif; --sans: "Poppins", system-ui, sans-serif;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 64px; }
+header h1 { font-family: var(--display); font-weight: 900; font-size: clamp(34px, 6vw, 60px); line-height: 1; margin: 0 0 12px; text-wrap: balance; }
+header h1 em { color: var(--pink); }
+header p { max-width: 65ch; color: var(--muted); margin: 0 0 8px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 8px; font-size: 13px; color: var(--muted); }
+.facts b { color: var(--fg); font-weight: 600; }
+.ask { border-left: 4px solid var(--pink); background: var(--panel); padding: 14px 18px; margin: 24px 0 8px; }
+.ask h2 { margin: 0 0 6px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); }
+.ask ol { margin: 0; padding-left: 20px; }
+.act { font-size: 12px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin: 40px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.frame { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; padding: 18px 0 26px; border-bottom: 1px solid var(--line); }
+.shots { display: grid; grid-template-columns: 0.36fr 1fr; gap: 12px; align-items: start; min-width: 0; }
+figure { margin: 0; min-width: 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--panel); }
+figcaption { font-size: 11px; color: var(--muted); margin-top: 4px; letter-spacing: .1em; }
+.meta { min-width: 0; }
+.title { font-family: var(--display); font-weight: 900; font-size: 26px; line-height: 1.1; }
+.time { font-size: 13px; color: var(--pink); font-weight: 600; font-variant-numeric: tabular-nums; margin: 4px 0 10px; }
+.vo { font-family: var(--display); font-style: italic; font-weight: 900; font-size: 18px; margin: 0 0 10px; }
+.words { margin: 0 0 10px; color: var(--fg); }
+.tr { margin: 0; font-size: 13px; color: var(--muted); }
+.tr span { display: inline-block; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: 11px; color: var(--pink); margin-right: 8px; }
+@media (max-width: 760px) { .frame { grid-template-columns: 1fr; gap: 14px; } }
+</style>
+<div class="wrap">
+<header>
+  <h1>Sublime Booty ByChris<br><em>Produits + commande</em></h1>
+  <p>Storyboard de la vidéo 2, calé sur ta voix off de 40 s. Chaque plan montre l'image clé en vertical (9:16, Reels, TikTok, Status) et en horizontal (16:9, YouTube, Facebook). Les produits sont rendus en vraie 3D avec leurs noms, la silhouette de fond est celle du logo, et la carte part de Maradi jusqu'au monde.</p>
+  <div class="facts"><span><b>Durée</b> 40,15 s</span><span><b>Plans</b> 15</span><span><b>Couleurs</b> rose vif #FF1A8C + noir</span><span><b>Typo</b> Playfair Display + Poppins</span></div>
+</header>
+<div class="ask">
+  <h2>À valider avant l'animation</h2>
+  <ol>
+    <li>La mise en page des 15 plans (vertical et horizontal).</li>
+    <li>Les produits et leurs noms (étiquettes 3D).</li>
+    <li>Le logo <b>Ria</b> : j'ai mis une case provisoire, envoie-moi son logo.</li>
+    <li>La musique : as-tu un son à mettre sous la voix ? Sinon, je pars sur un beat afro/amapiano.</li>
+  </ol>
+</div>
+<section class="act">Accroche</section>
+<article class="frame" id="f01">
+  <div class="shots">
+    <figure class="v"><img src="v/f01.jpg" alt="Plan 1, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f01.jpg" alt="Plan 1, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">01 : Accroche</div>
+    <div class="time">0,0 – 1,65 s</div>
+    <p class="vo">« Vous rêvez de formes sublimes ? »</p>
+    <p class="words">Les mots tombent un par un ; la grande silhouette monte du bas avec un double rose décalé qui « glitche » sur 3 images.</p>
+    <p class="tr"><span>Entrée</span>Coupe franche, impact glitch</p>
+  </div>
+</article>
+<section class="act">Marque</section>
+<article class="frame" id="f02">
+  <div class="shots">
+    <figure class="v"><img src="v/f02.jpg" alt="Plan 2, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f02.jpg" alt="Plan 2, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">02 : La marque</div>
+    <div class="time">1,65 – 4,05 s</div>
+    <p class="vo">« Découvrez Sublime Booty ByChris ! »</p>
+    <p class="words">La silhouette géante rétrécit et se pose pile sur la silhouette du logo (raccord), puis le texte du logo apparaît par tranches glitch. Lignes rose et blanche qui balaient.</p>
+    <p class="tr"><span>Entrée</span>Transition glitch</p>
+  </div>
+</article>
+<section class="act">Produits</section>
+<article class="frame" id="f03">
+  <div class="shots">
+    <figure class="v"><img src="v/f03.jpg" alt="Plan 3, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f03.jpg" alt="Plan 3, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">03 : Kits fessiers</div>
+    <div class="time">4,05 – 6,9 s</div>
+    <p class="vo">« Nos kits fessiers, pour des courbes qui font tourner les têtes. »</p>
+    <p class="words">Crème Impériale, Céréales Booty Gain et Sirop Sexy Lady tombent l'un après l'autre sur le podium avec rebond et tournent en 3D. Étiquettes qui claquent, bandeau des kits qui défile.</p>
+    <p class="tr"><span>Entrée</span>Whip pan</p>
+  </div>
+</article>
+<article class="frame" id="f04">
+  <div class="shots">
+    <figure class="v"><img src="v/f04.jpg" alt="Plan 4, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f04.jpg" alt="Plan 4, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">04 : Kits seins</div>
+    <div class="time">6,9 – 9,85 s</div>
+    <p class="vo">« Nos kits seins, pour une poitrine ferme et généreuse. »</p>
+    <p class="words">Kit Gros Lolo Luxe (2 sirops + crème) puis Kit Raffermissant Luxe (thé Caolin + huile) apparaissent en tournoyant.</p>
+    <p class="tr"><span>Entrée</span>Le fond passe du noir au rose</p>
+  </div>
+</article>
+<article class="frame" id="f05">
+  <div class="shots">
+    <figure class="v"><img src="v/f05.jpg" alt="Plan 5, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f05.jpg" alt="Plan 5, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">05 : Ventre plat</div>
+    <div class="time">9,85 – 12,5 s</div>
+    <p class="vo">« Notre gamme ventre plat, pour une taille affinée. »</p>
+    <p class="words">Le mètre ruban rose glisse et se resserre ; Thé ventre plat, Crème ventre plat et Thé perte de poids tombent sur le podium.</p>
+    <p class="tr"><span>Entrée</span>Zoom à travers le couvercle du pot</p>
+  </div>
+</article>
+<article class="frame" id="f06">
+  <div class="shots">
+    <figure class="v"><img src="v/f06.jpg" alt="Plan 6, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f06.jpg" alt="Plan 6, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">06 : Gaines</div>
+    <div class="time">12,5 – 14,8 s</div>
+    <p class="vo">« Nos gaines, pour une silhouette parfaite. »</p>
+    <p class="words">La silhouette « enfile » la gaine noire de bas en haut ; les boîtes Gaine BBL et Gaine Culotte arrivent en tournant.</p>
+    <p class="tr"><span>Entrée</span>Ouverture en cercle depuis la taille</p>
+  </div>
+</article>
+<article class="frame" id="f07">
+  <div class="shots">
+    <figure class="v"><img src="v/f07.jpg" alt="Plan 7, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f07.jpg" alt="Plan 7, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">07 : Gammes teint</div>
+    <div class="time">14,8 – 19,5 s</div>
+    <p class="vo">« Et nos gammes teint, Royal Skin et Pure Glow, pour une peau éclatante. »</p>
+    <p class="words">Moitié noir et or pour Royal Skin, puis la moitié rose pâle glisse sur « Pure Glow ». Un reflet brillant balaie les produits sur « éclatante ».</p>
+    <p class="tr"><span>Entrée</span>Volet en diagonale</p>
+  </div>
+</article>
+<section class="act">Commande</section>
+<article class="frame" id="f08">
+  <div class="shots">
+    <figure class="v"><img src="v/f08.jpg" alt="Plan 8, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f08.jpg" alt="Plan 8, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">08 : Commander, c'est facile</div>
+    <div class="time">19,5 – 21,3 s</div>
+    <p class="vo">« Commander, c'est très facile ! »</p>
+    <p class="words">Mots qui claquent un par un, la bande rose s'écrase avec une petite secousse sur « facile ».</p>
+    <p class="tr"><span>Entrée</span>Glitch</p>
+  </div>
+</article>
+<article class="frame" id="f09">
+  <div class="shots">
+    <figure class="v"><img src="v/f09.jpg" alt="Plan 9, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f09.jpg" alt="Plan 9, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">09 : Étape 1</div>
+    <div class="time">21,3 – 23,4 s</div>
+    <p class="vo">« Un : choisissez votre produit. »</p>
+    <p class="words">Le téléphone monte du bas avec la boutique ; un doigt touche les Céréales Booty Gain, la carte se met en avant, « Je commande » s'allume.</p>
+    <p class="tr"><span>Entrée</span>Le téléphone entre par le bas</p>
+  </div>
+</article>
+<article class="frame" id="f10">
+  <div class="shots">
+    <figure class="v"><img src="v/f10.jpg" alt="Plan 10, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f10.jpg" alt="Plan 10, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">10 : Étape 2 : WhatsApp</div>
+    <div class="time">23,4 – 29,95 s</div>
+    <p class="vo">« Deux : écrivez-nous directement sur WhatsApp au 92 48 56 12. »</p>
+    <p class="words">L'écran du téléphone passe à WhatsApp ; le message part, la réponse arrive. Chaque groupe du numéro apparaît au moment où tu le dis (92 · 48 · 56 · 12).</p>
+    <p class="tr"><span>Entrée</span>Le téléphone glisse et change d'écran</p>
+  </div>
+</article>
+<article class="frame" id="f11">
+  <div class="shots">
+    <figure class="v"><img src="v/f11.jpg" alt="Plan 11, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f11.jpg" alt="Plan 11, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">11 : Étape 3 : paiement</div>
+    <div class="time">29,95 – 33,0 s</div>
+    <p class="vo">« Trois : faites votre paiement… et on vous livre ! »</p>
+    <p class="words">Les 5 logos de paiement apparaissent un par un (NITA, AMANA, Wave, Western Union, Ria), puis le colis Sublime Booty arrive : « On vous livre ! ».</p>
+    <p class="tr"><span>Entrée</span>Whip</p>
+  </div>
+</article>
+<section class="act">Livraison</section>
+<article class="frame" id="f12">
+  <div class="shots">
+    <figure class="v"><img src="v/f12.jpg" alt="Plan 12, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f12.jpg" alt="Plan 12, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">12 : Carte : Maradi</div>
+    <div class="time">33,0 – 33,95 s</div>
+    <p class="vo">« À Maradi, »</p>
+    <p class="words">Le colis s'envole et tombe sur l'épingle de Maradi.</p>
+    <p class="tr"><span>Entrée</span>Le colis devient l'épingle</p>
+  </div>
+</article>
+<article class="frame" id="f13">
+  <div class="shots">
+    <figure class="v"><img src="v/f13.jpg" alt="Plan 13, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f13.jpg" alt="Plan 13, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">13 : Carte : Niger</div>
+    <div class="time">33,95 – 34,95 s</div>
+    <p class="vo">« partout au Niger, »</p>
+    <p class="words">La caméra recule, tout le Niger s'allume en rose.</p>
+    <p class="tr"><span>Entrée</span>Même plan, dézoom continu</p>
+  </div>
+</article>
+<article class="frame" id="f14">
+  <div class="shots">
+    <figure class="v"><img src="v/f14.jpg" alt="Plan 14, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f14.jpg" alt="Plan 14, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">14 : Carte : le monde</div>
+    <div class="time">34,95 – 36,1 s</div>
+    <p class="vo">« et dans le monde entier ! »</p>
+    <p class="words">La caméra recule jusqu'au monde entier ; des arcs partent de Maradi vers Paris, Londres, New York, Abidjan, Dubaï et Djeddah.</p>
+    <p class="tr"><span>Entrée</span>Même plan, dézoom continu</p>
+  </div>
+</article>
+<section class="act">Fin</section>
+<article class="frame" id="f15">
+  <div class="shots">
+    <figure class="v"><img src="v/f15.jpg" alt="Plan 15, format vertical" loading="lazy" width="540" height="960"><figcaption>9:16</figcaption></figure>
+    <figure class="h"><img src="h/f15.jpg" alt="Plan 15, format horizontal" loading="lazy" width="960" height="540"><figcaption>16:9</figcaption></figure>
+  </div>
+  <div class="meta">
+    <div class="title">15 : Fin</div>
+    <div class="time">36,1 – 40,15 s</div>
+    <p class="vo">« Sublime Booty ByChris. Beauté, confiance, bien-être. »</p>
+    <p class="words">Le logo se construit, la bande rose monte avec le numéro WhatsApp et la livraison ; l'image tient 2 s à la fin.</p>
+    <p class="tr"><span>Entrée</span>La Terre devient un point rose qui rejoint le logo</p>
+  </div>
+</article>
+</div>

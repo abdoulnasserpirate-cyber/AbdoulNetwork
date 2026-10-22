@@ -1,0 +1,58 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--black); }
+    #s10-sil { color: var(--pink); opacity: 0.12; width: 1100px; height: 1640px; left: -380px; top: 420px; }
+    #s10-num { position: absolute; left: 60px; top: 60px; font-size: 440px; color: transparent; -webkit-text-stroke: 8px var(--pink); }
+    #s10-t1 { position: absolute; left: 340px; top: 210px; color: var(--white); font-size: 92px; }
+    #s10-t2 { position: absolute; left: 340px; top: 310px; color: var(--pink); font-size: 86px; font-style: italic; }
+    #s10-num-box { position: absolute; left: 60px; top: 470px; width: 960px; height: 150px; background: var(--pink); display: flex; align-items: center; gap: 28px; padding: 0 34px; }
+    #s10-wa { width: 92px; height: 92px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+    #s10-wa img { width: 58px; filter: invert(1); }
+    #s10-number { font-family: var(--sans); font-weight: 800; font-size: 84px; color: var(--white); letter-spacing: 0.01em; white-space: nowrap; }
+    #s10-number small { font-size: 50px; color: var(--black); margin-right: 14px; }
+    #s10-phone { position: absolute; left: 180px; top: 690px; width: 720px; height: 1400px; background: #1b1b1b; border-radius: 80px; padding: 22px; }
+    #s10-screen { width: 100%; height: 100%; background: #efeae2; border-radius: 60px; overflow: hidden; position: relative; }
+    #s10-head { height: 150px; background: #008069; display: flex; align-items: flex-end; gap: 18px; padding: 0 30px 22px; }
+    #s10-avatar { width: 76px; height: 76px; border-radius: 50%; background: var(--black); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    #s10-avatar img { width: 120px; margin-left: 44px; }
+    #s10-head b { display: block; color: #fff; font-family: var(--sans); font-weight: 600; font-size: 30px; }
+    #s10-head i { display: block; color: #d6f5ec; font-family: var(--sans); font-style: normal; font-size: 22px; }
+    .s10-msg { position: absolute; max-width: 520px; font-family: var(--sans); font-size: 30px; line-height: 1.3; color: #111b21; padding: 16px 22px 30px; border-radius: 22px; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08); }
+    .s10-msg em { position: absolute; right: 16px; bottom: 6px; font-style: normal; font-size: 18px; color: #667781; }
+    #s10-m1 { right: 26px; top: 190px; background: #d9fdd3; }
+    #s10-m2 { left: 26px; top: 400px; background: #fff; }
+    @media (orientation: landscape) {
+      #s10-sil { width: 760px; height: 1132px; left: 1300px; top: -40px; }
+      #s10-num { left: 100px; top: 0; font-size: 380px; }
+      #s10-t1 { left: 360px; top: 120px; font-size: 92px; }
+      #s10-t2 { left: 360px; top: 220px; font-size: 84px; }
+      #s10-num-box { left: 100px; top: 420px; width: 920px; }
+      #s10-phone { left: 1150px; top: 70px; width: 640px; height: 1300px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s10" data-width="1920" data-height="1080">
+    <div id="s10-sil" class="sb-sil"></div>
+    <div id="s10-num" class="sb-title">2</div>
+    <div id="s10-t1" class="sb-caps">Écrivez-nous</div>
+    <div id="s10-t2" class="sb-title">sur WhatsApp</div>
+    <div id="s10-num-box">
+      <div id="s10-wa"><img src="assets/logos/whatsapp.svg" alt="" /></div>
+      <div id="s10-number"><small>+227</small><span data-var-text="phone">92 48 56 12</span></div>
+    </div>
+    <div id="s10-phone">
+      <div id="s10-screen">
+        <div id="s10-head"><div id="s10-avatar"><img src="assets/logos/logo-sbbc.png" alt="" /></div><div><b>Sublime Booty ByChris</b><i>en ligne</i></div></div>
+        <div id="s10-m1" class="s10-msg">Bonjour ! Je veux les Céréales Booty Gain s'il vous plaît<em>10:24 ✓✓</em></div>
+        <div id="s10-m2" class="s10-msg">Bonjour ma belle ! C'est noté, on vous envoie les détails tout de suite.<em>10:25</em></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 6.55);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s10"] = tl;
+    })();
+  </script>
+</template>

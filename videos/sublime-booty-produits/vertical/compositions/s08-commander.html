@@ -1,0 +1,32 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: var(--black); }
+    #s08-sil { color: var(--pink); opacity: 0.12; width: 1100px; height: 1640px; left: 300px; top: 320px; }
+    #s08-l1 { position: absolute; left: 70px; top: 480px; color: var(--white); font-size: 128px; }
+    #s08-l2 { position: absolute; left: 84px; top: 640px; color: var(--pink); font-size: 110px; }
+    #s08-slab { position: absolute; left: 40px; top: 790px; width: 1000px; height: 300px; background: var(--pink); transform: rotate(-3deg); }
+    #s08-l3 { position: absolute; left: 90px; top: 800px; color: var(--white); font-size: 200px; font-style: italic; transform: rotate(-3deg); white-space: nowrap; }
+    @media (orientation: landscape) {
+      #s08-sil { width: 760px; height: 1132px; left: 1250px; top: 0; }
+      #s08-l1 { left: 160px; top: 170px; }
+      #s08-l2 { left: 164px; top: 340px; }
+      #s08-slab { left: 120px; top: 500px; width: 1420px; height: 300px; }
+      #s08-l3 { left: 170px; top: 510px; font-size: 220px; }
+    }
+  </style>
+  <div id="root" data-composition-id="s08" data-width="1080" data-height="1920">
+    <div id="s08-sil" class="sb-sil"></div>
+    <div id="s08-l1" class="sb-caps">Commander,</div>
+    <div id="s08-l2" class="sb-caps">c'est</div>
+    <div id="s08-slab"></div>
+    <div id="s08-l3" class="sb-title">très facile&nbsp;!</div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      tl.set({}, {}, 1.8);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["s08"] = tl;
+    })();
+  </script>
+</template>
