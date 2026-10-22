@@ -5,38 +5,21 @@
   "lint": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 1,
+    "warningCount": 0,
     "infoCount": 0,
-    "findings": [
-      {
-        "code": "duplicate_audio_track",
-        "severity": "warning",
-        "message": "Multiple audible <audio>/<video> elements on track 5 overlap (assets/sfx/pop.mp3 at 30.85-31.57s, assets/sfx/pop.mp3 at 31.37-32.09s). This causes layered audio playback.",
-        "selector": "[data-composition-id]",
-        "dataAttributes": {},
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": 0,
-          "y": 0,
-          "width": 0,
-          "height": 0
-        },
-        "time": 0,
-        "fixHint": "Use non-overlapping time windows or different track indices."
-      }
-    ],
+    "findings": [],
     "filesScanned": 14
   },
   "runtime": {
     "ok": true,
     "errorCount": 0,
-    "warningCount": 8,
+    "warningCount": 6,
     "infoCount": 0,
     "findings": [
       {
         "code": "console_warning",
         "severity": "warning",
-        "message": "[.WebGL-0x39c02c9e800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "message": "[.WebGL-0x20f4030a7c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
         "selector": "[data-composition-id]",
         "dataAttributes": {
           "data-composition-id": "main",
@@ -53,12 +36,12 @@
           "height": 1920
         },
         "time": 6.692,
-        "url": "http://127.0.0.1:37051/"
+        "url": "http://127.0.0.1:44151/"
       },
       {
         "code": "console_warning",
         "severity": "warning",
-        "message": "[.WebGL-0x39c02c9e800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "message": "[.WebGL-0x20f4030a7c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
         "selector": "[data-composition-id]",
         "dataAttributes": {
           "data-composition-id": "main",
@@ -75,12 +58,12 @@
           "height": 1920
         },
         "time": 6.692,
-        "url": "http://127.0.0.1:37051/"
+        "url": "http://127.0.0.1:44151/"
       },
       {
         "code": "console_warning",
         "severity": "warning",
-        "message": "[.WebGL-0x238c07412400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "message": "[.WebGL-0x169c02749000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
         "selector": "[data-composition-id]",
         "dataAttributes": {
           "data-composition-id": "main",
@@ -97,12 +80,12 @@
           "height": 1920
         },
         "time": 11.153,
-        "url": "http://127.0.0.1:37051/"
+        "url": "http://127.0.0.1:44151/"
       },
       {
         "code": "console_warning",
         "severity": "warning",
-        "message": "[.WebGL-0x238c07412400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "message": "[.WebGL-0x169c02749000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
         "selector": "[data-composition-id]",
         "dataAttributes": {
           "data-composition-id": "main",
@@ -119,12 +102,12 @@
           "height": 1920
         },
         "time": 11.153,
-        "url": "http://127.0.0.1:37051/"
+        "url": "http://127.0.0.1:44151/"
       },
       {
         "code": "console_warning",
         "severity": "warning",
-        "message": "[.WebGL-0x39c00f51400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "message": "[.WebGL-0x20f4030a6400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
         "selector": "[data-composition-id]",
         "dataAttributes": {
           "data-composition-id": "main",
@@ -141,12 +124,12 @@
           "height": 1920
         },
         "time": 15.614,
-        "url": "http://127.0.0.1:37051/"
+        "url": "http://127.0.0.1:44151/"
       },
       {
         "code": "console_warning",
         "severity": "warning",
-        "message": "[.WebGL-0x39c00f51400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "message": "[.WebGL-0x20f4030a6400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
         "selector": "[data-composition-id]",
         "dataAttributes": {
           "data-composition-id": "main",
@@ -163,51 +146,7 @@
           "height": 1920
         },
         "time": 15.614,
-        "url": "http://127.0.0.1:37051/"
-      },
-      {
-        "code": "console_warning",
-        "severity": "warning",
-        "message": "[.WebGL-0x238c02cde600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
-        "selector": "[data-composition-id]",
-        "dataAttributes": {
-          "data-composition-id": "main",
-          "data-start": "0",
-          "data-duration": "40.15",
-          "data-width": "1080",
-          "data-height": "1920"
-        },
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": 0,
-          "y": 0,
-          "width": 1080,
-          "height": 1920
-        },
-        "time": 4.115,
-        "url": "http://127.0.0.1:37051/"
-      },
-      {
-        "code": "console_warning",
-        "severity": "warning",
-        "message": "[.WebGL-0x238c02cde600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
-        "selector": "[data-composition-id]",
-        "dataAttributes": {
-          "data-composition-id": "main",
-          "data-start": "0",
-          "data-duration": "40.15",
-          "data-width": "1080",
-          "data-height": "1920"
-        },
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": 0,
-          "y": 0,
-          "width": 1080,
-          "height": 1920
-        },
-        "time": 4.239,
-        "url": "http://127.0.0.1:37051/"
+        "url": "http://127.0.0.1:44151/"
       }
     ]
   },
@@ -1109,8 +1048,8 @@
       28.997,
       37.919
     ],
-    "checked": 30,
-    "passed": 28
+    "checked": 29,
+    "passed": 27
   },
   "craft": {
     "ok": true,

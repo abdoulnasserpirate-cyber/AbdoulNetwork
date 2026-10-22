@@ -1,3 +1,6 @@
+/* Brand faces shipped with the project so every render uses them (no fallback). */
+@font-face { font-family: "SB Display"; src: url("../fonts/PlayfairDisplay-Variable.woff2") format("woff2"); font-weight: 400 900; font-style: normal; }
+@font-face { font-family: "SB Display"; src: url("../fonts/PlayfairDisplay-Italic-Variable.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
 /* Sublime Booty ByChris — shared brand system for every scene (portrait and landscape). */
 :root {
   --pink: #ff1a8c;
@@ -6,7 +9,7 @@
   --black: #0b0508;
   --white: #ffffff;
   --gold: #e2b14a;
-  --display: "Playfair Display", serif;
+  --display: "SB Display", "Playfair Display", serif;
   --sans: "Poppins", sans-serif;
 }
 

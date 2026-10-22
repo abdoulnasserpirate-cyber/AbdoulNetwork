@@ -13,8 +13,8 @@
   function loadFonts() {
     if (!fontsReady) {
       fontsReady = Promise.all([
-        document.fonts.load('900 120px "Playfair Display"'),
-        document.fonts.load('italic 900 120px "Playfair Display"'),
+        document.fonts.load('900 120px "SB Display"'),
+        document.fonts.load('italic 900 120px "SB Display"'),
         document.fonts.load('800 120px "Poppins"'),
         document.fonts.load('600 120px "Poppins"'),
       ]).catch(() => null);
@@ -48,13 +48,13 @@
     g.fillStyle = o.ink2 || o.ink;
     fitFont(g, "SUBLIME BOOTY", 800, "Poppins", H * 0.075, maxW);
     g.fillText("SUBLIME BOOTY", cx, H * 0.17);
-    g.font = `italic 900 ${Math.round(H * 0.06)}px "Playfair Display"`;
+    g.font = `italic 900 ${Math.round(H * 0.06)}px "SB Display"`;
     g.fillText("ByChris", cx, H * 0.25);
     g.fillStyle = o.ink;
     const lines = o.name.split("\n");
     const lh = lines.length > 1 ? 0.2 : 0.26;
     lines.forEach((ln, i) => {
-      fitFont(g, ln, 900, '"Playfair Display"', H * lh, maxW);
+      fitFont(g, ln, 900, '"SB Display"', H * lh, maxW);
       g.fillText(ln, cx, H * (0.47 + (i - (lines.length - 1) / 2) * lh));
     });
     if (o.sub) {
