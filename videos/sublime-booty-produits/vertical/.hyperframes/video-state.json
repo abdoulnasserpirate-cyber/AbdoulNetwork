@@ -2041,13 +2041,14 @@
   },
   "renders": {
     "latest": {
-      "id": "9505656d-7376-4aa6-baf6-d2c5e4ca4967",
-      "completedAt": 1792691283680,
+      "id": "7e4c70ac-71aa-4184-97ce-022fd95b955a",
+      "completedAt": 1792692407595,
       "output": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/renders/sublime-booty-produits-9x16.mp4",
       "status": "completed",
-      "revision": "8a875251-4f3c-4277-9902-5645c862a369"
+      "revision": "b34e0237-87ed-4a0f-8b1a-0c16bd166952"
     },
     "retainedRevisions": [
+      "b34e0237-87ed-4a0f-8b1a-0c16bd166952",
       "8a875251-4f3c-4277-9902-5645c862a369"
     ]
   },

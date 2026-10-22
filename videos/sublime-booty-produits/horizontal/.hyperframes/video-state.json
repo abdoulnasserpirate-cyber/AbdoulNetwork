@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "b847ac1e-1275-449f-9e95-4261f2b3fc6c",
-  "currentRevision": "b5d81775-85a4-432b-813e-07e0a87f13f6",
+  "currentRevision": "71fff486-8a20-4c83-a0f8-74b51dd3a7a5",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -13,12 +13,12 @@
       "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/fd/fd0ea55029dfc62c31614321d782f47476d3d5daaaa4116b56318ed501911f1b"
     },
     "assets/css/sb.css": {
-      "hash": "f9373a0c6eb60f482ffd8836f4f747e6f4723fea2616d9087c515b20a60e18ef",
-      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/f9/f9373a0c6eb60f482ffd8836f4f747e6f4723fea2616d9087c515b20a60e18ef"
+      "hash": "a638ad640742cee816dd742159b14ca42c1da91d2b3f34be76fef7a72cef011a",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/a6/a638ad640742cee816dd742159b14ca42c1da91d2b3f34be76fef7a72cef011a"
     },
     "assets/js/sb3d.js": {
-      "hash": "dd5517b45112f0e4fdc21dd6d0c02b986232262dd5deab2619d46bd3e780a7dc",
-      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/dd/dd5517b45112f0e4fdc21dd6d0c02b986232262dd5deab2619d46bd3e780a7dc"
+      "hash": "4d6cb028f58f76dd4eeb1b64b28e39d2209bac45fc4a3fec5818699ffe15c790",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/4d/4d6cb028f58f76dd4eeb1b64b28e39d2209bac45fc4a3fec5818699ffe15c790"
     },
     "assets/logos/amana.png": {
       "hash": "82bd5eba9442f3e26c9d7b4929446885d40ca24d6b937f98717f39856e159489",
@@ -295,6 +295,30 @@
     "STORYBOARD.md": {
       "hash": "11f57d5ea2d6c4d805cee7d0f60a68368aa0ca16aa51c2bc2b2cd6172f5e0c4b",
       "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/11/11f57d5ea2d6c4d805cee7d0f60a68368aa0ca16aa51c2bc2b2cd6172f5e0c4b"
+    },
+    "assets/fonts/PlayfairDisplay-Variable.woff2": {
+      "hash": "2ae7b591e689ebd099befc7f86504e5e24a32997acf5fde70e2677c561929fd6",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/2a/2ae7b591e689ebd099befc7f86504e5e24a32997acf5fde70e2677c561929fd6"
+    },
+    "assets/fonts/PlayfairDisplay-Italic-Variable.woff2": {
+      "hash": "1c8857a8b44df4753f4b135b1949d0d7be1a1081d7f34ef38f1a4eeb88c9d17b",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/1c/1c8857a8b44df4753f4b135b1949d0d7be1a1081d7f34ef38f1a4eeb88c9d17b"
+    },
+    "assets/fonts/Poppins-600.woff2": {
+      "hash": "825f4a445eee70bb352f6b5d3c958cbf7b14b35f4dec27d4c2e5bd431f6d134e",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/82/825f4a445eee70bb352f6b5d3c958cbf7b14b35f4dec27d4c2e5bd431f6d134e"
+    },
+    "assets/fonts/Poppins-700.woff2": {
+      "hash": "799e99d2c91e8ef524c0ed69ac7e9c0248b92a58b751d971b5b872e27b49c847",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/79/799e99d2c91e8ef524c0ed69ac7e9c0248b92a58b751d971b5b872e27b49c847"
+    },
+    "assets/fonts/Poppins-800.woff2": {
+      "hash": "6068d5e1fec61308fef868eea814403a8b371316d7bd403a012866a1ed01c86e",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/60/6068d5e1fec61308fef868eea814403a8b371316d7bd403a012866a1ed01c86e"
+    },
+    "assets/fonts/Poppins-400.woff2": {
+      "hash": "8597918baf0be9142fc3fc6d3c05f8cff389cce7aecbb109c468896d652665ee",
+      "content": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/85/8597918baf0be9142fc3fc6d3c05f8cff389cce7aecbb109c468896d652665ee"
     }
   },
   "revisions": {
@@ -714,6 +738,49 @@
         "STORYBOARD.md": {
           "before": null,
           "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/11/11f57d5ea2d6c4d805cee7d0f60a68368aa0ca16aa51c2bc2b2cd6172f5e0c4b"
+        }
+      }
+    },
+    "71fff486-8a20-4c83-a0f8-74b51dd3a7a5": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792692411994,
+      "endedAt": 1792692412282,
+      "files": {
+        "assets/css/sb.css": {
+          "before": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/f9/f9373a0c6eb60f482ffd8836f4f747e6f4723fea2616d9087c515b20a60e18ef",
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/a6/a638ad640742cee816dd742159b14ca42c1da91d2b3f34be76fef7a72cef011a"
+        },
+        "assets/fonts/PlayfairDisplay-Italic-Variable.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/1c/1c8857a8b44df4753f4b135b1949d0d7be1a1081d7f34ef38f1a4eeb88c9d17b"
+        },
+        "assets/fonts/PlayfairDisplay-Variable.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/2a/2ae7b591e689ebd099befc7f86504e5e24a32997acf5fde70e2677c561929fd6"
+        },
+        "assets/fonts/Poppins-400.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/85/8597918baf0be9142fc3fc6d3c05f8cff389cce7aecbb109c468896d652665ee"
+        },
+        "assets/fonts/Poppins-600.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/82/825f4a445eee70bb352f6b5d3c958cbf7b14b35f4dec27d4c2e5bd431f6d134e"
+        },
+        "assets/fonts/Poppins-700.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/79/799e99d2c91e8ef524c0ed69ac7e9c0248b92a58b751d971b5b872e27b49c847"
+        },
+        "assets/fonts/Poppins-800.woff2": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/60/6068d5e1fec61308fef868eea814403a8b371316d7bd403a012866a1ed01c86e"
+        },
+        "assets/js/sb3d.js": {
+          "before": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/dd/dd5517b45112f0e4fdc21dd6d0c02b986232262dd5deab2619d46bd3e780a7dc",
+          "after": "/root/.cache/hyperframes/history/b847ac1e-1275-449f-9e95-4261f2b3fc6c/blobs/4d/4d6cb028f58f76dd4eeb1b64b28e39d2209bac45fc4a3fec5818699ffe15c790"
         }
       }
     }
@@ -1522,13 +1589,14 @@
   },
   "renders": {
     "latest": {
-      "id": "943071b9-7f69-4f5e-9343-94a0d79def28",
-      "completedAt": 1792691666861,
+      "id": "7c5fbe04-da27-488e-b56a-0477b4bf4b6e",
+      "completedAt": 1792692801390,
       "output": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/renders/sublime-booty-produits-16x9.mp4",
       "status": "completed",
-      "revision": "b5d81775-85a4-432b-813e-07e0a87f13f6"
+      "revision": "71fff486-8a20-4c83-a0f8-74b51dd3a7a5"
     },
     "retainedRevisions": [
+      "71fff486-8a20-4c83-a0f8-74b51dd3a7a5",
       "b5d81775-85a4-432b-813e-07e0a87f13f6"
     ]
   },
