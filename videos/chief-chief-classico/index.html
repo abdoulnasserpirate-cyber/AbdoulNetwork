@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Chief-Chief — Soirée Classico</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/theme.css" />
+    <style>
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060f; }
+.ctr { left: 0; width: 100%; text-align: center; }
+.bg-black { position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, #3a0508 0%, #121010 60%); }
+.stroke { -webkit-text-stroke: 4px #fff; }
+.crest { display: block; object-fit: contain; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.45)); }
+.beams { position: absolute; inset: 0; overflow: hidden; }
+.beam { position: absolute; top: -260px; width: 260px; height: 1700px; transform-origin: 50% 0%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.08) 55%, rgba(255, 255, 255, 0) 100%); filter: blur(10px); }
+.beam:nth-child(1) { left: 180px; } .beam:nth-child(2) { left: 640px; } .beam:nth-child(3) { left: 1100px; } .beam:nth-child(4) { left: 1520px; }
+.pitch { left: 0; top: 0; width: 1920px; height: 1080px; }
+.pitch * { fill: none; stroke: rgba(255, 255, 255, 0.22); stroke-width: 6; }
+.vpanel { position: absolute; object-fit: cover; border-radius: 26px; border: 10px solid #fff; box-shadow: 0 30px 70px rgba(40, 0, 4, 0.55); background: #121010; }
+#bug-in { left: 60px; top: 46px; display: flex; align-items: center; gap: 14px; background: #121010; color: #fff; border-radius: 999px; padding: 10px 28px 12px 20px; font-family: "MontX", sans-serif; font-weight: 800; font-style: italic; text-transform: uppercase; font-size: 30px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); }
+.live { width: 18px; height: 18px; border-radius: 50%; background: #ff2a33; box-shadow: 0 0 12px #ff2a33; display: inline-block; }
+#bug { position: absolute; inset: 0; pointer-events: none; }
+#fx { pointer-events: none; }
+#slices { position: absolute; inset: 0; }
+.sl { position: absolute; left: -10%; width: 120%; height: 20.5%; display: block; }
+.sl:nth-child(1) { top: 0%; } .sl:nth-child(2) { top: 20%; } .sl:nth-child(3) { top: 40%; } .sl:nth-child(4) { top: 60%; } .sl:nth-child(5) { top: 80%; }
+#flash { inset: 0; background: #fff; opacity: 0; }
+.dot { position: absolute; }
+/* S1 */
+#s1-dim { top: 360px; font-size: 220px; } #s1-lead { top: 400px; font-size: 64px; } #s1-big { top: 480px; font-size: 210px; }
+#s1-fcb { left: 40px; top: 380px; width: 290px; height: 297px; } #s1-rma { left: 1610px; top: 360px; width: 260px; height: 343px; }
+/* S2 */
+#s2-lead { top: 60px; font-size: 58px; } #s2-logo { left: 830px; top: 130px; width: 260px; height: 260px; }
+#s2-lead2 { top: 450px; font-size: 64px; } #s2-big { top: 530px; font-size: 270px; }
+#s2-ball { left: 1520px; top: 660px; width: 360px; height: 360px; }
+/* S3 */
+#s3-lead { top: 130px; font-size: 66px; }
+#s3-board { left: 260px; top: 240px; width: 1400px; height: 460px; background: #121010; border-radius: 36px; border: 8px solid #fff; box-shadow: 0 40px 80px rgba(40, 0, 4, 0.55); display: flex; align-items: center; justify-content: space-around; }
+#s3-fcb { width: 320px; height: 328px; } #s3-rma { width: 280px; height: 370px; }
+#s3-vs { text-align: center; } #s3-vs .big { font-size: 200px; } #s3-cl { font-size: 40px; letter-spacing: 0.25em; color: #ff4a50; }
+#s3-dates { top: 780px; } #s3-dates .pill { font-size: 72px; margin: 0 14px; box-shadow: 0 14px 30px rgba(40, 0, 4, 0.4); }
+/* S4 */
+#s4-lead { left: 120px; top: 255px; font-size: 46px; } #s4-big { left: 110px; top: 330px; font-size: 125px; }
+#s4-tag { left: 120px; top: 680px; } #s4-tag .pill { font-size: 90px; }
+#v-part { left: 1330px; top: 100px; width: 470px; height: 860px; }
+/* S5 */
+#s5-big { top: 100px; font-size: 170px; } #s5-ball { left: 710px; top: 320px; width: 500px; height: 500px; }
+#s5-sub { top: 895px; } #s5-sub .pill { font-size: 66px; }
+/* S6 */
+#s6-c1, #s6-c2, #s6-c3 { left: 150px; top: 110px; width: 560px; height: 860px; }
+#s6-t1, #s6-t2, #s6-t3 { left: 800px; top: 330px; font-size: 175px; } #s6-t3 { top: 230px; font-size: 165px; }
+#s6-t1 .lead, #s6-t2 .lead, #s6-t3 .lead { font-size: 70px; margin-bottom: 10px; text-transform: none; }
+/* S7 */
+#s7-a, #s7-b { left: 120px; top: 125px; } #s7-a .lead, #s7-b .lead { font-size: 56px; } #s7-a .big, #s7-b .big { font-size: 110px; }
+#s7-c { top: 330px; } #s7-c .lead { font-size: 64px; } #s7-c .big { font-size: 210px; }
+#s7-whistle { top: 650px; } #s7-whistle .pill { font-size: 110px; }
+#v-bulles { left: 190px; top: 330px; width: 410px; height: 720px; }
+#v-tiree { left: 750px; top: 330px; width: 410px; height: 720px; }
+#v-fumee { left: 1310px; top: 330px; width: 410px; height: 720px; }
+/* S8 */
+#s8-lead { left: 120px; top: 170px; font-size: 58px; } #s8-pct { left: 90px; top: 230px; font-size: 330px; text-shadow: 0 20px 40px rgba(40, 0, 4, 0.5); }
+#s8-red { left: 130px; top: 560px; font-size: 96px; } #s8-all { left: 120px; top: 720px; } #s8-all .pill { font-size: 72px; }
+#s8-plate { left: 1210px; top: 230px; width: 620px; height: 620px; }
+#s8-sticker { left: 1150px; top: 170px; width: 260px; height: 260px; border-radius: 50%; background: #121010; border: 10px solid #fff; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+#s8-sticker .big { font-size: 84px; }
+/* S9 */
+#s9-big { top: 200px; font-size: 200px; } #s9-lead { top: 450px; font-size: 70px; }
+#s9-ac { top: 560px; } .acpill { display: inline-flex; align-items: center; gap: 30px; background: #d6060f; color: #fff; border-radius: 999px; padding: 26px 70px 30px 46px; box-shadow: 0 24px 50px rgba(214, 6, 15, 0.4); }
+.acpill .big { font-size: 130px; } .snow { width: 140px; height: 140px; }
+/* S10 */
+#s10-lead { left: 120px; top: 190px; font-size: 62px; } #s10-big { left: 110px; top: 265px; font-size: 150px; }
+#s10-tv { left: 900px; top: 170px; width: 960px; height: 600px; background: #121010; border-radius: 26px; border: 14px solid #222; box-shadow: 0 0 0 4px #fff, 0 40px 80px rgba(40, 0, 4, 0.55); overflow: hidden; }
+#s10-screen { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-around; background: radial-gradient(circle at 50% 40%, #2a5a2a 0%, #0f2a12 75%); }
+#s10-screen .crest { width: 220px; height: 240px; } .tv-vs { text-align: center; color: #fff; } .tv-vs .big { font-size: 130px; } .tv-vs .lead { font-size: 34px; color: #ff4a50; letter-spacing: 0.2em; }
+#s10-amb { left: 120px; top: 820px; } #s10-amb .lead { font-size: 58px; } #s10-amb .big { font-size: 150px; }
+#s10-amb { display: flex; align-items: baseline; gap: 28px; }
+/* S11 */
+#s11-att { top: 130px; } .warn { display: inline-flex; align-items: center; gap: 30px; } .warn-ico { width: 150px; height: 131px; } .warn .big { font-size: 150px; }
+#s11-lead { top: 380px; font-size: 96px; } #s11-stamp { top: 520px; }
+.stamp { display: inline-block; background: #d6060f; color: #fff; font-size: 220px; padding: 10px 80px 24px; border: 14px solid #fff; border-radius: 20px; }
+#s11-soir { top: 900px; } #s11-soir .pill { font-size: 56px; }
+/* S12 */
+#s12-big { top: 170px; font-size: 125px; } #s12-lead { top: 380px; font-size: 66px; }
+#s12-wa { top: 470px; } .wapill { display: inline-flex; align-items: center; gap: 20px; background: #fff; color: #d6060f; border-radius: 999px; padding: 14px 44px 16px 24px; box-shadow: 0 16px 36px rgba(40, 0, 4, 0.4); }
+.wa-ico { width: 80px; height: 80px; } .wapill .mid { font-size: 50px; }
+#s12-num { top: 640px; font-size: 230px; }
+/* S13 */
+#s13-logo { left: 820px; top: 50px; width: 280px; height: 280px; } #s13-lead { top: 370px; font-size: 64px; } #s13-big { top: 445px; font-size: 220px; }
+#s13-band { left: 0; top: 780px; width: 1920px; height: 300px; background: #121010; display: flex; align-items: center; justify-content: center; gap: 60px; }
+#s13-band .crest { width: 160px; height: 170px; } .band-t { text-align: center; } .band-t .mid { font-size: 62px; margin-bottom: 18px; } .band-t .pill { font-size: 52px; }
+
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="45.94" data-fps="30" data-width="1920" data-height="1080">
+      <!-- S1 · Dimanche c'est le Classico (0 – 2.15) -->
+      <section id="s1" class="clip scene" data-start="0" data-duration="2.2" data-track-index="1">
+        <div class="bg-black"></div>
+        <div class="beams" id="s1-beams"><i class="beam"></i><i class="beam"></i><i class="beam"></i><i class="beam"></i></div>
+        <div id="s1-dim" class="abs ctr big c-white">Dimanche</div>
+        <div id="s1-lead" class="abs ctr lead c-white">c'est le</div>
+        <div id="s1-big" class="abs ctr big c-red stroke">Classico</div>
+        <img id="s1-fcb" class="abs crest" src="assets/cut/fcb.png" alt="FC Barcelone" />
+        <img id="s1-rma" class="abs crest" src="assets/cut/rma.png" alt="Real Madrid" />
+      </section>
+
+      <!-- S2 · Soirée pizza (2.15 – 4.1) -->
+      <section id="s2" class="clip scene" data-start="2.15" data-duration="2.0" data-track-index="1">
+        <div class="bg-red"></div>
+        <div class="rays red" id="s2-rays"></div>
+        <div class="vignette"></div>
+        <div id="s2-lead" class="abs ctr lead c-white">et chez</div>
+        <img id="s2-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+        <div id="s2-lead2" class="abs ctr lead c-white">c'est soirée</div>
+        <div id="s2-big" class="abs ctr big c-white">Pizza !</div>
+        <div id="s2-ball" class="plate"><img src="assets/cut/pizza-ballon.png" alt="" /></div>
+      </section>
+
+      <!-- S3 · Scoreboard (4.1 – 8.0) -->
+      <section id="s3" class="clip scene" data-start="4.1" data-duration="3.95" data-track-index="1">
+        <div class="bg-red"></div>
+        <svg class="pitch abs" viewBox="0 0 1920 1080"><rect x="60" y="60" width="1800" height="960" /><line x1="960" y1="60" x2="960" y2="1020" /><circle cx="960" cy="540" r="160" /></svg>
+        <div id="s3-lead" class="abs ctr lead c-white">le match que tout le monde attend</div>
+        <div id="s3-board" class="abs">
+          <img id="s3-fcb" class="crest" src="assets/cut/fcb.png" alt="" />
+          <div id="s3-vs"><div class="big c-white">VS</div><div class="lead c-white" id="s3-cl">LE CLASSICO</div></div>
+          <img id="s3-rma" class="crest" src="assets/cut/rma.png" alt="" />
+        </div>
+        <div id="s3-dates" class="abs ctr"><span class="pill wht">Dimanche</span><span class="pill wht">25 octobre</span><span class="pill blk">20h00</span></div>
+      </section>
+
+      <!-- S4 · Quoi de mieux qu'une bonne pizza (8.0 – 11.2) -->
+      <section id="s4" class="clip scene" data-start="8" data-duration="3.25" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s4-lead" class="abs lead c-white">et quoi de mieux pour vivre ce grand match</div>
+        <div id="s4-big" class="abs big c-white"><div>qu'une bonne</div><div>pizza</div></div>
+        <div id="s4-tag" class="abs"><span class="pill blk">Chief-Chief</span></div>
+      </section>
+
+      <!-- S5 · La pizza, plat du Classico (11.2 – 13.6) -->
+      <section id="s5" class="clip scene" data-start="11.2" data-duration="2.45" data-track-index="1">
+        <div class="bg-red"></div>
+        <svg class="pitch abs" viewBox="0 0 1920 1080"><rect x="60" y="60" width="1800" height="960" /><line x1="960" y1="60" x2="960" y2="1020" /><circle cx="960" cy="540" r="300" /><rect x="60" y="300" width="220" height="480" /><rect x="1640" y="300" width="220" height="480" /></svg>
+        <div id="s5-big" class="abs ctr big c-white">La pizza</div>
+        <div id="s5-ball" class="plate"><img src="assets/cut/pizza-ballon.png" alt="" /></div>
+        <div id="s5-sub" class="abs ctr"><span class="pill wht">c'est le plat du Classico</span></div>
+      </section>
+
+      <!-- S6 · Partage / savoure / vibre (13.6 – 16.7) -->
+      <section id="s6" class="clip scene" data-start="13.6" data-duration="3.15" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s6-c1" class="card"><img src="assets/src/pizza-part-pepperoni.jpg" alt="" style="object-position: 50% 45%" /></div>
+        <div id="s6-c2" class="card"><img src="assets/src/pizza-part-mais.jpg" alt="" style="object-position: 50% 40%" /></div>
+        <div id="s6-c3" class="card"><img src="assets/src/pizza-poulet.jpg" alt="" /></div>
+        <div id="s6-t1" class="abs big c-white"><div class="lead">on la</div><div>partage</div></div>
+        <div id="s6-t2" class="abs big c-white"><div class="lead">on la</div><div>savoure</div></div>
+        <div id="s6-t3" class="abs big c-white"><div class="lead">et on</div><div>vibre</div><div class="c-ink">ensemble</div></div>
+      </section>
+
+      <!-- S7 · Nos pizzas / bien chaudes / coup d'envoi (16.7 – 22.1) — video panels mounted at root -->
+      <section id="s7" class="clip scene" data-start="16.7" data-duration="5.45" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s7-a" class="abs"><div class="lead c-white">nos pizzas sont</div><div class="big c-white">préparées avec passion</div></div>
+        <div id="s7-b" class="abs"><div class="lead c-white">et servies</div><div class="big c-white">bien chaudes</div></div>
+        <div id="s7-c" class="abs ctr"><div class="lead c-white">juste à temps pour le</div><div class="big c-white">coup d'envoi !</div></div>
+        <div id="s7-whistle" class="abs ctr"><span class="pill blk">20:00</span></div>
+      </section>
+
+      <!-- S8 · −15 % (22.1 – 26.2) -->
+      <section id="s8" class="clip scene" data-start="22.1" data-duration="4.15" data-track-index="1">
+        <div class="bg-red"></div>
+        <div class="beams" id="s8-beams"><i class="beam"></i><i class="beam"></i><i class="beam"></i><i class="beam"></i></div>
+        <div id="s8-lead" class="abs lead c-white">et pour l'occasion, profitez de</div>
+        <div id="s8-pct" class="abs big c-white">−15%</div>
+        <div id="s8-red" class="abs mid c-white">de réduction</div>
+        <div id="s8-all" class="abs"><span class="pill wht">sur toutes nos pizzas</span></div>
+        <div id="s8-plate" class="plate"><img src="assets/src/pizza-pepperoni.jpg" alt="" /></div>
+        <div id="s8-sticker" class="abs"><div class="big">−15%</div></div>
+        <div id="s8-confetti"></div>
+      </section>
+
+      <!-- S9 · Climatisé (26.2 – 28.6) -->
+      <section id="s9" class="clip scene" data-start="26.2" data-duration="2.45" data-track-index="1">
+        <div class="bg-white"></div>
+        <div id="s9-frost"></div>
+        <div id="s9-big" class="abs ctr big c-red">Installez-vous</div>
+        <div id="s9-lead" class="abs ctr lead c-ink">dans un restaurant</div>
+        <div id="s9-ac" class="abs ctr"><span class="acpill"><svg viewBox="0 0 64 64" class="snow"><g stroke="#fff" stroke-width="5" stroke-linecap="round"><line x1="32" y1="4" x2="32" y2="60" /><line x1="8" y1="18" x2="56" y2="46" /><line x1="8" y1="46" x2="56" y2="18" /><path d="M24 8l8 8 8-8M24 56l8-8 8 8" fill="none" /></g></svg><span class="big">bien climatisé</span></span></div>
+      </section>
+
+      <!-- S10 · Grand écran + ambiance (28.6 – 32.2) -->
+      <section id="s10" class="clip scene" data-start="28.6" data-duration="3.65" data-track-index="1">
+        <div class="bg-red"></div>
+        <div class="beams" id="s10-beams"><i class="beam"></i><i class="beam"></i><i class="beam"></i><i class="beam"></i></div>
+        <div id="s10-lead" class="abs lead c-white">devant le</div>
+        <div id="s10-big" class="abs big c-white"><div>grand</div><div>écran</div></div>
+        <div id="s10-tv" class="abs">
+          <div id="s10-screen">
+            <img class="crest" src="assets/cut/fcb.png" alt="" /><div class="tv-vs"><div class="big">0 - 0</div><div class="lead">EN DIRECT</div></div><img class="crest" src="assets/cut/rma.png" alt="" />
+          </div>
+        </div>
+        <div id="s10-amb" class="abs"><div class="lead c-white">et une ambiance de</div><div class="big c-white" id="s10-folie">folie !</div></div>
+        <div id="s10-confetti"></div>
+      </section>
+
+      <!-- S11 · Conditions (32.2 – 36.2) -->
+      <section id="s11" class="clip scene" data-start="32.2" data-duration="4.05" data-track-index="1">
+        <div class="bg-black"></div>
+        <div id="s11-att" class="abs ctr"><span class="warn"><svg viewBox="0 0 64 56" class="warn-ico"><path d="M32 4L60 52H4z" fill="#d6060f" stroke="#fff" stroke-width="4" stroke-linejoin="round" /><rect x="29" y="20" width="6" height="18" rx="3" fill="#fff" /><circle cx="32" cy="45" r="3.5" fill="#fff" /></svg><span class="big c-white">Attention !</span></span></div>
+        <div id="s11-lead" class="abs ctr mid c-white">offre valable uniquement</div>
+        <div id="s11-stamp" class="abs ctr"><span class="stamp big">Sur place</span></div>
+        <div id="s11-soir" class="abs ctr"><span class="pill wht">le soir du Classico · dim. 25 oct. · 20h</span></div>
+      </section>
+
+      <!-- S12 · Réservez (36.2 – 42.7) -->
+      <section id="s12" class="clip scene" data-start="36.2" data-duration="6.55" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s12-big" class="abs ctr big c-white">Réservez votre table</div>
+        <div id="s12-lead" class="abs ctr lead c-white">dès maintenant au</div>
+        <div id="s12-wa" class="abs ctr"><span class="wapill"><svg class="wa-ico" viewBox="0 0 32 32"><path fill="#d6060f" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-2.6-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5a.6.6 0 0 0 0-.6c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.8 13.8 0 0 0 5.3 4.7c2 .8 2.7.9 3.6.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.2-.6-.4z" /></svg><span class="mid">appel ou WhatsApp</span></span></div>
+        <div id="s12-num" class="abs ctr big c-white"><span class="w">88</span> <span class="w">84</span> <span class="w">49</span> <span class="w">84</span></div>
+      </section>
+
+      <!-- S13 · Signature (42.7 – 45.94) -->
+      <section id="s13" class="clip scene" data-start="42.7" data-duration="3.24" data-track-index="1">
+        <div class="rays red" id="s13-rays"></div>
+        <div class="vignette"></div>
+        <img id="s13-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+        <div id="s13-lead" class="abs ctr lead c-white">le goût qui vous ramène</div>
+        <div id="s13-big" class="abs ctr big c-white">Toujours</div>
+        <div id="s13-band" class="abs">
+          <img class="crest" src="assets/cut/fcb.png" alt="" />
+          <div class="band-t"><div class="mid c-white">Soirée Classico · dim. 25 oct. · 20h</div><div><span class="pill red">−15% sur les pizzas · sur place</span></div></div>
+          <img class="crest" src="assets/cut/rma.png" alt="" />
+        </div>
+      </section>
+
+      <!-- Video panels (root level: media must not sit inside a timed section) -->
+      <video id="v-part" class="vpanel" src="assets/clips/part-fromage.mp4" muted playsinline data-start="8.05" data-duration="3.2" data-track-index="2"></video>
+      <video id="v-bulles" class="vpanel" src="assets/clips/fromage-bulles.mp4" muted playsinline data-start="16.75" data-duration="5.4" data-playback-rate="0.55" data-track-index="2"></video>
+      <video id="v-tiree" class="vpanel" src="assets/clips/part-tiree.mp4" muted playsinline data-start="17.55" data-duration="4.6" data-playback-rate="0.65" data-track-index="3"></video>
+      <video id="v-fumee" class="vpanel" src="assets/clips/pizza-fumee.mp4" muted playsinline data-start="18.65" data-duration="3.5" data-playback-rate="0.45" data-track-index="4"></video>
+
+      <!-- Broadcast "live" bug -->
+      <div id="bug" class="clip" data-start="4.1" data-duration="38.6" data-track-index="6">
+        <div id="bug-in" class="abs"><i class="live"></i><span>Soirée Classico · Chief-Chief</span></div>
+      </div>
+
+      <!-- Transition overlay -->
+      <div id="fx" class="clip scene" data-start="0" data-duration="45.94" data-track-index="7">
+        <div id="slices"><i class="sl" style="background: #d6060f"></i><i class="sl" style="background: #121010"></i><i class="sl" style="background: #ffffff"></i><i class="sl" style="background: #d6060f"></i><i class="sl" style="background: #121010"></i></div>
+        <div id="flash" class="abs"></div>
+      </div>
+
+      <audio id="voice" src="assets/voice/voix-off.mp3" data-start="0" data-duration="45.94" data-track-index="10" data-volume="1"></audio>
+      <audio id="music" src="assets/music/classico-beat.mp3" data-start="0" data-duration="45.94" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx" src="assets/sfx/sfx-mix.wav" data-start="0" data-duration="45.94" data-track-index="12" data-volume="0.5"></audio>
+
+    </div>
+    <script>
+      // Deterministic pseudo-random (seeded LCG) for decorative elements.
+      let seed = 2510;
+      const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+      // confetti bursts (S8, S10)
+      function makeConfetti(hostId, n) {
+        const host = document.getElementById(hostId);
+        const out = [];
+        for (let i = 0; i < n; i++) {
+          const d = document.createElement("i");
+          const w = 10 + Math.round(rnd() * 14);
+          d.className = "dot";
+          d.style.cssText = `left:${960 - w / 2}px;top:${540}px;width:${w}px;height:${Math.round(w * (0.4 + rnd() * 0.6))}px;background:${["#ffffff", "#121010", "#ff4a50"][i % 3]};border-radius:3px`;
+          host.appendChild(d);
+          const a = rnd() * Math.PI * 2;
+          const r = 380 + rnd() * 700;
+          out.push({ el: d, x: Math.cos(a) * r, y: Math.sin(a) * r * 0.7 - 120, rot: (rnd() - 0.5) * 900, fall: 260 + rnd() * 380 });
+        }
+        return out;
+      }
+      const conf8 = makeConfetti("s8-confetti", 46);
+      const conf10 = makeConfetti("s10-confetti", 46);
+      // frost particles (S9)
+      const frostHost = document.getElementById("s9-frost");
+      const frost = [];
+      for (let i = 0; i < 40; i++) {
+        const d = document.createElement("i");
+        const s = 6 + Math.round(rnd() * 12);
+        d.className = "dot";
+        d.style.cssText = `left:${Math.round(rnd() * 1900)}px;top:-40px;width:${s}px;height:${s}px;border-radius:50%;background:rgba(214,6,15,${0.25 + rnd() * 0.35})`;
+        frostHost.appendChild(d);
+        frost.push({ el: d, delay: rnd() * 1.2, dur: 1.6 + rnd() * 1.2, drift: (rnd() - 0.5) * 200 });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set(".sl", { xPercent: -105 }, 0);
+
+      // ---------- transitions (ultra-fast, sharp) ----------
+      // 5 broadcast slices cross the frame, fully covering it at t
+      function slices(t, dir = 1) {
+        document.querySelectorAll(".sl").forEach((el, i) => {
+          const lag = (i % 2 ? 0.03 : 0) + i * 0.012;
+          tl.fromTo(el, { xPercent: -105 * dir }, { xPercent: 0, duration: 0.14, ease: "power3.in", immediateRender: false }, t - 0.14 - 0.05 + lag);
+          tl.to(el, { xPercent: 105 * dir, duration: 0.17, ease: "power3.out" }, t + lag);
+        });
+      }
+      function flash(t, peak = 1) {
+        tl.fromTo("#flash", { opacity: 0 }, { opacity: peak, duration: 0.04, ease: "none", immediateRender: false }, t - 0.04);
+        tl.to("#flash", { opacity: 0, duration: 0.18, ease: "power2.out" }, t);
+      }
+      // glitch: horizontal jitter + clip slices on a scene, 0.2 s
+      function glitch(sel, t) {
+        const steps = [
+          [26, "inset(10% 0 60% 0)"], [-34, "inset(45% 0 20% 0)"], [18, "inset(0 0 75% 0)"], [-12, "inset(70% 0 5% 0)"], [0, "inset(0 0 0 0)"],
+        ];
+        steps.forEach(([x, c], i) => tl.set(sel, { x, clipPath: c }, t + i * 0.04));
+      }
+      function shake(sel, t, amp = 16, n = 5) {
+        tl.fromTo(sel, { x: 0, y: 0 }, { x: amp, y: -amp * 0.5, duration: 0.035, ease: "none", yoyo: true, repeat: n, immediateRender: false }, t);
+        tl.set(sel, { x: 0, y: 0 }, t + 0.035 * (n + 1));
+      }
+      function zoomPunch(sel, t) {
+        tl.fromTo(sel, { scale: 1.18 }, { scale: 1, duration: 0.35, ease: "expo.out", immediateRender: false }, t);
+      }
+      // ---------- text motions ----------
+      function slam(sel, t, d = 0.22) {
+        tl.fromTo(sel, { scale: 2.8, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "power4.in" }, t);
+      }
+      function punch(sel, t, d = 0.3) {
+        tl.fromTo(sel, { scale: 1.9, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: d, ease: "expo.out" }, t);
+      }
+      function leadIn(sel, t) {
+        tl.fromTo(sel, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, t);
+      }
+      function rise(sel, t, d = 0.35) {
+        tl.fromTo(sel, { yPercent: 70, opacity: 0, clipPath: "inset(0% 0% 100% 0%)" }, { yPercent: 0, opacity: 1, clipPath: "inset(0% 0% -20% 0%)", duration: d, ease: "expo.out" }, t);
+      }
+      function pushOut(sel, t, x = -300, d = 0.16) {
+        tl.to(sel, { x, opacity: 0, filter: "blur(16px)", duration: d, ease: "power3.in" }, t);
+      }
+      function whipIn(sel, t, x = 900, rot = 0) {
+        tl.fromTo(sel, { x, rotation: rot + 12, opacity: 0, filter: "blur(18px)" }, { x: 0, rotation: rot, opacity: 1, filter: "blur(0px)", duration: 0.32, ease: "expo.out" }, t);
+      }
+      function popIn(sel, t, d = 0.3) {
+        tl.fromTo(sel, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "back.out(2.4)" }, t);
+      }
+      function beams(id, t, d) {
+        document.getElementById(id).querySelectorAll(".beam").forEach((b, i) => {
+          tl.fromTo(b, { rotation: i % 2 ? -28 : 28 }, { rotation: i % 2 ? 22 : -22, duration: d, ease: "sine.inOut" }, t);
+        });
+      }
+      function burst(list, t) {
+        list.forEach((c, i) => {
+          tl.fromTo(c.el, { x: 0, y: 0, rotation: 0, opacity: 1, scale: 0.3 }, { x: c.x, y: c.y, rotation: c.rot, scale: 1, duration: 0.6, ease: "expo.out" }, t + (i % 5) * 0.01);
+          tl.to(c.el, { y: c.y + c.fall, opacity: 0, duration: 1.0, ease: "power1.in" }, t + 0.6);
+        });
+      }
+
+      // ================= S1 · Dimanche, c'est le Classico (0 – 2.15) =================
+      beams("s1-beams", 0, 2.2);
+      slam("#s1-dim", 0.08, 0.2);
+      shake("#s1", 0.28);
+      tl.to("#s1-dim", { y: -250, scale: 0.55, duration: 0.25, ease: "power3.inOut" }, 0.62);
+      leadIn("#s1-lead", 0.8);
+      punch("#s1-big", 1.15, 0.28);
+      tl.fromTo("#s1-fcb", { x: -500, rotation: -40, opacity: 0 }, { x: 0, rotation: -6, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 1.15);
+      tl.fromTo("#s1-rma", { x: 500, rotation: 40, opacity: 0 }, { x: 0, rotation: 6, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 1.15);
+      shake("#s1", 1.4, 12, 3);
+      flash(2.15);
+
+      // ================= S2 · Soirée pizza (2.15 – 4.1) =================
+      tl.fromTo("#s2-rays", { rotation: 0 }, { rotation: 30, duration: 2.0, ease: "none" }, 2.15);
+      glitch("#s2", 2.15);
+      leadIn("#s2-lead", 2.2);
+      tl.fromTo("#s2-logo", { scale: 0, rotation: -180 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 2.3);
+      leadIn("#s2-lead2", 3.0);
+      slam("#s2-big", 3.55, 0.2);
+      shake("#s2", 3.75);
+      tl.fromTo("#s2-ball", { x: 700, rotation: 360, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: 0.45, ease: "back.out(1.4)" }, 3.5);
+      tl.to("#s2-ball img", { rotation: 200, duration: 0.6, ease: "none" }, 3.5);
+      slices(4.1);
+
+      // ================= S3 · Scoreboard (4.1 – 8.0) =================
+      leadIn("#s3-lead", 4.2);
+      tl.fromTo("#s3-board", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.3, ease: "expo.out" }, 4.15);
+      tl.fromTo("#s3-fcb", { x: -300, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 4.35);
+      tl.fromTo("#s3-rma", { x: 300, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 4.35);
+      slam("#s3-vs .big", 4.6, 0.2);
+      leadIn("#s3-cl", 4.8);
+      tl.to(["#s3-fcb", "#s3-rma"], { scale: 1.06, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, 5.0);
+      [5.5, 6.6, 7.2].forEach((t, i) => {
+        tl.fromTo(`#s3-dates .pill:nth-child(${i + 1})`, { y: 120, scale: 0.3, opacity: 0, rotation: i % 2 ? 8 : -8 }, { y: 0, scale: 1, opacity: 1, rotation: 0, duration: 0.3, ease: "back.out(2.6)" }, t);
+      });
+      shake("#s3", 7.25, 10, 3);
+      slices(8.0, -1);
+
+      // ================= S4 · Quoi de mieux qu'une bonne pizza (8.0 – 11.2) =================
+      leadIn("#s4-lead", 8.1);
+      tl.fromTo("#v-part", { x: 800, rotation: 12 }, { x: 0, rotation: 3, duration: 0.4, ease: "expo.out" }, 8.05);
+      tl.to("#v-part", { rotation: -2, scale: 1.03, duration: 2.6, ease: "sine.inOut" }, 8.5);
+      rise("#s4-big > div", 9.65);
+      tl.fromTo("#s4-big > div:nth-child(2)", { yPercent: 70 }, { yPercent: 0, duration: 0.35, ease: "expo.out", immediateRender: false }, 9.95);
+      slam("#s4-tag", 10.45, 0.2);
+      shake("#s4", 10.65, 10, 3);
+      tl.to("#v-part", { x: 900, rotation: 20, filter: "blur(16px)", duration: 0.18, ease: "power3.in" }, 11.05);
+      flash(11.2, 0.85);
+
+      // ================= S5 · La pizza, plat du Classico (11.2 – 13.6) =================
+      zoomPunch("#s5", 11.2);
+      slam("#s5-big", 11.25, 0.22);
+      tl.fromTo("#s5-ball", { y: -700, scale: 0.6 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, 11.3);
+      tl.to("#s5-ball img", { rotation: 540, duration: 2.3, ease: "power1.out" }, 11.3);
+      punch("#s5-sub", 12.15, 0.28);
+      tl.to("#s5-ball", { scale: 1.08, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, 12.9);
+      flash(13.6);
+
+      // ================= S6 · Partage / savoure / vibre (13.6 – 16.7) =================
+      [["#s6-c1", "#s6-t1", 13.65, 14.5], ["#s6-c2", "#s6-t2", 14.55, 15.22], ["#s6-c3", "#s6-t3", 15.25, 0]].forEach(([c, t, tin, tout], i) => {
+        whipIn(c, tin, -800, i % 2 ? 4 : -4);
+        tl.fromTo(t + " > div", { x: 400, opacity: 0, skewX: -20 }, { x: 0, opacity: 1, skewX: 0, duration: 0.22, ease: "expo.out", stagger: 0.08 }, tin + 0.05);
+        if (tout) {
+          flash(tout, 0.9);
+          tl.set([c, t], { opacity: 0 }, tout);
+        } else {
+          shake("#s6", 15.95, 12, 4);
+          tl.to(c, { rotation: 6, scale: 1.04, duration: 1.2, ease: "sine.inOut" }, 15.6);
+        }
+      });
+      slices(16.7);
+
+      // ================= S7 · Nos pizzas / bien chaudes / coup d'envoi (16.7 – 22.1) =================
+      leadIn("#s7-a > .lead", 16.8);
+      punch("#s7-a > .big", 17.4, 0.28);
+      tl.fromTo("#v-bulles", { y: 900, rotation: -8 }, { y: 0, rotation: -3, duration: 0.4, ease: "expo.out" }, 16.75);
+      tl.fromTo("#v-tiree", { y: 900, rotation: 8 }, { y: 0, rotation: 2, duration: 0.4, ease: "expo.out" }, 17.55);
+      tl.fromTo("#v-fumee", { y: 900, rotation: -6 }, { y: 0, rotation: -2, duration: 0.4, ease: "expo.out" }, 18.65);
+      pushOut("#s7-a", 18.6, -300);
+      leadIn("#s7-b > .lead", 18.7);
+      punch("#s7-b > .big", 19.05, 0.28);
+      pushOut("#s7-b", 20.05, -300);
+      tl.to(["#v-bulles", "#v-tiree", "#v-fumee"], { y: 1000, rotation: 12, duration: 0.25, ease: "power3.in", stagger: 0.05 }, 20.0);
+      leadIn("#s7-c > .lead", 20.25);
+      slam("#s7-c > .big", 21.0, 0.22);
+      shake("#s7", 21.22);
+      popIn("#s7-whistle", 21.3, 0.3);
+      glitch("#s7", 22.0);
+      flash(22.1);
+
+      // ================= S8 · −15 % (22.1 – 26.2) =================
+      beams("s8-beams", 22.1, 4.1);
+      leadIn("#s8-lead", 22.2);
+      tl.fromTo("#s8-plate", { x: 800, rotation: 120, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: 0.45, ease: "back.out(1.3)" }, 22.3);
+      tl.to("#s8-plate", { rotation: 40, duration: 3.6, ease: "none" }, 22.75);
+      slam("#s8-pct", 23.55, 0.2);
+      shake("#s8", 23.75, 20, 6);
+      flash(23.75, 0.7);
+      burst(conf8, 23.75);
+      slam("#s8-sticker", 23.85, 0.2);
+      tl.to("#s8-sticker", { rotation: -12, scale: 1.08, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 3 }, 24.1);
+      rise("#s8-red", 24.2);
+      tl.fromTo("#s8-all", { x: -600, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "back.out(1.6)" }, 24.8);
+      tl.to("#s8-pct", { scale: 1.06, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 25.4);
+      slices(26.2, -1);
+
+      // ================= S9 · Climatisé (26.2 – 28.6) =================
+      frost.forEach((f) => tl.fromTo(f.el, { y: 0, x: 0 }, { y: 1160, x: f.drift, duration: f.dur, ease: "none" }, 26.2 + f.delay * 0.8));
+      punch("#s9-big", 26.35, 0.28);
+      leadIn("#s9-lead", 27.0);
+      tl.fromTo("#s9-ac", { scale: 0.2, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.35, ease: "back.out(2)" }, 27.55);
+      tl.fromTo(".snow", { rotation: 0 }, { rotation: 180, duration: 1.0, ease: "power2.out" }, 27.55);
+      flash(28.6, 0.9);
+
+      // ================= S10 · Grand écran + ambiance (28.6 – 32.2) =================
+      beams("s10-beams", 28.6, 3.6);
+      leadIn("#s10-lead", 28.65);
+      rise("#s10-big > div", 28.95);
+      tl.fromTo("#s10-big > div:nth-child(2)", { yPercent: 70 }, { yPercent: 0, duration: 0.35, ease: "expo.out", immediateRender: false }, 29.2);
+      tl.fromTo("#s10-tv", { scale: 0.2, rotation: -10, opacity: 0 }, { scale: 1, rotation: 0, opacity: 1, duration: 0.4, ease: "back.out(1.5)" }, 28.75);
+      tl.to("#s10-tv", { rotation: 2, scale: 1.03, duration: 2.6, ease: "sine.inOut" }, 29.3);
+      leadIn("#s10-amb .lead", 30.0);
+      slam("#s10-folie", 31.2, 0.2);
+      shake("#s10", 31.4, 22, 6);
+      burst(conf10, 31.4);
+      glitch("#s10", 32.1);
+
+      // ================= S11 · Conditions (32.2 – 36.2) =================
+      slam("#s11-att", 32.35, 0.2);
+      tl.fromTo(".warn-ico", { rotation: -15 }, { rotation: 15, duration: 0.1, ease: "none", yoyo: true, repeat: 5 }, 32.6);
+      rise("#s11-lead", 33.0);
+      tl.fromTo("#s11-stamp", { scale: 3, rotation: -18, opacity: 0 }, { scale: 1, rotation: -4, opacity: 1, duration: 0.2, ease: "power4.in" }, 34.1);
+      shake("#s11", 34.3, 18, 5);
+      tl.fromTo("#s11-soir", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "back.out(2)" }, 34.9);
+      slices(36.2);
+
+      // ================= S12 · Réservez (36.2 – 42.7) =================
+      punch("#s12-big", 36.35, 0.3);
+      leadIn("#s12-lead", 37.5);
+      popIn("#s12-wa", 37.7, 0.35);
+      [38.25, 39.55, 40.55, 41.6].forEach((t, i) => {
+        slam(`#s12-num .w:nth-child(${i + 1})`, t, 0.18);
+        shake("#s12-num", t + 0.18, 8, 2);
+      });
+      tl.to("#s12-num", { scale: 1.06, duration: 0.3, ease: "power2.out", yoyo: true, repeat: 1 }, 42.0);
+      flash(42.7);
+
+      // ================= S13 · Signature (42.7 – 45.94) =================
+      tl.fromTo("#s13-rays", { rotation: 0 }, { rotation: 30, duration: 3.3, ease: "none" }, 42.7);
+      tl.fromTo("#s13-logo", { scale: 0, rotation: -160 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(1.7)" }, 43.1);
+      leadIn("#s13-lead", 43.85);
+      slam("#s13-big", 44.8, 0.2);
+      shake("#s13", 45.0, 12, 3);
+      tl.fromTo("#s13-band", { yPercent: 100 }, { yPercent: 0, duration: 0.35, ease: "expo.out" }, 43.3);
+
+      // live bug
+      tl.fromTo("#bug-in", { x: -500, opacity: 0 }, { x: 0, opacity: 1, duration: 0.35, ease: "back.out(1.6)" }, 4.3);
+      tl.fromTo(".live", { opacity: 1 }, { opacity: 0.2, duration: 0.4, ease: "none", yoyo: true, repeat: 45 }, 4.3);
+
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>
