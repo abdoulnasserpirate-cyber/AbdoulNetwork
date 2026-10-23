@@ -75,8 +75,15 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060
 #s12-big { top: 170px; font-size: 125px; } #s12-lead { top: 380px; font-size: 66px; }
 #s12-wa { top: 470px; } .wapill { display: inline-flex; align-items: center; gap: 20px; background: #fff; color: #d6060f; border-radius: 999px; padding: 14px 44px 16px 24px; box-shadow: 0 16px 36px rgba(40, 0, 4, 0.4); }
 .wa-ico { width: 80px; height: 80px; } .wapill .mid { font-size: 50px; }
-#s12-num { top: 640px; font-size: 230px; }
+#s12-num { top: 640px; font-size: 230px; color: #d6060f; }
 /* S13 */
 #s13-logo { left: 820px; top: 50px; width: 280px; height: 280px; } #s13-lead { top: 370px; font-size: 64px; } #s13-big { top: 445px; font-size: 220px; }
 #s13-band { left: 0; top: 780px; width: 1920px; height: 300px; background: #121010; display: flex; align-items: center; justify-content: center; gap: 60px; }
 #s13-band .crest { width: 160px; height: 170px; } .band-t { text-align: center; } .band-t .mid { font-size: 62px; margin-bottom: 18px; } .band-t .pill { font-size: 52px; }
+
+/* white-scene variants */
+.stadium { background: radial-gradient(circle at 50% 25%, #ff2b33 0%, #c4040d 45%, #7a0710 100%); }
+.pitch.on-white * { stroke: rgba(214, 6, 15, 0.14); }
+.stamp { background: #121010; }
+.wapill { background: #d6060f; color: #fff; }
+#s6 .lead { color: #121010; }
