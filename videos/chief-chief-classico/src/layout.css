@@ -84,6 +84,6 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060
 /* white-scene variants */
 .stadium { background: radial-gradient(circle at 50% 25%, #ff2b33 0%, #c4040d 45%, #7a0710 100%); }
 .pitch.on-white * { stroke: rgba(214, 6, 15, 0.14); }
-.stamp { background: #121010; }
+.stamp { background: #d6060f; }
 .wapill { background: #d6060f; color: #fff; }
 #s6 .lead { color: #121010; }
