@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="fr" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Exo 2"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/exo-2-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Exo 2"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/exo-2-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Exo 2"; font-style: normal; font-weight: 800; font-display: block; src: url("assets/fonts/exo-2-latin-800-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Exo 2"; font-style: italic; font-weight: 800; font-display: block; src: url("assets/fonts/exo-2-latin-800-italic.woff2") format("woff2"); }
+      @font-face { font-family: "Rajdhani"; font-style: normal; font-weight: 600; font-display: block; src: url("assets/fonts/rajdhani-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Rajdhani"; font-style: normal; font-weight: 700; font-display: block; src: url("assets/fonts/rajdhani-latin-700-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-style: normal; font-weight: 400 800; font-display: block; src: url("assets/fonts/Inter-normal-400_800.woff2") format("woff2"); }
+
+      :root {
+        --navy: #0a1a33;
+        --navy-2: #0f2a4f;
+        --blue: #15589a;
+        --teal: #22c3a6;
+        --teal-2: #3fe0c5;
+        --white: #ffffff;
+        --mist: #eef3f8;
+        --ink: #0d2240;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--navy); }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--navy); font-family: Inter, sans-serif; }
+      .scene { position: absolute; inset: 0; overflow: hidden; }
+      .abs { position: absolute; }
+      .full { position: absolute; inset: 0; }
+      .mask { display: block; overflow: hidden; }
+      .mask > span { display: inline-block; }
+      .ch { display: inline-block; }
+      svg.ico { overflow: visible; }
+      .ico path, .ico circle, .ico line, .ico rect, .ico polyline { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; }
+      .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(120, 190, 255, 0.35) 1.6px, transparent 1.8px); background-size: 26px 26px; }
+      .slash { position: absolute; width: 140px; height: 1500px; top: -210px; }
+
+      /* ---------- wipe ---------- */
+      #wipe { position: absolute; inset: 0; z-index: 100; pointer-events: none; }
+      .band { position: absolute; top: -40px; left: 0; width: 4000px; height: 1160px; }
+      .band-skew { position: absolute; inset: 0; transform: skewX(-18deg); }
+      .b-teal .band-skew { background: var(--teal); }
+      .b-blue .band-skew { background: var(--blue); }
+      .b-navy .band-skew { background: linear-gradient(90deg, #061226, var(--navy) 6%, var(--navy) 94%, #061226); box-shadow: inset 6px 0 0 rgba(255, 255, 255, 0.55), inset -6px 0 0 rgba(63, 224, 197, 0.8); }
+
+      /* ---------- S1 hook ---------- */
+      #s1-bg { background: radial-gradient(1100px 800px at 72% 58%, #143a6b 0%, #0a1a33 48%, #040b18 100%); }
+      #s1-dots { -webkit-mask-image: radial-gradient(900px 700px at 0% 0%, #000 0%, transparent 70%); mask-image: radial-gradient(900px 700px at 0% 0%, #000 0%, transparent 70%); }
+      #s1-cam { position: absolute; inset: 0; }
+      #s1-glow { left: 960px; top: 120px; width: 940px; height: 940px; border-radius: 50%; background: radial-gradient(circle, rgba(60, 150, 255, 0.55) 0%, rgba(34, 195, 166, 0.18) 38%, rgba(10, 26, 51, 0) 68%); }
+      #s1-burner { left: 1010px; top: 230px; width: 840px; height: 700px; }
+      #s1-text { left: 130px; top: 330px; width: 900px; }
+      #s1-l1 { font: italic 800 190px/0.95 "Exo 2", sans-serif; color: #fff; letter-spacing: -0.01em; }
+      #s1-l2 { margin-top: 26px; font: 500 50px/1.15 Inter, sans-serif; color: #bcd6f2; }
+      #s1-l2 b { color: var(--teal-2); font-weight: 700; }
+      #s1-g2 { left: 130px; top: 360px; width: 980px; }
+      #s1-l3 { font: 500 50px/1.15 Inter, sans-serif; color: #bcd6f2; }
+      #s1-l4 { margin-top: 18px; font: italic 800 124px/1 "Exo 2", sans-serif; color: var(--teal-2); letter-spacing: -0.01em; white-space: nowrap; }
+      #s1-u4 { margin-top: 18px; width: 560px; height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--teal), var(--blue)); transform-origin: 0 50%; }
+      #s1-flash { background: radial-gradient(circle at 72% 60%, #ffffff 0%, rgba(160, 220, 255, 0.85) 30%, rgba(10, 26, 51, 0) 75%); }
+      .p { position: absolute; border-radius: 50%; background: #9fe9ff; }
+
+      /* ---------- S2 logo ---------- */
+      #s2-bg { background: radial-gradient(1200px 900px at 50% 45%, #ffffff 0%, #ffffff 45%, #e6eef6 100%); }
+      #s2-burst { left: 710px; top: 120px; width: 500px; height: 500px; border-radius: 50%; border: 6px solid var(--teal); }
+      #s2-sym { left: 717px; top: 112px; width: 485px; height: 498px; }
+      #s2-sym img, #s8-sym img { position: absolute; inset: 0; width: 100%; height: 100%; mix-blend-mode: multiply; }
+      #s2-word { left: 677px; top: 640px; width: 565px; height: 94px; mix-blend-mode: multiply; }
+      #s2-slogan { left: 0; top: 790px; width: 1920px; display: flex; justify-content: center; align-items: center; gap: 30px; }
+      .sl-line { width: 120px; height: 4px; border-radius: 3px; background: var(--teal); }
+      .sl-text { font: 700 46px/1 Rajdhani, sans-serif; letter-spacing: 0.22em; color: var(--ink); white-space: nowrap; }
+      .s2-sl-a { left: -60px; background: var(--navy); transform: skewX(-18deg); }
+      .s2-sl-b { left: 110px; width: 40px; background: var(--teal); transform: skewX(-18deg); }
+      .s2-sl-c { left: 1780px; background: var(--navy); transform: skewX(-18deg); }
+      .s2-sl-d { left: 1730px; width: 40px; background: var(--teal); transform: skewX(-18deg); }
+
+      /* ---------- S3 services ---------- */
+      #s3-bg { background: linear-gradient(115deg, #071429 0%, #0a1a33 45%, #0f2a4f 100%); }
+      #s3-dots { opacity: 0.35; -webkit-mask-image: linear-gradient(90deg, #000, transparent 45%); mask-image: linear-gradient(90deg, #000, transparent 45%); }
+      #s3-head { left: 120px; top: 110px; font: italic 800 80px/1 "Exo 2", sans-serif; color: #fff; white-space: nowrap; }
+      #s3-head .t { color: var(--teal-2); }
+      #s3-hbar { left: 124px; top: 212px; width: 150px; height: 8px; border-radius: 4px; background: var(--teal); transform-origin: 0 50%; }
+      .s3-item { position: absolute; left: 120px; width: 820px; height: 130px; }
+      .s3-tile { position: absolute; left: 0; top: 8px; width: 110px; height: 110px; border-radius: 22px; border: 3px solid var(--teal); background: rgba(34, 195, 166, 0); display: flex; align-items: center; justify-content: center; }
+      .s3-tile svg { width: 64px; height: 64px; }
+      .s3-tile .ico * { stroke: #fff; stroke-width: 6; }
+      .s3-num { position: absolute; left: 140px; top: 6px; font: 700 30px/1 Rajdhani, sans-serif; color: var(--teal-2); letter-spacing: 0.12em; }
+      .s3-lab { position: absolute; left: 140px; top: 42px; width: 660px; font: 600 35px/1.18 Inter, sans-serif; color: #fff; }
+      #s3-frame { left: 992px; top: 132px; width: 816px; height: 816px; background: linear-gradient(135deg, var(--teal), var(--blue)); clip-path: polygon(0 0, 100% 0, 100% 86%, 86% 100%, 0 100%); }
+      #s3-panel { left: 1000px; top: 140px; width: 800px; height: 800px; background: #061226; overflow: hidden; clip-path: polygon(0 0, 100% 0, 100% 86%, 86% 100%, 0 100%); }
+      .s3-layer { position: absolute; inset: 0; overflow: hidden; }
+      .s3-layer img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+      .s3-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6, 18, 38, 0.85) 0%, rgba(6, 18, 38, 0) 38%); }
+      #s3-p4 { background: radial-gradient(600px 500px at 50% 60%, #17345c 0%, #071225 70%); }
+      #s3-burner { left: 50px; top: 110px; width: 700px; height: 583px; }
+      .chip { position: absolute; left: 36px; bottom: 40px; padding: 14px 26px; border-radius: 14px; background: rgba(6, 18, 38, 0.82); border: 2px solid rgba(63, 224, 197, 0.6); font: 700 30px/1 Rajdhani, sans-serif; letter-spacing: 0.14em; color: var(--teal-2); white-space: nowrap; }
+
+      /* ---------- S4 pillars ---------- */
+      #s4-bg { background: linear-gradient(120deg, #ffffff 0%, #ffffff 55%, #e8f0f7 100%); }
+      #s4-photoedge { left: 1215px; top: 0; width: 705px; height: 1080px; background: var(--teal); clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); }
+      #s4-photo { left: 1250px; top: 0; width: 670px; height: 1080px; overflow: hidden; clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); }
+      #s4-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 50%; }
+      .s4-row { position: absolute; left: 130px; height: 150px; width: 1100px; }
+      .s4-ic { position: absolute; left: 0; top: 10px; width: 130px; height: 130px; border-radius: 26px; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+      .s4-ic svg { width: 78px; height: 78px; }
+      .s4-ic .ico * { stroke: #fff; stroke-width: 6; }
+      .s4-word { position: absolute; left: 170px; top: 0; height: 150px; overflow: hidden; }
+      .s4-word span { display: inline-block; font: italic 800 112px/150px "Exo 2", sans-serif; color: var(--ink); white-space: nowrap; }
+      #s4-r3 .s4-word span { color: var(--teal); }
+      #s4-r3 .s4-ic { background: var(--teal); }
+      #s4-band { left: -40px; top: 800px; width: 1330px; height: 150px; background: var(--navy); transform-origin: 0 50%; clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%); }
+      #s4-bandtxt { left: 140px; top: 800px; height: 150px; display: flex; align-items: center; font: italic 800 58px/1 "Exo 2", sans-serif; color: #fff; white-space: nowrap; }
+      #s4-bandtxt .t { color: var(--teal-2); margin-left: 18px; }
+
+      /* ---------- S5 values ---------- */
+      #s5-bg { background: radial-gradient(1400px 900px at 50% 40%, #12335c 0%, #0a1a33 55%, #050e1e 100%); }
+      #s5-streak { left: -600px; top: -200px; width: 380px; height: 1500px; background: linear-gradient(90deg, rgba(63, 224, 197, 0), rgba(63, 224, 197, 0.12), rgba(63, 224, 197, 0)); transform: rotate(18deg); }
+      #s5-eyebrow { left: 0; top: 150px; width: 1920px; text-align: center; font: 700 36px/1 Rajdhani, sans-serif; letter-spacing: 0.34em; color: var(--teal-2); }
+      .s5-card { position: absolute; top: 280px; width: 360px; height: 480px; border-radius: 26px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.03)); border: 1px solid rgba(255, 255, 255, 0.16); overflow: hidden; }
+      .s5-bar { position: absolute; left: 0; top: 0; width: 100%; height: 7px; background: linear-gradient(90deg, var(--teal), var(--blue)); transform-origin: 0 50%; }
+      .s5-disc { position: absolute; left: 90px; top: 60px; width: 180px; height: 180px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 10px rgba(63, 224, 197, 0.16); }
+      .s5-disc svg { width: 104px; height: 104px; }
+      .s5-disc .ico * { stroke: var(--blue); stroke-width: 5.5; }
+      .s5-disc .ico .acc { stroke: var(--teal); }
+      .s5-lab { position: absolute; left: 0; top: 300px; width: 100%; text-align: center; font: 800 31px/1.25 "Exo 2", sans-serif; color: #fff; letter-spacing: 0.04em; }
+      .s5-lab .t { display: block; color: var(--teal-2); }
+
+      /* ---------- S6 director ---------- */
+      #s6-bg { background: linear-gradient(110deg, #ffffff 0%, #ffffff 50%, #e8f0f7 100%); }
+      #s6-e1 { left: 820px; top: 0; width: 1100px; height: 1080px; background: var(--navy); clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%); }
+      #s6-e2 { left: 860px; top: 0; width: 1060px; height: 1080px; background: var(--teal); clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%); }
+      #s6-photo { left: 900px; top: 0; width: 1020px; height: 1080px; overflow: hidden; clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%); }
+      #s6-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
+      #s6-avatar { left: 140px; top: 230px; width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--blue)); display: flex; align-items: center; justify-content: center; }
+      #s6-avatar svg { width: 76px; height: 76px; }
+      #s6-avatar .ico * { stroke: #fff; stroke-width: 6; }
+      #s6-name { left: 140px; top: 400px; font: 800 92px/1.04 "Exo 2", sans-serif; color: var(--ink); white-space: nowrap; }
+      #s6-title { left: 144px; top: 610px; font: 700 44px/1 Rajdhani, sans-serif; letter-spacing: 0.2em; color: var(--teal); white-space: nowrap; }
+      #s6-rule { left: 144px; top: 676px; width: 150px; height: 7px; border-radius: 4px; background: var(--teal); transform-origin: 0 50%; }
+      #s6-acc { left: 144px; top: 735px; font: 500 38px/1.2 Inter, sans-serif; color: #2c4262; white-space: nowrap; }
+      #s6-acc b { color: var(--ink); font-weight: 800; }
+      #s6-pin { left: 144px; top: 810px; height: 78px; padding: 0 34px 0 22px; border-radius: 40px; background: var(--navy); display: flex; align-items: center; gap: 14px; font: 700 38px/1 Rajdhani, sans-serif; letter-spacing: 0.14em; color: #fff; white-space: nowrap; }
+      #s6-pin svg { width: 44px; height: 44px; }
+      #s6-pin .ico * { stroke: var(--teal-2); stroke-width: 7; }
+
+      /* ---------- S7 contact ---------- */
+      #s7-bg { background: radial-gradient(1300px 900px at 50% 50%, #12335c 0%, #0a1a33 55%, #050e1e 100%); }
+      #s7-dots { opacity: 0.3; -webkit-mask-image: radial-gradient(700px 500px at 100% 100%, #000, transparent 75%); mask-image: radial-gradient(700px 500px at 100% 100%, #000, transparent 75%); }
+      #s7-title { left: 0; top: 95px; width: 1920px; text-align: center; font: italic 800 108px/1 "Exo 2", sans-serif; color: #fff; white-space: nowrap; }
+      #s7-title .t { color: var(--teal-2); }
+      #s7-sub { left: 0; top: 230px; width: 1920px; text-align: center; font: 600 40px/1 Rajdhani, sans-serif; letter-spacing: 0.3em; color: #bcd6f2; }
+      .s7-card { position: absolute; left: 430px; width: 1060px; height: 180px; border-radius: 30px; background: #fff; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35); }
+      .s7-icb { position: absolute; left: 0; top: 0; width: 180px; height: 180px; background: linear-gradient(135deg, var(--teal), var(--blue)); display: flex; align-items: center; justify-content: center; }
+      .s7-icb svg { width: 86px; height: 86px; }
+      .s7-icb .ico * { stroke: #fff; stroke-width: 6.5; }
+      .s7-num { position: absolute; left: 230px; top: 0; height: 180px; display: flex; align-items: center; gap: 22px; white-space: nowrap; }
+      .s7-cc { font: 600 62px/1 Rajdhani, sans-serif; color: #5a7393; margin-right: 8px; }
+      .s7-g { display: inline-block; font: 700 104px/1 Rajdhani, sans-serif; color: var(--ink); letter-spacing: 0.02em; }
+      #s7-foot { left: 0; top: 850px; width: 1920px; display: flex; justify-content: center; gap: 80px; }
+      .s7-fi { display: flex; align-items: center; gap: 16px; font: 500 36px/1 Inter, sans-serif; color: #e6f0fb; white-space: nowrap; }
+      .s7-fi svg { width: 46px; height: 46px; }
+      .s7-fi .ico * { stroke: var(--teal-2); stroke-width: 6.5; }
+
+      /* ---------- S8 end ---------- */
+      #s8-bg { background: radial-gradient(1200px 900px at 50% 40%, #ffffff 0%, #ffffff 45%, #e6eef6 100%); }
+      #s8-sym { left: 771px; top: 90px; width: 378px; height: 388px; }
+      #s8-word { left: 739px; top: 500px; width: 441px; height: 73px; mix-blend-mode: multiply; }
+      #s8-slogan { left: 0; top: 625px; width: 1920px; display: flex; justify-content: center; align-items: center; gap: 30px; }
+      #s8-bar { left: 0; top: 860px; width: 1920px; height: 220px; background: var(--navy); clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%); }
+      #s8-bartop { left: 0; top: 846px; width: 1920px; height: 40px; background: var(--teal); clip-path: polygon(0 100%, 100% 0, 100% 40%, 0 140%); }
+      #s8-info { left: 0; top: 920px; width: 1920px; height: 140px; display: flex; justify-content: center; align-items: center; gap: 64px; }
+      .s8-it { display: flex; align-items: center; gap: 14px; font: 700 44px/1 Rajdhani, sans-serif; letter-spacing: 0.06em; color: #fff; white-space: nowrap; }
+      .s8-it svg { width: 44px; height: 44px; }
+      .s8-it .ico * { stroke: var(--teal-2); stroke-width: 7; }
+      .s8-sep { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="46.42" data-width="1920" data-height="1080">
+
+      <!-- ===== S1 · Accroche ===== -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="4.3" data-track-index="1">
+        <div id="s1-bg" class="full"></div>
+        <div id="s1-dots" class="dots"></div>
+        <div id="s1-cam">
+          <div id="s1-glow" class="abs"></div>
+          <div id="s1-parts" class="full"></div>
+          <div id="s1-burner" class="abs"></div>
+        </div>
+        <div id="s1-text" class="abs">
+          <div id="s1-l1" class="mask"><span>LE GAZ,</span></div>
+          <div id="s1-l2"><span class="w">l'énergie</span> <span class="w">de</span> <span class="w">votre</span> <b class="w" style="display:inline-block">quotidien.</b></div>
+        </div>
+        <div id="s1-g2" class="abs">
+          <div id="s1-l3"><span class="w">…mais</span> <span class="w">aussi</span> <span class="w">une</span> <span class="w">grande</span></div>
+          <div id="s1-l4">RESPONSABILITÉ</div>
+          <div id="s1-u4"></div>
+        </div>
+        <div id="s1-flash" class="full"></div>
+      </div>
+
+      <!-- ===== S2 · Logo ===== -->
+      <div id="s2" class="scene clip" data-start="4.3" data-duration="3.3" data-track-index="2">
+        <div id="s2-bg" class="full"></div>
+        <div class="slash s2-sl-a"></div>
+        <div class="slash s2-sl-b"></div>
+        <div class="slash s2-sl-c"></div>
+        <div class="slash s2-sl-d"></div>
+        <div id="s2-burst" class="abs"></div>
+        <div id="s2-sym" class="abs">
+          <img id="s2-ring" src="assets/logo-ring-w.png" alt="" />
+          <img id="s2-tl" src="assets/logo-tl-w.png" alt="" />
+        </div>
+        <img id="s2-word" class="abs" src="assets/logo-word-w.png" alt="TECH-LAND" />
+        <div id="s2-slogan" class="abs">
+          <div class="sl-line" id="s2-ll"></div>
+          <div class="sl-text" id="s2-st">LA SOLUTION TECHNIQUE COMPLÈTE</div>
+          <div class="sl-line" id="s2-lr"></div>
+        </div>
+      </div>
+
+      <!-- ===== S3 · Prestations ===== -->
+      <div id="s3" class="scene clip" data-start="7.6" data-duration="8.8" data-track-index="1">
+        <div id="s3-bg" class="full"></div>
+        <div id="s3-dots" class="dots"></div>
+        <div id="s3-head" class="abs"><span class="ch">N</span><span class="ch">O</span><span class="ch">S</span> <span class="t"><span class="ch">P</span><span class="ch">R</span><span class="ch">E</span><span class="ch">S</span><span class="ch">T</span><span class="ch">A</span><span class="ch">T</span><span class="ch">I</span><span class="ch">O</span><span class="ch">N</span><span class="ch">S</span></span></div>
+        <div id="s3-hbar" class="abs"></div>
+
+        <div class="s3-item" id="s3-i1" style="top:290px">
+          <div class="s3-tile"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M24 40 H76 A14 14 0 0 1 76 68 H24 A14 14 0 0 1 24 40 Z"/><path pathLength="1" d="M32 68 V82 M68 68 V82 M50 40 V28 M40 28 H60"/></svg></div>
+          <div class="s3-num">01</div>
+          <div class="s3-lab">Installation d'un centre remplisseur</div>
+        </div>
+        <div class="s3-item" id="s3-i2" style="top:450px">
+          <div class="s3-tile"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M40 14 H60 V26 H40 Z"/><path pathLength="1" d="M32 34 Q32 26 40 26 H60 Q68 26 68 34 V80 Q68 88 60 88 H40 Q32 88 32 80 Z"/><path pathLength="1" d="M32 56 H68"/></svg></div>
+          <div class="s3-num">02</div>
+          <div class="s3-lab">Entretien des bouteilles de gaz</div>
+        </div>
+        <div class="s3-item" id="s3-i3" style="top:610px">
+          <div class="s3-tile"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M22 36 H78 A12 20 0 0 1 78 76 H22 A12 20 0 0 1 22 36 Z"/><circle pathLength="1" cx="50" cy="56" r="9"/><path pathLength="1" d="M50 36 V22 M42 22 H58"/></svg></div>
+          <div class="s3-num">03</div>
+          <div class="s3-lab">Entretien de cuve à gaz</div>
+        </div>
+        <div class="s3-item" id="s3-i4" style="top:770px">
+          <div class="s3-tile"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M50 14 C62 30 70 42 70 56 A20 20 0 0 1 30 56 C30 46 36 40 40 34 C42 42 46 46 50 46 C50 34 46 24 50 14 Z"/><path pathLength="1" d="M22 88 H78"/></svg></div>
+          <div class="s3-num">04</div>
+          <div class="s3-lab">Installation de four à gaz et entretien de brûleur</div>
+        </div>
+
+        <div id="s3-frame" class="abs"></div>
+        <div id="s3-panel" class="abs">
+          <div class="s3-layer" id="s3-p1"><img id="s3-img1" src="assets/photo-cuve.jpg" alt="" /><div class="s3-shade"></div><div class="chip">CENTRE REMPLISSEUR</div></div>
+          <div class="s3-layer" id="s3-p2"><img id="s3-img2" src="assets/photo-bouteilles.jpg" alt="" /><div class="s3-shade"></div><div class="chip">BOUTEILLES DE GAZ</div></div>
+          <div class="s3-layer" id="s3-p3"><img id="s3-img3" src="assets/photo-cuve.jpg" alt="" /><div class="s3-shade"></div><div class="chip">CUVE À GAZ</div></div>
+          <div class="s3-layer" id="s3-p4"><div id="s3-burner" class="abs"></div><div class="chip">FOUR &amp; BRÛLEUR</div></div>
+        </div>
+      </div>
+
+      <!-- ===== S4 · Piliers ===== -->
+      <div id="s4" class="scene clip" data-start="16.4" data-duration="3.55" data-track-index="2">
+        <div id="s4-bg" class="full"></div>
+        <div id="s4-photoedge" class="abs"></div>
+        <div id="s4-photo" class="abs"><img id="s4-img" src="assets/photo-bouteilles.jpg" alt="" /></div>
+        <div class="s4-row" id="s4-r1" style="top:150px">
+          <div class="s4-ic"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M64 16 A20 20 0 0 0 42 42 L16 68 A8 8 0 0 0 32 84 L58 58 A20 20 0 0 0 84 36 L70 50 L56 46 L52 32 Z"/></svg></div>
+          <div class="s4-word"><span>ENTRETIEN</span></div>
+        </div>
+        <div class="s4-row" id="s4-r2" style="top:340px">
+          <div class="s4-ic"><svg class="ico" viewBox="0 0 100 100"><circle pathLength="1" cx="50" cy="50" r="14"/><path pathLength="1" d="M50 12 V24 M50 76 V88 M12 50 H24 M76 50 H88 M23 23 L32 32 M68 68 L77 77 M77 23 L68 32 M32 68 L23 77"/><circle pathLength="1" cx="50" cy="50" r="27"/></svg></div>
+          <div class="s4-word"><span>INSTALLATION</span></div>
+        </div>
+        <div class="s4-row" id="s4-r3" style="top:530px">
+          <div class="s4-ic"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M50 12 L82 24 V48 C82 68 68 82 50 88 C32 82 18 68 18 48 V24 Z"/><path pathLength="1" d="M35 50 L46 61 L67 38"/></svg></div>
+          <div class="s4-word"><span>SÉCURITÉ</span></div>
+        </div>
+        <div id="s4-band" class="abs"></div>
+        <div id="s4-bandtxt" class="abs"><span id="s4-bt1">TROIS MOTS.</span><span class="t" id="s4-bt2">UN SEUL ENGAGEMENT.</span></div>
+      </div>
+
+      <!-- ===== S5 · Engagements ===== -->
+      <div id="s5" class="scene clip" data-start="19.95" data-duration="6.45" data-track-index="1">
+        <div id="s5-bg" class="full"></div>
+        <div id="s5-streak" class="abs"></div>
+        <div id="s5-eyebrow" class="abs">NOS ENGAGEMENTS</div>
+        <div class="s5-card" id="s5-c1" style="left:180px">
+          <div class="s5-bar"></div>
+          <div class="s5-disc"><svg class="ico" viewBox="0 0 100 100"><circle pathLength="1" cx="50" cy="34" r="11"/><path pathLength="1" d="M30 80 C30 64 38 56 50 56 C62 56 70 64 70 80"/><circle class="acc" pathLength="1" cx="22" cy="44" r="8"/><path class="acc" pathLength="1" d="M8 78 C8 66 14 60 22 60"/><circle class="acc" pathLength="1" cx="78" cy="44" r="8"/><path class="acc" pathLength="1" d="M92 78 C92 66 86 60 78 60"/></svg></div>
+          <div class="s5-lab">ÉQUIPE<span class="t">PROFESSIONNELLE</span></div>
+        </div>
+        <div class="s5-card" id="s5-c2" style="left:580px">
+          <div class="s5-bar"></div>
+          <div class="s5-disc"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M50 12 L80 24 V48 C80 68 66 82 50 88 C34 82 20 68 20 48 V24 Z"/><path class="acc" pathLength="1" d="M36 50 L46 60 L66 38"/></svg></div>
+          <div class="s5-lab">MATÉRIEL<span class="t">DE QUALITÉ</span></div>
+        </div>
+        <div class="s5-card" id="s5-c3" style="left:980px">
+          <div class="s5-bar"></div>
+          <div class="s5-disc"><svg class="ico" viewBox="0 0 100 100"><circle pathLength="1" cx="50" cy="56" r="30"/><path pathLength="1" d="M42 14 H58 M50 14 V26 M76 30 L82 24"/><g id="s5-hand"><path class="acc" pathLength="1" d="M50 56 V36"/></g></svg></div>
+          <div class="s5-lab">INTERVENTION<span class="t">RAPIDE</span></div>
+        </div>
+        <div class="s5-card" id="s5-c4" style="left:1380px">
+          <div class="s5-bar"></div>
+          <div class="s5-disc"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M32 46 H16 V84 H32 Z"/><path pathLength="1" d="M32 48 L46 22 C52 18 58 22 57 30 L54 44 H76 C82 44 86 49 84 55 L78 78 C77 82 74 84 70 84 H32"/><path class="acc" pathLength="1" d="M66 14 L70 6 M78 22 L86 18 M58 10 L58 2"/></svg></div>
+          <div class="s5-lab">SATISFACTION<span class="t">GARANTIE</span></div>
+        </div>
+      </div>
+
+      <!-- ===== S6 · Directeur ===== -->
+      <div id="s6" class="scene clip" data-start="26.4" data-duration="6.95" data-track-index="2">
+        <div id="s6-bg" class="full"></div>
+        <div id="s6-e1" class="abs"></div>
+        <div id="s6-e2" class="abs"></div>
+        <div id="s6-photo" class="abs"><img id="s6-img" src="assets/photo-cuve.jpg" alt="" /></div>
+        <div id="s6-avatar" class="abs"><svg class="ico" viewBox="0 0 100 100"><circle pathLength="1" cx="50" cy="36" r="15"/><path pathLength="1" d="M22 84 C22 66 34 56 50 56 C66 56 78 66 78 84"/></svg></div>
+        <div id="s6-name" class="abs">
+          <div class="mask"><span id="s6-n1">Essevi Vérone</span></div>
+          <div class="mask"><span id="s6-n2">Landjekpo</span></div>
+        </div>
+        <div id="s6-title" class="abs">DIRECTEUR GÉNÉRAL</div>
+        <div id="s6-rule" class="abs"></div>
+        <div id="s6-acc" class="abs"><b>TECH-LAND</b> vous accompagne</div>
+        <div id="s6-pin" class="abs"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M50 90 C34 68 22 56 22 40 A28 28 0 0 1 78 40 C78 56 66 68 50 90 Z"/><circle pathLength="1" cx="50" cy="40" r="10"/></svg>NIAMEY · NIGER</div>
+      </div>
+
+      <!-- ===== S7 · Contact ===== -->
+      <div id="s7" class="scene clip" data-start="33.35" data-duration="9.95" data-track-index="1">
+        <div id="s7-bg" class="full"></div>
+        <div id="s7-dots" class="dots"></div>
+        <div id="s7-title" class="abs"><span id="s7-t1" style="display:inline-block">CONTACTEZ-</span><span id="s7-t2" class="t" style="display:inline-block">NOUS</span></div>
+        <div id="s7-sub" class="abs">DÈS MAINTENANT</div>
+        <div class="s7-card" id="s7-c1" style="top:340px">
+          <div class="s7-icb"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M28 14 H40 L48 34 L38 42 C44 54 52 62 64 68 L72 58 L90 64 V78 C90 84 85 88 79 88 C44 86 14 56 12 22 C12 17 16 14 22 14 Z"/></svg></div>
+          <div class="s7-num"><span class="s7-cc" id="s7-cc1">+227</span><span class="s7-g" id="s7-a1">90</span><span class="s7-g" id="s7-a2">41</span><span class="s7-g" id="s7-a3">83</span><span class="s7-g" id="s7-a4">55</span></div>
+        </div>
+        <div class="s7-card" id="s7-c2" style="top:570px">
+          <div class="s7-icb"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M28 14 H40 L48 34 L38 42 C44 54 52 62 64 68 L72 58 L90 64 V78 C90 84 85 88 79 88 C44 86 14 56 12 22 C12 17 16 14 22 14 Z"/></svg></div>
+          <div class="s7-num"><span class="s7-cc" id="s7-cc2">+227</span><span class="s7-g" id="s7-b1">94</span><span class="s7-g" id="s7-b2">72</span><span class="s7-g" id="s7-b3">00</span><span class="s7-g" id="s7-b4">19</span></div>
+        </div>
+        <div id="s7-foot" class="abs">
+          <div class="s7-fi" id="s7-f1"><svg class="ico" viewBox="0 0 100 100"><rect pathLength="1" x="12" y="24" width="76" height="54" rx="8"/><path pathLength="1" d="M14 28 L50 54 L86 28"/></svg>esseviveronelandjekpo@gmail.com</div>
+          <div class="s7-fi" id="s7-f2"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M50 90 C34 68 22 56 22 40 A28 28 0 0 1 78 40 C78 56 66 68 50 90 Z"/><circle pathLength="1" cx="50" cy="40" r="10"/></svg>Niamey, Niger</div>
+        </div>
+      </div>
+
+      <!-- ===== S8 · Signature ===== -->
+      <div id="s8" class="scene clip" data-start="43.3" data-duration="3.12" data-track-index="2">
+        <div id="s8-bg" class="full"></div>
+        <div id="s8-sym" class="abs">
+          <img id="s8-ring" src="assets/logo-ring-w.png" alt="" />
+          <img id="s8-tl" src="assets/logo-tl-w.png" alt="" />
+        </div>
+        <img id="s8-word" class="abs" src="assets/logo-word-w.png" alt="TECH-LAND" />
+        <div id="s8-slogan" class="abs">
+          <div class="sl-line" id="s8-ll"></div>
+          <div class="sl-text" id="s8-st">LA SOLUTION TECHNIQUE COMPLÈTE</div>
+          <div class="sl-line" id="s8-lr"></div>
+        </div>
+        <div id="s8-bartop" class="abs"></div>
+        <div id="s8-bar" class="abs"></div>
+        <div id="s8-info" class="abs">
+          <div class="s8-it"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M28 14 H40 L48 34 L38 42 C44 54 52 62 64 68 L72 58 L90 64 V78 C90 84 85 88 79 88 C44 86 14 56 12 22 C12 17 16 14 22 14 Z"/></svg>+227 90 41 83 55</div>
+          <div class="s8-sep"></div>
+          <div class="s8-it"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M28 14 H40 L48 34 L38 42 C44 54 52 62 64 68 L72 58 L90 64 V78 C90 84 85 88 79 88 C44 86 14 56 12 22 C12 17 16 14 22 14 Z"/></svg>+227 94 72 00 19</div>
+          <div class="s8-sep"></div>
+          <div class="s8-it"><svg class="ico" viewBox="0 0 100 100"><path pathLength="1" d="M50 90 C34 68 22 56 22 40 A28 28 0 0 1 78 40 C78 56 66 68 50 90 Z"/><circle pathLength="1" cx="50" cy="40" r="10"/></svg>Niamey, Niger</div>
+        </div>
+      </div>
+
+      <!-- ===== Transitions (bandes diagonales) ===== -->
+      <div id="wipe" class="clip" data-start="0" data-duration="46.42" data-track-index="5"></div>
+
+      <!-- ===== Audio ===== -->
+      <audio id="voix-off" src="assets/voice/voix-off.mp3" data-start="0" data-duration="46.42" data-track-index="10" data-volume="1"></audio>
+
+      <audio id="sfx-w1" src="assets/sfx/whoosh.wav" data-start="3.95" data-duration="0.55" data-track-index="20" data-volume="0.35"></audio>
+      <audio id="sfx-w2" src="assets/sfx/whoosh.wav" data-start="7.25" data-duration="0.55" data-track-index="21" data-volume="0.35"></audio>
+      <audio id="sfx-w3" src="assets/sfx/whoosh.wav" data-start="16.05" data-duration="0.55" data-track-index="22" data-volume="0.35"></audio>
+      <audio id="sfx-w4" src="assets/sfx/whoosh.wav" data-start="19.6" data-duration="0.55" data-track-index="23" data-volume="0.35"></audio>
+      <audio id="sfx-w5" src="assets/sfx/whoosh.wav" data-start="26.05" data-duration="0.55" data-track-index="24" data-volume="0.35"></audio>
+      <audio id="sfx-w6" src="assets/sfx/whoosh.wav" data-start="33.0" data-duration="0.55" data-track-index="25" data-volume="0.35"></audio>
+      <audio id="sfx-w7" src="assets/sfx/whoosh.wav" data-start="42.95" data-duration="0.55" data-track-index="26" data-volume="0.35"></audio>
+      <audio id="sfx-d1" src="assets/sfx/ding.wav" data-start="4.9" data-duration="1.4" data-track-index="27" data-volume="0.3"></audio>
+      <audio id="sfx-d2" src="assets/sfx/ding.wav" data-start="43.75" data-duration="1.4" data-track-index="28" data-volume="0.3"></audio>
+      <audio id="sfx-s1" src="assets/sfx/stamp.wav" data-start="3.15" data-duration="0.5" data-track-index="29" data-volume="0.35"></audio>
+      <audio id="sfx-p1" src="assets/sfx/pop.wav" data-start="7.7" data-duration="0.18" data-track-index="30" data-volume="0.3"></audio>
+      <audio id="sfx-p2" src="assets/sfx/pop.wav" data-start="9.8" data-duration="0.18" data-track-index="31" data-volume="0.3"></audio>
+      <audio id="sfx-p3" src="assets/sfx/pop.wav" data-start="11.7" data-duration="0.18" data-track-index="32" data-volume="0.3"></audio>
+      <audio id="sfx-p4" src="assets/sfx/pop.wav" data-start="13.5" data-duration="0.18" data-track-index="33" data-volume="0.3"></audio>
+      <audio id="sfx-p5" src="assets/sfx/stamp.wav" data-start="16.55" data-duration="0.5" data-track-index="34" data-volume="0.25"></audio>
+      <audio id="sfx-p6" src="assets/sfx/stamp.wav" data-start="17.15" data-duration="0.5" data-track-index="35" data-volume="0.25"></audio>
+      <audio id="sfx-p7" src="assets/sfx/stamp.wav" data-start="17.7" data-duration="0.5" data-track-index="36" data-volume="0.3"></audio>
+      <audio id="sfx-p8" src="assets/sfx/pop.wav" data-start="20.05" data-duration="0.18" data-track-index="37" data-volume="0.3"></audio>
+      <audio id="sfx-p9" src="assets/sfx/pop.wav" data-start="21.3" data-duration="0.18" data-track-index="38" data-volume="0.3"></audio>
+      <audio id="sfx-p10" src="assets/sfx/pop.wav" data-start="23.25" data-duration="0.18" data-track-index="39" data-volume="0.3"></audio>
+      <audio id="sfx-p11" src="assets/sfx/pop.wav" data-start="24.5" data-duration="0.18" data-track-index="40" data-volume="0.3"></audio>
+      <audio id="sfx-p12" src="assets/sfx/pop.wav" data-start="32.2" data-duration="0.18" data-track-index="41" data-volume="0.3"></audio>
+      <audio id="sfx-t1" src="assets/sfx/tick.wav" data-start="34.9" data-duration="0.12" data-track-index="42" data-volume="0.35"></audio>
+      <audio id="sfx-t2" src="assets/sfx/tick.wav" data-start="36.0" data-duration="0.12" data-track-index="43" data-volume="0.35"></audio>
+      <audio id="sfx-t3" src="assets/sfx/tick.wav" data-start="36.9" data-duration="0.12" data-track-index="44" data-volume="0.35"></audio>
+      <audio id="sfx-t4" src="assets/sfx/tick.wav" data-start="37.9" data-duration="0.12" data-track-index="45" data-volume="0.35"></audio>
+      <audio id="sfx-t5" src="assets/sfx/tick.wav" data-start="39.35" data-duration="0.12" data-track-index="46" data-volume="0.35"></audio>
+      <audio id="sfx-t6" src="assets/sfx/tick.wav" data-start="40.4" data-duration="0.12" data-track-index="47" data-volume="0.35"></audio>
+      <audio id="sfx-t7" src="assets/sfx/tick.wav" data-start="41.4" data-duration="0.12" data-track-index="48" data-volume="0.35"></audio>
+      <audio id="sfx-t8" src="assets/sfx/tick.wav" data-start="42.2" data-duration="0.12" data-track-index="49" data-volume="0.35"></audio>
+    </div>
+
+    <script>
+      (function () {
+        // ---------- deterministic helpers ----------
+        var seed = 7;
+        function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+        var NS = "http://www.w3.org/2000/svg";
+
+        // Gas burner (stove burner seen in perspective) with a ring of blue flames.
+        function buildBurner(host, prefix) {
+          var cx = 300, cy = 330, rx = 190, ry = 56, n = 18;
+          var s = '<svg viewBox="0 0 600 500" width="100%" height="100%" style="overflow:visible">' +
+            '<defs>' +
+            '<linearGradient id="' + prefix + 'fl" x1="0" y1="1" x2="0" y2="0">' +
+              '<stop offset="0" stop-color="#0b2bff"/><stop offset="0.25" stop-color="#2f6dff"/>' +
+              '<stop offset="0.6" stop-color="#4fb3ff" stop-opacity="0.85"/><stop offset="1" stop-color="#9fe9ff" stop-opacity="0"/></linearGradient>' +
+            '<linearGradient id="' + prefix + 'core" x1="0" y1="1" x2="0" y2="0">' +
+              '<stop offset="0" stop-color="#e8fbff"/><stop offset="0.5" stop-color="#7fe3ff" stop-opacity="0.9"/><stop offset="1" stop-color="#7fe3ff" stop-opacity="0"/></linearGradient>' +
+            '<radialGradient id="' + prefix + 'cap" cx="0.45" cy="0.35" r="0.75">' +
+              '<stop offset="0" stop-color="#5d6b7c"/><stop offset="0.55" stop-color="#2a3442"/><stop offset="1" stop-color="#0d131c"/></radialGradient>' +
+            '<linearGradient id="' + prefix + 'ring" x1="0" y1="0" x2="1" y2="0">' +
+              '<stop offset="0" stop-color="#3a4554"/><stop offset="0.35" stop-color="#c7d0db"/><stop offset="0.6" stop-color="#6c7887"/><stop offset="1" stop-color="#2a3340"/></linearGradient>' +
+            '<radialGradient id="' + prefix + 'plate" cx="0.5" cy="0.4" r="0.7">' +
+              '<stop offset="0" stop-color="#1d2733"/><stop offset="1" stop-color="#05080d"/></radialGradient>' +
+            '<filter id="' + prefix + 'blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>' +
+            '</defs>' +
+            '<ellipse cx="300" cy="372" rx="300" ry="104" fill="url(#' + prefix + 'plate)"/>' +
+            '<ellipse cx="300" cy="372" rx="300" ry="104" fill="none" stroke="#3b4757" stroke-width="3"/>';
+          var back = "", front = "";
+          for (var i = 0; i < n; i++) {
+            var a = (i / n) * Math.PI * 2;
+            var x = cx + rx * Math.cos(a), y = cy + ry * Math.sin(a);
+            var h = 118 + ((i * 37) % 5) * 7, w = 22;
+            var tongue = '<g transform="translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ')"><g class="' + prefix + 'tg" data-i="' + i + '">' +
+              '<path d="M0 0 C' + (-w) + ' -' + (h * 0.25) + ' ' + (-w * 0.55) + ' -' + (h * 0.7) + ' 0 -' + h + ' C' + (w * 0.55) + ' -' + (h * 0.7) + ' ' + w + ' -' + (h * 0.25) + ' 0 0 Z" fill="url(#' + prefix + 'fl)"/>' +
+              '<path d="M0 0 C-9 -' + (h * 0.15) + ' -5 -' + (h * 0.38) + ' 0 -' + (h * 0.5) + ' C5 -' + (h * 0.38) + ' 9 -' + (h * 0.15) + ' 0 0 Z" fill="url(#' + prefix + 'core)"/>' +
+              '</g></g>';
+            if (Math.sin(a) < 0) back += tongue; else front += tongue;
+          }
+          s += '<g class="' + prefix + 'glow" filter="url(#' + prefix + 'blur)" opacity="0.9"><ellipse cx="300" cy="290" rx="230" ry="110" fill="#2f6dff" opacity="0.55"/></g>';
+          s += back;
+          s += '<ellipse cx="300" cy="338" rx="206" ry="64" fill="url(#' + prefix + 'ring)"/>' +
+               '<ellipse cx="300" cy="330" rx="190" ry="56" fill="#141b25"/>' +
+               '<ellipse cx="300" cy="322" rx="150" ry="44" fill="url(#' + prefix + 'cap)"/>' +
+               '<ellipse cx="282" cy="312" rx="70" ry="16" fill="#8794a6" opacity="0.25"/>';
+          s += front;
+          // pan support grate
+          s += '<g stroke="#0b0f15" stroke-width="16" stroke-linecap="round" fill="none">' +
+               '<path d="M40 372 L150 350"/><path d="M560 372 L450 350"/><path d="M300 470 L300 405"/><path d="M300 274 L300 250"/></g>' +
+               '<g stroke="#4a5666" stroke-width="3" fill="none" opacity="0.7">' +
+               '<path d="M40 366 L150 344"/><path d="M560 366 L450 344"/><path d="M294 470 L294 405"/></g>';
+          s += '</svg>';
+          host.innerHTML = s;
+        }
+        buildBurner(document.getElementById("s1-burner"), "b1");
+        buildBurner(document.getElementById("s3-burner"), "b3");
+
+        // particles (seeded)
+        var parts = document.getElementById("s1-parts");
+        for (var i = 0; i < 42; i++) {
+          var d = document.createElement("div");
+          d.className = "p s1p";
+          var sz = 2 + rnd() * 5;
+          d.style.width = sz + "px"; d.style.height = sz + "px";
+          d.style.left = (980 + rnd() * 900) + "px";
+          d.style.top = (250 + rnd() * 700) + "px";
+          d.style.opacity = (0.25 + rnd() * 0.6).toFixed(2);
+          d.dataset.dy = (-160 - rnd() * 260).toFixed(0);
+          d.dataset.dx = (-60 + rnd() * 120).toFixed(0);
+          parts.appendChild(d);
+        }
+
+        // slogan letters
+        function splitChars(el) {
+          var t = el.textContent; el.textContent = "";
+          for (var k = 0; k < t.length; k++) {
+            var c = document.createElement("span");
+            c.className = "ch"; c.textContent = t[k] === " " ? " " : t[k];
+            el.appendChild(c);
+          }
+        }
+        splitChars(document.getElementById("s2-st"));
+        splitChars(document.getElementById("s8-st"));
+
+        // wipe bands
+        var wipe = document.getElementById("wipe");
+        var cuts = [4.3, 7.6, 16.4, 19.95, 26.4, 33.35, 43.3];
+        cuts.forEach(function (t, j) {
+          ["b-teal", "b-blue", "b-navy"].forEach(function (cls) {
+            var b = document.createElement("div");
+            b.className = "band " + cls; b.id = "wb" + j + cls;
+            b.innerHTML = '<div class="band-skew"></div>';
+            wipe.appendChild(b);
+          });
+        });
+
+        // ---------- timeline ----------
+        var tl = gsap.timeline({ paused: true });
+        function draw(sel, t, dur) {
+          tl.fromTo(sel, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: dur || 0.6, ease: "power2.inOut", stagger: 0.06 }, t);
+        }
+
+        // wipes: front band covers the frame around t
+        cuts.forEach(function (t, j) {
+          var delays = { "b-teal": -0.12, "b-blue": -0.06, "b-navy": 0 };
+          Object.keys(delays).forEach(function (cls) {
+            tl.fromTo("#wb" + j + cls, { x: -4500 }, { x: 2500, duration: 1.0, ease: "power1.inOut" }, t - 0.5 + delays[cls]);
+          });
+        });
+
+        // ===== S1 =====
+        tl.fromTo("#s1-cam", { scale: 1 }, { scale: 1.07, duration: 4.3, ease: "none" }, 0);
+        tl.fromTo("#s1-glow", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 0);
+        tl.fromTo("#s1-flash", { opacity: 0.95 }, { opacity: 0, duration: 0.7, ease: "power2.out" }, 0);
+        tl.fromTo(".b1tg", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.4, ease: "back.out(2.2)", stagger: { each: 0.018, from: "center" }, transformOrigin: "50% 100%" }, 0.04);
+        gsap.utils.toArray(".b1tg").forEach(function (g, k) {
+          tl.to(g, { keyframes: { scaleY: [1, 0.86, 1.1, 0.92, 1.04, 1], scaleX: [1, 1.08, 0.94, 1.05, 0.97, 1] }, duration: 0.7, ease: "none", repeat: 4, transformOrigin: "50% 100%" }, 0.45 + (k % 5) * 0.07);
+        });
+        tl.to(".b1glow", { keyframes: { opacity: [0.9, 0.6, 1, 0.75, 0.95] }, duration: 1.6, repeat: 1, ease: "none" }, 0.4);
+        gsap.utils.toArray(".s1p").forEach(function (p, k) {
+          tl.fromTo(p, { x: 0, y: 0 }, { x: +p.dataset.dx, y: +p.dataset.dy, duration: 4.3, ease: "none" }, 0);
+        });
+        tl.fromTo("#s1-l1 > span", { yPercent: 110 }, { yPercent: 0, duration: 0.55, ease: "expo.out" }, 0.12);
+        tl.fromTo("#s1-l2 .w", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.12 }, 0.55);
+        tl.to("#s1-text", { y: -70, opacity: 0, duration: 0.35, ease: "power2.in" }, 1.95);
+        tl.fromTo("#s1-l3 .w", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out", stagger: 0.11 }, 2.12);
+        tl.fromTo("#s1-l4", { scale: 1.7, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out", transformOrigin: "0% 50%" }, 3.12);
+        tl.fromTo("#s1-u4", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 3.4);
+        tl.to("#s1-glow", { scale: 1.18, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, 3.12);
+
+        // ===== S2 =====
+        tl.fromTo(".s2-sl-a, .s2-sl-b", { x: -400 }, { x: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, 4.3);
+        tl.fromTo(".s2-sl-c, .s2-sl-d", { x: 400 }, { x: 0, duration: 0.8, ease: "expo.out", stagger: 0.06 }, 4.3);
+        tl.fromTo("#s2-ring", { rotation: -220, scale: 0.35, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, duration: 0.95, ease: "expo.out" }, 4.32);
+        tl.fromTo("#s2-burst", { scale: 0.6, opacity: 0.9 }, { scale: 1.9, opacity: 0, duration: 0.9, ease: "power2.out" }, 4.5);
+        tl.fromTo("#s2-tl", { clipPath: "inset(0% 100% 0% 0%)", x: -40 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.6, ease: "expo.out" }, 4.6);
+        tl.fromTo("#s2-word", { clipPath: "inset(0% 50% 0% 50%)", y: 24, opacity: 0 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 4.9);
+        tl.fromTo("#s2-ll, #s2-lr", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 5.3);
+        tl.fromTo("#s2-st .ch", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.022 }, 5.35);
+        tl.fromTo("#s2-sym", { scale: 1 }, { scale: 1.04, duration: 2.6, ease: "sine.inOut" }, 5.0);
+
+        // ===== S3 =====
+        tl.fromTo("#s3-head .ch", { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.4, ease: "back.out(1.8)", stagger: 0.025 }, 7.62);
+        tl.fromTo("#s3-hbar", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 7.9);
+        tl.fromTo("#s3-frame, #s3-panel", { x: 260, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease: "expo.out" }, 7.6);
+        var items = [7.7, 9.8, 11.7, 13.5];
+        var full = "polygon(0% 0%, 125% 0%, 100% 100%, -25% 100%)";
+        var none = "polygon(0% 0%, 0% 0%, -25% 100%, -25% 100%)";
+        items.forEach(function (t, k) {
+          var n = k + 1, it = "#s3-i" + n;
+          tl.fromTo(it + " .s3-tile", { scale: 0, rotation: -25 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" }, t);
+          tl.fromTo(it + " .s3-tile", { backgroundColor: "rgba(34,195,166,0)" }, { backgroundColor: "rgba(34,195,166,1)", duration: 0.3, ease: "power2.out", immediateRender: false }, t + 0.1);
+          draw(it + " .ico path, " + it + " .ico circle", t + 0.15, 0.6);
+          tl.fromTo(it + " .s3-num, " + it + " .s3-lab", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: "expo.out", stagger: 0.07 }, t + 0.05);
+          if (k > 0) {
+            var prev = "#s3-i" + k;
+            tl.to(prev + " .s3-tile", { backgroundColor: "rgba(34,195,166,0)", duration: 0.3 }, t);
+            tl.to(prev + " .s3-lab, " + prev + " .s3-num", { opacity: 0.45, duration: 0.3 }, t);
+          }
+          if (k === 0) {
+            tl.fromTo("#s3-p1", { clipPath: none }, { clipPath: full, duration: 0.8, ease: "expo.inOut" }, t);
+          } else {
+            tl.fromTo("#s3-p" + n, { clipPath: none }, { clipPath: full, duration: 0.8, ease: "expo.inOut" }, t - 0.1);
+          }
+          tl.fromTo("#s3-p" + n + " .chip", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, t + 0.45);
+        });
+        tl.fromTo("#s3-img1", { scale: 1.18 }, { scale: 1.02, duration: 2.4, ease: "power1.out" }, 7.6);
+        tl.fromTo("#s3-img2", { scale: 1.22, xPercent: 3 }, { scale: 1.05, xPercent: 0, duration: 2.2, ease: "power1.out" }, 9.7);
+        tl.fromTo("#s3-img3", { scale: 1.6, transformOrigin: "78% 62%" }, { scale: 1.95, transformOrigin: "78% 62%", duration: 2.1, ease: "power1.inOut" }, 11.6);
+        tl.fromTo(".b3tg", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.4, ease: "back.out(2.2)", stagger: { each: 0.02, from: "start" }, transformOrigin: "50% 100%" }, 13.65);
+        gsap.utils.toArray(".b3tg").forEach(function (g, k) {
+          tl.to(g, { keyframes: { scaleY: [1, 0.88, 1.08, 0.93, 1.03, 1], scaleX: [1, 1.07, 0.95, 1.04, 0.98, 1] }, duration: 0.7, ease: "none", repeat: 3, transformOrigin: "50% 100%" }, 14.1 + (k % 5) * 0.07);
+        });
+        tl.fromTo("#s3-burner", { scale: 1.1 }, { scale: 1, duration: 2.8, ease: "power1.out" }, 13.4);
+
+        // ===== S4 =====
+        tl.fromTo("#s4-photo, #s4-photoedge", { x: 380 }, { x: 0, duration: 0.8, ease: "expo.out", stagger: 0.05 }, 16.4);
+        tl.fromTo("#s4-img", { scale: 1.15 }, { scale: 1.0, duration: 3.6, ease: "power1.out" }, 16.4);
+        [["#s4-r1", 16.55], ["#s4-r2", 17.15], ["#s4-r3", 17.7]].forEach(function (r) {
+          tl.fromTo(r[0] + " .s4-ic", { scale: 0, rotation: -30 }, { scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, r[1]);
+          draw(r[0] + " .ico path, " + r[0] + " .ico circle", r[1] + 0.1, 0.5);
+          tl.fromTo(r[0] + " .s4-word span", { yPercent: 105, skewX: -12 }, { yPercent: 0, skewX: 0, duration: 0.5, ease: "expo.out" }, r[1]);
+        });
+        tl.fromTo("#s4-band", { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "expo.out" }, 18.42);
+        tl.fromTo("#s4-bt1", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, 18.5);
+        tl.fromTo("#s4-bt2", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "expo.out" }, 18.75);
+
+        // ===== S5 =====
+        tl.fromTo("#s5-streak", { x: 0 }, { x: 2900, duration: 6.4, ease: "none" }, 19.95);
+        tl.fromTo("#s5-eyebrow", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 19.97);
+        [20.05, 21.3, 23.25, 24.5].forEach(function (t, k) {
+          var c = "#s5-c" + (k + 1);
+          tl.fromTo(c, { rotationY: -90, y: 50, opacity: 0, transformPerspective: 1400 }, { rotationY: 0, y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, t);
+          tl.fromTo(c + " .s5-bar", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "expo.out" }, t + 0.25);
+          tl.fromTo(c + " .s5-disc", { scale: 0.4 }, { scale: 1, duration: 0.6, ease: "back.out(2)" }, t + 0.1);
+          draw(c + " .ico path, " + c + " .ico circle", t + 0.2, 0.7);
+          tl.fromTo(c + " .s5-lab", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, t + 0.3);
+        });
+        tl.fromTo("#s5-hand", { rotation: 0, svgOrigin: "50 56" }, { rotation: 720, svgOrigin: "50 56", duration: 3.0, ease: "power1.inOut" }, 23.4);
+        tl.to("#s5-c4 .s5-disc", { scale: 1.12, duration: 0.25, yoyo: true, repeat: 1, ease: "power2.out" }, 25.4);
+
+        // ===== S6 =====
+        tl.fromTo("#s6-e1", { x: 500 }, { x: 0, duration: 0.8, ease: "expo.out" }, 26.4);
+        tl.fromTo("#s6-e2", { x: 500 }, { x: 0, duration: 0.8, ease: "expo.out" }, 26.46);
+        tl.fromTo("#s6-photo", { x: 500 }, { x: 0, duration: 0.8, ease: "expo.out" }, 26.52);
+        tl.fromTo("#s6-img", { scale: 1.2 }, { scale: 1.02, duration: 7, ease: "power1.out" }, 26.4);
+        tl.fromTo("#s6-avatar", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.55, ease: "back.out(2)" }, 26.5);
+        draw("#s6-avatar .ico path, #s6-avatar .ico circle", 26.6, 0.6);
+        tl.fromTo("#s6-n1", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, 26.6);
+        tl.fromTo("#s6-n2", { yPercent: 110 }, { yPercent: 0, duration: 0.6, ease: "expo.out" }, 27.55);
+        tl.fromTo("#s6-title", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease: "expo.out" }, 29.3);
+        tl.fromTo("#s6-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 29.5);
+        tl.fromTo("#s6-acc", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, 31.15);
+        tl.fromTo("#s6-pin", { y: -60, opacity: 0, scale: 0.7 }, { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(2)" }, 32.15);
+        draw("#s6-pin .ico path, #s6-pin .ico circle", 32.25, 0.5);
+
+        // ===== S7 =====
+        tl.fromTo("#s7-t1", { x: -120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 33.45);
+        tl.fromTo("#s7-t2", { x: 120, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 33.6);
+        tl.fromTo("#s7-sub", { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 33.9);
+        tl.fromTo("#s7-c1", { x: -300, opacity: 0 }, { x: 0, opacity: 1, duration: 0.65, ease: "expo.out" }, 34.5);
+        tl.fromTo("#s7-c2", { x: 300, opacity: 0 }, { x: 0, opacity: 1, duration: 0.65, ease: "expo.out" }, 38.75);
+        draw("#s7-c1 .ico path", 34.65, 0.6);
+        draw("#s7-c2 .ico path", 38.9, 0.6);
+        tl.to("#s7-c1 .s7-icb svg", { keyframes: { rotation: [0, -14, 12, -10, 8, -4, 0] }, duration: 0.6, ease: "none" }, 35.2);
+        tl.to("#s7-c2 .s7-icb svg", { keyframes: { rotation: [0, -14, 12, -10, 8, -4, 0] }, duration: 0.6, ease: "none" }, 39.4);
+        tl.fromTo("#s7-cc1", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 34.7);
+        tl.fromTo("#s7-cc2", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, 38.95);
+        [["#s7-a1", 34.9], ["#s7-a2", 36.0], ["#s7-a3", 36.9], ["#s7-a4", 37.9], ["#s7-b1", 39.35], ["#s7-b2", 40.4], ["#s7-b3", 41.4], ["#s7-b4", 42.2]].forEach(function (g) {
+          tl.fromTo(g[0], { y: 50, opacity: 0, scale: 1.35, color: "#22c3a6" }, { y: 0, opacity: 1, scale: 1, color: "#0d2240", duration: 0.45, ease: "back.out(2)" }, g[1]);
+        });
+        tl.fromTo("#s7-f1, #s7-f2", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.15 }, 36.3);
+        draw("#s7-foot .ico rect, #s7-foot .ico path, #s7-foot .ico circle", 36.4, 0.7);
+
+        // ===== S8 =====
+        tl.fromTo("#s8-ring", { rotation: -220, scale: 0.35, opacity: 0 }, { rotation: 0, scale: 1, opacity: 1, duration: 0.9, ease: "expo.out" }, 43.32);
+        tl.fromTo("#s8-tl", { clipPath: "inset(0% 100% 0% 0%)", x: -30 }, { clipPath: "inset(0% 0% 0% 0%)", x: 0, duration: 0.55, ease: "expo.out" }, 43.55);
+        tl.fromTo("#s8-word", { clipPath: "inset(0% 50% 0% 50%)", y: 20, opacity: 0 }, { clipPath: "inset(0% 0% 0% 0%)", y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 43.75);
+        tl.fromTo("#s8-bar, #s8-bartop", { yPercent: 120 }, { yPercent: 0, duration: 0.7, ease: "expo.out", stagger: 0.05 }, 43.6);
+        tl.fromTo("#s8-info > *", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out", stagger: 0.07 }, 43.95);
+        draw("#s8-info .ico path, #s8-info .ico circle", 44.0, 0.6);
+        tl.fromTo("#s8-ll, #s8-lr", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, 44.3);
+        tl.fromTo("#s8-st .ch", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.025 }, 44.35);
+        tl.fromTo("#s8-sym", { scale: 1 }, { scale: 1.05, duration: 2.8, ease: "sine.inOut" }, 43.6);
+
+        tl.to({}, { duration: 46.42 }, 0);
+        window.__timelines["main"] = tl;
+      })();
+    </script>
+  </body>
+</html>

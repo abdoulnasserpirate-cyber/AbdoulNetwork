@@ -1,0 +1,484 @@
+{
+  "version": 1,
+  "historyId": "9e1c32a0-952e-46bb-b049-29e16596873e",
+  "currentRevision": "636bb305-f054-41da-b9fb-898c507fda93",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/carte-visite.jpg": {
+      "hash": "91f19375e1a8754f0715c92e72617bc81d62268629592d0904d4535af74d78b5",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/91/91f19375e1a8754f0715c92e72617bc81d62268629592d0904d4535af74d78b5"
+    },
+    "assets/fonts/Inter-normal-400_800.woff2": {
+      "hash": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/31/3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62"
+    },
+    "assets/fonts/exo-2-latin-600-normal.woff2": {
+      "hash": "fd2112e53440975a4885179f3d09058787b97b711e7e141c55fcaecaf48fbcb6",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/fd/fd2112e53440975a4885179f3d09058787b97b711e7e141c55fcaecaf48fbcb6"
+    },
+    "assets/fonts/exo-2-latin-700-normal.woff2": {
+      "hash": "96c87b1597aed754e0ad45970883774e851a390788e7fba7b3f49f8d1f6e5a6b",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/96/96c87b1597aed754e0ad45970883774e851a390788e7fba7b3f49f8d1f6e5a6b"
+    },
+    "assets/fonts/exo-2-latin-800-italic.woff2": {
+      "hash": "82306bad68848703afce2593b60ce1862148c700279045ac373753ea016ab0a1",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/82/82306bad68848703afce2593b60ce1862148c700279045ac373753ea016ab0a1"
+    },
+    "assets/fonts/exo-2-latin-800-normal.woff2": {
+      "hash": "d610f14745a7eb6b2fb5746431d28c189776152752eea5ff5c8f2da828bae823",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/d6/d610f14745a7eb6b2fb5746431d28c189776152752eea5ff5c8f2da828bae823"
+    },
+    "assets/fonts/rajdhani-latin-600-normal.woff2": {
+      "hash": "433a7007e4747a02a790167a6efa2625855f013970ba49b9b739a5d3db8b2601",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/43/433a7007e4747a02a790167a6efa2625855f013970ba49b9b739a5d3db8b2601"
+    },
+    "assets/fonts/rajdhani-latin-700-normal.woff2": {
+      "hash": "5b7e4a6f97163c2636724d4de90304fc895653dcfe64c67a7a22f26331ca5c5f",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/5b/5b7e4a6f97163c2636724d4de90304fc895653dcfe64c67a7a22f26331ca5c5f"
+    },
+    "assets/logo-full-w.png": {
+      "hash": "347efb735ee3fa105286df5938172473f18ac543e58a2df392bc44646a8fe7a9",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/34/347efb735ee3fa105286df5938172473f18ac543e58a2df392bc44646a8fe7a9"
+    },
+    "assets/logo-ring-w.png": {
+      "hash": "431f0206afa8b11a5b54f920d2f715c9dea42d1400360429753c6f2e61580c87",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/43/431f0206afa8b11a5b54f920d2f715c9dea42d1400360429753c6f2e61580c87"
+    },
+    "assets/logo-source.jpg": {
+      "hash": "859f27392f129fc07a4426e6a51ac4cfbf6b6d0afc24dfe27d3647a0c02c9353",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/85/859f27392f129fc07a4426e6a51ac4cfbf6b6d0afc24dfe27d3647a0c02c9353"
+    },
+    "assets/logo-tl-w.png": {
+      "hash": "33edf5e55fb075778cf55d342ff723ff48459e375a2a921473ca35b1eef8e70c",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/33/33edf5e55fb075778cf55d342ff723ff48459e375a2a921473ca35b1eef8e70c"
+    },
+    "assets/logo-word-w.png": {
+      "hash": "7a8e232c52ab5f8c0fc26f080208f2fffe4be256b607ab5878ed3498b264d6e5",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/7a/7a8e232c52ab5f8c0fc26f080208f2fffe4be256b607ab5878ed3498b264d6e5"
+    },
+    "assets/photo-bouteilles.jpg": {
+      "hash": "bb65bb50ccbb6aacf10ba49d3c81ff68e93761ef92e8c4e7cb155e7344ed5168",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/bb/bb65bb50ccbb6aacf10ba49d3c81ff68e93761ef92e8c4e7cb155e7344ed5168"
+    },
+    "assets/photo-cuve.jpg": {
+      "hash": "84eee2cc8b1dae033674f45b4efc2e01f647d94455f05d577fe0fe1d2e429944",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/84/84eee2cc8b1dae033674f45b4efc2e01f647d94455f05d577fe0fe1d2e429944"
+    },
+    "assets/sfx/coin.wav": {
+      "hash": "71ad5789966e43b3cb8d257fa27577714b5acae7c36501150fb425e2c2e8030d",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/71/71ad5789966e43b3cb8d257fa27577714b5acae7c36501150fb425e2c2e8030d"
+    },
+    "assets/sfx/ding.wav": {
+      "hash": "40f8fb9b3e2bf140193d2f8f72c9541045aeca7b30d4f10061ff6e703bba3f39",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/40/40f8fb9b3e2bf140193d2f8f72c9541045aeca7b30d4f10061ff6e703bba3f39"
+    },
+    "assets/sfx/pop.wav": {
+      "hash": "556e3562e7a5e0afd92dad8ef0329df13d6f3fdac4cc0c418c331b51bbf7a5aa",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/55/556e3562e7a5e0afd92dad8ef0329df13d6f3fdac4cc0c418c331b51bbf7a5aa"
+    },
+    "assets/sfx/stamp.wav": {
+      "hash": "86ecdb9533ad00351da6204803f8a587c640d5b16a4d82408a74ada62286452e",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/86/86ecdb9533ad00351da6204803f8a587c640d5b16a4d82408a74ada62286452e"
+    },
+    "assets/sfx/tick.wav": {
+      "hash": "911503ca4c1ceef73c22ad4bea8fb8882f616c826c8942d356bab0c96b31c9ef",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/91/911503ca4c1ceef73c22ad4bea8fb8882f616c826c8942d356bab0c96b31c9ef"
+    },
+    "assets/sfx/whoosh.wav": {
+      "hash": "38ed384be65a6af4fdd6298dc068bdec0536c88f2a56c267c04c5843561d2246",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/38/38ed384be65a6af4fdd6298dc068bdec0536c88f2a56c267c04c5843561d2246"
+    },
+    "assets/vendor/gsap.min.js": {
+      "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/c1/c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280"
+    },
+    "hyperframes.json": {
+      "hash": "35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/35/35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7"
+    },
+    "index.html": {
+      "hash": "82c3e4a37082e55839687a390fc96a599ec341dfeb47988a82626b817385e4b1",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/82/82c3e4a37082e55839687a390fc96a599ec341dfeb47988a82626b817385e4b1"
+    },
+    "meta.json": {
+      "hash": "216eb59b01efe030a23dc088eb86779a54901e0f7fa727dccfdfd6bd368515d7",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/21/216eb59b01efe030a23dc088eb86779a54901e0f7fa727dccfdfd6bd368515d7"
+    },
+    "package.json": {
+      "hash": "da7c014c60c444dcf9afab22926f7a32b7fe1e6328ba2f30246be1781dff9883",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/da/da7c014c60c444dcf9afab22926f7a32b7fe1e6328ba2f30246be1781dff9883"
+    },
+    "assets/voice/voix-off.mp3": {
+      "hash": "80defc87d3e7edbae2a65e12db7e36907aa72fd729be6f73a178cc7fa1eebe8d",
+      "content": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/80/80defc87d3e7edbae2a65e12db7e36907aa72fd729be6f73a178cc7fa1eebe8d"
+    }
+  },
+  "revisions": {
+    "01ebb514-205e-4e09-9fe4-5b07cf8631cc": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792957654563,
+      "endedAt": 1792957654564,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/ca/caae4c8e1ef42dcd641837dc654153d9cacb4fb456da7c91c253c31eb449e6a4",
+          "after": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/6e/6ecb637544d746d7c91f0e19fe4b68e5b48dda1ae26a365b359837a4a30c1282"
+        }
+      }
+    },
+    "636bb305-f054-41da-b9fb-898c507fda93": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792957679026,
+      "endedAt": 1792957679027,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/6e/6ecb637544d746d7c91f0e19fe4b68e5b48dda1ae26a365b359837a4a30c1282",
+          "after": "/root/.cache/hyperframes/history/9e1c32a0-952e-46bb-b049-29e16596873e/blobs/82/82c3e4a37082e55839687a390fc96a599ec341dfeb47988a82626b817385e4b1"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "01ebb514-205e-4e09-9fe4-5b07cf8631cc",
+      "id": "abd18592-cded-400c-95f1-ab54b5f02af9"
+    },
+    "revisions": {
+      "01ebb514-205e-4e09-9fe4-5b07cf8631cc": [
+        {
+          "id": "abd18592-cded-400c-95f1-ab54b5f02af9",
+          "scope": "project",
+          "report": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/checks/abd18592-cded-400c-95f1-ab54b5f02af9.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792957672293,
+          "contentHash": "65c96224295192fe412c4914d2ba9e7459303c1a49022605eee1d1583ddbaa90",
+          "revision": "01ebb514-205e-4e09-9fe4-5b07cf8631cc",
+          "inputFingerprint": "c67833ead7f6216f22a3193e749e569cab3a02764f2d28ec7def4750cad321a2",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "4388a3d0-519a-431a-8005-ff67162bdf13",
+        "scope": "project",
+        "report": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/checks/4388a3d0-519a-431a-8005-ff67162bdf13.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": true,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792957640226,
+        "contentHash": "d0b508b02ba332a8f65777d3f6a8c8dd7f90476f1fa46c1e56a1dde496abd116",
+        "revision": null,
+        "inputFingerprint": "8185fdfa2473c6c65ae13be306f6e97707913a119bee24ca85b793c2c7f0b62d",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+      "id": "d6bc868a-d189-459d-8c78-2420263d8e97-11"
+    },
+    "revisions": {
+      "636bb305-f054-41da-b9fb-898c507fda93": [
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-0",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-00-at-0.5s.png",
+          "time": 0.5,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "6142506737fb672f82b64928dc97e8aa0f81925500054f096d3e47429165d602",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-1",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-01-at-3.9s.png",
+          "time": 3.9,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "92a9bf0bd546181eb6e0c7801530e4c12e7129ca29cf8e850505c8717e9bfddd",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-2",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-02-at-6.6s.png",
+          "time": 6.6,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "e5037a485cac9f392a3d35e0c58eab60e21559d9892d980a22b0594b2c3d5584",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-3",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-03-at-8.9s.png",
+          "time": 8.9,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "6f6cb9a8222063c09f88f47822efedff19f9e280fdff4cf3d2699d399c2c9167",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-4",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-04-at-15s.png",
+          "time": 15,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "49c376f83f690b8f9a3b8beb425b091182cd48141a1d7d34958746413d47ab7f",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-5",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-05-at-19.4s.png",
+          "time": 19.4,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "8580f9c89fecdbe993e2babb9845cc20153930fedaf4acccb80f19b3a5a5891e",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-6",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-06-at-25.9s.png",
+          "time": 25.9,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "96b9684cb860ee1fb6b0c1d92f79c4d0c5a1e91e261f741db5f8a173e812ba78",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-7",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-07-at-32.8s.png",
+          "time": 32.8,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "b4caadbaba6ddbc85525bad4626e4cf45dd8f9beb39fa9ce59b6b1a06cb81372",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-8",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-08-at-42.8s.png",
+          "time": 42.8,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "ff277cabeeba1c1964d5aea0125ad0beff68921464980fa7523d5723a4be1b16",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-9",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-09-at-45.9s.png",
+          "time": 45.9,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "80c5efcefb38dd8b105c5575fd2cee466243c88d5575d63427c13554aab26ed7",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-10",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-10-at-4.3s.png",
+          "time": 4.3,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "93cbee5e5cf4bc2371f5428f99eb6ec2ecadd706af286b8ca0a95fbcde2069d2",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "d6bc868a-d189-459d-8c78-2420263d8e97-11",
+          "image": "/home/user/AbdoulNetwork/videos/tech-land-promo/.hyperframes/artifacts/snapshots/dc93c5c5-394a-41b1-bb26-c6de67c50f89/frame-11-at-45.027s.png",
+          "time": 45.027,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792957686246,
+          "contentHash": "782e4aa1eb865e502fc6ed8434144ed4e4fc115fddc560481d0188f83fdc2d31",
+          "revision": "636bb305-f054-41da-b9fb-898c507fda93",
+          "inputFingerprint": "51456f25bcd6fa31cc891dc45968339cdc8cc9d2ea04929e8c154fb447cb719b",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "92c0eb91-e5ab-4346-b77f-5a09f0b54d5b",
+      "completedAt": 1792957853905,
+      "output": "/home/user/AbdoulNetwork/videos/tech-land-promo/renders/tech-land-master.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}
