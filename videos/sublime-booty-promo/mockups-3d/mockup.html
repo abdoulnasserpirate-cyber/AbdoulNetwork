@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:'Montserrat';font-weight:400 900;src:url('Montserrat-var.woff2') format('woff2');}
+@font-face{font-family:'Playfair Display';font-weight:400 900;src:url('PlayfairDisplay-var.woff2') format('woff2');}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;src:url('PlayfairDisplay-italic-var.woff2') format('woff2');}
+html,body{margin:0;background:transparent;overflow:hidden}
+</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const W = 1400, H = 1400;
+const params = new URLSearchParams(location.search);
+const which = params.get('p');
+
+await document.fonts.load("900 40px 'Montserrat'");
+await document.fonts.load("900 40px 'Playfair Display'");
+await document.fonts.load("italic 900 40px 'Playfair Display'");
+const logoImg = await new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = 'logo.png'; });
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setSize(W, H);
+renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+const key = new THREE.DirectionalLight(0xffffff, 2.2);
+key.position.set(-3, 6, 5);
+key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048);
+key.shadow.camera.left = -4; key.shadow.camera.right = 4; key.shadow.camera.top = 4; key.shadow.camera.bottom = -4;
+key.shadow.radius = 8;
+key.shadow.bias = -0.0005;
+scene.add(key);
+const rim = new THREE.DirectionalLight(0xff8fc4, 2.4);
+rim.position.set(5, 3, -4);
+scene.add(rim);
+const fill = new THREE.DirectionalLight(0xffffff, 0.6);
+fill.position.set(4, 2, 6);
+scene.add(fill);
+
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), new THREE.ShadowMaterial({ opacity: 0.28 }));
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+const camera = new THREE.PerspectiveCamera(26, W / H, 0.1, 100);
+
+// ---------- palette ----------
+const C = { black: '#0b0b0d', pink: '#E0006F', hot: '#FF3C96', gold: '#F2C46D', white: '#ffffff', blush: '#ffd6e8' };
+
+// ---------- materials ----------
+const gold = () => new THREE.MeshPhysicalMaterial({ color: 0xe8b65a, metalness: 1, roughness: 0.22, clearcoat: 0.4 });
+const glossy = (hex) => new THREE.MeshPhysicalMaterial({ color: hex, metalness: 0, roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.08 });
+const satin = (hex) => new THREE.MeshPhysicalMaterial({ color: hex, metalness: 0, roughness: 0.45, clearcoat: 0.5, clearcoatRoughness: 0.3 });
+const glass = (hex, op = 1) => new THREE.MeshPhysicalMaterial({ color: hex, metalness: 0, roughness: 0.08, transmission: 0, clearcoat: 1, clearcoatRoughness: 0.03, transparent: op < 1, opacity: op });
+
+// ---------- label textures ----------
+function canvasTex(w, h, draw) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d'); draw(g, w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+}
+function fitText(g, text, font, maxW, size) {
+  let s = size; do { g.font = font.replace('{s}', s); s -= 2; } while (g.measureText(text).width > maxW && s > 10);
+}
+function brandBlock(g, cx, y, scale, dark, brandInk) {
+  // logo image on dark labels, typographic wordmark on light labels
+  if (dark) {
+    const lw = 520 * scale, lh = lw * logoImg.height / logoImg.width;
+    g.drawImage(logoImg, cx - lw / 2, y, lw, lh);
+    return y + lh;
+  }
+  g.fillStyle = brandInk || C.pink; g.textAlign = 'center';
+  g.font = `900 ${74 * scale}px 'Playfair Display'`; g.fillText('Sublime Booty', cx, y + 70 * scale);
+  g.font = `italic 800 ${52 * scale}px 'Playfair Display'`; g.fillText('ByChris', cx, y + 128 * scale);
+  return y + 150 * scale;
+}
+function labelTex({ bg, ink, accent, name, sub, dark, brandInk, w = 2048, h = 900, band }) {
+  return canvasTex(w, h, (g) => {
+    if (Array.isArray(bg)) { const gr = g.createLinearGradient(0, 0, 0, h); bg.forEach((c, i) => gr.addColorStop(i / (bg.length - 1), c)); g.fillStyle = gr; } else g.fillStyle = bg;
+    g.fillRect(0, 0, w, h);
+    // gold hairlines
+    g.fillStyle = accent; g.fillRect(0, 26, w, 8); g.fillRect(0, h - 34, w, 8);
+    if (band) { g.fillStyle = band; g.fillRect(0, h * 0.62, w, h * 0.2); }
+    const cx = w * 0.5, maxW = w * 0.42;
+    let y = brandBlock(g, cx, 70, 0.62, dark, brandInk);
+    g.textAlign = 'center'; g.fillStyle = ink;
+    fitText(g, name, "900 {s}px 'Montserrat'", maxW, 112);
+    g.fillText(name, cx, h * 0.62 - 26);
+    if (sub) { g.fillStyle = band ? (dark ? C.black : C.white) : accent; fitText(g, sub, "700 {s}px 'Montserrat'", maxW, 54); g.fillText(sub, cx, h * 0.62 + h * 0.13); }
+  });
+}
+function boxFaceTex({ bg, ink, accent, name, sub, dark, brandInk, w = 1024, h = 1400 }) {
+  return canvasTex(w, h, (g) => {
+    const gr = g.createLinearGradient(0, 0, w, h); bg.forEach((c, i) => gr.addColorStop(i / (bg.length - 1), c)); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    // fine gold frame
+    g.strokeStyle = accent; g.lineWidth = 10; g.strokeRect(40, 40, w - 80, h - 80);
+    g.lineWidth = 3; g.strokeRect(62, 62, w - 124, h - 124);
+    // soft rays
+    g.save(); g.globalAlpha = 0.08; g.fillStyle = dark ? C.gold : C.white;
+    for (let i = 0; i < 18; i++) { g.beginPath(); g.moveTo(w / 2, h * 0.36); const a = i / 18 * Math.PI * 2; g.lineTo(w / 2 + Math.cos(a) * 1400, h * 0.36 + Math.sin(a) * 1400); g.lineTo(w / 2 + Math.cos(a + 0.12) * 1400, h * 0.36 + Math.sin(a + 0.12) * 1400); g.fill(); }
+    g.restore();
+    brandBlock(g, w / 2, 150, 1.25, dark, brandInk);
+    g.textAlign = 'center';
+    g.fillStyle = accent; g.fillRect(w / 2 - 160, h * 0.6, 320, 6);
+    g.fillStyle = ink;
+    const words = name.split(' ');
+    const lines = words.length > 2 ? [words.slice(0, Math.ceil(words.length / 2)).join(' '), words.slice(Math.ceil(words.length / 2)).join(' ')] : [name];
+    lines.forEach((ln, i) => { fitText(g, ln, "900 {s}px 'Montserrat'", w - 200, 120); g.fillText(ln.toUpperCase(), w / 2, h * 0.6 + 140 + i * 130); });
+    if (sub) { g.fillStyle = accent; fitText(g, sub, "italic 700 {s}px 'Playfair Display'", w - 220, 76); g.fillText(sub, w / 2, h * 0.6 + 160 + lines.length * 130 + 20); }
+  });
+}
+function sideTex(color, accent) {
+  return canvasTex(256, 1024, (g) => { g.fillStyle = color; g.fillRect(0, 0, 256, 1024); g.fillStyle = accent; g.fillRect(0, 0, 256, 14); g.fillRect(0, 1010, 256, 14); });
+}
+
+// ---------- geometry builders ----------
+function lathe(profile, segs = 128) { return new THREE.LatheGeometry(profile.map(([x, y]) => new THREE.Vector2(x, y)), segs); }
+function roundedProfile(r, h, br) {
+  // body with rounded bottom and top shoulders
+  const p = [[0, 0]];
+  for (let i = 0; i <= 8; i++) { const a = -Math.PI / 2 + i / 8 * Math.PI / 2; p.push([r - br + Math.cos(a) * br, br + Math.sin(a) * br]); }
+  for (let i = 0; i <= 8; i++) { const a = i / 8 * Math.PI / 2; p.push([r - br + Math.cos(a) * br, h - br + Math.sin(a) * br]); }
+  p.push([0, h]);
+  return p;
+}
+function shadowed(m) { m.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); return m; }
+
+function jar({ r = 0.62, h = 0.62, body, lid, label, lidH = 0.32 }) {
+  const g = new THREE.Group();
+  const b = new THREE.Mesh(lathe(roundedProfile(r, h, 0.1)), body); g.add(b);
+  if (label) {
+    const lg = new THREE.CylinderGeometry(r + 0.004, r + 0.004, h * 0.62, 128, 1, true, -Math.PI * 0.55, Math.PI * 1.1);
+    const lm = new THREE.Mesh(lg, new THREE.MeshPhysicalMaterial({ map: label, roughness: 0.35, clearcoat: 0.6 }));
+    lm.position.y = h * 0.5; g.add(lm);
+  }
+  const l = new THREE.Mesh(lathe(roundedProfile(r + 0.02, lidH, 0.06)), lid); l.position.y = h - 0.01; g.add(l);
+  // lid ridges ring
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(r + 0.02, 0.012, 16, 128), gold()); ring.rotation.x = Math.PI / 2; ring.position.y = h + 0.02; g.add(ring);
+  return shadowed(g);
+}
+function bottle({ r = 0.36, h = 1.5, body, cap, label, neckR = 0.12, capH = 0.42, pump = false }) {
+  const g = new THREE.Group();
+  const p = [[0, 0], [r - 0.06, 0], [r, 0.06], [r, h * 0.78], [r * 0.95, h * 0.84], [r * 0.6, h * 0.92], [neckR, h * 0.96], [neckR, h], [0, h]];
+  const b = new THREE.Mesh(lathe(p), body); g.add(b);
+  if (label) {
+    const lg = new THREE.CylinderGeometry(r + 0.004, r + 0.004, h * 0.52, 128, 1, true, -Math.PI * 0.55, Math.PI * 1.1);
+    const lm = new THREE.Mesh(lg, new THREE.MeshPhysicalMaterial({ map: label, roughness: 0.35, clearcoat: 0.6 })); lm.position.y = h * 0.42; g.add(lm);
+  }
+  if (pump) {
+    const collar = new THREE.Mesh(lathe(roundedProfile(neckR + 0.06, 0.16, 0.03)), cap); collar.position.y = h - 0.02; g.add(collar);
+    const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.22, 32), cap); stem.position.y = h + 0.24; g.add(stem);
+    const head = new THREE.Mesh(new RoundedBoxGeometry(0.36, 0.13, 0.16, 4, 0.05), cap); head.position.set(0.08, h + 0.38, 0); g.add(head);
+  } else {
+    const c = new THREE.Mesh(lathe(roundedProfile(neckR + 0.05, capH, 0.04)), cap); c.position.y = h - 0.03; g.add(c);
+  }
+  return shadowed(g);
+}
+function dropper({ r = 0.26, h = 0.8, body, cap, label }) {
+  const g = bottle({ r, h, body, cap: gold(), label, neckR: 0.09, capH: 0.18 });
+  const bulb = new THREE.Mesh(lathe([[0, 0], [0.1, 0], [0.11, 0.08], [0.1, 0.3], [0.07, 0.38], [0, 0.4]]), cap); bulb.position.y = h + 0.13; bulb.castShadow = true; g.add(bulb);
+  return g;
+}
+function tube({ r = 0.26, len = 1.5, body, cap, label }) {
+  // standing tube on its cap; crimped flat top
+  const g = new THREE.Group();
+  const geo = new THREE.CylinderGeometry(r, r, len, 96, 40, false);
+  const pos = geo.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const y = pos.getY(i), t = (y + len / 2) / len; // 0 bottom → 1 top
+    const flat = Math.pow(t, 1.6);
+    const x = pos.getX(i), z = pos.getZ(i);
+    pos.setX(i, x * (1 + 0.35 * flat)); pos.setZ(i, z * (1 - 0.9 * flat));
+  }
+  geo.computeVertexNormals();
+  label.wrapS = THREE.RepeatWrapping; label.offset.x = 0.5;
+  const mats = [new THREE.MeshPhysicalMaterial({ map: label, roughness: 0.32, clearcoat: 0.8 }), body, body];
+  // Cylinder uv: wrap label around; use label on side
+  const m = new THREE.Mesh(geo, mats); m.position.y = 0.32 + len / 2; g.add(m);
+  const crimp = new THREE.Mesh(new RoundedBoxGeometry(r * 2.8, 0.1, r * 0.25, 3, 0.03), body); crimp.position.y = 0.32 + len + 0.03; g.add(crimp);
+  const c = new THREE.Mesh(lathe(roundedProfile(r * 0.95, 0.34, 0.06)), cap); g.add(c);
+  return shadowed(g);
+}
+function box({ w = 1.5, h = 2.0, d = 0.6, face, side, top }) {
+  const geo = new RoundedBoxGeometry(w, h, d, 6, 0.035);
+  const sideM = new THREE.MeshPhysicalMaterial({ map: side, roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.12 });
+  const faceM = new THREE.MeshPhysicalMaterial({ map: face, roughness: 0.3, clearcoat: 0.9, clearcoatRoughness: 0.1 });
+  const topM = new THREE.MeshPhysicalMaterial({ color: top, roughness: 0.3, clearcoat: 0.8 });
+  // order: +x, -x, +y, -y, +z, -z
+  const m = new THREE.Mesh(geo, [sideM, sideM, topM, topM, faceM, faceM]);
+  m.position.y = h / 2;
+  return shadowed(new THREE.Group().add(m));
+}
+
+// ---------- product definitions ----------
+const DARK_BOX = ['#16161a', '#050506'], PINK_BOX = ['#ff3c96', '#c4005f'], BLUSH_BOX = ['#ffffff', '#ffd6e8'];
+const products = {
+  'kit-sexy-lady': () => {
+    const g = new THREE.Group();
+    const bx = box({ face: boxFaceTex({ bg: PINK_BOX, ink: '#fff', accent: C.gold, name: 'Kit Sexy Lady', sub: 'Courbes sublimes', dark: false, brandInk: '#ffffff' }), side: sideTex('#d1006a', C.gold), top: 0xd1006a });
+    bx.position.set(-0.55, 0, -0.5); bx.rotation.y = 0.32; g.add(bx);
+    const j = jar({ body: glossy(0xffffff), lid: gold(), label: labelTex({ bg: '#ffffff', ink: C.pink, accent: C.gold, name: 'SEXY LADY', sub: 'Crème', dark: false }) });
+    j.position.set(0.95, 0, 0.8); g.add(j);
+    const b = bottle({ body: glossy(0xE0006F), cap: gold(), label: labelTex({ bg: '#111', ink: '#fff', accent: C.gold, name: 'SEXY LADY', sub: 'Sirop', dark: true }) });
+    b.position.set(1.35, 0, -0.45); g.add(b);
+    return g;
+  },
+  'kit-curves': () => {
+    const g = new THREE.Group();
+    const bx = box({ face: boxFaceTex({ bg: DARK_BOX, ink: '#fff', accent: C.gold, name: 'Kit Curves', sub: 'Hanches & fessiers', dark: true }), side: sideTex('#0b0b0d', C.gold), top: 0x0b0b0d });
+    bx.position.set(-0.7, 0, -0.5); bx.rotation.y = 0.3; g.add(bx);
+    const j = jar({ body: glossy(0x0b0b0d), lid: gold(), label: labelTex({ bg: '#0b0b0d', ink: '#fff', accent: C.gold, name: 'CURVES', sub: 'Crème', dark: true }) });
+    j.position.set(0.95, 0, 0.75); g.add(j);
+    const b = bottle({ r: 0.32, h: 1.2, body: glossy(0xff3c96), cap: glossy(0x0b0b0d), label: labelTex({ bg: '#ffffff', ink: C.black, accent: C.pink, name: 'CURVES', sub: 'Gélules', dark: false }), capH: 0.32, neckR: 0.18 });
+    b.position.set(1.45, 0, -0.4); b.rotation.y = -0.25; g.add(b);
+    return g;
+  },
+  'kit-booster-ultra-dose': () => {
+    const g = new THREE.Group();
+    const bx = box({ w: 1.7, h: 2.1, face: boxFaceTex({ bg: ['#1a1410', '#050505'], ink: C.gold, accent: C.gold, name: 'Kit Booster Ultra Dosé', sub: 'Édition premium', dark: true }), side: sideTex('#0b0b0d', C.gold), top: 0x0b0b0d });
+    bx.position.set(-0.75, 0, -0.5); bx.rotation.y = 0.28; g.add(bx);
+    const b = bottle({ r: 0.4, h: 1.6, body: glass(0x1a0610), cap: gold(), label: labelTex({ bg: '#0b0b0d', ink: C.gold, accent: C.gold, name: 'BOOSTER', sub: 'Ultra Dosé', dark: true }) });
+    b.position.set(0.75, 0, -0.1); b.rotation.y = -0.2; g.add(b);
+    const j = jar({ r: 0.5, h: 0.5, body: glossy(0xE0006F), lid: gold(), label: labelTex({ bg: '#E0006F', ink: '#fff', accent: C.gold, name: 'BOOSTER', sub: 'Crème', dark: false, brandInk: '#ffffff' }), lidH: 0.26 });
+    j.position.set(1.45, 0, 0.75); g.add(j);
+    return g;
+  },
+  'creme-imperiale': () => {
+    const g = new THREE.Group();
+    const j = jar({ r: 0.95, h: 0.85, body: glass(0x0b0b0d), lid: gold(), lidH: 0.45, label: labelTex({ bg: ['#111', '#000'], ink: C.gold, accent: C.gold, name: 'CRÈME IMPÉRIALE', sub: 'Soin corps', dark: true }) });
+    g.add(j);
+    return g;
+  },
+  'kit-gros-lolo-luxe': () => {
+    const g = new THREE.Group();
+    const bx = box({ face: boxFaceTex({ bg: BLUSH_BOX, ink: C.pink, accent: C.gold, name: 'Kit Gros Lolo Luxe', sub: 'Poitrine', dark: false }), side: sideTex('#ffd6e8', C.gold), top: 0xffffff });
+    bx.position.set(-0.55, 0, -0.5); bx.rotation.y = 0.3; g.add(bx);
+    const t = tube({ body: glossy(0xffffff), cap: gold(), label: labelTex({ bg: '#ffffff', ink: C.pink, accent: C.gold, name: 'GROS LOLO', sub: 'Crème', dark: false, w: 2048, h: 1400 }) });
+    t.position.set(0.55, 0, 0.6); t.rotation.y = 0.15; g.add(t);
+    const b = bottle({ r: 0.32, h: 1.3, body: glossy(0xE0006F), cap: gold(), pump: true, label: labelTex({ bg: '#E0006F', ink: '#fff', accent: C.gold, name: 'GROS LOLO', sub: 'Lait', dark: false, brandInk: '#ffffff' }) });
+    b.position.set(1.2, 0, -0.3); b.rotation.y = -0.4; g.add(b);
+    return g;
+  },
+  'gamme-pure-glow': () => {
+    const g = new THREE.Group();
+    const lbl = (n, s) => labelTex({ bg: '#ffffff', ink: C.pink, accent: C.gold, name: n, sub: s, dark: false });
+    const b1 = bottle({ r: 0.36, h: 1.7, body: glossy(0xffffff), cap: gold(), pump: true, label: lbl('PURE GLOW', 'Lait corps') }); b1.position.set(-0.75, 0, -0.35); g.add(b1);
+    const d = dropper({ body: glass(0xffb3d4, 0.92), cap: glossy(0x0b0b0d), label: lbl('PURE GLOW', 'Sérum') }); d.position.set(0.1, 0, 0.6); g.add(d);
+    const t = tube({ r: 0.22, len: 1.25, body: glossy(0xffd6e8), cap: gold(), label: labelTex({ bg: '#ffd6e8', ink: C.pink, accent: C.gold, name: 'PURE GLOW', sub: 'Gommage', dark: false, h: 1400 }) }); t.position.set(0.5, 0, -0.45); g.add(t);
+    const j = jar({ r: 0.5, h: 0.48, body: glossy(0xE0006F), lid: gold(), lidH: 0.24, label: labelTex({ bg: '#E0006F', ink: '#fff', accent: C.gold, name: 'PURE GLOW', sub: 'Crème', dark: false, brandInk: '#ffffff' }) }); j.position.set(1.1, 0, 0.45); g.add(j);
+    const s = new THREE.Mesh(new RoundedBoxGeometry(0.9, 0.34, 0.5, 4, 0.06), new THREE.MeshPhysicalMaterial({ map: labelTex({ bg: '#ffffff', ink: C.pink, accent: C.gold, name: 'PURE GLOW', sub: 'Savon', dark: false, w: 1024, h: 420 }), roughness: 0.5 }));
+    s.position.set(-0.75, 0.17, 0.75); s.rotation.y = 0.35; shadowed(s); g.add(s);
+    return g;
+  },
+};
+
+const grp = products[which]();
+scene.add(grp);
+// frame the product
+const bb = new THREE.Box3().setFromObject(grp);
+const ctr = bb.getCenter(new THREE.Vector3()); const size = bb.getSize(new THREE.Vector3());
+grp.position.x -= ctr.x; grp.position.z -= ctr.z;
+const rad = Math.max(size.x, size.y, size.z) * 0.62 + 0.25;
+const dist = rad / Math.sin(THREE.MathUtils.degToRad(13));
+camera.position.set(0.5, size.y * 0.5 + dist * 0.28, dist);
+camera.lookAt(0, size.y * 0.46, 0);
+renderer.render(scene, camera);
+window.__done = true;
+</script>
+</body>
+</html>
