@@ -7,12 +7,12 @@
     #s12-map .ner { fill: #ff1a8c; stroke: #ffd6ea; stroke-width: 2px; }
     #s12-arcs path { fill: none; stroke: #ffffff; stroke-width: 5; stroke-linecap: round; }
     #s12-arcs circle { fill: #ffffff; }
-    #s12-kicker { position: absolute; left: 80px; top: 170px; color: var(--pink); font-size: 44px; }
-    .s12-place { position: absolute; left: 72px; top: 240px; color: var(--white); font-size: 100px; white-space: nowrap; }
+    #s12-kicker { left: 50px; top: 130px; font-size: 72px; }
+    .s12-place { left: 50px; top: 240px; font-size: 104px; }
     #s12-credit { position: absolute; right: 30px; top: 1290px; color: rgba(255, 255, 255, 0.55); font-family: var(--sans); font-size: 18px; }
     @media (orientation: landscape) {
-      #s12-kicker { left: 110px; top: 90px; font-size: 40px; }
-      .s12-place { left: 100px; top: 160px; font-size: 120px; }
+      #s12-kicker { left: 90px; top: 70px; font-size: 64px; }
+      .s12-place { left: 90px; top: 170px; font-size: 120px; }
       #s12-credit { top: 1040px; }
     }
   </style>
@@ -216,10 +216,10 @@
         <circle cx="0" cy="0" r="4.5" fill="#ff1a8c" />
       </g></g>
     </svg>
-    <div id="s12-kicker" class="sb-kicker">Livraison</div>
-    <div id="s12-p1" class="s12-place sb-caps">À Maradi</div>
-    <div id="s12-p2" class="s12-place sb-caps">Partout au Niger</div>
-    <div id="s12-p3" class="s12-place sb-caps">Dans le monde</div>
+    <div id="s12-kicker" class="sb-line sb-huge sb-slab pink">Livraison</div>
+    <div id="s12-p1" class="s12-place sb-line sb-huge sb-slab white">À Maradi</div>
+    <div id="s12-p2" class="s12-place sb-line sb-huge sb-slab white">Partout au Niger</div>
+    <div id="s12-p3" class="s12-place sb-line sb-huge sb-slab white">Dans le monde</div>
     <div id="s12-credit" data-layout-ignore>Frontières : Natural Earth</div>
   </div>
   <script>
@@ -271,7 +271,7 @@
         tl.fromTo(a.p, { strokeDashoffset: a.len }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 2.4 + i * 0.06);
         tl.fromTo(a.dot, { opacity: 0 }, { opacity: 1, duration: 0.1 }, 2.85 + i * 0.06);
       });
-      M.blurIn(tl, "#s12-kicker", 0.05);
+      M.reveal(tl, "#s12-kicker", 0.05);
       M.slam(tl, "#s12-p1", 0.3);
       tl.to("#s12-p1", { opacity: 0, filter: "blur(8px)", duration: 0.14 }, 0.88);
       M.slam(tl, "#s12-p2", 1.0);

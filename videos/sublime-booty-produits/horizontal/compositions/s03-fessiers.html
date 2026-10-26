@@ -1,41 +1,31 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: radial-gradient(110% 70% at 50% 60%, #2a0a19 0%, var(--black) 65%); }
-    #s03-sil { color: var(--pink); opacity: 0.14; width: 1100px; height: 1640px; left: 380px; top: 360px; }
-    #s03-kicker { position: absolute; left: 80px; top: 200px; color: var(--white); font-size: 44px; }
-    #s03-title { position: absolute; left: 72px; top: 262px; color: var(--pink); font-size: 168px; }
-    #s03-ticker { position: absolute; left: 0; right: 0; top: 1240px; height: 92px; background: var(--pink); overflow: hidden; }
-    #s03-ticker-row { position: absolute; left: 0; top: 0; height: 92px; display: flex; align-items: center; gap: 46px; white-space: nowrap; font-family: var(--sans); font-weight: 800; font-size: 40px; color: var(--black); text-transform: uppercase; padding-left: 40px; }
-    #s03-ticker-row i { font-style: normal; color: var(--white); }
-    #s03-tag1 { left: 70px; top: 1100px; font-size: 30px; }
-    #s03-tag2 { left: 380px; top: 1160px; font-size: 30px; }
-    #s03-tag3 { left: 740px; top: 1100px; font-size: 30px; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s03-woman { width: 1250px; left: -430px; top: 420px; }
+    #s03-k { top: 130px; left: 60px; font-size: 64px; }
+    #s03-t { top: 220px; left: 60px; font-size: 168px; color: #fff; }
+    #s03-n1 { right: 40px; top: 1300px; }
+    #s03-n2 { right: 40px; top: 1392px; }
+    #s03-n3 { right: 40px; top: 1484px; }
+    .s03-n { left: auto; font-size: 46px; }
     @media (orientation: landscape) {
-      #s03-sil { width: 900px; height: 1340px; left: -200px; top: -60px; }
-      #s03-kicker { left: 110px; top: 300px; font-size: 40px; }
-      #s03-title { left: 100px; top: 356px; font-size: 150px; }
-      #s03-ticker { top: 940px; height: 80px; }
-      #s03-ticker-row { height: 80px; font-size: 34px; }
-      #s03-tag1 { left: 860px; top: 780px; }
-      #s03-tag2 { left: 1180px; top: 840px; }
-      #s03-tag3 { left: 1500px; top: 780px; }
+      #s03-woman { width: 980px; left: -170px; top: 40px; }
+      #s03-k { top: 70px; left: 700px; font-size: 56px; }
+      #s03-t { top: 150px; left: 700px; font-size: 150px; }
+      #s03-n1 { left: 700px; right: auto; top: 340px; }
+      #s03-n2 { left: 700px; right: auto; top: 432px; }
+      #s03-n3 { left: 700px; right: auto; top: 524px; }
     }
   </style>
   <div id="root" data-composition-id="s03" data-width="1920" data-height="1080">
-    <div id="s03-sil" class="sb-sil"></div>
+    <div class="sb-fill sb-dark"></div>
+    <img id="s03-woman" class="sb-person" src="assets/people/robe-rouge-cut.png" alt="" />
     <canvas id="s03-cv" class="sb-canvas"></canvas>
-    <div id="s03-whip" class="sb-fill">
-    <div id="s03-kicker" class="sb-kicker">Nos kits</div>
-    <div id="s03-title" class="sb-caps">Fessiers</div>
-    </div>
-    <div id="s03-tag1" class="sb-tag">Crème Impériale</div>
-    <div id="s03-tag2" class="sb-tag dark">Céréales Booty Gain</div>
-    <div id="s03-tag3" class="sb-tag">Sirop Sexy Lady</div>
-    <div id="s03-ticker">
-      <div id="s03-ticker-row">
-        <span>Kit Mini Rondeur</span><i>✦</i><span>Kit Sexy Lady</span><i>✦</i><span>Kit Curves</span><i>✦</i><span>Kit Skinny Pro Max</span><i>✦</i><span>Kit Morphologie V Royale</span><i>✦</i><span>Kit Booster Ultra Dosé</span>
-      </div>
-    </div>
+    <div id="s03-k" class="sb-line sb-huge sb-slab pink">Nos kits</div>
+    <div id="s03-t" class="sb-line sb-huge sb-shadow">Fessiers</div>
+    <div id="s03-n1" class="sb-label s03-n">Crème Impériale</div>
+    <div id="s03-n2" class="sb-label dark s03-n">Céréales Booty Gain</div>
+    <div id="s03-n3" class="sb-label s03-n">Sirop Sexy Lady</div>
   </div>
   <script>
     (function () {
@@ -45,26 +35,23 @@
         canvas: "s03-cv",
         items: {
           portrait: [
-            make("imperiale", { x: -1.25, z: 0.5, s: 0.95, pose: drop(0.12) }),
-            make("cereales", { x: 0, z: -0.4, pose: drop(0.32) }),
-            make("sexyLady", { x: 1.25, z: 0.5, s: 0.95, pose: drop(0.52) }),
+            make("cereales", { x: 0.75, z: -0.4, pose: drop(0.05) }),
+            make("imperiale", { x: 0.0, z: 0.9, s: 0.85, pose: drop(0.18) }),
+            make("sexyLady", { x: 1.45, z: 0.9, s: 0.85, pose: drop(0.3) }),
           ],
           landscape: [
-            make("imperiale", { x: -0.6, z: 0.4, pose: drop(0.12) }),
-            make("cereales", { x: 1.3, z: -0.3, pose: drop(0.32) }),
-            make("sexyLady", { x: 3.1, z: 0.4, pose: drop(0.52) }),
+            make("cereales", { x: 2.1, z: -0.4, pose: drop(0.05) }),
+            make("imperiale", { x: 1.0, z: 0.7, pose: drop(0.18) }),
+            make("sexyLady", { x: 3.2, z: 0.7, pose: drop(0.3) }),
           ],
         },
-        camera: { portrait: { y: 3.2, z: 19, lookY: 0.15 }, landscape: { x: 0.2, y: 2.4, z: 13, lookX: 0.2, lookY: 1.1 } },
-        podium: { portrait: { r: 2.3, color: BRAND.deep }, landscape: { r: 2.6, x: 1.3, color: BRAND.deep } },
+        camera: { portrait: { y: 2.8, z: 16.5, lookY: 0.3 }, landscape: { x: -0.6, y: 2.2, z: 11, lookX: -0.6, lookY: 1.6 } },
+        podium: { portrait: { r: 1.6, x: 0.75, color: BRAND.pink }, landscape: { r: 2.0, x: 2.1, color: BRAND.pink } },
       });
-      M.whipIn(tl, "#s03-whip", 0, { dx: 900 });
-      M.blurIn(tl, "#s03-kicker", 0.05);
-      M.slam(tl, "#s03-title", 0.12);
-      M.tag(tl, ["#s03-tag1", "#s03-tag2", "#s03-tag3"], 0.85, { stagger: 0.16 });
-      tl.fromTo("#s03-ticker", { scaleY: 0 }, { scaleY: 1, duration: 0.25, ease: "power3.out" }, 0.45);
-      tl.fromTo("#s03-ticker-row", { x: 0 }, { x: -650, duration: 2.85, ease: "none" }, 0);
-      tl.fromTo("#s03-sil", { y: 40 }, { y: -40, duration: 2.85, ease: "none" }, 0);
+      M.personIn(tl, "#s03-woman", 0, { y: 0, x: -200, d: 0.45 });
+      M.reveal(tl, "#s03-k", 0.05);
+      M.slam(tl, "#s03-t", 0.12);
+      M.reveal(tl, ["#s03-n1", "#s03-n2", "#s03-n3"], 0.8, { stagger: 0.18, fromRight: true });
       M.end(tl, 2.85);
       window.__timelines = window.__timelines || {};
       window.__timelines["s03"] = tl;

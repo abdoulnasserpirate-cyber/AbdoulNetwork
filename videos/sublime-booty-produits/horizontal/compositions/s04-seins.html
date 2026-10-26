@@ -1,27 +1,27 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
-    #s04-sil { color: var(--deep); opacity: 0.55; width: 1100px; height: 1640px; left: -420px; top: 420px; }
-    #s04-kicker { position: absolute; left: 80px; top: 190px; color: var(--black); font-size: 44px; }
-    #s04-title { position: absolute; left: 72px; top: 250px; color: var(--white); font-size: 176px; }
-    #s04-tagA { left: 80px; top: 1010px; font-size: 32px; }
-    #s04-tagB { left: 80px; top: 1290px; font-size: 32px; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s04-woman { width: 980px; left: -230px; top: 520px; }
+    #s04-k { top: 130px; left: 60px; font-size: 64px; }
+    #s04-t { top: 220px; left: 60px; font-size: 200px; }
+    #s04-nA { right: 40px; top: 1200px; left: auto; }
+    #s04-nB { right: 40px; top: 1730px; left: auto; }
     @media (orientation: landscape) {
-      #s04-sil { width: 760px; height: 1132px; left: 1300px; top: 60px; opacity: 0.45; }
-      #s04-kicker { left: 110px; top: 150px; font-size: 40px; }
-      #s04-title { left: 100px; top: 200px; font-size: 150px; }
-      #s04-tagA { left: 520px; top: 960px; }
-      #s04-tagB { left: 1260px; top: 960px; }
+      #s04-woman { width: 760px; left: -60px; top: 70px; }
+      #s04-k { top: 70px; left: 640px; font-size: 56px; }
+      #s04-t { top: 150px; left: 640px; font-size: 170px; }
+      #s04-nA { left: 760px; right: auto; top: 930px; }
+      #s04-nB { left: auto; right: 60px; top: 930px; }
     }
   </style>
   <div id="root" data-composition-id="s04" data-width="1920" data-height="1080">
-    <div id="s04-sil" class="sb-sil"></div>
+    <div id="s04-bg" class="sb-fill sb-stripes"></div>
+    <img id="s04-woman" class="sb-person" src="assets/people/mannequin-rouge-cut.png" alt="" />
     <canvas id="s04-cv" class="sb-canvas"></canvas>
-    <div id="s04-kicker" class="sb-kicker">Nos kits</div>
-    <div id="s04-title" class="sb-caps">Seins</div>
-    <div id="s04-tagA" class="sb-tag dark">Kit Gros Lolo Luxe</div>
-    <div id="s04-tagB" class="sb-tag dark">Kit Raffermissant Luxe</div>
-    <div id="s04-cover" class="sb-fill" style="background: #0b0508"></div>
+    <div id="s04-k" class="sb-line sb-huge sb-slab">Nos kits</div>
+    <div id="s04-t" class="sb-line sb-huge sb-slab white">Seins</div>
+    <div id="s04-nA" class="sb-label dark">Kit Gros Lolo Luxe</div>
+    <div id="s04-nB" class="sb-label dark">Kit Raffermissant</div>
   </div>
   <script>
     (function () {
@@ -32,29 +32,29 @@
         rim: 0xffffff,
         items: {
           portrait: [
-            make("siropSeins", { x: 0.35, y: 0.2, z: -0.4, pose: spinIn(0.25) }),
-            make("siropSeins", { x: 1.5, y: 0.2, z: -0.4, pose: spinIn(0.33) }),
-            make("cremeSeins", { x: 0.95, y: 0.2, z: 0.8, s: 0.8, pose: spinIn(0.42) }),
-            make("theCaolin", { x: 0.4, y: -2.9, z: -0.2, pose: spinIn(1.0) }),
-            make("huile", { x: 1.55, y: -2.9, z: 0.4, pose: spinIn(1.1) }),
+            make("siropSeins", { x: 0.75, y: 0.5, z: -0.4, pose: spinIn(0.1) }),
+            make("siropSeins", { x: 1.75, y: 0.5, z: -0.4, pose: spinIn(0.18) }),
+            make("cremeSeins", { x: 1.25, y: 0.5, z: 0.8, s: 0.8, pose: spinIn(0.26) }),
+            make("theCaolin", { x: 0.8, y: -1.6, z: -0.2, pose: spinIn(0.9) }),
+            make("huile", { x: 1.85, y: -1.6, z: 0.4, pose: spinIn(1.0) }),
           ],
           landscape: [
-            make("siropSeins", { x: -1.9, z: -0.4, pose: spinIn(0.25) }),
-            make("siropSeins", { x: -0.8, z: -0.4, pose: spinIn(0.33) }),
-            make("cremeSeins", { x: -1.35, z: 0.8, s: 0.8, pose: spinIn(0.42) }),
-            make("theCaolin", { x: 1.7, z: -0.2, pose: spinIn(1.0) }),
-            make("huile", { x: 2.9, z: 0.4, pose: spinIn(1.1) }),
+            make("siropSeins", { x: -0.4, z: -0.4, pose: spinIn(0.1) }),
+            make("siropSeins", { x: 0.6, z: -0.4, pose: spinIn(0.18) }),
+            make("cremeSeins", { x: 0.1, z: 0.8, s: 0.8, pose: spinIn(0.26) }),
+            make("theCaolin", { x: 2.4, z: -0.2, pose: spinIn(0.9) }),
+            make("huile", { x: 3.5, z: 0.4, pose: spinIn(1.0) }),
           ],
         },
-        camera: { portrait: { y: 2.2, z: 19, lookY: 0.1 }, landscape: { y: 2.0, z: 13, lookY: 1.6 } },
+        camera: { portrait: { y: 3.0, z: 16.5, lookY: 1.38 }, landscape: { y: 2.0, z: 11.5, lookY: 1.9 } },
       });
-      // Colour flood: the black studio of the last shot wipes up off the pink world.
-      M.wipeUp(tl, "#s04-cover", 0, { d: 0.34 });
-      M.blurIn(tl, "#s04-kicker", 0.2);
-      M.slam(tl, "#s04-title", 0.28);
-      M.tag(tl, "#s04-tagA", 0.75);
-      M.tag(tl, "#s04-tagB", 1.4);
-      tl.fromTo("#s04-sil", { y: 0 }, { y: -70, duration: 2.95, ease: "none" }, 0);
+      M.stripes(tl, "#s04-bg", 2.95);
+      M.personIn(tl, "#s04-woman", 0, { y: 300, d: 0.5 });
+      M.reveal(tl, "#s04-k", 0.04);
+      M.reveal(tl, "#s04-t", 0.12, { fromRight: true });
+      M.reveal(tl, "#s04-nA", 0.7, { fromRight: true });
+      M.reveal(tl, "#s04-nB", 1.4, { fromRight: true });
+      M.drift(tl, "#s04-woman", 0.5, 2.45, { to: 1.05, origin: "50% 100%" });
       M.end(tl, 2.95);
       window.__timelines = window.__timelines || {};
       window.__timelines["s04"] = tl;

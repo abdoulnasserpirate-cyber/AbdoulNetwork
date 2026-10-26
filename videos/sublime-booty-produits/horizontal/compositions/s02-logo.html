@@ -1,47 +1,37 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: radial-gradient(90% 60% at 50% 45%, #33081d 0%, var(--black) 70%); }
-    #s02-kicker { position: absolute; left: 0; right: 0; top: 560px; text-align: center; color: var(--pink); font-size: 46px; }
-    #s02-logo-wrap { position: absolute; left: 90px; top: 650px; width: 900px; height: 456px; }
-    #s02-logo { position: absolute; left: 0; top: 0; width: 100%; }
-    /* The figure inside the logo occupies its left 34 %: the incoming silhouette lands exactly there. */
-    #s02-fig { color: var(--pink); left: 90px; top: 650px; width: 306px; height: 456px; }
-    #s02-slice1 { position: absolute; left: 0; width: 100%; top: 640px; height: 14px; background: var(--pink); }
-    #s02-slice2 { position: absolute; left: 0; width: 100%; top: 1130px; height: 6px; background: var(--white); }
-    #s02-sub { position: absolute; left: 0; right: 0; top: 1200px; text-align: center; color: var(--white); font-size: 34px; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #ffffff; }
+    #s02-disc { position: absolute; left: 40px; top: 460px; width: 1000px; height: 1000px; border-radius: 50%; background: var(--black); }
+    #s02-ring { position: absolute; left: 40px; top: 460px; width: 1000px; height: 1000px; border-radius: 50%; border: 18px solid var(--pink); }
+    #s02-logo { position: absolute; left: 110px; top: 742px; width: 860px; }
+    #s02-k { top: 250px; left: 0; width: 100%; text-align: center; font-size: 96px; }
+    #s02-k span { display: inline-block; }
+    #s02-sub { position: absolute; left: 0; width: 100%; top: 1540px; text-align: center; font-family: var(--sans); font-weight: 800; font-size: 50px; letter-spacing: 0.06em; color: var(--black); text-transform: uppercase; }
     @media (orientation: landscape) {
-      #s02-kicker { top: 210px; font-size: 42px; }
-      #s02-logo-wrap { left: 460px; top: 290px; width: 1000px; height: 507px; }
-      #s02-fig { left: 460px; top: 290px; width: 340px; height: 507px; }
-      #s02-slice1 { top: 280px; }
-      #s02-slice2 { top: 830px; }
-      #s02-sub { top: 880px; font-size: 32px; }
+      #s02-disc, #s02-ring { left: 1010px; top: 90px; width: 900px; height: 900px; }
+      #s02-logo { left: 1070px; top: 333px; width: 780px; }
+      #s02-k { top: 330px; left: 100px; width: auto; text-align: left; font-size: 110px; }
+      #s02-sub { left: 100px; width: auto; text-align: left; top: 560px; font-size: 44px; }
     }
   </style>
   <div id="root" data-composition-id="s02" data-width="1920" data-height="1080">
-    <div id="s02-slice1"></div>
-    <div id="s02-slice2"></div>
-    <div id="s02-kicker" class="sb-kicker">Découvrez</div>
-    <div id="s02-logo-wrap"><img id="s02-logo" src="assets/logos/logo-sbbc.png" alt="Sublime Booty ByChris" /></div>
-    <div id="s02-fig" class="sb-sil"></div>
-    <div id="s02-sub" class="sb-kicker">Beauté • Confiance • Bien-être</div>
+    <div id="s02-k" class="sb-line sb-huge"><span id="s02-ks" class="sb-slab pink">Découvrez</span></div>
+    <div id="s02-ring"></div>
+    <div id="s02-disc"></div>
+    <img id="s02-logo" src="assets/logos/logo-sbbc.png" alt="Sublime Booty ByChris" />
+    <div id="s02-sub">Beauté • Confiance • Bien-être</div>
   </div>
   <script>
     (function () {
       const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      // Match cut: the giant figure from the hook shrinks onto the logo's own figure.
-      tl.fromTo("#s02-fig", { scale: 4.2, xPercent: 60, yPercent: 40, opacity: 1 }, { scale: 1, xPercent: 0, yPercent: 0, duration: 0.5, ease: "expo.out", transformOrigin: "50% 50%" }, 0);
-      tl.to("#s02-fig", { opacity: 0, duration: 0.12, ease: "none" }, 0.5);
-      // The logo is revealed left to right (figure first, then the wordmark), with a glitch on landing.
-      tl.fromTo("#s02-logo", { clipPath: "inset(0% 66% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.38, ease: "power3.out" }, 0.5);
-      M.glitch(tl, "#s02-logo-wrap", 0.62, { k: 1.2 });
-      M.blurIn(tl, "#s02-kicker", 0.08);
-      tl.fromTo("#s02-slice1", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out", transformOrigin: "0% 50%" }, 0.5);
-      tl.fromTo("#s02-slice2", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power3.out", transformOrigin: "100% 50%" }, 0.58);
+      M.reveal(tl, "#s02-ks", 0.05);
+      tl.fromTo("#s02-disc", { scale: 0 }, { scale: 1, duration: 0.45, ease: "back.out(1.6)" }, 0.12);
+      tl.fromTo("#s02-logo", { scale: 2.4, opacity: 0, filter: "blur(16px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, 0.45);
+      tl.fromTo("#s02-ring", { scale: 0.9, opacity: 1 }, { scale: 1.25, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.62);
+      M.glitch(tl, "#s02-logo", 0.66, { k: 1.2 });
       M.blurIn(tl, "#s02-sub", 0.95, { d: 0.25 });
-      // Exit: whip to the product studio.
-      M.whipOut(tl, "#s02-logo-wrap", 2.24, { dx: -900 });
+      M.drift(tl, "#s02-disc", 0.6, 1.8, { from: 1, to: 1.04 });
       M.end(tl, 2.4);
       window.__timelines = window.__timelines || {};
       window.__timelines["s02"] = tl;

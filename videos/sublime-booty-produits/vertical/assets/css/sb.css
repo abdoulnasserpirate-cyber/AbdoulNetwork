@@ -1,34 +1,49 @@
+/* Sublime Booty ByChris — shared brand system for every scene (portrait and landscape). */
+
 /* Brand faces shipped with the project so every render uses them (no fallback). */
 @font-face { font-family: "SB Display"; src: url("../fonts/PlayfairDisplay-Variable.woff2") format("woff2"); font-weight: 400 900; font-style: normal; }
 @font-face { font-family: "SB Display"; src: url("../fonts/PlayfairDisplay-Italic-Variable.woff2") format("woff2"); font-weight: 400 900; font-style: italic; }
-/* Sublime Booty ByChris — shared brand system for every scene (portrait and landscape). */
+@font-face { font-family: "SB Sans"; src: url("../fonts/Poppins-600.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "SB Sans"; src: url("../fonts/Poppins-700.woff2") format("woff2"); font-weight: 700; }
+@font-face { font-family: "SB Sans"; src: url("../fonts/Poppins-800.woff2") format("woff2"); font-weight: 800; }
+@font-face { font-family: "SB Sans"; src: url("../fonts/Poppins-900.woff2") format("woff2"); font-weight: 900; }
+
 :root {
   --pink: #ff1a8c;
+  --pink2: #ff4fa7;
   --deep: #c4006a;
   --blush: #ffd6ea;
   --black: #0b0508;
   --white: #ffffff;
   --gold: #e2b14a;
   --display: "SB Display", "Playfair Display", serif;
-  --sans: "Poppins", sans-serif;
+  --sans: "SB Sans", "Poppins", sans-serif;
 }
 
-.sb-ground { position: absolute; inset: 0; }
-.sb-pink { background: var(--pink); }
-.sb-black { background: radial-gradient(120% 80% at 50% 62%, #2a0a19 0%, var(--black) 62%); }
-
-/* The brand's own silhouette (traced from the logo), used as the backdrop figure. */
-.sb-sil { position: absolute; background: currentColor; -webkit-mask: url("../logos/silhouette.svg") center / contain no-repeat; mask: url("../logos/silhouette.svg") center / contain no-repeat; }
-
-.sb-kicker { font-family: var(--sans); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
-.sb-title { font-family: var(--display); font-weight: 900; line-height: 0.92; letter-spacing: -0.01em; }
-.sb-caps { font-family: var(--sans); font-weight: 800; text-transform: uppercase; line-height: 0.95; letter-spacing: -0.01em; }
-
-/* Price-tag style name label: hard edges, slight tilt, never a pill. */
-.sb-tag { position: absolute; font-family: var(--sans); font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; padding: 10px 18px 9px; background: var(--white); color: var(--black); border-left: 10px solid var(--pink); white-space: nowrap; transform-origin: 0 50%; }
-.sb-tag.dark { background: var(--black); color: var(--white); }
-
+.sb-fill { position: absolute; inset: 0; }
 .sb-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-/* A full-frame wrapper used as a camera / glitch layer. */
-.sb-fill { position: absolute; inset: 0; }
+/* Grounds */
+.sb-pink { background: var(--pink); }
+.sb-stripes { background: repeating-linear-gradient(-55deg, var(--pink) 0 70px, var(--pink2) 70px 140px); background-size: 400px 400px; }
+.sb-white { background: #ffffff; }
+.sb-dark { background: radial-gradient(90% 70% at 50% 55%, #3a0b22 0%, var(--black) 70%); }
+
+/* Real people: cut-out photographs. */
+.sb-person { position: absolute; display: block; height: auto; }
+
+/* Type. Everything that must be read sits on a solid slab: white on black, black on white, white on pink-on-black. */
+.sb-huge { font-family: var(--sans); font-weight: 900; text-transform: uppercase; line-height: 0.88; letter-spacing: -0.02em; }
+.sb-serif { font-family: var(--display); font-weight: 900; font-style: italic; line-height: 0.95; }
+.sb-slab { display: inline-block; padding: 0.16em 0.2em 0.04em; background: var(--black); color: var(--white); white-space: nowrap; }
+.sb-slab.white { background: var(--white); color: var(--black); }
+.sb-slab.pink { background: var(--pink); color: var(--white); }
+.sb-line { position: absolute; left: 0; }
+.sb-shadow { text-shadow: 0 6px 0 rgba(11, 5, 8, 0.9); }
+
+/* Product name label: big, on a white slab with a pink edge. */
+.sb-label { position: absolute; font-family: var(--sans); font-weight: 800; text-transform: uppercase; font-size: 44px; line-height: 1; padding: 14px 22px 12px; background: var(--white); color: var(--black); border-left: 14px solid var(--pink); white-space: nowrap; }
+.sb-label.dark { background: var(--black); color: var(--white); }
+
+/* Step number: white figure in a black disc with a pink ring. */
+.sb-step { position: absolute; width: 230px; height: 230px; border-radius: 50%; background: var(--black); border: 12px solid var(--pink); color: var(--white); font-family: var(--sans); font-weight: 900; font-size: 150px; display: flex; align-items: center; justify-content: center; line-height: 1; }

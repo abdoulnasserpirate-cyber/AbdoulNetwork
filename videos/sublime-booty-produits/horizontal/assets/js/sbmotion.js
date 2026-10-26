@@ -59,6 +59,26 @@
     shake(tl, sel, t) {
       [[8, -6], [-6, 4], [3, -2], [0, 0]].forEach((p, i) => tl.set(sel, { x: p[0], y: p[1] }, t + i * 0.034));
     },
+    // Slab reveal: the solid text block wipes open left to right (or right to left), fast.
+    reveal(tl, sel, t, o) {
+      o = o || {};
+      const from = o.fromRight ? "inset(0% 0% 0% 100%)" : "inset(0% 100% 0% 0%)";
+      tl.fromTo(sel, { clipPath: from }, { clipPath: "inset(0% 0% 0% 0%)", duration: o.d || 0.26, ease: "power4.out", stagger: o.stagger || 0 }, t);
+    },
+    // A real person enters: rises and settles from slightly large, motion-blurred.
+    personIn(tl, sel, t, o) {
+      o = o || {};
+      tl.fromTo(sel, { y: o.y == null ? 260 : o.y, x: o.x || 0, scale: o.s || 1.12, filter: "blur(10px)", opacity: 0 }, { y: 0, x: 0, scale: 1, filter: "blur(0px)", opacity: 1, duration: o.d || 0.5, ease: "expo.out", transformOrigin: "50% 100%" }, t);
+    },
+    // Slow continuous push on a layer (the camera never stops).
+    drift(tl, sel, t, d, o) {
+      o = o || {};
+      tl.fromTo(sel, { scale: o.from || 1, x: o.x0 || 0 }, { scale: o.to || 1.06, x: o.x1 || 0, duration: d, ease: "none", transformOrigin: o.origin || "50% 50%", immediateRender: false }, t);
+    },
+    // Moving diagonal stripes on a ground.
+    stripes(tl, sel, d) {
+      tl.fromTo(sel, { backgroundPosition: "0px 0px" }, { backgroundPosition: `${Math.round(d * 260)}px 0px`, duration: d, ease: "none" }, 0);
+    },
     // Hold the timeline to the scene's full length.
     end(tl, d) { tl.set({}, {}, d); },
   };

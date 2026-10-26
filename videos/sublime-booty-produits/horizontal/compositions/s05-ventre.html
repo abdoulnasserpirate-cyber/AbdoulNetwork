@@ -1,47 +1,40 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
-    #s05-world { background: radial-gradient(110% 70% at 50% 55%, #2a0a19 0%, var(--black) 65%); }
-    #s05-kicker { position: absolute; left: 80px; top: 200px; color: var(--white); font-size: 44px; }
-    #s05-title { position: absolute; left: 72px; top: 262px; color: var(--pink); font-size: 150px; }
-    #s05-tape { position: absolute; left: -60px; top: 1210px; width: 1240px; height: 110px; transform: rotate(-6deg); }
-    #s05-tag1 { left: 70px; top: 1080px; font-size: 30px; }
-    #s05-tag2 { left: 400px; top: 1120px; font-size: 30px; }
-    #s05-tag3 { left: 720px; top: 1080px; font-size: 30px; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #ffffff; }
+    #s05-band { position: absolute; left: 0; right: 0; top: 0; height: 600px; background: var(--pink); }
+    #s05-woman { width: 1150px; left: -230px; top: 560px; }
+    #s05-k { top: 130px; left: 60px; font-size: 64px; }
+    #s05-t1 { top: 220px; left: 60px; font-size: 168px; }
+    #s05-t2 { top: 380px; left: 60px; font-size: 168px; }
+    #s05-tape { position: absolute; left: -40px; top: 1000px; width: 1160px; height: 96px; }
+    #s05-n1 { right: 40px; left: auto; top: 1270px; }
     @media (orientation: landscape) {
-      #s05-kicker { left: 110px; top: 300px; font-size: 40px; }
-      #s05-title { left: 100px; top: 356px; font-size: 130px; }
-      #s05-tape { left: -40px; top: 930px; width: 2000px; height: 100px; transform: rotate(-3deg); }
-      #s05-tag1 { left: 900px; top: 800px; }
-      #s05-tag2 { left: 1220px; top: 850px; }
-      #s05-tag3 { left: 1540px; top: 800px; }
+      #s05-band { top: 0; bottom: 0; left: 0; right: auto; width: 640px; height: auto; }
+      #s05-woman { width: 820px; left: 560px; top: 20px; }
+      #s05-k { top: 150px; left: 60px; font-size: 56px; }
+      #s05-t1 { top: 240px; left: 60px; font-size: 140px; }
+      #s05-t2 { top: 380px; left: 60px; font-size: 140px; }
+      #s05-tape { left: 520px; top: 310px; width: 960px; height: 84px; }
+      #s05-n1 { left: 60px; right: auto; top: 900px; }
     }
   </style>
   <div id="root" data-composition-id="s05" data-width="1920" data-height="1080">
-    <div id="s05-world" class="sb-fill">
-    <canvas id="s05-cv" class="sb-canvas"></canvas>
-    <div id="s05-tape"><svg id="s05-tape-in" viewBox="0 0 1240 110" preserveAspectRatio="none" style="width:100%;height:100%;display:block">
-      <rect x="0" y="0" width="1240" height="110" fill="#FF1A8C" />
+    <div id="s05-band"></div>
+    <img id="s05-woman" class="sb-person" src="assets/people/gaine-portee-cut.png" alt="" />
+    <div id="s05-tape"><svg id="s05-tape-in" viewBox="0 0 1160 96" preserveAspectRatio="none" style="width: 100%; height: 100%; display: block">
+      <rect x="0" y="0" width="1160" height="96" fill="#FFD23F" />
       <g fill="#0B0508">
-        <rect x="20" y="0" width="4" height="46" /><rect x="60" y="0" width="3" height="26" /><rect x="100" y="0" width="4" height="46" /><rect x="140" y="0" width="3" height="26" />
-        <rect x="180" y="0" width="4" height="46" /><rect x="220" y="0" width="3" height="26" /><rect x="260" y="0" width="4" height="46" /><rect x="300" y="0" width="3" height="26" />
-        <rect x="340" y="0" width="4" height="46" /><rect x="380" y="0" width="3" height="26" /><rect x="420" y="0" width="4" height="46" /><rect x="460" y="0" width="3" height="26" />
-        <rect x="500" y="0" width="4" height="46" /><rect x="540" y="0" width="3" height="26" /><rect x="580" y="0" width="4" height="46" /><rect x="620" y="0" width="3" height="26" />
-        <rect x="660" y="0" width="4" height="46" /><rect x="700" y="0" width="3" height="26" /><rect x="740" y="0" width="4" height="46" /><rect x="780" y="0" width="3" height="26" />
-        <rect x="820" y="0" width="4" height="46" /><rect x="860" y="0" width="3" height="26" /><rect x="900" y="0" width="4" height="46" /><rect x="940" y="0" width="3" height="26" />
-        <rect x="980" y="0" width="4" height="46" /><rect x="1020" y="0" width="3" height="26" /><rect x="1060" y="0" width="4" height="46" /><rect x="1100" y="0" width="3" height="26" />
-        <rect x="1140" y="0" width="4" height="46" /><rect x="1180" y="0" width="3" height="26" /><rect x="1220" y="0" width="4" height="46" />
+        <rect x="20" y="0" width="4" height="40" /><rect x="60" y="0" width="3" height="22" /><rect x="100" y="0" width="4" height="40" /><rect x="140" y="0" width="3" height="22" /><rect x="180" y="0" width="4" height="40" /><rect x="220" y="0" width="3" height="22" /><rect x="260" y="0" width="4" height="40" /><rect x="300" y="0" width="3" height="22" /><rect x="340" y="0" width="4" height="40" /><rect x="380" y="0" width="3" height="22" /><rect x="420" y="0" width="4" height="40" /><rect x="460" y="0" width="3" height="22" /><rect x="500" y="0" width="4" height="40" /><rect x="540" y="0" width="3" height="22" /><rect x="580" y="0" width="4" height="40" /><rect x="620" y="0" width="3" height="22" /><rect x="660" y="0" width="4" height="40" /><rect x="700" y="0" width="3" height="22" /><rect x="740" y="0" width="4" height="40" /><rect x="780" y="0" width="3" height="22" /><rect x="820" y="0" width="4" height="40" /><rect x="860" y="0" width="3" height="22" /><rect x="900" y="0" width="4" height="40" /><rect x="940" y="0" width="3" height="22" /><rect x="980" y="0" width="4" height="40" /><rect x="1020" y="0" width="3" height="22" /><rect x="1060" y="0" width="4" height="40" /><rect x="1100" y="0" width="3" height="22" /><rect x="1140" y="0" width="4" height="40" />
       </g>
-      <g fill="#0B0508" font-family="Poppins" font-weight="800" font-size="30">
-        <text x="88" y="90">60</text><text x="248" y="90">62</text><text x="408" y="90">64</text><text x="568" y="90">66</text><text x="728" y="90">68</text><text x="888" y="90">70</text><text x="1048" y="90">72</text>
+      <g fill="#0B0508" font-family="SB Sans, Poppins" font-weight="800" font-size="30">
+        <text x="88" y="82">60</text><text x="248" y="82">62</text><text x="408" y="82">64</text><text x="568" y="82">66</text><text x="728" y="82">68</text><text x="888" y="82">70</text><text x="1048" y="82">72</text>
       </g>
     </svg></div>
-    <div id="s05-kicker" class="sb-kicker">Notre gamme</div>
-    <div id="s05-title" class="sb-caps">Ventre<br />plat</div>
-    <div id="s05-tag1" class="sb-tag">Thé ventre plat</div>
-    <div id="s05-tag2" class="sb-tag dark">Crème ventre plat</div>
-    <div id="s05-tag3" class="sb-tag">Thé perte de poids</div>
-    </div>
+    <canvas id="s05-cv" class="sb-canvas"></canvas>
+    <div id="s05-k" class="sb-line sb-huge sb-slab">Notre gamme</div>
+    <div id="s05-t1" class="sb-line sb-huge sb-slab white">Ventre</div>
+    <div id="s05-t2" class="sb-line sb-huge sb-slab white">plat</div>
+    <div id="s05-n1" class="sb-label dark">Thé + crème ventre plat</div>
   </div>
   <script>
     (function () {
@@ -49,29 +42,26 @@
       const { timeline3d, make, drop, BRAND } = window.SB3D;
       const tl = timeline3d("s05", 2.65, {
         canvas: "s05-cv",
+        rim: 0xff1a8c,
         items: {
           portrait: [
-            make("theVentre", { x: -1.3, z: 0.2, s: 0.95, pose: drop(0.25, 0.03) }),
-            make("cremeVentre", { x: 0.05, z: 0.7, pose: drop(0.4) }),
-            make("thePerte", { x: 1.35, z: 0.2, s: 0.95, pose: drop(0.55, 0.03) }),
+            make("theVentre", { x: 0.95, z: 0.0, s: 0.9, pose: drop(0.25, 0.03) }),
+            make("cremeVentre", { x: 1.75, z: 0.9, s: 0.85, pose: drop(0.4) }),
           ],
           landscape: [
-            make("theVentre", { x: -0.5, z: 0.2, pose: drop(0.25, 0.03) }),
-            make("cremeVentre", { x: 1.3, z: 0.7, pose: drop(0.4) }),
-            make("thePerte", { x: 3.0, z: 0.2, pose: drop(0.55, 0.03) }),
+            make("theVentre", { x: 2.6, z: 0.0, pose: drop(0.25, 0.03) }),
+            make("cremeVentre", { x: 3.6, z: 0.9, s: 0.9, pose: drop(0.4) }),
           ],
         },
-        camera: { portrait: { y: 3.0, z: 19, lookY: 0.4 }, landscape: { x: 0.2, y: 2.4, z: 13, lookX: 0.2, lookY: 1.1 } },
-        podium: { portrait: { r: 2.4, color: BRAND.pink }, landscape: { r: 2.6, x: 1.3, color: BRAND.pink } },
+        camera: { portrait: { y: 4.0, z: 16.5, lookY: 2.94 }, landscape: { y: 1.4, z: 11.5, lookY: 1.2 } },
       });
-      // Iris: the dark studio opens from the centre over the pink of the last shot.
-      M.iris(tl, "#s05-world", 0, { d: 0.4, at: "50% 55%" });
-      M.blurIn(tl, "#s05-kicker", 0.1);
-      M.slam(tl, "#s05-title", 0.2);
-      // The tape measure shoots across on "ventre plat", then cinches on "taille affinée".
-      tl.fromTo("#s05-tape-in", { x: -1300 }, { x: 0, duration: 0.5, ease: "expo.out" }, 0.85);
-      tl.to("#s05-tape-in", { scaleX: 0.9, duration: 0.3, ease: "back.out(2)", transformOrigin: "50% 50%" }, 1.6);
-      M.tag(tl, ["#s05-tag1", "#s05-tag2", "#s05-tag3"], 1.05, { stagger: 0.14 });
+      M.personIn(tl, "#s05-woman", 0, { y: 0, x: 220, d: 0.45 });
+      M.reveal(tl, "#s05-k", 0.05);
+      M.reveal(tl, ["#s05-t1", "#s05-t2"], 0.12, { stagger: 0.08 });
+      // The tape measure shoots across the waist on "ventre plat", then cinches on "taille affinée".
+      tl.fromTo("#s05-tape-in", { x: -1300 }, { x: 0, duration: 0.45, ease: "expo.out" }, 0.75);
+      tl.to("#s05-tape-in", { scaleX: 0.86, duration: 0.3, ease: "back.out(2.2)", transformOrigin: "50% 50%" }, 1.5);
+      M.reveal(tl, "#s05-n1", 1.0, { fromRight: true });
       M.end(tl, 2.65);
       window.__timelines = window.__timelines || {};
       window.__timelines["s05"] = tl;

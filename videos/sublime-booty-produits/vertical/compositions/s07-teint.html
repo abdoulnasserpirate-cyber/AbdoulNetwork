@@ -1,62 +1,60 @@
 <template>
   <style>
     #root { position: absolute; inset: 0; overflow: hidden; background: var(--blush); }
-    #s07-dark { position: absolute; inset: 0; background: var(--black); clip-path: polygon(0 0, 100% 0, 100% 46%, 0 54%); }
-    #s07-kicker { position: absolute; left: 80px; top: 170px; color: var(--pink); font-size: 40px; }
-    #s07-royal { position: absolute; left: 72px; top: 230px; color: var(--gold); font-size: 150px; }
-    #s07-glow { position: absolute; left: 72px; top: 1030px; color: var(--deep); font-size: 150px; }
-    #s07-rule { position: absolute; left: 80px; top: 400px; width: 300px; height: 6px; background: var(--gold); }
-    #s07-shine { background: linear-gradient(105deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 65%); mix-blend-mode: overlay; pointer-events: none; }
+    #s07-dark { position: absolute; inset: 0; background: radial-gradient(90% 70% at 40% 40%, #2b1d10 0%, var(--black) 70%); }
+    #s07-woman { width: 900px; left: 440px; top: 880px; }
+    #s07-k { top: 130px; left: 60px; font-size: 60px; }
+    #s07-royal { top: 220px; left: 60px; font-size: 150px; }
+    #s07-glow { top: 380px; left: 60px; font-size: 150px; }
+    #s07-shine { background: linear-gradient(105deg, rgba(255,255,255,0) 35%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 65%); mix-blend-mode: overlay; }
     @media (orientation: landscape) {
-      #s07-dark { clip-path: polygon(0 0, 54% 0, 46% 100%, 0 100%); }
-      #s07-kicker { left: 100px; top: 110px; font-size: 36px; }
-      #s07-royal { left: 92px; top: 160px; font-size: 120px; }
-      #s07-rule { left: 100px; top: 300px; }
-      #s07-glow { left: auto; right: 90px; top: 870px; font-size: 120px; }
+      #s07-woman { width: 700px; left: 1240px; top: 60px; }
+      #s07-k { top: 100px; left: 70px; font-size: 54px; }
+      #s07-royal { top: 180px; left: 70px; font-size: 130px; }
+      #s07-glow { top: 330px; left: 70px; font-size: 130px; }
     }
   </style>
   <div id="root" data-composition-id="s07" data-width="1080" data-height="1920">
     <div id="s07-dark"></div>
+    <img id="s07-woman" class="sb-person" src="assets/people/mannequin-noire-cut.png" alt="" />
     <canvas id="s07-cv" class="sb-canvas"></canvas>
-    <div id="s07-kicker" class="sb-kicker">Nos gammes teint</div>
-    <div id="s07-royal" class="sb-title">Royal Skin</div>
-    <div id="s07-rule"></div>
-    <div id="s07-glow" class="sb-title">Pure Glow</div>
+    <div id="s07-k" class="sb-line sb-huge sb-slab pink">Nos gammes teint</div>
+    <div id="s07-royal" class="sb-line sb-huge sb-slab" style="color: var(--gold)">Royal Skin</div>
+    <div id="s07-glow" class="sb-line sb-huge sb-slab white" style="color: var(--deep)">Pure Glow</div>
     <div id="s07-shine" class="sb-fill"></div>
   </div>
   <script>
     (function () {
       const M = window.SBM;
       const { timeline3d, make, spinIn } = window.SB3D;
-      const portrait = window.SB3D.isPortrait();
       const tl = timeline3d("s07", 4.7, {
         canvas: "s07-cv",
         rim: 0xffd27a,
         items: {
           portrait: [
-            make("royalJar", { x: 0.35, y: 0.75, z: 0.6, pose: spinIn(0.35) }),
-            make("royalSerum", { x: 1.55, y: 0.75, z: -0.2, pose: spinIn(0.5) }),
-            make("glowPump", { x: 0.35, y: -3.6, z: -0.2, s: 0.9, pose: spinIn(2.05) }),
-            make("glowJar", { x: 1.55, y: -3.6, z: 0.6, pose: spinIn(2.2) }),
+            make("royalJar", { x: -1.3, y: -1.6, z: 0.6, pose: spinIn(0.3) }),
+            make("royalSerum", { x: -0.2, y: -1.6, z: -0.2, pose: spinIn(0.45) }),
+            make("glowPump", { x: -1.55, y: -4.4, z: -0.2, s: 0.9, pose: spinIn(1.9) }),
+            make("glowJar", { x: -0.6, y: -4.4, z: 0.6, pose: spinIn(2.05) }),
           ],
           landscape: [
-            make("royalJar", { x: -2.6, y: -1.3, z: 0.6, pose: spinIn(0.35) }),
-            make("royalSerum", { x: -1.3, y: -1.3, z: -0.2, pose: spinIn(0.5) }),
-            make("glowPump", { x: 1.4, y: -0.3, z: -0.2, s: 0.9, pose: spinIn(2.05) }),
-            make("glowJar", { x: 2.7, y: -0.3, z: 0.6, pose: spinIn(2.2) }),
+            make("royalJar", { x: -1.6, y: -1.4, z: 0.6, pose: spinIn(0.3) }),
+            make("royalSerum", { x: -0.5, y: -1.4, z: -0.2, pose: spinIn(0.45) }),
+            make("glowPump", { x: 0.9, y: -1.4, z: -0.2, s: 0.9, pose: spinIn(1.9) }),
+            make("glowJar", { x: 2.0, y: -1.4, z: 0.6, pose: spinIn(2.05) }),
           ],
         },
-        camera: { portrait: { y: 0.8, z: 19, lookY: 0.2 }, landscape: { y: 1.0, z: 13, lookY: 0.2 } },
+        camera: { portrait: { y: 0.6, z: 16.5, lookY: -1.6 }, landscape: { y: 0.4, z: 11.5, lookY: -0.3 } },
       });
-      const full = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
-      const split = portrait ? "polygon(0% 0%, 100% 0%, 100% 46%, 0% 54%)" : "polygon(0% 0%, 54% 0%, 46% 100%, 0% 100%)";
-      tl.fromTo("#s07-dark", { clipPath: full }, { clipPath: split, duration: 0.45, ease: "power3.inOut" }, 1.85);
-      M.blurIn(tl, "#s07-kicker", 0.05);
-      tl.fromTo("#s07-royal", { opacity: 0, letterSpacing: "0.3em", filter: "blur(8px)" }, { opacity: 1, letterSpacing: "-0.01em", filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 1.0);
-      tl.fromTo("#s07-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out", transformOrigin: "0% 50%" }, 1.25);
-      M.slam(tl, "#s07-glow", 2.1, { origin: portrait ? "0% 50%" : "100% 50%" });
-      // "éclatante": one specular sweep across the whole frame.
-      tl.fromTo("#s07-shine", { xPercent: -120 }, { xPercent: 120, duration: 0.8, ease: "power2.inOut" }, 3.4);
+      M.personIn(tl, "#s07-woman", 0, { y: 0, x: 260, d: 0.5 });
+      M.reveal(tl, "#s07-k", 0.05);
+      M.reveal(tl, "#s07-royal", 1.0, { fromRight: true });
+      // "Pure Glow": the dark world peels away to the blush one.
+      tl.fromTo("#s07-dark", { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 100%)", duration: 0.45, ease: "power3.inOut" }, 1.85);
+      M.reveal(tl, "#s07-glow", 1.95);
+      // "éclatante": one specular sweep across the frame.
+      tl.fromTo("#s07-shine", { xPercent: -120 }, { xPercent: 120, duration: 0.8, ease: "power2.inOut" }, 3.3);
+      M.drift(tl, "#s07-woman", 0.5, 4.2, { to: 1.06, origin: "50% 30%" });
       M.end(tl, 4.7);
       window.__timelines = window.__timelines || {};
       window.__timelines["s07"] = tl;

@@ -1,0 +1,3195 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 11,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b002\" for xPercent between 1.69s and 1.71s.",
+        "selector": "#fx-b002",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b012\" for xPercent between 4.09s and 4.11s.",
+        "selector": "#fx-b012",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b022\" for xPercent between 6.94s and 6.96s.",
+        "selector": "#fx-b022",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b032\" for xPercent between 9.89s and 9.91s.",
+        "selector": "#fx-b032",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b042\" for xPercent between 12.54s and 12.56s.",
+        "selector": "#fx-b042",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b052\" for xPercent between 14.84s and 14.86s.",
+        "selector": "#fx-b052",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b062\" for xPercent between 19.54s and 19.56s.",
+        "selector": "#fx-b062",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b072\" for xPercent between 21.34s and 21.36s.",
+        "selector": "#fx-b072",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b082\" for xPercent between 29.99s and 30.01s.",
+        "selector": "#fx-b082",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b092\" for xPercent between 33.04s and 33.06s.",
+        "selector": "#fx-b092",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      },
+      {
+        "code": "overlapping_gsap_tweens",
+        "severity": "warning",
+        "message": "GSAP tweens overlap on \"#fx-b102\" for xPercent between 36.14s and 36.16s.",
+        "selector": "#fx-b102",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/AbdoulNetwork/videos/sublime-booty-produits/vertical/compositions/fx.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Shorten the earlier tween, move the later tween, or add `overwrite: \"auto\"`."
+      }
+    ],
+    "filesScanned": 15
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 8,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x318c06ab3400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.692,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x318c06ab3400]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 6.692,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x15c40127e000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 11.153,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x15c40127e000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 11.153,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x15c40127e000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 11.153,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x15c40127e000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 11.153,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x318c06aac800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 15.614,
+        "url": "http://127.0.0.1:39435/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x318c06aac800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "40.15",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 15.614,
+        "url": "http://127.0.0.1:39435/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 35,
+    "infoCount": 23,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-skew",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "containerSelector": "#fx > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 239.35,
+          "right": 239.35
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -239.35,
+          "y": 0,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b000",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b001",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b002",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b010",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b011",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b012",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b020",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b021",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b022",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b030",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b031",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b032",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b040",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b041",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b042",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b050",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b051",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b052",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b060",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b061",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b062",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b070",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b071",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b072",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b080",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b081",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b082",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b090",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b091",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b092",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1289.57,
+          "top": -192,
+          "right": 3592.03,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": 1289.57,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b100",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b101",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "escaped_container",
+        "severity": "warning",
+        "time": 2.231,
+        "selector": "#fx-b102",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -2512.03,
+          "top": -192,
+          "right": -209.57,
+          "bottom": 2112,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "containerSelector": "#fx-skew",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -239.35,
+          "top": 0,
+          "right": 1319.35,
+          "bottom": 1920,
+          "width": 1558.71,
+          "height": 1920
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/fx.html",
+        "bbox": {
+          "x": -2512.03,
+          "y": -192,
+          "width": 2302.45,
+          "height": 2304
+        },
+        "firstSeen": 2.231,
+        "lastSeen": 37.919,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.231,
+          6.692,
+          11.153,
+          15.614,
+          20.075,
+          24.536,
+          28.997,
+          33.458,
+          37.919
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 24.536,
+        "selector": "#s10-avatar > img:nth-of-type(1)",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 232,
+          "top": 951.59,
+          "right": 352,
+          "bottom": 1012.39,
+          "width": 120,
+          "height": 60.8
+        },
+        "containerSelector": "#s10-avatar",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 232,
+          "top": 944,
+          "right": 308,
+          "bottom": 1020,
+          "width": 76,
+          "height": 76
+        },
+        "overflow": {
+          "right": 44
+        },
+        "dataAttributes": {
+          "data-hf-render-id": "hf-media-14",
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 232,
+          "y": 951.59,
+          "width": 120,
+          "height": 60.8
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-woman",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -430,
+          "top": 420,
+          "right": 820,
+          "bottom": 1984.44,
+          "width": 1250,
+          "height": 1564.44
+        },
+        "containerSelector": "#s03 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 430,
+          "bottom": 64.44
+        },
+        "dataAttributes": {
+          "data-hf-render-id": "s03-woman",
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": -430,
+          "y": 420,
+          "width": 1250,
+          "height": 1564.44
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "info",
+        "time": 6.692,
+        "selector": "#s03-cv",
+        "message": "Canvas content touches the frame edge (right).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r170"
+        },
+        "sourceFile": "compositions/s03-fessiers.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 6.692,
+        "lastSeen": 6.692,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          6.692
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 48,
+          "top": 1050,
+          "right": 86.77,
+          "bottom": 1093,
+          "width": 38.77,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "60",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 48,
+          "y": 1050,
+          "width": 38.77,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 208,
+          "top": 1050,
+          "right": 244.13,
+          "bottom": 1093,
+          "width": 36.13,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "62",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 208,
+          "y": 1050,
+          "width": 36.13,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 368,
+          "top": 1050,
+          "right": 407.78,
+          "bottom": 1093,
+          "width": 39.78,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "64",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 368,
+          "y": 1050,
+          "width": 39.78,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(4)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 528,
+          "top": 1050,
+          "right": 566.11,
+          "bottom": 1093,
+          "width": 38.11,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "66",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 528,
+          "y": 1050,
+          "width": 38.11,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(5)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 688,
+          "top": 1050,
+          "right": 726.64,
+          "bottom": 1093,
+          "width": 38.64,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "68",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 688,
+          "y": 1050,
+          "width": 38.64,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(6)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 848,
+          "top": 1050,
+          "right": 883.41,
+          "bottom": 1093,
+          "width": 35.41,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "70",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 848,
+          "y": 1050,
+          "width": 35.41,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape-in > g:nth-of-type(2) > text:nth-of-type(7)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 1008,
+          "top": 1050,
+          "right": 1040.77,
+          "bottom": 1093,
+          "width": 32.77,
+          "height": 43
+        },
+        "containerSelector": "#s05-cv",
+        "text": "72",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 1008,
+          "y": 1050,
+          "width": 32.77,
+          "height": 43
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-woman",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -230,
+          "top": 560,
+          "right": 920,
+          "bottom": 2090.77,
+          "width": 1150,
+          "height": 1530.77
+        },
+        "containerSelector": "#s05 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 230,
+          "bottom": 170.77
+        },
+        "dataAttributes": {
+          "data-hf-render-id": "s05-woman",
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": -230,
+          "y": 560,
+          "width": 1150,
+          "height": 1530.77
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-tape",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -40,
+          "top": 1000,
+          "right": 1120,
+          "bottom": 1096,
+          "width": 1160,
+          "height": 96
+        },
+        "containerSelector": "#s05 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 40,
+          "right": 40
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": -40,
+          "y": 1000,
+          "width": 1160,
+          "height": 96
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "info",
+        "time": 11.153,
+        "selector": "#s05-cv",
+        "message": "Canvas content touches the frame edge (right).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r170"
+        },
+        "sourceFile": "compositions/s05-ventre.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 11.153,
+        "lastSeen": 11.153,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          11.153
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 15.614,
+        "selector": "#s07-woman",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 438.07,
+          "top": 877.57,
+          "right": 1341.94,
+          "bottom": 2767.32,
+          "width": 903.87,
+          "height": 1889.75
+        },
+        "containerSelector": "#s07 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 261.94,
+          "bottom": 847.32
+        },
+        "dataAttributes": {
+          "data-hf-render-id": "s07-woman",
+          "data-hf-authored-opacity": ""
+        },
+        "sourceFile": "compositions/s07-teint.html",
+        "bbox": {
+          "x": 438.07,
+          "y": 877.57,
+          "width": 903.87,
+          "height": 1889.75
+        },
+        "firstSeen": 15.614,
+        "lastSeen": 15.614,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.614
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 15.614,
+        "selector": "#s07-shine",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -1296,
+          "top": 0,
+          "right": -216,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#s07 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 1296
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s07-teint.html",
+        "bbox": {
+          "x": -1296,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 15.614,
+        "lastSeen": 15.614,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.614
+        ]
+      },
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "info",
+        "time": 15.614,
+        "selector": "#s07-cv",
+        "message": "Canvas content touches the frame edge (left).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r170"
+        },
+        "sourceFile": "compositions/s07-teint.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 15.614,
+        "lastSeen": 15.614,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          15.614
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 24.536,
+        "selector": "#s10-phone",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 180,
+          "top": 870,
+          "right": 900,
+          "bottom": 2270,
+          "width": 720,
+          "height": 1400
+        },
+        "containerSelector": "#s10 > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 350
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 180,
+          "y": 870,
+          "width": 720,
+          "height": 1400
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 24.536,
+        "selector": "#s10-phone",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 180,
+          "top": 870,
+          "right": 900,
+          "bottom": 2270,
+          "width": 720,
+          "height": 1400
+        },
+        "containerSelector": "#root",
+        "text": "Sublime Booty ByChris en ligne Bonjour ! Je veux",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "bottom": 350
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 180,
+          "y": 870,
+          "width": 720,
+          "height": 1400
+        },
+        "firstSeen": 24.536,
+        "lastSeen": 28.997,
+        "occurrences": 2,
+        "heldMs": 0,
+        "times": [
+          24.536,
+          28.997
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 28.997,
+        "selector": "#s10-head > div:nth-of-type(2) > b:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1002,
+          "top": 812,
+          "right": 1345.84,
+          "bottom": 855,
+          "width": 343.84,
+          "height": 43
+        },
+        "containerSelector": "#root",
+        "text": "Sublime Booty ByChris",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 265.84
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 1002,
+          "y": 812,
+          "width": 343.84,
+          "height": 43
+        },
+        "firstSeen": 28.997,
+        "lastSeen": 28.997,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.997
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 28.997,
+        "selector": "#s10-head > div:nth-of-type(2) > i:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 1002,
+          "top": 858,
+          "right": 1090.63,
+          "bottom": 889,
+          "width": 88.63,
+          "height": 31
+        },
+        "containerSelector": "#root",
+        "text": "en ligne",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 10.63
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 1002,
+          "y": 858,
+          "width": 88.63,
+          "height": 31
+        },
+        "firstSeen": 28.997,
+        "lastSeen": 28.997,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.997
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 28.997,
+        "selector": "#s10-screen-in",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 878,
+          "top": 762,
+          "right": 1554,
+          "bottom": 2118,
+          "width": 676,
+          "height": 1356
+        },
+        "containerSelector": "#s10-screen",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 202,
+          "top": 762,
+          "right": 878,
+          "bottom": 2118,
+          "width": 676,
+          "height": 1356
+        },
+        "overflow": {
+          "right": 676
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 878,
+          "y": 762,
+          "width": 676,
+          "height": 1356
+        },
+        "firstSeen": 28.997,
+        "lastSeen": 28.997,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.997
+        ]
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 28.997,
+        "selector": "#s10-head",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 878,
+          "top": 762,
+          "right": 1554,
+          "bottom": 912,
+          "width": 676,
+          "height": 150
+        },
+        "containerSelector": "#root",
+        "text": "Sublime Booty ByChris en ligne",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 474
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 878,
+          "y": 762,
+          "width": 676,
+          "height": 150
+        },
+        "firstSeen": 28.997,
+        "lastSeen": 28.997,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          28.997
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 33.458,
+        "selector": "#s12-countries",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -23864.35,
+          "top": -15329.13,
+          "right": 23092.18,
+          "bottom": 11652.09,
+          "width": 46956.52,
+          "height": 26981.21
+        },
+        "containerSelector": "#s12-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 23864.35,
+          "right": 22012.18,
+          "top": 15329.13,
+          "bottom": 9732.09
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": -23864.35,
+          "y": -15329.13,
+          "width": 46956.52,
+          "height": 26981.21
+        },
+        "firstSeen": 33.458,
+        "lastSeen": 33.458,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          33.458
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 33.458,
+        "selector": "#s12-arcs",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -10202.61,
+          "top": -5431.02,
+          "right": 6991.3,
+          "bottom": 2342.46,
+          "width": 17193.91,
+          "height": 7773.48
+        },
+        "containerSelector": "#s12-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 10202.61,
+          "right": 5911.3,
+          "top": 5431.02,
+          "bottom": 422.46
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": -10202.61,
+          "y": -5431.02,
+          "width": 17193.91,
+          "height": 7773.48
+        },
+        "firstSeen": 33.458,
+        "lastSeen": 33.458,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          33.458
+        ]
+      }
+    ],
+    "duration": 40.15,
+    "samples": [
+      2.231,
+      6.692,
+      11.153,
+      15.614,
+      20.075,
+      24.536,
+      28.997,
+      33.458,
+      37.919
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 58,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.231,
+      11.153,
+      20.075,
+      28.997,
+      37.919
+    ],
+    "checked": 15,
+    "passed": 15
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "text_below_floor",
+        "severity": "warning",
+        "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"10:25\" at 18 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+        "text": "10:25",
+        "selector": "#s10-m2 > em:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s10-whatsapp.html",
+        "bbox": {
+          "x": 684.52,
+          "y": 1448.18,
+          "width": 44.56,
+          "height": 24.85
+        },
+        "time": 25.811,
+        "times": [
+          23.691,
+          24.813,
+          25.811
+        ],
+        "fontPx": 17.9,
+        "floorPx": 28,
+        "seconds": 4.239,
+        "elements": [
+          {
+            "selector": "#s10-m2 > em:nth-of-type(1)",
+            "text": "10:25",
+            "fontPx": 17.9,
+            "time": 25.811,
+            "seconds": 4.239
+          },
+          {
+            "selector": "#s10-m1 > em:nth-of-type(1)",
+            "text": "10:24 ✓✓",
+            "fontPx": 18,
+            "time": 24.813,
+            "seconds": 5.237
+          },
+          {
+            "selector": "#s10-head > div:nth-of-type(2) > i:nth-of-type(1)",
+            "text": "en ligne",
+            "fontPx": 22,
+            "time": 23.691,
+            "seconds": 6.359
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Partout au Niger\" (3 words) is on screen 0.93 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Partout au Niger",
+        "selector": "#s12-p2",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s12-carte.html",
+        "bbox": {
+          "x": 76.39,
+          "y": 211.73,
+          "width": 1003.61,
+          "height": 184.01000000000002
+        },
+        "time": 34.04,
+        "words": 3,
+        "seconds": 0.928,
+        "floorSeconds": 1.05
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Beauté Confiance Bien-être\" (4 words) is on screen 1.62 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Beauté Confiance Bien-être",
+        "selector": "#s13-tag",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s13-fin.html",
+        "bbox": {
+          "x": 142.06,
+          "y": 581.89,
+          "width": 521.05,
+          "height": 75.53999999999996
+        },
+        "time": 38.537,
+        "words": 4,
+        "seconds": 1.617,
+        "floorSeconds": 2
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 322
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

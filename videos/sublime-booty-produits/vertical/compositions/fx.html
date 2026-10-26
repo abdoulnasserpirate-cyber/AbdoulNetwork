@@ -1,0 +1,129 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    #fx-skew { position: absolute; inset: 0; transform: skewX(-14deg); }
+    .fx-band { position: absolute; top: -10%; left: -30%; width: 160%; height: 120%; }
+    .fx-flash { position: absolute; inset: 0; background: #ffffff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="fx" data-width="1080" data-height="1920">
+    <div id="fx-skew">
+      <div id="fx-b000" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b001" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b002" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b010" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b011" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b012" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b020" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b021" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b022" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b030" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b031" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b032" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b040" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b041" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b042" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b050" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b051" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b052" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b060" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b061" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b062" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b070" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b071" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b072" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b080" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b081" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b082" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b090" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b091" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b092" class="fx-band" style="background:#ff1a8c"></div>
+      <div id="fx-b100" class="fx-band" style="background:#0b0508"></div>
+      <div id="fx-b101" class="fx-band" style="background:#ffffff"></div>
+      <div id="fx-b102" class="fx-band" style="background:#ff1a8c"></div>
+    </div>
+      <div id="fx-f00" class="fx-flash"></div>
+      <div id="fx-f06" class="fx-flash"></div>
+      <div id="fx-f10" class="fx-flash"></div>
+  </div>
+  <script>
+    (function () {
+      // Scene-to-scene wipes: black, white and pink bands cross the frame and cover each cut.
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#fx-b000", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 1.410);
+      tl.fromTo("#fx-b000", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 1.790);
+      tl.fromTo("#fx-b001", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 1.460);
+      tl.fromTo("#fx-b001", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 1.740);
+      tl.fromTo("#fx-b002", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 1.510);
+      tl.fromTo("#fx-b002", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 1.710);
+      tl.fromTo("#fx-f00", { opacity: 0 }, { opacity: 1, duration: 0.05 }, 1.670);
+      tl.to("#fx-f00", { opacity: 0, duration: 0.25, ease: "power2.out" }, 1.720);
+      tl.fromTo("#fx-b010", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 3.810);
+      tl.fromTo("#fx-b010", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 4.190);
+      tl.fromTo("#fx-b011", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 3.860);
+      tl.fromTo("#fx-b011", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 4.140);
+      tl.fromTo("#fx-b012", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 3.910);
+      tl.fromTo("#fx-b012", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 4.110);
+      tl.fromTo("#fx-b020", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 6.660);
+      tl.fromTo("#fx-b020", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 7.040);
+      tl.fromTo("#fx-b021", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 6.710);
+      tl.fromTo("#fx-b021", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 6.990);
+      tl.fromTo("#fx-b022", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 6.760);
+      tl.fromTo("#fx-b022", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 6.960);
+      tl.fromTo("#fx-b030", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 9.610);
+      tl.fromTo("#fx-b030", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 9.990);
+      tl.fromTo("#fx-b031", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 9.660);
+      tl.fromTo("#fx-b031", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 9.940);
+      tl.fromTo("#fx-b032", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 9.710);
+      tl.fromTo("#fx-b032", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 9.910);
+      tl.fromTo("#fx-b040", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 12.260);
+      tl.fromTo("#fx-b040", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 12.640);
+      tl.fromTo("#fx-b041", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 12.310);
+      tl.fromTo("#fx-b041", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 12.590);
+      tl.fromTo("#fx-b042", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 12.360);
+      tl.fromTo("#fx-b042", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 12.560);
+      tl.fromTo("#fx-b050", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 14.560);
+      tl.fromTo("#fx-b050", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 14.940);
+      tl.fromTo("#fx-b051", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 14.610);
+      tl.fromTo("#fx-b051", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 14.890);
+      tl.fromTo("#fx-b052", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 14.660);
+      tl.fromTo("#fx-b052", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 14.860);
+      tl.fromTo("#fx-b060", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 19.260);
+      tl.fromTo("#fx-b060", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 19.640);
+      tl.fromTo("#fx-b061", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 19.310);
+      tl.fromTo("#fx-b061", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 19.590);
+      tl.fromTo("#fx-b062", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 19.360);
+      tl.fromTo("#fx-b062", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 19.560);
+      tl.fromTo("#fx-f06", { opacity: 0 }, { opacity: 1, duration: 0.05 }, 19.520);
+      tl.to("#fx-f06", { opacity: 0, duration: 0.25, ease: "power2.out" }, 19.570);
+      tl.fromTo("#fx-b070", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 21.060);
+      tl.fromTo("#fx-b070", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 21.440);
+      tl.fromTo("#fx-b071", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 21.110);
+      tl.fromTo("#fx-b071", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 21.390);
+      tl.fromTo("#fx-b072", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 21.160);
+      tl.fromTo("#fx-b072", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 21.360);
+      tl.fromTo("#fx-b080", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 29.710);
+      tl.fromTo("#fx-b080", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 30.090);
+      tl.fromTo("#fx-b081", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 29.760);
+      tl.fromTo("#fx-b081", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 30.040);
+      tl.fromTo("#fx-b082", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 29.810);
+      tl.fromTo("#fx-b082", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 30.010);
+      tl.fromTo("#fx-b090", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 32.760);
+      tl.fromTo("#fx-b090", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 33.140);
+      tl.fromTo("#fx-b091", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 32.810);
+      tl.fromTo("#fx-b091", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 33.090);
+      tl.fromTo("#fx-b092", { xPercent: 110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 32.860);
+      tl.fromTo("#fx-b092", { xPercent: 0 }, { xPercent: -110, duration: 0.22, ease: "power3.out", immediateRender: false }, 33.060);
+      tl.fromTo("#fx-b100", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 35.860);
+      tl.fromTo("#fx-b100", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 36.240);
+      tl.fromTo("#fx-b101", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 35.910);
+      tl.fromTo("#fx-b101", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 36.190);
+      tl.fromTo("#fx-b102", { xPercent: -110 }, { xPercent: 0, duration: 0.2, ease: "power3.in" }, 35.960);
+      tl.fromTo("#fx-b102", { xPercent: 0 }, { xPercent: 110, duration: 0.22, ease: "power3.out", immediateRender: false }, 36.160);
+      tl.fromTo("#fx-f10", { opacity: 0 }, { opacity: 1, duration: 0.05 }, 36.120);
+      tl.to("#fx-f10", { opacity: 0, duration: 0.25, ease: "power2.out" }, 36.170);
+      tl.set({}, {}, 40.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["fx"] = tl;
+    })();
+  </script>
+</template>

@@ -1,33 +1,33 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
-    #s11-num { position: absolute; left: 60px; top: 60px; font-size: 440px; color: var(--pink); -webkit-text-stroke: 8px var(--black); }
-    #s11-t1 { position: absolute; left: 340px; top: 220px; color: var(--white); font-size: 96px; }
-    #s11-t2 { position: absolute; left: 340px; top: 320px; color: var(--black); font-size: 88px; font-style: italic; }
-    #s11-grid { position: absolute; left: 60px; top: 520px; width: 960px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .s11-tile { width: 300px; height: 150px; border-radius: 26px; background: var(--white); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 12px 0 var(--deep); }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #ffffff; }
+    #s11-num { left: 50px; top: 130px; }
+    #s11-t1 { left: 310px; top: 150px; font-size: 110px; }
+    #s11-t2 { left: 50px; top: 400px; font-size: 104px; }
+    #s11-grid { position: absolute; left: 30px; top: 590px; width: 1020px; display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .s11-tile { width: 320px; height: 160px; border-radius: 26px; background: var(--white); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 12px 0 var(--deep); }
     .s11-tile img { width: 100%; height: 100%; object-fit: cover; }
     #s11-wu { background: #ffdd00; gap: 14px; }
     #s11-wu img { width: 64px; height: auto; object-fit: contain; }
     #s11-wu span { font-family: var(--sans); font-weight: 800; font-size: 30px; color: #000; line-height: 1; }
-    #s11-parcel { position: absolute; left: 520px; top: 900px; width: 520px; }
-    #s11-deliver { position: absolute; left: 70px; top: 1000px; color: var(--black); font-size: 110px; }
-    #s11-deliver2 { position: absolute; left: 70px; top: 1110px; color: var(--white); font-size: 120px; font-style: italic; }
+    #s11-parcel { position: absolute; left: 470px; top: 1380px; width: 600px; }
+    #s11-deliver { left: 50px; top: 1120px; font-size: 130px; }
+    #s11-deliver2 { left: 50px; top: 1290px; font-size: 150px; }
     @media (orientation: landscape) {
-      #s11-num { left: 100px; top: 0; font-size: 380px; }
-      #s11-t1 { left: 360px; top: 130px; }
-      #s11-t2 { left: 360px; top: 230px; }
+      #s11-num { left: 100px; top: 110px; }
+      #s11-t1 { left: 370px; top: 120px; }
+      #s11-t2 { left: 370px; top: 250px; }
       #s11-grid { left: 100px; top: 470px; width: 1000px; justify-content: flex-start; }
       #s11-parcel { left: 1240px; top: 120px; width: 580px; }
-      #s11-deliver { left: 1240px; top: 790px; font-size: 90px; }
-      #s11-deliver2 { left: 1240px; top: 880px; font-size: 100px; }
+      #s11-deliver { left: 1240px; top: 720px; font-size: 100px; }
+      #s11-deliver2 { left: 1240px; top: 850px; font-size: 120px; }
     }
   </style>
   <div id="root" data-composition-id="s11" data-width="1080" data-height="1920">
     <div id="s11-whip" class="sb-fill">
-    <div id="s11-num" class="sb-title">3</div>
-    <div id="s11-t1" class="sb-caps">Payez</div>
-    <div id="s11-t2" class="sb-title">en toute simplicité</div>
+    <div id="s11-num" class="sb-step">3</div>
+    <div id="s11-t1" class="sb-line sb-huge sb-slab">Payez</div>
+    <div id="s11-t2" class="sb-line sb-huge sb-slab pink">facilement</div>
     <div id="s11-grid">
       <div class="s11-tile"><img src="assets/logos/nita.png" alt="NITA" /></div>
       <div class="s11-tile"><img src="assets/logos/amana.png" alt="AMANA" /></div>
@@ -37,8 +37,8 @@
     </div>
     </div>
     <img id="s11-parcel" src="assets/products/parcel.png" alt="" />
-    <div id="s11-deliver" class="sb-caps">On vous</div>
-    <div id="s11-deliver2" class="sb-title">livre&nbsp;!</div>
+    <div id="s11-deliver" class="sb-line sb-huge sb-slab">On vous</div>
+    <div id="s11-deliver2" class="sb-line sb-huge sb-slab pink">livre&nbsp;!</div>
   </div>
   <script>
     (function () {
@@ -46,14 +46,14 @@
       const tl = gsap.timeline({ paused: true });
       M.whipIn(tl, "#s11-whip", 0, { dx: 900 });
       M.pop(tl, "#s11-num", 0.1, { from: 0.2, rot: -20 });
-      M.slam(tl, "#s11-t1", 0.85);
-      M.blurIn(tl, "#s11-t2", 1.05);
+      M.reveal(tl, "#s11-t1", 0.2);
+      M.reveal(tl, "#s11-t2", 0.38, { fromRight: true });
       // One logo per beat-ish, while "faites votre paiement" plays.
-      M.pop(tl, ".s11-tile", 0.95, { from: 0.2, stagger: 0.13, d: 0.4 });
+      M.pop(tl, ".s11-tile", 0.6, { from: 0.2, stagger: 0.13, d: 0.4 });
       // "et on vous livre": the parcel slides in and lands.
       tl.fromTo("#s11-parcel", { x: 900, rotation: 18 }, { x: 0, rotation: 0, duration: 0.5, ease: "back.out(1.4)" }, 1.95);
-      M.slam(tl, "#s11-deliver", 2.05);
-      M.slam(tl, "#s11-deliver2", 2.3);
+      M.reveal(tl, "#s11-deliver", 2.0);
+      M.reveal(tl, "#s11-deliver2", 2.2, { fromRight: true });
       // Exit: the parcel flies up and away toward the map.
       tl.to("#s11-parcel", { y: -500, scale: 0.3, opacity: 0, duration: 0.25, ease: "power3.in" }, 2.8);
       M.end(tl, 3.05);

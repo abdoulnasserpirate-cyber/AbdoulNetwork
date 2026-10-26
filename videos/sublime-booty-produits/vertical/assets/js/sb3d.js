@@ -15,8 +15,8 @@
       fontsReady = Promise.all([
         document.fonts.load('900 120px "SB Display"'),
         document.fonts.load('italic 900 120px "SB Display"'),
-        document.fonts.load('800 120px "Poppins"'),
-        document.fonts.load('600 120px "Poppins"'),
+        document.fonts.load('800 120px "SB Sans"'),
+        document.fonts.load('600 120px "SB Sans"'),
       ]).catch(() => null);
     }
     return fontsReady;
@@ -46,7 +46,7 @@
     const maxW = W * span;
     g.textAlign = "center"; g.textBaseline = "middle";
     g.fillStyle = o.ink2 || o.ink;
-    fitFont(g, "SUBLIME BOOTY", 800, "Poppins", H * 0.075, maxW);
+    fitFont(g, "SUBLIME BOOTY", 800, "SB Sans", H * 0.075, maxW);
     g.fillText("SUBLIME BOOTY", cx, H * 0.17);
     g.font = `italic 900 ${Math.round(H * 0.06)}px "SB Display"`;
     g.fillText("ByChris", cx, H * 0.25);
@@ -59,7 +59,7 @@
     });
     if (o.sub) {
       g.fillStyle = o.band ? o.bandInk || o.bg : o.ink2 || o.ink;
-      fitFont(g, o.sub.toUpperCase(), 800, "Poppins", H * 0.07, maxW);
+      fitFont(g, o.sub.toUpperCase(), 800, "SB Sans", H * 0.07, maxW);
       g.fillText(o.sub.toUpperCase(), cx, o.band ? H * 0.89 : H * 0.8);
     }
     return c;

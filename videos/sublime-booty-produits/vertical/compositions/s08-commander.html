@@ -1,41 +1,36 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: var(--black); }
-    #s08-sil { color: var(--pink); opacity: 0.12; width: 1100px; height: 1640px; left: 300px; top: 320px; }
-    #s08-l1 { position: absolute; left: 70px; top: 480px; color: var(--white); font-size: 128px; }
-    #s08-l2 { position: absolute; left: 84px; top: 640px; color: var(--pink); font-size: 110px; }
-    #s08-slab { position: absolute; left: 40px; top: 790px; width: 1000px; height: 300px; background: var(--pink); }
-    #s08-l3 { position: absolute; left: 90px; top: 800px; color: var(--white); font-size: 200px; font-style: italic; white-space: nowrap; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s08-l1 { top: 520px; left: 50px; font-size: 140px; }
+    #s08-l2 { top: 700px; left: 50px; font-size: 140px; }
+    #s08-l3 { top: 900px; left: 30px; font-size: 168px; }
+    #s08-l4 { top: 1090px; left: 30px; font-size: 168px; }
     @media (orientation: landscape) {
-      #s08-sil { width: 760px; height: 1132px; left: 1250px; top: 0; }
-      #s08-l1 { left: 160px; top: 170px; }
-      #s08-l2 { left: 164px; top: 340px; }
-      #s08-slab { left: 120px; top: 500px; width: 1420px; height: 300px; }
-      #s08-l3 { left: 170px; top: 510px; font-size: 220px; }
+      #s08-l1 { top: 140px; left: 120px; font-size: 150px; }
+      #s08-l2 { top: 330px; left: 120px; font-size: 150px; }
+      #s08-l3 { top: 560px; left: 100px; font-size: 190px; }
+      #s08-l4 { top: 560px; left: 980px; font-size: 190px; }
     }
   </style>
   <div id="root" data-composition-id="s08" data-width="1080" data-height="1920">
-    <div id="s08-sil" class="sb-sil"></div>
-    <div id="s08-g" class="sb-fill">
-    <div id="s08-l1" class="sb-caps">Commander,</div>
-    <div id="s08-l2" class="sb-caps">c'est</div>
-    </div>
+    <div id="s08-bg" class="sb-fill sb-stripes"></div>
     <div id="s08-hit" class="sb-fill">
-    <div id="s08-slab"></div>
-    <div id="s08-l3" class="sb-title">très facile&nbsp;!</div>
+      <div id="s08-l1" class="sb-line sb-huge sb-slab">Commander,</div>
+      <div id="s08-l2" class="sb-line sb-huge sb-slab">c'est</div>
+      <div id="s08-l3" class="sb-line sb-huge sb-slab white">très</div>
+      <div id="s08-l4" class="sb-line sb-huge sb-slab white">facile&nbsp;!</div>
     </div>
   </div>
   <script>
     (function () {
       const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      M.glitch(tl, "#s08-g", 0);
-      M.slam(tl, "#s08-l1", 0.02, { from: 1.8 });
-      M.slam(tl, "#s08-l2", 0.62);
-      tl.fromTo("#s08-slab", { scaleX: 0, rotation: -3 }, { scaleX: 1, rotation: -3, duration: 0.28, ease: "power4.out", transformOrigin: "0% 50%" }, 0.78);
-      tl.fromTo("#s08-l3", { opacity: 0, scale: 2.2, rotation: -3, filter: "blur(12px)" }, { opacity: 1, scale: 1, rotation: -3, filter: "blur(0px)", duration: 0.3, ease: "expo.out", transformOrigin: "30% 50%" }, 0.92);
-      M.shake(tl, "#s08-hit", 1.12);
-      tl.fromTo("#s08-sil", { y: 0 }, { y: -50, duration: 1.8, ease: "none" }, 0);
+      M.stripes(tl, "#s08-bg", 1.8);
+      M.reveal(tl, "#s08-l1", 0.02);
+      M.reveal(tl, "#s08-l2", 0.6, { fromRight: true });
+      tl.fromTo("#s08-l3", { opacity: 0, scale: 2.4, rotation: -4 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.24, ease: "expo.out", transformOrigin: "0% 50%" }, 0.85);
+      tl.fromTo("#s08-l4", { opacity: 0, scale: 2.4, rotation: -4 }, { opacity: 1, scale: 1, rotation: -4, duration: 0.24, ease: "expo.out", transformOrigin: "0% 50%" }, 1.05);
+      M.shake(tl, "#s08-hit", 1.28);
       M.end(tl, 1.8);
       window.__timelines = window.__timelines || {};
       window.__timelines["s08"] = tl;

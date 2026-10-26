@@ -1,57 +1,54 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: var(--black); }
-    #s13-sil { color: var(--pink); opacity: 0.14; width: 900px; height: 1340px; left: -300px; top: -120px; }
-    #s13-logo { position: absolute; left: 110px; top: 270px; width: 860px; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s13-woman { width: 1350px; left: -135px; top: 640px; }
+    #s13-logo { position: absolute; left: 110px; top: 120px; width: 860px; }
+    #s13-tag { position: absolute; left: 0; width: 100%; top: 590px; text-align: center; font-size: 50px; }
     #s13-tag span { display: inline-block; }
-    #s13-tag { position: absolute; left: 0; right: 0; top: 760px; text-align: center; color: var(--white); font-size: 34px; }
-    #s13-cta { position: absolute; left: 0; right: 0; top: 880px; height: 470px; background: var(--pink); }
-    #s13-cta-k { position: absolute; left: 0; right: 0; top: 930px; text-align: center; color: var(--black); font-size: 40px; }
-    #s13-num { position: absolute; left: 0; right: 0; top: 1000px; display: flex; justify-content: center; align-items: center; gap: 26px; }
-    #s13-wa { width: 110px; height: 110px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    #s13-wa img { width: 68px; filter: invert(1); }
-    #s13-number { font-family: var(--sans); font-weight: 800; font-size: 100px; color: var(--white); white-space: nowrap; }
-    #s13-number small { font-size: 56px; color: var(--black); margin-right: 12px; }
-    #s13-ship { position: absolute; left: 0; right: 0; top: 1180px; text-align: center; color: var(--black); font-family: var(--sans); font-weight: 700; font-size: 36px; }
+    #s13-cta { position: absolute; left: 40px; right: 40px; top: 1330px; padding: 34px 20px 40px; background: #ffffff; border-top: 16px solid var(--pink); text-align: center; }
+    #s13-cta-k { font-family: var(--sans); font-weight: 900; font-size: 52px; color: var(--black); text-transform: uppercase; }
+    #s13-num { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 14px; }
+    #s13-wa { width: 120px; height: 120px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+    #s13-wa img { width: 74px; filter: invert(1); }
+    #s13-number { font-family: var(--sans); font-weight: 900; font-size: 112px; color: var(--black); white-space: nowrap; line-height: 1; }
+    #s13-number small { font-size: 56px; color: var(--pink); margin-right: 10px; }
+    #s13-ship { margin-top: 18px; font-family: var(--sans); font-weight: 800; font-size: 38px; color: var(--deep); text-transform: uppercase; }
     @media (orientation: landscape) {
-      #s13-sil { width: 700px; height: 1043px; left: -160px; top: 20px; }
-      #s13-logo { left: 560px; top: 70px; width: 800px; }
-      #s13-tag { top: 500px; font-size: 32px; }
-      #s13-cta { top: 640px; height: 440px; }
-      #s13-cta-k { top: 680px; }
-      #s13-num { top: 750px; }
-      #s13-ship { top: 920px; }
+      #s13-woman { width: 960px; left: -60px; top: 50px; }
+      #s13-logo { left: 880px; top: 40px; width: 780px; }
+      #s13-tag { left: 780px; width: 1000px; top: 450px; font-size: 44px; }
+      #s13-cta { left: 760px; right: 60px; top: 560px; padding: 26px 20px 30px; }
     }
   </style>
   <div id="root" data-composition-id="s13" data-width="1080" data-height="1920">
-    <div id="s13-sil" class="sb-sil"></div>
+    <div id="s13-bg" class="sb-fill sb-dark"></div>
+    <img id="s13-woman" class="sb-person" src="assets/people/robe-rouge-cut.png" alt="" />
     <div id="s13-logo-g" class="sb-fill"><img id="s13-logo" src="assets/logos/logo-sbbc.png" alt="Sublime Booty ByChris" /></div>
-    <div id="s13-tag" class="sb-kicker"><span id="s13-w1">Beauté •</span> <span id="s13-w2">Confiance •</span> <span id="s13-w3">Bien-être</span></div>
-    <div id="s13-cta"></div>
-    <div id="s13-cta-k" class="sb-kicker">Commandez sur WhatsApp</div>
-    <div id="s13-num">
-      <div id="s13-wa"><img src="assets/logos/whatsapp.svg" alt="" /></div>
-      <div id="s13-number"><small>+227</small><span data-var-text="phone">92 48 56 12</span></div>
+    <div id="s13-tag" class="sb-huge"><span id="s13-w1" class="sb-slab pink">Beauté</span> <span id="s13-w2" class="sb-slab pink">Confiance</span> <span id="s13-w3" class="sb-slab pink">Bien-être</span></div>
+    <div id="s13-cta">
+      <div id="s13-cta-k">Commandez sur WhatsApp</div>
+      <div id="s13-num">
+        <div id="s13-wa"><img src="assets/logos/whatsapp.svg" alt="" /></div>
+        <div id="s13-number"><small>+227</small><span data-var-text="phone">92 48 56 12</span></div>
+      </div>
+      <div id="s13-ship">Livraison Maradi • Niger • Monde</div>
     </div>
-    <div id="s13-ship">Livraison à Maradi • partout au Niger • dans le monde</div>
   </div>
   <script>
     (function () {
       const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      // The world from the map shrinks to a pink point that grows into the logo.
-      tl.fromTo("#s13-logo", { scale: 0.05, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "expo.out", transformOrigin: "20% 50%" }, 0.1);
-      M.glitch(tl, "#s13-logo-g", 0.6);
-      tl.fromTo("#s13-cta", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "power4.out" }, 0.9);
-      M.blurIn(tl, "#s13-cta-k", 1.1);
-      M.pop(tl, "#s13-wa", 1.2);
-      M.slam(tl, "#s13-number", 1.3, { origin: "50% 50%" });
-      M.blurIn(tl, "#s13-ship", 1.6);
+      M.personIn(tl, "#s13-woman", 0.05, { y: 200, d: 0.55 });
+      tl.fromTo("#s13-logo", { scale: 1.8, opacity: 0, filter: "blur(14px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "expo.out" }, 0.15);
+      M.glitch(tl, "#s13-logo-g", 0.55);
+      tl.fromTo("#s13-cta", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: "power4.out" }, 0.9);
+      M.pop(tl, "#s13-wa", 1.15);
+      M.slam(tl, "#s13-number", 1.25, { origin: "50% 50%" });
       // Signature words land as they are spoken.
-      M.blurIn(tl, "#s13-w1", 1.9);
-      M.blurIn(tl, "#s13-w2", 2.35);
-      M.blurIn(tl, "#s13-w3", 2.9);
-      tl.fromTo("#s13-sil", { y: 0 }, { y: -60, duration: 4.05, ease: "none" }, 0);
+      M.pop(tl, "#s13-w1", 1.9, { from: 0.4 });
+      M.pop(tl, "#s13-w2", 2.35, { from: 0.4 });
+      M.pop(tl, "#s13-w3", 2.9, { from: 0.4 });
+      M.drift(tl, "#s13-woman", 0.6, 3.45, { to: 1.05, origin: "50% 100%" });
       M.end(tl, 4.05);
       window.__timelines = window.__timelines || {};
       window.__timelines["s13"] = tl;

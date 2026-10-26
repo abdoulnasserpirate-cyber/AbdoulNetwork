@@ -1,41 +1,37 @@
 <template>
   <style>
-    #root { position: absolute; inset: 0; overflow: hidden; background: var(--pink); }
-    #s01-sil-ghost { color: var(--deep); width: 1240px; height: 1848px; left: 330px; top: 640px; }
-    #s01-sil { color: var(--black); width: 1240px; height: 1848px; left: 302px; top: 628px; }
-    #s01-l1 { position: absolute; left: 80px; top: 190px; color: var(--white); font-size: 60px; font-family: var(--sans); font-weight: 700; }
-    #s01-l2 { position: absolute; left: 66px; top: 270px; color: var(--black); font-size: 250px; }
-    #s01-l3 { position: absolute; left: 70px; top: 500px; color: var(--white); font-size: 196px; font-style: italic; }
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s01-cam { position: absolute; inset: 0; }
+    #s01-woman { width: 1400px; left: -170px; top: 470px; }
+    #s01-l1 { top: 150px; left: 60px; font-size: 64px; }
+    #s01-l2 { top: 250px; left: 60px; font-size: 190px; }
+    #s01-l3 { top: 440px; left: 60px; font-size: 128px; }
     @media (orientation: landscape) {
-      #s01-sil-ghost { width: 760px; height: 1132px; left: 1150px; top: 20px; }
-      #s01-sil { width: 760px; height: 1132px; left: 1128px; top: 10px; }
-      #s01-l1 { left: 120px; top: 250px; font-size: 56px; }
-      #s01-l2 { left: 106px; top: 320px; font-size: 230px; }
-      #s01-l3 { left: 112px; top: 540px; font-size: 180px; }
+      #s01-woman { width: 1100px; left: 900px; top: 40px; }
+      #s01-l1 { top: 210px; left: 100px; font-size: 64px; }
+      #s01-l2 { top: 310px; left: 100px; font-size: 200px; }
+      #s01-l3 { top: 510px; left: 100px; font-size: 140px; }
     }
   </style>
   <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
-    <div id="s01-zoom" class="sb-fill">
-    <div id="s01-sil-ghost" class="sb-sil"></div>
-    <div id="s01-sil" class="sb-sil"></div>
-    <div id="s01-l1">Vous rêvez de</div>
-    <div id="s01-l2" class="sb-title">formes</div>
-    <div id="s01-l3-g" class="sb-fill"><div id="s01-l3" class="sb-title">sublimes&nbsp;?</div></div>
+    <div id="s01-bg" class="sb-fill sb-stripes"></div>
+    <div id="s01-cam">
+      <img id="s01-woman" class="sb-person" src="assets/people/robe-rouge-cut.png" alt="" />
+      <div id="s01-l1" class="sb-line sb-huge sb-slab">Vous rêvez de</div>
+      <div id="s01-l2" class="sb-line sb-huge sb-slab">formes</div>
+      <div id="s01-l3" class="sb-line sb-huge sb-slab white">sublimes&nbsp;?</div>
     </div>
   </div>
   <script>
     (function () {
       const M = window.SBM;
       const tl = gsap.timeline({ paused: true });
-      // Frame 0 already reads: the first line and the figure are on screen.
-      tl.fromTo("#s01-sil", { y: 120 }, { y: 0, duration: 0.7, ease: "expo.out" }, 0);
-      tl.fromTo("#s01-sil-ghost", { y: 150, x: -30 }, { y: 0, x: 0, duration: 0.8, ease: "expo.out" }, 0);
-      M.glitch(tl, "#s01-sil-ghost", 0.0, { k: 1.4 });
-      M.slam(tl, "#s01-l2", 0.42);
-      M.slam(tl, "#s01-l3", 0.86);
-      M.glitch(tl, "#s01-l3-g", 0.86);
-      // Exit: punch into the figure, which carries on as the logo's figure in the next shot.
-      tl.to("#s01-zoom", { scale: 1.35, filter: "blur(10px)", duration: 0.2, ease: "power3.in", transformOrigin: "70% 60%" }, 1.45);
+      M.stripes(tl, "#s01-bg", 1.65);
+      // Frame 0 already reads: the first line and the woman are on screen.
+      tl.fromTo("#s01-woman", { y: 120, scale: 1.08 }, { y: 0, scale: 1, duration: 0.7, ease: "expo.out", transformOrigin: "50% 100%" }, 0);
+      M.reveal(tl, "#s01-l2", 0.42);
+      M.reveal(tl, "#s01-l3", 0.86, { fromRight: true });
+      M.drift(tl, "#s01-cam", 0, 1.65, { to: 1.07, origin: "50% 40%" });
       M.end(tl, 1.65);
       window.__timelines = window.__timelines || {};
       window.__timelines["s01"] = tl;
