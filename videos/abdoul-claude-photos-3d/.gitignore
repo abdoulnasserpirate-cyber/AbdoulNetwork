@@ -1,0 +1,7 @@
+renders/
+.hyperframes/
+snapshots/
+# regenerable with: python3 src/sound.py
+assets/audio/music.wav
+assets/audio/sfx.wav
+assets/audio/mix-sans-voix.wav
