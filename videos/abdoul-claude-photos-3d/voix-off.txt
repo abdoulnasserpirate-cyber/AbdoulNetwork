@@ -1,0 +1,87 @@
+VOIX OFF — « Claude retrouve tes photos » — Abdoul Network (@abdoulnetwork)
+Durée cible : 55–60 s · ~150 mots · tutoiement · une idée par phrase
+
+CONSEILS D'ENREGISTREMENT
+1. Téléphone à environ 15 cm de la bouche, légèrement de côté (pas en face) pour éviter les « p » qui claquent.
+2. Pièce calme et « molle » (rideaux, lit, vêtements autour) : pas de ventilateur, pas de clim, pas de télé.
+3. Laisse 1 seconde de silence au début et à la fin. Lis un peu plus vite que ta voix normale, avec énergie, en souriant légèrement. Si tu te trompes, marque une pause de 2 secondes et reprends toute la phrase : je couperai.
+
+Format attendu : un seul fichier (m4a, mp3 ou wav), tout le texte d'une traite.
+Prononciation : « Claude » = « clôde » ; « Claude in Chrome » = « clôde ine crôme » ;
+« abdoulnetwork » = « Abdoul Network ».
+
+IMPORTANT AVANT D'ENREGISTRER : fais vraiment le test avec ton selfie dans Claude.
+Si Claude trouve un autre nombre que 9, remplace « neuf » par le vrai chiffre dans
+les scènes 2 et 8 (je l'adapterai dans les compteurs et les grilles).
+
+────────────────────────────────────────────────────────
+
+[SCÈNE 1 — Accroche] (0:00–0:04)
+Combien de photos de toi traînent sur Internet ? Tu n'en as aucune idée.
+Titre à l'écran : Claude peut retrouver TOUTES TES PHOTOS (mot-clé rouge : « toutes tes photos »)
+Compteur bas : ? PHOTOS
+
+[SCÈNE 2 — Preuve] (0:04–0:07)
+J'ai testé sur moi. Claude m'a retrouvé à neuf endroits.
+Titre à l'écran : J'ai testé sur moi : 9 ENDROITS (mot-clé rouge : « 9 endroits »)
+Compteur bas : 1 ENDROIT → 9 ENDROITS
+
+[SCÈNE 3 — Étape 1 : selfie + prompt] (0:07–0:15)
+Étape une : ouvre Claude, ajoute un selfie, et demande-lui de décrire chaque détail qui te rend reconnaissable.
+Titre à l'écran : Étape 1 : UN SELFIE + UN PROMPT (mot-clé rouge : « un selfie + un prompt »)
+Compteur bas : —
+Pastilles : 1 Ajoute ton selfie · 2 Décris chaque détail · 3 Ce qui me rend reconnaissable
+
+[SCÈNE 4 — Claude décrit le visage] (0:15–0:18)
+Il analyse tout : ton visage, tes yeux, ta barbe, tes vêtements.
+Titre à l'écran : Claude décrit TON VISAGE (mot-clé rouge : « ton visage »)
+Compteur bas : —
+
+[SCÈNE 5 — L'astuce : connecteur Chrome] (0:18–0:26)
+Maintenant, l'astuce. Va dans Paramètres, puis Connecteurs, cherche Chrome et installe Claude in Chrome.
+Titre à l'écran : L'astuce : LE CONNECTEUR CHROME (mot-clé rouge : « le connecteur Chrome »)
+Carton plein écran : L'ASTUCE
+Compteur bas : —
+
+[SCÈNE 6 — Étape 2 : visage + nom] (0:26–0:36)
+Étape deux : renvoie ton selfie avec ton nom. Demande une recherche d'image inversée, chaque endroit où tu apparais, et tous les liens.
+Titre à l'écran : Étape 2 : TON VISAGE + TON NOM (mot-clé rouge : « ton visage + ton nom »)
+Compteur bas : —
+Pastilles : 1 Selfie + nom · 2 Recherche d'image inversée · 3 Chaque endroit + le lien
+
+[SCÈNE 7 — Claude ouvre son navigateur] (0:36–0:42)
+Là, Claude ouvre son propre navigateur et cherche à ta place, site après site.
+Titre à l'écran : Claude ouvre SON PROPRE NAVIGATEUR (mot-clé rouge : « son propre navigateur »)
+Barre d'étapes : Selfie + nom ✓ → Chrome ✓ → Endroits ✓ → Liens ✓
+Compteur bas : —
+
+[SCÈNE 8 — Choc] (0:42–0:44)
+Et franchement, le résultat fait peur.
+Titre à l'écran : Le résultat fait VRAIMENT PEUR (mot-clé rouge : « vraiment peur »)
+Compteur bas : 9 ENDROITS
+
+[SCÈNE 9 — Le bonus : une demande de retrait par site] (0:44–0:53)
+Le bonus : fais-lui rédiger une demande de retrait personnalisée pour chaque site où tu ne veux plus apparaître, au nom de la protection de tes données. Une par site, prête à envoyer.
+Titre à l'écran : Le bonus : UNE DEMANDE DE RETRAIT PAR SITE (mot-clé rouge : « une demande de retrait »)
+Carton plein écran : LE BONUS
+Compteur bas : 1 DEMANDE → 9 DEMANDES
+
+[SCÈNE 10 — Outro] (0:53–0:58)
+Abonne-toi à Abdoul Network pour d'autres astuces IA comme celle-ci.
+Titre à l'écran : Abonne-toi pour PLUS D'ASTUCES IA (mot-clé rouge : « plus d'astuces IA »)
+Barre de recherche : @abdoulnetwork
+Compteur bas : —
+
+────────────────────────────────────────────────────────
+TEXTE EN CONTINU (à lire d'une traite) :
+
+Combien de photos de toi traînent sur Internet ? Tu n'en as aucune idée.
+J'ai testé sur moi. Claude m'a retrouvé à neuf endroits.
+Étape une : ouvre Claude, ajoute un selfie, et demande-lui de décrire chaque détail qui te rend reconnaissable.
+Il analyse tout : ton visage, tes yeux, ta barbe, tes vêtements.
+Maintenant, l'astuce. Va dans Paramètres, puis Connecteurs, cherche Chrome et installe Claude in Chrome.
+Étape deux : renvoie ton selfie avec ton nom. Demande une recherche d'image inversée, chaque endroit où tu apparais, et tous les liens.
+Là, Claude ouvre son propre navigateur et cherche à ta place, site après site.
+Et franchement, le résultat fait peur.
+Le bonus : fais-lui rédiger une demande de retrait personnalisée pour chaque site où tu ne veux plus apparaître, au nom de la protection de tes données. Une par site, prête à envoyer.
+Abonne-toi à Abdoul Network pour d'autres astuces IA comme celle-ci.
