@@ -1,0 +1,113 @@
+Cloning into '/home/user/AbdoulNetwork/videos/sublime-booty-promo/whisper.cpp'...
+Note: switching to 'v1.5.5'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 7395c70a release : v1.5.5
+I whisper.cpp build info: 
+I UNAME_S:  Linux
+I UNAME_P:  x86_64
+I UNAME_M:  x86_64
+I CFLAGS:   -I.              -O3 -DNDEBUG -std=c11   -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3
+I CXXFLAGS: -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3
+I LDFLAGS:  
+I CC:       cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+I CXX:      g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+
+cc  -I.              -O3 -DNDEBUG -std=c11   -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3   -c ggml.c -o ggml.o
+cc  -I.              -O3 -DNDEBUG -std=c11   -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3   -c ggml-alloc.c -o ggml-alloc.o
+cc  -I.              -O3 -DNDEBUG -std=c11   -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3   -c ggml-backend.c -o ggml-backend.o
+cc  -I.              -O3 -DNDEBUG -std=c11   -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3   -c ggml-quants.c -o ggml-quants.o
+g++ -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3 -c whisper.cpp -o whisper.o
+g++ -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3 examples/main/main.cpp examples/common.cpp examples/common-ggml.cpp examples/grammar-parser.cpp ggml.o ggml-alloc.o ggml-backend.o ggml-quants.o whisper.o -o main 
+./main -h
+
+usage: ./main [options] file0.wav file1.wav ...
+
+options:
+  -h,        --help              [default] show this help message and exit
+  -t N,      --threads N         [4      ] number of threads to use during computation
+  -p N,      --processors N      [1      ] number of processors to use during computation
+  -ot N,     --offset-t N        [0      ] time offset in milliseconds
+  -on N,     --offset-n N        [0      ] segment index offset
+  -d  N,     --duration N        [0      ] duration of audio to process in milliseconds
+  -mc N,     --max-context N     [-1     ] maximum number of text context tokens to store
+  -ml N,     --max-len N         [0      ] maximum segment length in characters
+  -sow,      --split-on-word     [false  ] split on word rather than on token
+  -bo N,     --best-of N         [5      ] number of best candidates to keep
+  -bs N,     --beam-size N       [5      ] beam size for beam search
+  -ac N,     --audio-ctx N       [0      ] audio context size (0 - all)
+  -wt N,     --word-thold N      [0.01   ] word timestamp probability threshold
+  -et N,     --entropy-thold N   [2.40   ] entropy threshold for decoder fail
+  -lpt N,    --logprob-thold N   [-1.00  ] log probability threshold for decoder fail
+  -debug,    --debug-mode        [false  ] enable debug mode (eg. dump log_mel)
+  -tr,       --translate         [false  ] translate from source language to english
+  -di,       --diarize           [false  ] stereo audio diarization
+  -tdrz,     --tinydiarize       [false  ] enable tinydiarize (requires a tdrz model)
+  -nf,       --no-fallback       [false  ] do not use temperature fallback while decoding
+  -otxt,     --output-txt        [false  ] output result in a text file
+  -ovtt,     --output-vtt        [false  ] output result in a vtt file
+  -osrt,     --output-srt        [false  ] output result in a srt file
+  -olrc,     --output-lrc        [false  ] output result in a lrc file
+  -owts,     --output-words      [false  ] output script for generating karaoke video
+  -fp,       --font-path         [/System/Library/Fonts/Supplemental/Courier New Bold.ttf] path to a monospace font for karaoke video
+  -ocsv,     --output-csv        [false  ] output result in a CSV file
+  -oj,       --output-json       [false  ] output result in a JSON file
+  -ojf,      --output-json-full  [false  ] include more information in the JSON file
+  -of FNAME, --output-file FNAME [       ] output file path (without file extension)
+  -np,       --no-prints         [false  ] do not print anything other than the results
+  -ps,       --print-special     [false  ] print special tokens
+  -pc,       --print-colors      [false  ] print colors
+  -pp,       --print-progress    [false  ] print progress
+  -nt,       --no-timestamps     [false  ] do not print timestamps
+  -l LANG,   --language LANG     [en     ] spoken language ('auto' for auto-detect)
+  -dl,       --detect-language   [false  ] exit after automatically detecting language
+             --prompt PROMPT     [       ] initial prompt (max n_text_ctx/2 tokens)
+  -m FNAME,  --model FNAME       [models/ggml-base.en.bin] model path
+  -f FNAME,  --file FNAME        [       ] input WAV file path
+  -oved D,   --ov-e-device DNAME [CPU    ] the OpenVINO device used for encode inference
+  -dtw MODEL --dtw MODEL         [       ] compute token-level timestamps
+  -ls,       --log-score         [false  ] log best decoder scores of tokens
+  -ng,       --no-gpu            [false  ] disable GPU
+  --suppress-regex REGEX         [       ] regular expression matching tokens to suppress
+  --grammar GRAMMAR              [       ] GBNF grammar to guide decoding
+  --grammar-rule RULE            [       ] top-level GBNF grammar rule name
+  --grammar-penalty N            [100.0  ] scales down logits of nongrammar tokens
+
+g++ -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3 examples/bench/bench.cpp ggml.o ggml-alloc.o ggml-backend.o ggml-quants.o whisper.o -o bench 
+g++ -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3 examples/quantize/quantize.cpp examples/common.cpp examples/common-ggml.cpp examples/grammar-parser.cpp ggml.o ggml-alloc.o ggml-backend.o ggml-quants.o whisper.o -o quantize 
+g++ -I. -I./examples -O3 -DNDEBUG -std=c++11 -fPIC -D_XOPEN_SOURCE=600 -D_GNU_SOURCE -pthread -mavx -mavx2 -mavx512f -mavx512cd -mavx512vl -mavx512dq -mavx512bw -mavx512vnni -mavx512vbmi -mfma -mf16c -msse3 -mssse3 examples/server/server.cpp examples/common.cpp examples/common-ggml.cpp examples/grammar-parser.cpp ggml.o ggml-alloc.o ggml-backend.o ggml-quants.o whisper.o -o server  
+Downloading whisper model medium from https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-medium.bin
+node:internal/deps/undici/undici:14902
+      Error.captureStackTrace(err);
+            ^
+
+TypeError: fetch failed
+    at node:internal/deps/undici/undici:14902:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async downloadFile (/home/user/AbdoulNetwork/videos/sublime-booty-promo/node_modules/@remotion/install-whisper-cpp/dist/download.js:5:31)
+    at async downloadWhisperModel (/home/user/AbdoulNetwork/videos/sublime-booty-promo/node_modules/@remotion/install-whisper-cpp/dist/download-whisper-model.js:99:5)
+    at async file:///home/user/AbdoulNetwork/videos/sublime-booty-promo/scripts/transcribe.mjs:19:1 {
+  [cause]: Error: getaddrinfo ENOTFOUND huggingface.co
+      at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+    errno: -3008,
+    code: 'ENOTFOUND',
+    syscall: 'getaddrinfo',
+    hostname: 'huggingface.co'
+  }
+}
+
+Node.js v22.22.0

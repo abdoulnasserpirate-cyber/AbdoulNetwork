@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+.env
+whisper.cpp
+scripts/voix16k.wav
+
+# Rendus : seuls les MP4 finaux et les miniatures sont versionnés
+out/*
+!out/SublimeBooty-GrandePromo-16x9.mp4
+!out/SublimeBooty-GrandePromo-9x16.mp4
+!out/cover-16x9.png
+!out/cover-9x16.png
