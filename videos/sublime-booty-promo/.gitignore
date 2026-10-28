@@ -12,3 +12,4 @@ out/*
 !out/cover-16x9.png
 !out/cover-9x16.png
 scripts/transcribe.log
+!out/*-WhatsApp.mp4
