@@ -11,3 +11,4 @@ out/*
 !out/SublimeBooty-GrandePromo-9x16.mp4
 !out/cover-16x9.png
 !out/cover-9x16.png
+scripts/transcribe.log
