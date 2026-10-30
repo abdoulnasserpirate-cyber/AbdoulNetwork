@@ -43,9 +43,9 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060
 #s5-lead { left: 900px; top: 150px; font-size: 66px; } #s5-old { left: 900px; top: 230px; }
 #s5-arrow { left: 910px; top: 470px; font-size: 58px; } #s5-new { left: 890px; top: 560px; } #s5-badge { left: 1600px; top: 110px; }
 /* S6 */
-#s6-card { left: 1150px; top: 290px; width: 700px; height: 480px; }
+#s6-card { left: 1180px; top: 110px; width: 600px; height: 860px; }
 #s6-lead { left: 120px; top: 150px; font-size: 66px; } #s6-old { left: 120px; top: 230px; }
-#s6-arrow { left: 130px; top: 470px; font-size: 58px; } #s6-new { left: 110px; top: 560px; } #s6-badge { left: 1620px; top: 120px; }
+#s6-arrow { left: 130px; top: 470px; font-size: 58px; } #s6-new { left: 110px; top: 560px; } #s6-badge { left: 1640px; top: 60px; }
 /* S7 */
 #s7-pct { top: 90px; font-size: 200px; } #s7-lead { top: 330px; font-size: 64px; }
 #s7-days { top: 450px; display: flex; justify-content: center; gap: 40px; }
