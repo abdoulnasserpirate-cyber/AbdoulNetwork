@@ -1,0 +1,312 @@
+@font-face {
+  font-family: "MontX";
+  src: url("fonts/Montserrat-900i.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+  font-display: block;
+}
+@font-face {
+  font-family: "MontX";
+  src: url("fonts/Montserrat-800i.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  font-display: block;
+}
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Montserrat-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: block;
+}
+@font-face {
+  font-family: "Mont";
+  src: url("fonts/Montserrat-800.woff2") format("woff2");
+  font-weight: 800;
+  font-display: block;
+}
+:root {
+  --red: #d6060f;
+  --red-hi: #f0222b;
+  --red-dk: #9a0010;
+  --white: #ffffff;
+  --ink: #121010;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.abs {
+  position: absolute;
+}
+/* backgrounds */
+.bg-red {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 78%, rgba(120, 0, 10, 0.75) 0%, rgba(120, 0, 10, 0) 38%),
+    radial-gradient(circle at 80% 18%, rgba(255, 70, 60, 0.55) 0%, rgba(255, 70, 60, 0) 40%),
+    radial-gradient(circle at 70% 85%, rgba(140, 0, 12, 0.5) 0%, rgba(140, 0, 12, 0) 35%),
+    var(--red);
+}
+.bg-white {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 60%, rgba(214, 6, 15, 0.1) 0%, rgba(214, 6, 15, 0) 45%),
+    radial-gradient(circle at 15% 20%, rgba(214, 6, 15, 0.06) 0%, rgba(214, 6, 15, 0) 40%),
+    #ffffff;
+}
+.rays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3200px;
+  height: 3200px;
+  margin-left: -1600px;
+  margin-top: -1600px;
+  border-radius: 50%;
+}
+.rays.red {
+  background: repeating-conic-gradient(from 0deg, #e00a14 0deg 6deg, #c0040e 6deg 12deg);
+}
+.rays.white {
+  background: repeating-conic-gradient(from 0deg, #ffffff 0deg 6deg, #fde8e9 6deg 12deg);
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 35%, rgba(90, 0, 8, 0.45) 100%);
+}
+.vignette.light {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0) 30%, rgba(214, 6, 15, 0.12) 100%);
+}
+/* type */
+.lead {
+  font-family: "Mont", sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+.big {
+  font-family: "MontX", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+.mid {
+  font-family: "MontX", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+}
+.w {
+  display: inline-block;
+}
+.c-white {
+  color: var(--white);
+}
+.c-red {
+  color: var(--red);
+}
+.c-ink {
+  color: var(--ink);
+}
+/* photo card (reference-style) */
+.card {
+  position: absolute;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 30px 60px rgba(40, 0, 4, 0.4);
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+.plate {
+  position: absolute;
+  border-radius: 50%;
+  border: 14px solid #fff;
+  box-shadow: 0 30px 60px rgba(40, 0, 4, 0.4);
+  overflow: hidden;
+  background: #fff;
+}
+.plate img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.dish {
+  position: absolute;
+  display: block;
+  filter: drop-shadow(0 28px 36px rgba(40, 0, 4, 0.45));
+}
+/* bubbles & pills */
+.bubble {
+  position: absolute;
+  font-family: "Mont", sans-serif;
+  font-weight: 800;
+  padding: 12px 26px 14px;
+  border-radius: 16px;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(60, 0, 6, 0.3);
+}
+.bubble.wht {
+  background: #fff;
+  color: var(--ink);
+}
+.bubble.blk {
+  background: var(--ink);
+  color: #fff;
+}
+.pill {
+  display: inline-block;
+  font-family: "MontX", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  padding: 10px 26px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.pill.red {
+  background: var(--red);
+  color: #fff;
+}
+.pill.wht {
+  background: #fff;
+  color: var(--red);
+}
+.pill.blk {
+  background: var(--ink);
+  color: #fff;
+}
+.tile {
+  position: absolute;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(60, 0, 6, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: "MontX", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--red);
+  text-align: center;
+}
+.phone {
+  position: absolute;
+  border-radius: 56px;
+  background: #151212;
+  border: 12px solid #222;
+  box-shadow:
+    0 0 0 3px #444,
+    0 40px 80px rgba(40, 0, 4, 0.55);
+  overflow: hidden;
+}
+.phone img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: block;
+}
+.medal {
+  position: absolute;
+}
+.sline {
+  position: absolute;
+  height: 8px;
+  border-radius: 99px;
+  background: #fff;
+}
+.ctr {
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.mini {
+  display: inline-block;
+  border-radius: 50%;
+  border: 8px solid #fff;
+  overflow: hidden;
+  box-shadow: 0 14px 28px rgba(40, 0, 4, 0.35);
+}
+.mini img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.wa-t {
+  color: var(--red);
+}
+.wa-n {
+  color: var(--ink);
+}
+.tile img {
+  max-width: 78%;
+  max-height: 72%;
+  object-fit: contain;
+  display: block;
+}
+.tile-ico {
+  width: 120px;
+  height: 120px;
+}
+.medal-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.wpanel {
+  position: absolute;
+  top: -25%;
+  left: -40%;
+  width: 180%;
+  height: 150%;
+}
+#fx {
+  pointer-events: none;
+}
+/* ---- carte additions ---- */
+.ctr { left: 0; width: 100%; text-align: center; }
+.ghost { font-family: "MontX", sans-serif; font-weight: 900; font-style: italic; line-height: 0.8; color: transparent; white-space: nowrap; }
+.ghost.on-white { color: rgba(214, 6, 15, 0.07); -webkit-text-stroke: 5px rgba(214, 6, 15, 0.16); }
+.ghost.on-red { color: rgba(255, 255, 255, 0.07); -webkit-text-stroke: 5px rgba(255, 255, 255, 0.2); }
+.chap .pill { box-shadow: 0 8px 20px rgba(60, 0, 6, 0.25); }
+.tag .pill { box-shadow: 0 10px 24px rgba(60, 0, 6, 0.3); }
+.cover-logo { width: 56%; display: block; }
+.cover-t { color: #fff; }
+.cover-s { color: #fff; opacity: 0.9; }
+.pcol, .lcol, .fcol { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.pcol .plate, .fcol .plate { position: relative; }
+.fcol .card { position: relative; }
+.pname { color: #fff; white-space: nowrap; }
+.sauce { display: inline-block; font-family: "MontX", sans-serif; font-weight: 800; font-style: italic; text-transform: uppercase; background: #fff; color: #d6060f; border-radius: 18px; box-shadow: 0 14px 30px rgba(60, 0, 6, 0.35); }
+.lpic { position: relative; display: flex; align-items: center; justify-content: center; }
+.lpic .card, .lpic .plate, .lpic .dish { position: relative; }
+.ttile { background: #d6060f; color: #fff; border-radius: 26px; display: flex; align-items: center; justify-content: center; box-shadow: 0 24px 50px rgba(60, 0, 6, 0.35); border: 10px solid #fff; }
+.lname { white-space: nowrap; }
+.dname { white-space: nowrap; }
+.hud-l { opacity: 0.9; }
+.svc .tile-t { font-size: 46px; }
+.sp-ico { width: 62%; height: 62%; }

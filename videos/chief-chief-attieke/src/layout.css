@@ -1,0 +1,66 @@
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060f; }
+.ctr { left: 0; width: 100%; text-align: center; }
+.beams { position: absolute; inset: 0; overflow: hidden; }
+.beam { position: absolute; top: -260px; width: 260px; height: 1700px; transform-origin: 50% 0%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.06) 55%, rgba(255, 255, 255, 0) 100%); filter: blur(10px); }
+.beam:nth-child(1) { left: 180px; } .beam:nth-child(2) { left: 640px; } .beam:nth-child(3) { left: 1100px; } .beam:nth-child(4) { left: 1520px; }
+.dot { position: absolute; }
+#fx { pointer-events: none; }
+/* hero dish (travels S2 → S4) */
+#hero { position: absolute; inset: 0; pointer-events: none; }
+#hero-in { position: absolute; left: 1230px; top: 220px; width: 620px; height: 620px; border-width: 16px; }
+.shine { position: absolute; top: -20%; left: -70%; width: 35%; height: 140%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)); transform: rotate(20deg); display: block; }
+#hero-steam { position: absolute; left: 1380px; top: 120px; width: 320px; height: 200px; }
+.steam { position: absolute; bottom: 0; width: 70px; height: 160px; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%); filter: blur(8px); display: block; }
+.steam:nth-child(1) { left: 30px; } .steam:nth-child(2) { left: 125px; } .steam:nth-child(3) { left: 220px; }
+/* S1 */
+#s1-cal { left: 130px; top: 640px; width: 230px; height: 260px; background: #fff; border-radius: 22px; overflow: hidden; box-shadow: 0 24px 50px rgba(40, 0, 4, 0.45); text-align: center; }
+.cal-top { background: #121010; color: #fff; font-family: "MontX", sans-serif; font-weight: 800; font-style: italic; font-size: 34px; padding: 12px 0 14px; }
+.cal-day { font-family: "MontX", sans-serif; font-weight: 900; font-style: italic; font-size: 150px; color: #d6060f; line-height: 1.15; }
+#s1-lead { top: 300px; font-size: 66px; } #s1-big { top: 380px; font-size: 175px; }
+#s1-logo { left: 840px; top: 40px; width: 240px; height: 240px; }
+#s1-gate { top: 650px; } #s1-gate .pill { font-size: 92px; }
+/* S2 */
+#s2-lead { left: 120px; top: 330px; font-size: 62px; } #s2-big { left: 110px; top: 405px; font-size: 125px; }
+#s2-sub { left: 120px; top: 600px; } #s2-sub .pill { font-size: 62px; }
+/* S3 */
+#s3-c1, #s3-c2, #s3-c3 { left: 1220px; top: 130px; width: 540px; height: 820px; }
+#s3-w1 { left: 110px; top: 230px; font-size: 150px; } #s3-w2 { left: 110px; top: 400px; font-size: 150px; }
+#s3-w3 { left: 120px; top: 620px; } #s3-w3 .pill { font-size: 80px; }
+/* S4 */
+#s4-lead { left: 120px; top: 150px; font-size: 62px; } #s4-promo { left: 120px; top: 230px; } #s4-promo .pill { font-size: 66px; }
+#s4-pct { left: 90px; top: 340px; font-size: 330px; text-shadow: 0 20px 40px rgba(40, 0, 4, 0.5); }
+#s4-sub { left: 120px; top: 730px; } #s4-sub .pill { font-size: 62px; }
+/* price blocks */
+.price-old { white-space: nowrap; } .price-old .big { color: #fff; font-size: 170px; } .price-old.dark .big { color: #121010; }
+.strike { position: absolute; left: -3%; top: 46%; width: 106%; height: 16px; border-radius: 8px; background: #121010; transform-origin: 0% 50%; display: block; }
+.price-old.dark .strike { background: #d6060f; }
+.price-new .big { display: inline-block; background: #fff; color: #d6060f; font-size: 190px; padding: 6px 46px 22px; border-radius: 28px; box-shadow: 0 24px 50px rgba(40, 0, 4, 0.4); }
+.price-new.on-white .big { background: #d6060f; color: #fff; }
+.badge { width: 230px; height: 230px; border-radius: 50%; background: #121010; border: 10px solid #fff; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+.badge .big { font-size: 74px; }
+/* S5 */
+#s5-card { left: 110px; top: 150px; width: 640px; height: 760px; }
+#s5-lead { left: 900px; top: 150px; font-size: 66px; } #s5-old { left: 900px; top: 230px; }
+#s5-arrow { left: 910px; top: 470px; font-size: 58px; } #s5-new { left: 890px; top: 560px; } #s5-badge { left: 1600px; top: 110px; }
+/* S6 */
+#s6-card { left: 1150px; top: 290px; width: 700px; height: 480px; }
+#s6-lead { left: 120px; top: 150px; font-size: 66px; } #s6-old { left: 120px; top: 230px; }
+#s6-arrow { left: 130px; top: 470px; font-size: 58px; } #s6-new { left: 110px; top: 560px; } #s6-badge { left: 1620px; top: 120px; }
+/* S7 */
+#s7-pct { top: 90px; font-size: 200px; } #s7-lead { top: 330px; font-size: 64px; }
+#s7-days { top: 450px; display: flex; justify-content: center; gap: 40px; }
+.day { width: 470px; height: 300px; background: #fff; border-radius: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 24px 50px rgba(40, 0, 4, 0.4); }
+.d-n { color: #d6060f; font-size: 68px; } .d-d { color: #121010; font-size: 50px; }
+/* S8 */
+#s8-k1, #s8-k2, #s8-k3 { top: 300px; width: 420px; height: 330px; } #s8-k1 { left: 190px; } #s8-k2 { left: 750px; } #s8-k3 { left: 1310px; }
+.svc .tile-t { font-size: 48px; } #s8-sub { top: 760px; } #s8-sub .pill { font-size: 64px; }
+/* S9 */
+#s9-card { left: 1300px; top: 150px; width: 520px; height: 680px; }
+#s9-big { left: 110px; top: 160px; font-size: 105px; } #s9-url { left: 120px; top: 330px; font-size: 64px; }
+#s9-wa { left: 120px; top: 450px; } .wapill { display: inline-flex; align-items: center; gap: 18px; background: #d6060f; color: #fff; border-radius: 999px; padding: 12px 40px 14px 22px; box-shadow: 0 16px 36px rgba(40, 0, 4, 0.3); }
+.wa-ico { width: 74px; height: 74px; } .wapill .mid { font-size: 50px; }
+#s9-num { left: 110px; top: 600px; font-size: 150px; color: #d6060f; }
+/* S10 */
+#s10-logo { left: 820px; top: 40px; width: 280px; height: 280px; } #s10-lead { top: 360px; font-size: 64px; } #s10-big { top: 435px; font-size: 210px; }
+#s10-band { left: 0; top: 760px; width: 1920px; height: 320px; background: #121010; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+#s10-band .mid { font-size: 60px; } .band-p { display: flex; gap: 24px; } .band-p .pill { font-size: 48px; }
