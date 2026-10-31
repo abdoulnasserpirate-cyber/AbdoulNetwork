@@ -131,10 +131,11 @@ def titles(fr, t):
     # end card
     a = window(t, 32.5, 36, 0.6, 0)
     if a:
-        serif_block(fr, t, [("LIKE   ·   ABONNE-TOI", "inter_l", 40, CREAM, 8)], 250, 32.55, 36)
-        hairline(fr, W / 2, 210, 380 * ease_in_out(prog(t, 32.7, 0.8)), a)
-        hairline(fr, W / 2, 290, 380 * ease_in_out(prog(t, 32.7, 0.8)), a)
-        serif_block(fr, t, [("pour plus de vidéos comme celle-ci", "serif_i", 50, GOLD, 0)], 355, 33.4, 36)
+        serif_block(fr, t, [("LIKE   ·   ABONNE-TOI", "inter_l", 40, CREAM, 8)], 230, 32.55, 36)
+        hairline(fr, W / 2, 190, 380 * ease_in_out(prog(t, 32.7, 0.8)), a)
+        hairline(fr, W / 2, 270, 380 * ease_in_out(prog(t, 32.7, 0.8)), a)
+        serif_block(fr, t, [("pour plus de vidéos comme celle-ci", "serif_i", 50, GOLD, 0)], 330, 33.4, 36)
+        serif_block(fr, t, [("@AbdoulNetwork", "serif_b", 66, CREAM, 0)], 425, 32.9, 36)
 
 
 def subtitles(fr, t):
@@ -173,7 +174,9 @@ def audio():
 
 def main(out):
     rd = Reader()
-    wr = Writer(out, os.path.join(ROOT, "build", "audio_c.wav"))
+    # grain is costly to encode: cap the bitrate so the file stays social-media sized
+    wr = Writer(out, os.path.join(ROOT, "build", "audio_c.wav"), 19,
+                ("-tune", "grain", "-maxrate", "11M", "-bufsize", "22M"))
     for i in range(n_frames()):
         wr.write(render(rd.next().astype(np.float32), i / FPS, i))
     wr.close()
