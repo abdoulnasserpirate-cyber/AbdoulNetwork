@@ -158,18 +158,15 @@ def top_graphics(fr, t):
     if a:
         k1 = ease_out_back(prog(t, 32.56, 0.35), 2.0)
         tap = 1 - 0.12 * np.sin(np.pi * prog(t, 32.9, 0.16))
-        over(fr, pill("LIKE", "black", 64, WHITE, INK, 44, 22, emoji="❤️", shadow=16), 300, 260,
+        over(fr, pill("LIKE", "black", 64, WHITE, INK, 44, 22, emoji="❤️", shadow=16), 300, 320,
              a * min(1, 2 * k1), (0.5 + 0.5 * k1) * tap)
         k2 = ease_out_back(prog(t, 33.0, 0.35), 2.0)
         sub = t >= 33.4
         tap2 = 1 - 0.12 * np.sin(np.pi * prog(t, 33.25, 0.16))
         over(fr, pill("ABONNÉ" if sub else "ABONNE-TOI", "black", 64, (70, 70, 80) if sub else RED, WHITE, 44, 22,
-                      emoji="🔔", shadow=16), 720, 260, a * min(1, 2 * k2), (0.5 + 0.5 * k2) * tap2)
+                      emoji="🔔", shadow=16), 720, 320, a * min(1, 2 * k2), (0.5 + 0.5 * k2) * tap2)
         k3 = ease_out(prog(t, 33.6, 0.35))
-        over(fr, text_img("+ DE VIDÉOS COMME ÇA", "anton", 60, WHITE, 6, INK), W / 2, 380 + 30 * (1 - k3), k3)
-        kh = ease_out_back(prog(t, 32.7, 0.4), 2.2)
-        over(fr, text_img("@AbdoulNetwork", "anton", 100, YEL, 9, INK, (0, 8, 12, 0.5)), W / 2, 490,
-             a * min(1, 2 * kh), 1.4 - 0.4 * kh)
+        over(fr, text_img("+ DE VIDÉOS COMME ÇA", "anton", 70, YEL, 7, INK), W / 2, 470 + 30 * (1 - k3), k3)
 
 
 def captions(fr, t):

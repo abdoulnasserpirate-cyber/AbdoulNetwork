@@ -269,10 +269,6 @@ def hook(fr, t):
 def end_card(fr, t):
     if t < 32.4:
         return
-    kh = ease_out_back(prog(t, 32.45, 0.45))
-    h = text_img("@AbdoulNetwork", "black", 84, WHITE, 8, NAVY, (0, 8, 12, 0.6))
-    over(fr, h, W / 2, 360, min(1, 2 * kh), 0.7 + 0.3 * kh)
-    over(fr, rrect(int(h.shape[1] * 0.7 * ease_out(prog(t, 32.7, 0.5))) + 1, 10, 5, ORANGE), W / 2, 445, kh)
     k1 = ease_out_back(prog(t, 32.56, 0.4))
     tap1 = 1 - 0.1 * np.sin(np.pi * prog(t, 32.85, 0.18))
     p1 = pill("Like", "black", 52, WHITE, NAVY, 40, 22, emoji="❤️", shadow=18)

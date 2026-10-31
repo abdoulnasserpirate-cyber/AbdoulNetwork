@@ -370,11 +370,11 @@ def n_frames(path=BASE):
 
 
 class Writer:
-    def __init__(self, out, audio, crf=16, extra=()):
+    def __init__(self, out, audio, crf=16):
         self.p = subprocess.Popen(
             ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
              "-r", str(FPS), "-i", "-", "-i", audio, "-map", "0:v", "-map", "1:a",
-             "-c:v", "libx264", "-preset", "slow", "-crf", str(crf), *extra, "-profile:v", "high",
+             "-c:v", "libx264", "-preset", "slow", "-crf", str(crf), "-profile:v", "high",
              "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709",
              "-colorspace", "bt709", "-c:a", "aac", "-b:a", "256k", "-ar", "48000",
              "-movflags", "+faststart", "-shortest", out], stdin=subprocess.PIPE)
