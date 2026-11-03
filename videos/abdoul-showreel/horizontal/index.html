@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<script src="assets/vendor/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Archivo Black';src:url('assets/fonts/ArchivoBlack.woff2') format('woff2');font-display:block}
+@font-face{font-family:'Archivo';font-weight:800;src:url('assets/fonts/Archivo-800.woff2') format('woff2');font-display:block}
+@font-face{font-family:'Inter';font-weight:400 800;src:url('assets/fonts/Inter-normal-400_800.woff2') format('woff2');font-display:block}
+@font-face{font-family:'JetBrains Mono';font-weight:500;src:url('assets/fonts/JetBrainsMono-normal-500.woff2') format('woff2');font-display:block}
+@font-face{font-family:'JetBrains Mono';font-weight:700;src:url('assets/fonts/JetBrainsMono-normal-700.woff2') format('woff2');font-display:block}
+:root{--navy:#081230;--navy2:#0F1D47;--blue:#2F6BFF;--o:#FF6B1A;--beige:#F3EADA;--ink:#0A1024;--mute:#7C8AB3}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--navy)}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--navy);font-family:Inter,sans-serif;color:#fff}
+#bg{position:absolute;inset:0;background:
+  radial-gradient(1344px 540px at 70% 20%,rgba(47,107,255,.22),transparent 70%),
+  radial-gradient(1152px 432px at 10% 95%,rgba(255,107,26,.10),transparent 70%),
+  linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/60px 60px,
+  linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/60px 60px,var(--navy)}
+.scene{position:absolute;inset:0;overflow:hidden}
+.ln{overflow:hidden;line-height:1.02;padding-bottom:.04em}
+.ln span{display:inline-block}
+.o{color:var(--o)}
+.hud{position:absolute;font:500 16px 'JetBrains Mono',monospace;letter-spacing:.14em;color:rgba(255,255,255,.55);white-space:nowrap}
+#hud-l{left:64px;top:52px}
+#hud-l b{color:var(--o)}
+#hud-r{right:64px;top:52px}
+.cn{position:absolute;width:34px;height:34px;border-color:rgba(255,255,255,.35);border-style:solid}
+#cn1{left:36px;top:36px;border-width:2px 0 0 2px}#cn2{right:36px;top:36px;border-width:2px 2px 0 0}
+#cn3{left:36px;bottom:36px;border-width:0 0 2px 2px}#cn4{right:36px;bottom:36px;border-width:0 2px 2px 0}
+#caps{position:absolute;left:0;right:0;top:944px;height:80px;--past:#fff;--up:rgba(255,255,255,.42);--on:#FF6B1A}
+.cg{position:absolute;left:0;right:0;top:0;text-align:center;font:700 40px Inter,sans-serif;letter-spacing:-.01em;opacity:0;white-space:nowrap;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.w{color:var(--up)}.w.on{color:var(--on)}.w.done{color:var(--past)}
+/* intro */
+#s1-dot{position:absolute;left:946px;top:526px;width:28px;height:28px;border-radius:50%;background:var(--o)}
+#s1-txt{position:absolute;left:200px;top:300px;font:124px 'Archivo Black',sans-serif;text-transform:uppercase}
+#s1-txt span{position:relative}
+#s1-strike{position:absolute;left:-8px;right:-8px;top:46%;height:13px;background:#fff;transform-origin:0 50%;border-radius:4px;transform:scaleX(0)}
+#s1-block{position:absolute;left:800px;top:450px;width:320px;height:180px;border-radius:26px;background:var(--o)}
+/* project scenes */
+.lbl{position:absolute;left:140px;top:330px;font:700 18px 'JetBrains Mono',monospace;letter-spacing:.12em;color:rgba(255,255,255,.7);white-space:nowrap}
+.lbl b{color:var(--o)}
+.ttl{position:absolute;left:140px;top:364px;font:92px 'Archivo Black',sans-serif;text-shadow:0 6px 40px rgba(8,18,48,.6)}
+.card{position:absolute;left:840px;top:220px;width:960px;height:540px;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 2px rgba(255,255,255,.08)}
+.card.sq{left:1060px;top:170px;width:640px;height:640px;}
+.card.port{left:1540px;top:440px;width:280px;height:350px;}
+.stk{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0}
+.stk:first-child{opacity:1}
+.playbar{position:absolute;left:24px;right:24px;bottom:18px;height:6px;border-radius:3px;background:rgba(255,255,255,.3)}
+.playbar i{position:absolute;left:0;top:0;bottom:0;width:100%;border-radius:3px;background:var(--o);transform-origin:0 50%;transform:scaleX(0)}
+.phone{position:absolute;left:1560px;top:360px;width:270px;height:540px;border-radius:44px;background:#03060F;padding:11px;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 2px #2A3560}
+.screen{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden}
+.app{background:#0B1E5B;padding:22px 16px;font-family:Inter,sans-serif}
+.app-top{display:flex;gap:10px;align-items:center;margin-top:14px}
+.app-top img{width:44px;height:44px;border-radius:10px}
+.app-top b{display:block;font-size:15px}.app-top small{font-size:11px;color:#F5B21F}
+.app-h{margin-top:20px;font:800 24px Inter,sans-serif}
+.app-in{margin-top:10px;background:#fff;color:#0B1E5B;border-radius:12px;padding:11px 12px;font-size:12px;font-weight:600;display:flex;gap:8px;align-items:center;white-space:nowrap;overflow:hidden}
+.pin{width:10px;height:10px;border-radius:50%;background:#F5B21F;flex:none}
+.app-grid{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tile{background:#14307F;border-radius:12px;padding:12px 10px;font-size:13px;font-weight:700}
+.tile.t2{background:#F5B21F;color:#0B1E5B}
+.app-map{margin-top:12px;border-radius:12px;background:#132B70;height:96px;overflow:hidden}
+.app-map svg{width:100%;height:100%}
+.app-btn{position:absolute;left:16px;right:16px;bottom:26px;background:#F5B21F;color:#0B1E5B;text-align:center;border-radius:14px;padding:14px;font-weight:800;font-size:15px}
+/* youtube */
+.yt{position:absolute;left:840px;top:220px;width:960px;height:540px;}
+.yt-player{position:absolute;inset:0;opacity:0;border-radius:22px;overflow:hidden;background:linear-gradient(135deg,#13245E,#081230);box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 2px rgba(255,255,255,.08)}
+.yt-ep{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:.3em;font:82px 'Archivo Black',sans-serif;background:linear-gradient(135deg,#2F6BFF,#0F1D47)}
+.yt-ep b{color:var(--o)}.yt-ep.e2{background:linear-gradient(135deg,#FF6B1A,#7A2A06)}.yt-ep.e2 b{color:#081230}.yt-ep.e3{background:linear-gradient(135deg,#0F1D47,#2F6BFF)}
+.yt-play{position:absolute;left:50%;top:50%;width:110px;height:76px;margin:-38px 0 0 -55px;border-radius:20px;background:rgba(8,18,48,.75)}
+.yt-play:after{content:'';position:absolute;left:44px;top:22px;border-left:30px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent}
+.yt-bar{position:absolute;left:24px;right:24px;bottom:20px;height:6px;background:rgba(255,255,255,.3);border-radius:3px}
+.yt-bar i{position:absolute;inset:0;background:var(--o);border-radius:3px;transform-origin:0 50%;transform:scaleX(0)}
+.yt-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:14px}
+.yt-th{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#2F6BFF,#0F1D47);display:flex;align-items:center;justify-content:center;font:38px 'Archivo Black',sans-serif;opacity:0}
+.yt-th.th2,.yt-th.th6{background:linear-gradient(135deg,#FF6B1A,#7A2A06)}.yt-th.th4{background:linear-gradient(135deg,#F3EADA,#C9B99B);color:#081230}
+.yt-th em{position:absolute;right:8px;bottom:8px;font:700 13px 'JetBrains Mono',monospace;font-style:normal;background:rgba(0,0,0,.7);color:#fff;padding:2px 6px;border-radius:5px}
+/* wall MOI */
+#wall{position:absolute;left:50%;top:50%;width:3072px;margin-left:-1536px;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.wt{aspect-ratio:16/10;border-radius:14px;overflow:hidden}
+.wt img{width:100%;height:100%;object-fit:cover}
+#wall-dim{position:absolute;inset:0;background:rgba(8,18,48,.55)}
+#moi{position:absolute;left:0;right:0;top:50%;margin-top:-240px;text-align:center;font:400px 'Archivo Black',sans-serif;color:var(--o);line-height:1.2;text-shadow:0 20px 80px rgba(0,0,0,.5)}
+#moi-dot{position:absolute;left:900px;top:480px;width:120px;height:120px;border-radius:50%;background:var(--o)}
+/* beige skills */
+#s8{background:var(--beige);color:var(--ink)}
+.sk{position:absolute}
+.sk-l{font:700 18px 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--o);margin-bottom:14px;white-space:nowrap}
+.sk-c{position:relative;width:100%;height:calc(100% - 40px);border-radius:28px;background:var(--navy);overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px rgba(8,18,48,.25)}
+#sk-txt{font:92px 'Archivo Black',sans-serif;color:#fff;display:flex}
+#sk-txt i{font-style:normal;display:inline-block}#sk-txt i.x{color:var(--o)}
+#sk-circ{position:absolute;width:140px;height:140px;border-radius:50%;background:var(--o)}
+#sk-sq{position:absolute;width:100px;height:100px;border-radius:22px;background:var(--blue)}
+#sk-bars{display:flex;gap:7px;align-items:center;height:60%}
+#sk-bars i{display:block;width:10px;height:100%;border-radius:5px;background:var(--o);transform-origin:50% 50%}
+.sk-ok{position:absolute;right:-14px;top:26px;width:58px;height:58px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(255,107,26,.4)}
+.sk-ok:after{content:'';width:22px;height:12px;border-left:6px solid #fff;border-bottom:6px solid #fff;transform:translateY(-3px) rotate(-45deg)}
+/* iris */
+#iris{position:absolute;left:900px;top:480px;width:120px;height:120px;border-radius:50%;background:var(--o)}
+/* le plus dur */
+#dur{position:absolute;left:140px;top:250px;font:96px 'Archivo Black',sans-serif}
+#dur .g{color:rgba(255,255,255,.42);font-size:.8em;position:relative}
+#dur-strike{position:absolute;left:-6px;right:-6px;top:52%;height:10px;border-radius:5px;background:var(--o);transform-origin:0 50%;transform:scaleX(0)}
+#feedph{position:absolute;left:1380px;top:140px;width:330px;height:660px;border-radius:44px;background:#03060F;padding:11px;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 2px #2A3560}
+#feed{position:absolute;left:0;top:0;width:100%}
+#feed img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;margin-bottom:6px}
+#ring{position:absolute;left:900px;top:180px;width:560px;height:560px;}
+#ring svg{position:absolute;inset:0;width:100%;height:100%}
+#ring-l{position:absolute;left:0;right:0;top:-54px;text-align:center;font:700 22px 'JetBrains Mono',monospace;letter-spacing:.16em;color:rgba(255,255,255,.7)}
+#ring-t{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:134px 'Archivo Black',sans-serif}
+#check{position:absolute;left:967px;top:247px;width:426px;height:426px;border-radius:50%;background:var(--o)}
+#check svg{width:100%;height:100%}
+#marche{position:absolute;left:800px;top:770px;width:760px;text-align:center;font:104px 'Archivo Black',sans-serif}
+#non{position:absolute;left:800px;width:760px;top:890px;text-align:center;font:700 26px 'JetBrains Mono',monospace;letter-spacing:.2em;color:rgba(255,255,255,.6)}
+/* T'AS */
+#bref{position:absolute;left:0;right:0;top:50%;margin-top:-80px;text-align:center;font:150px 'Archivo Black',sans-serif;color:var(--o)}
+#tas{position:absolute;left:0;right:0;top:220px;text-align:center;font:140px 'Archivo Black',sans-serif}
+.pill{position:absolute;height:130px;border-radius:70px;border:3px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:space-between;padding:0 18px 0 34px;font:40px 'Archivo Black';white-space:nowrap,sans-serif;color:rgba(255,255,255,.5);overflow:hidden}
+.pill .ck{position:relative;width:80px;height:80px;border-radius:50%;background:#fff;flex:none;transform:scale(0)}
+.pill .ck:after{content:'';position:absolute;left:50%;top:50%;width:26px;height:13px;margin:-10px 0 0 -13px;border-left:7px solid var(--o);border-bottom:7px solid var(--o);transform:rotate(-45deg)}
+/* comme ça */
+.row{position:absolute;left:0;display:flex;gap:18px;white-space:nowrap}
+.rt{flex:none;width:400px;height:225px;border-radius:16px;overflow:hidden}
+.rt img{width:100%;height:100%;object-fit:cover}
+#row1{top:110px}#row2{top:680px}
+#band{position:absolute;left:0px;top:390px;width:1920px;height:250px;background:var(--o);display:flex;align-items:center;justify-content:center;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#band span{position:absolute;font:170px 'Archivo Black',sans-serif;color:var(--navy);white-space:nowrap}
+/* chat + number */
+#chat{position:absolute;left:360px;top:110px;width:400px;height:780px;border-radius:50px;background:#03060F;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 2px #2A3560}
+.cs{position:relative;width:100%;height:100%;border-radius:38px;overflow:hidden;background:#0B142E}
+.ch-top{display:flex;gap:12px;align-items:center;padding:44px 22px 18px;background:#101C40}
+.ch-av{width:52px;height:52px;border-radius:50%;background:var(--o);display:flex;align-items:center;justify-content:center;font:24px 'Archivo Black',sans-serif;color:var(--navy)}
+.ch-top b{display:block;font:800 20px Inter,sans-serif}.ch-top small{font-size:14px;color:#3DDC84}
+.bub{position:absolute;max-width:76%;padding:16px 18px;border-radius:20px;font:600 20px/1.3 Inter,sans-serif}
+#bub1{right:18px;top:280px;background:var(--o);color:#fff;border-bottom-right-radius:6px}
+#bub2{left:18px;top:410px;background:#1C2A57;color:#fff;border-bottom-left-radius:6px}
+.ch-in{position:absolute;left:16px;right:16px;bottom:22px;height:58px;border-radius:30px;background:#1A2550;display:flex;align-items:center;padding:0 22px;font:500 18px Inter,sans-serif;color:rgba(255,255,255,.75)}
+.ch-in i{position:absolute;right:6px;top:6px;width:46px;height:46px;border-radius:50%;background:var(--o)}
+#num{position:absolute;left:900px;top:330px}
+#num small{display:block;font:700 22px 'JetBrains Mono',monospace;letter-spacing:.2em;color:#3DDC84;margin-bottom:10px}
+#num div{font:110px 'Archivo Black',sans-serif;line-height:1.05;white-space:nowrap}
+#num-u{height:10px;background:var(--o);border-radius:5px;margin-top:16px;transform-origin:0 50%}
+#arrow{position:absolute}
+/* end card */
+#s15{background:var(--o)}
+#endname{position:absolute;left:0;right:0;top:330px;text-align:center;font:160px 'Archivo Black',sans-serif;color:var(--navy);letter-spacing:-.02em}
+#endname i{font-style:normal;display:inline-block}
+#endpill{position:absolute;left:50%;top:563px;transform:translateX(-50%);background:var(--navy);border-radius:60px;padding:22px 40px;display:flex;gap:22px;align-items:center;white-space:nowrap}
+#endpill small{font:700 18px 'JetBrains Mono',monospace;letter-spacing:.2em;color:var(--o)}
+#endpill b{font:50px 'Archivo Black',sans-serif;color:#fff}
+#endtk{position:absolute;left:0;right:0;top:713px;text-align:center;font:700 28px 'JetBrains Mono',monospace;letter-spacing:.12em;color:var(--navy)}
+#endtag{position:absolute;left:0;right:0;top:250px;text-align:center;font:700 22px 'JetBrains Mono',monospace;letter-spacing:.3em;color:rgba(8,18,48,.75)}
+.wipe{position:absolute;background:var(--o);z-index:40}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="40" data-width="1920" data-height="1080">
+  <div id="bg" class="clip" data-start="0" data-duration="40" data-track-index="0"></div>
+
+  <section id="s1" class="scene clip" data-start="0" data-duration="3.20" data-track-index="1">
+    <div id="s1-dot"></div>
+    <div id="s1-txt"><div class="ln"><span id="i0" class="">JE VAIS PAS</span></div><div class="ln"><span id="i1" class="">TE FAIRE UN LONG</span></div><div class="ln"><span id="i2" class="o">DISCOURS.<i id=s1-strike></i></span></div></div>
+    <div id="s1-block"></div>
+  </section>
+  
+    <section id="s2" class="scene clip" data-start="3.10" data-duration="2.35" data-track-index="1">
+      
+      <div class="card" id="s2-card"><img id="a1" class="stk" src="assets/crops/allo-02.jpg" alt=""><img id="a2" class="stk" src="assets/crops/allo-08.jpg" alt=""><img id="a3" class="stk" src="assets/crops/allo-12.jpg" alt=""><img id="a4" class="stk" src="assets/crops/allo-07.jpg" alt=""><div class="playbar"><i id="s2-prog"></i></div></div>
+      <div class="phone" id="s2-phone"><div class="screen app">
+        <div class="app-top"><img src="assets/crops/allo-multiservices.png" alt=""><div><b>Allô Multiservices</b><small>Maradi · 7j/7</small></div></div>
+        <div class="app-h">Où on livre&nbsp;?</div>
+        <div class="app-in"><span class="pin"></span><span id="s2-type">Quartier Zaria, Maradi</span></div>
+        <div class="app-grid"><div class="tile t1">Colis</div><div class="tile t2">Repas</div><div class="tile t3">Documents</div><div class="tile t4">Courses</div></div>
+        <div class="app-map"><svg viewBox="0 0 260 120"><path id="s2-route" d="M20 100 C 80 20, 150 120, 240 24" fill="none" stroke="#F5B21F" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/><circle cx="20" cy="100" r="7" fill="#fff"/><circle cx="240" cy="24" r="9" fill="#F5B21F"/></svg></div>
+        <div class="app-btn" id="s2-btn">Commander</div>
+      </div></div>
+      <div class="lbl" id="s2-lbl"><b>01</b> · APPLI + VIDÉO · ALLÔ MULTISERVICES</div>
+      <div class="ttl" id="s2-ttl"><div class="ln"><span class="">APPLI DE</span></div><div class="ln"><span class="o">LIVRAISON</span></div></div>
+    </section>
+    <section id="s3" class="scene clip" data-start="5.40" data-duration="1.85" data-track-index="0">
+      
+      <div class="card" id="s3-card"><img id="c1" class="stk" src="assets/crops/chief-04.jpg" alt=""><img id="c2" class="stk" src="assets/crops/chief-17.jpg" alt=""><img id="c3" class="stk" src="assets/crops/chief-14.jpg" alt=""><img id="c4" class="stk" src="assets/crops/chief-19.jpg" alt=""><div class="playbar"><i id="s3-prog"></i></div></div>
+      <div class="card port" id="s3-side"><img class="stk" src="assets/crops/savor-09.jpg" alt=""><img id="sv2" class="stk" src="assets/crops/savor-02.jpg" alt=""></div>
+      <div class="lbl" id="s3-lbl"><b>02</b> · PUB · CHIEF-CHIEF</div>
+      <div class="ttl" id="s3-ttl"><div class="ln"><span class="">UN</span></div><div class="ln"><span class="o">RESTAURANT</span></div></div>
+    </section>
+    <section id="s4" class="scene clip" data-start="7.20" data-duration="1.55" data-track-index="1">
+      <div class="card" id="s4-card"><img id="b1" class="stk" src="assets/crops/sublime-01.jpg" alt=""><img id="b2" class="stk" src="assets/crops/sublime-02.jpg" alt=""><img id="b3" class="stk" src="assets/crops/sublime-06.jpg" alt=""><img id="b4" class="stk" src="assets/crops/sublime-09.jpg" alt=""><div class="playbar"><i id="s4-prog"></i></div></div>
+      <div class="lbl" id="s4-lbl"><b>03</b> · E-COMMERCE · SUBLIME BOOTY</div>
+      <div class="ttl" id="s4-ttl"><div class="ln"><span class="">BOUTIQUE</span></div><div class="ln"><span class="o">EN LIGNE</span></div></div>
+    </section>
+    <section id="s5" class="scene clip" data-start="8.70" data-duration="1.60" data-track-index="0">
+      <div class="card sq" id="s5-card"><img id="l1" class="stk" src="assets/crops/lostalos-01.jpg" alt=""><img id="l2" class="stk" src="assets/crops/lostalos-05.jpg" alt=""><img id="l3" class="stk" src="assets/crops/lostalos-03.jpg" alt=""><img id="l4" class="stk" src="assets/crops/lostalos-09.jpg" alt=""><img id="l5" class="stk" src="assets/crops/lostalos-16.jpg" alt=""><img id="l6" class="stk" src="assets/crops/lostalos-23.jpg" alt=""><div class="playbar"><i id="s5-prog"></i></div></div>
+      <div class="lbl" id="s5-lbl"><b>04</b> · ÉVÉNEMENT · LOSTALOS NIGHT CLUB</div>
+      <div class="ttl" id="s5-ttl"><div class="ln"><span class="">SOIRÉE</span></div><div class="ln"><span class="o">EN BOÎTE</span></div></div>
+    </section>
+    <section id="s6" class="scene clip" data-start="10.24" data-duration="2.32" data-track-index="1">
+      
+      <div class="yt" id="s6-yt">
+        <div class="yt-player" id="s6-player">
+          <div class="yt-ep" id="s6-ep1">ÉPISODE <b>01</b></div><div class="yt-ep e2" id="s6-ep2">ÉPISODE <b>02</b></div><div class="yt-ep e3" id="s6-ep3">ÉPISODE <b>03</b></div>
+          <div class="yt-play"></div>
+          <div class="yt-bar"><i id="s6-prog"></i></div>
+        </div>
+        <div class="yt-grid" id="s6-grid"><div class="yt-th th1"><b>ÉP. 01</b><span></span><em>8:42</em></div><div class="yt-th th2"><b>ÉP. 02</b><span></span><em>12:05</em></div><div class="yt-th th3"><b>ÉP. 03</b><span></span><em>6:31</em></div><div class="yt-th th4"><b>ÉP. 04</b><span></span><em>9:58</em></div><div class="yt-th th5"><b>ÉP. 05</b><span></span><em>15:20</em></div><div class="yt-th th6"><b>ÉP. 06</b><span></span><em>7:14</em></div></div>
+      </div>
+      <div class="lbl" id="s6-lbl"><b>05</b> · CONTENU · YOUTUBE</div>
+      <div class="ttl" id="s6-ttl"><div class="ln"><span class="">CHAÎNE</span></div><div class="ln"><span class="o">YOUTUBE</span></div></div>
+    </section>
+
+  <section id="s7" class="scene clip" data-start="12.50" data-duration="1.85" data-track-index="0">
+    <div id="wall"><div class="wt"><img src="assets/crops/chief-04.jpg" alt=""></div><div class="wt"><img src="assets/crops/allo-02.jpg" alt=""></div><div class="wt"><img src="assets/crops/sublime-01.jpg" alt=""></div><div class="wt"><img src="assets/crops/lostalos-01.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-17.jpg" alt=""></div><div class="wt"><img src="assets/crops/allo-08.jpg" alt=""></div><div class="wt"><img src="assets/crops/sublime-06.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-14.jpg" alt=""></div><div class="wt"><img src="assets/crops/lostalos-05.jpg" alt=""></div><div class="wt"><img src="assets/crops/allo-12.jpg" alt=""></div><div class="wt"><img src="assets/crops/sublime-02.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-19.jpg" alt=""></div><div class="wt"><img src="assets/crops/lostalos-09.jpg" alt=""></div><div class="wt"><img src="assets/crops/allo-07.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-11.jpg" alt=""></div><div class="wt"><img src="assets/crops/sublime-09.jpg" alt=""></div><div class="wt"><img src="assets/crops/lostalos-23.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-06.jpg" alt=""></div><div class="wt"><img src="assets/crops/allo-11.jpg" alt=""></div><div class="wt"><img src="assets/crops/lostalos-16.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-09.jpg" alt=""></div><div class="wt"><img src="assets/crops/sublime-04.jpg" alt=""></div><div class="wt"><img src="assets/crops/chief-15.jpg" alt=""></div><div class="wt"><img src="assets/crops/lostalos-12.jpg" alt=""></div></div><div id="wall-dim"></div>
+    <div id="moi">MOI.</div><div id="moi-dot"></div>
+  </section>
+
+  <section id="s8" class="scene clip" data-start="14.30" data-duration="3.50" data-track-index="1">
+    <div class="sk" id="sk1" style="left:180px;top:250px;width:480px;height:480px;"><div class="sk-l">01 — LES TEXTES</div><div class="sk-c"><div id="sk-txt"><i>T</i><i>E</i><i class="x">X</i><i>T</i><i>E</i></div></div><div class="sk-ok" id="ok1"></div></div>
+    <div class="sk" id="sk2" style="left:720px;top:250px;width:480px;height:480px;"><div class="sk-l">02 — LES TRANSITIONS</div><div class="sk-c"><div id="sk-sq"></div><div id="sk-circ"></div></div><div class="sk-ok" id="ok2"></div></div>
+    <div class="sk" id="sk3" style="left:1260px;top:250px;width:480px;height:480px;"><div class="sk-l">03 — LES PETITS SONS</div><div class="sk-c"><div id="sk-bars"><i style="--k:0"></i><i style="--k:4"></i><i style="--k:8"></i><i style="--k:1"></i><i style="--k:5"></i><i style="--k:9"></i><i style="--k:2"></i><i style="--k:6"></i><i style="--k:10"></i><i style="--k:3"></i><i style="--k:7"></i><i style="--k:0"></i><i style="--k:4"></i><i style="--k:8"></i><i style="--k:1"></i><i style="--k:5"></i><i style="--k:9"></i><i style="--k:2"></i><i style="--k:6"></i><i style="--k:10"></i><i style="--k:3"></i><i style="--k:7"></i></div></div><div class="sk-ok" id="ok3"></div></div>
+  </section>
+
+  <section id="s9" class="scene clip" data-start="17.70" data-duration="1.30" data-track-index="0">
+    <div id="iris"></div>
+  </section>
+
+  <section id="s10" class="scene clip" data-start="18.90" data-duration="7.25" data-track-index="1">
+    <div id="dur">
+      <div class="ln"><span id="d1">LE PLUS DUR ?</span></div>
+      <div class="ln"><span id="d2" class="g">FAIRE LA VIDÉO<i id="dur-strike"></i></span></div>
+      <div class="ln"><span id="d3" class="o">QU'ON S'ARRÊTE</span></div>
+      <div class="ln"><span id="d4" class="o">DESSUS.</span></div>
+    </div>
+    <div id="feedph"><div class="screen"><div id="feed"><img src="assets/crops/savor-01.jpg" alt=""><img src="assets/crops/lostalos-09.jpg" alt=""><img src="assets/crops/savor-08.jpg" alt=""><img src="assets/crops/lostalos-16.jpg" alt=""><img src="assets/crops/savor-04.jpg" alt=""><img src="assets/crops/lostalos-23.jpg" alt=""><img src="assets/crops/savor-06.jpg" alt=""></div></div></div>
+    <div id="ring"><div id="ring-l">TU REGARDES DEPUIS</div>
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="5"/><circle id="ring-arc" cx="50" cy="50" r="45" fill="none" stroke="#FF6B1A" stroke-width="5" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1" transform="rotate(-90 50 50)"/></svg>
+      <div id="ring-t">00:22</div></div>
+    <div id="check"><svg viewBox="0 0 100 100"><path id="check-p" d="M28 52 L44 67 L73 36" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/></svg></div>
+    <div id="marche">ÇA MARCHE.</div>
+    <div id="non">NON ?</div>
+  </section>
+
+  <section id="s12" class="scene clip" data-start="26.10" data-duration="4.00" data-track-index="0">
+    <div id="bref">BREF.</div>
+    <div id="tas">T'AS…</div>
+    <div class="pill" id="p0" style="left:370px;top:430px;width:560px"><span>UNE MARQUE</span><i class="ck"></i></div><div class="pill" id="p1" style="left:990px;top:430px;width:560px"><span>UNE APPLI</span><i class="ck"></i></div><div class="pill" id="p2" style="left:370px;top:600px;width:560px"><span>UN ÉVÉNEMENT</span><i class="ck"></i></div><div class="pill" id="p3" style="left:990px;top:600px;width:560px"><span>UNE FORMATION</span><i class="ck"></i></div>
+  </section>
+
+  <section id="s13" class="scene clip" data-start="30.00" data-duration="2.15" data-track-index="1">
+    <div class="row" id="row1"><div class="rt"><img src="assets/crops/chief-04.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-02.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-01.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-17.jpg" alt=""></div><div class="rt"><img src="assets/crops/lostalos-01.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-08.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-14.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-06.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-04.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-02.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-01.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-17.jpg" alt=""></div><div class="rt"><img src="assets/crops/lostalos-01.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-08.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-14.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-06.jpg" alt=""></div></div>
+    <div class="row" id="row2"><div class="rt"><img src="assets/crops/allo-12.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-19.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-09.jpg" alt=""></div><div class="rt"><img src="assets/crops/lostalos-05.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-11.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-07.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-02.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-09.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-12.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-19.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-09.jpg" alt=""></div><div class="rt"><img src="assets/crops/lostalos-05.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-11.jpg" alt=""></div><div class="rt"><img src="assets/crops/allo-07.jpg" alt=""></div><div class="rt"><img src="assets/crops/sublime-02.jpg" alt=""></div><div class="rt"><img src="assets/crops/chief-09.jpg" alt=""></div></div>
+    <div id="band"><span id="band1">UNE VIDÉO…</span><span id="band2">COMME ÇA ?</span></div>
+  </section>
+
+  <section id="s14" class="scene clip" data-start="32.10" data-duration="4.10" data-track-index="0">
+    <div id="chat"><div class="cs">
+      <div class="ch-top"><div class="ch-av">A</div><div><b>AbdoulNetwork</b><small>en ligne</small></div></div>
+      <div class="bub" id="bub1">Salut Abdoul, j'ai un projet&nbsp;!</div>
+      <div class="bub" id="bub2">Avec plaisir, on en parle&nbsp;!</div>
+      <div class="ch-in"><span id="ch-typing">Salut Abdoul, j'ai un projet !</span><i></i></div>
+    </div></div>
+    <div id="num"><small>WHATSAPP</small><div>+227<br>94 66 99 69</div><div id="num-u"></div></div>
+    <svg id="arrow" style="left:780px;top:560px;width:220px;height:160px" viewBox="0 0 220 160"><path id="arrow-p" d="M200 30 C 150 140, 90 120, 20 80" fill="none" stroke="#FF6B1A" stroke-width="8" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/><path id="arrow-h" d="M48 60 L20 80 L50 100" fill="none" stroke="#FF6B1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </section>
+
+  <section id="s15" class="scene clip" data-start="36.10" data-duration="3.90" data-track-index="1">
+    <div id="endtag">MOTION DESIGN · PUBS · RÉSEAUX</div>
+    <div id="endname"><div class="ln"><span><i>A</i><i>B</i><i>D</i><i>O</i><i>U</i><i>L</i><i>N</i><i>E</i><i>T</i><i>W</i><i>O</i><i>R</i><i>K</i></span></div></div>
+    <div id="endpill"><small>WHATSAPP</small><b>+227 94 66 99 69</b></div>
+    <div id="endtk">TIKTOK @abdoulnetwork</div>
+  </section>
+
+  <div id="wipes" class="clip" data-start="0" data-duration="40" data-track-index="5" style="position:absolute;inset:0;pointer-events:none">
+    <div class="wipe" id="wp1"></div><div class="wipe" id="wp2"></div><div class="wipe" id="wp3"></div><div class="wipe" id="wp4"></div><div class="wipe" id="wp5"></div><div class="wipe" id="wp6"></div><div class="wipe" id="wp7"></div><div class="wipe" id="wp8"></div>
+  </div>
+
+  <div id="hud" class="clip" data-start="0" data-duration="40" data-track-index="6" style="position:absolute;inset:0;pointer-events:none">
+    <div class="cn" id="cn1"></div><div class="cn" id="cn2"></div><div class="cn" id="cn3"></div><div class="cn" id="cn4"></div>
+    <div class="hud" id="hud-l"><b>●</b> ABDOULNETWORK — SHOWREEL 2026</div>
+    <div class="hud" id="hud-r"><span id="tc">00:00</span> / 00:40</div>
+  </div>
+
+  <div id="caps" class="clip" data-start="0" data-duration="36.4" data-track-index="7"><div class="cg" id="cg0"><span id="w0_0" class="w">Bon…</span></div><div class="cg" id="cg1"><span id="w1_0" class="w">je</span> <span id="w1_1" class="w">vais</span> <span id="w1_2" class="w">pas</span> <span id="w1_3" class="w">te</span> <span id="w1_4" class="w">faire</span></div><div class="cg" id="cg2"><span id="w2_0" class="w">un</span> <span id="w2_1" class="w">long</span> <span id="w2_2" class="w">discours.</span></div><div class="cg" id="cg3"><span id="w3_0" class="w">Regarde</span> <span id="w3_1" class="w">plutôt.</span></div><div class="cg" id="cg4"><span id="w4_0" class="w">Ça,</span> <span id="w4_1" class="w">c&#x27;est</span> <span id="w4_2" class="w">une</span> <span id="w4_3" class="w">appli</span></div><div class="cg" id="cg5"><span id="w5_0" class="w">de</span> <span id="w5_1" class="w">livraison.</span></div><div class="cg" id="cg6"><span id="w6_0" class="w">Ça,</span> <span id="w6_1" class="w">pour</span> <span id="w6_2" class="w">un</span> <span id="w6_3" class="w">restaurant.</span></div><div class="cg" id="cg7"><span id="w7_0" class="w">Ça,</span> <span id="w7_1" class="w">une</span> <span id="w7_2" class="w">boutique</span> <span id="w7_3" class="w">en</span> <span id="w7_4" class="w">ligne.</span></div><div class="cg" id="cg8"><span id="w8_0" class="w">Ça,</span> <span id="w8_1" class="w">une</span> <span id="w8_2" class="w">soirée</span></div><div class="cg" id="cg9"><span id="w9_0" class="w">en</span> <span id="w9_1" class="w">boîte</span> <span id="w9_2" class="w">de</span> <span id="w9_3" class="w">nuit.</span></div><div class="cg" id="cg10"><span id="w10_0" class="w">Et</span> <span id="w10_1" class="w">ça…</span></div><div class="cg" id="cg11"><span id="w11_0" class="w">une</span> <span id="w11_1" class="w">chaîne</span> <span id="w11_2" class="w">YouTube</span> <span id="w11_3" class="w">entière.</span></div><div class="cg" id="cg12"><span id="w12_0" class="w">Tout</span> <span id="w12_1" class="w">ça,</span></div><div class="cg" id="cg13"><span id="w13_0" class="w">c&#x27;est</span> <span id="w13_1" class="w">moi</span> <span id="w13_2" class="w">qui</span> <span id="w13_3" class="w">l&#x27;ai</span> <span id="w13_4" class="w">fait.</span></div><div class="cg" id="cg14"><span id="w14_0" class="w">Les</span> <span id="w14_1" class="w">textes</span> <span id="w14_2" class="w">qui</span> <span id="w14_3" class="w">bougent,</span></div><div class="cg" id="cg15"><span id="w15_0" class="w">les</span> <span id="w15_1" class="w">transitions,</span></div><div class="cg" id="cg16"><span id="w16_0" class="w">les</span> <span id="w16_1" class="w">petits</span> <span id="w16_2" class="w">sons…</span></div><div class="cg" id="cg17"><span id="w17_0" class="w">tout.</span></div><div class="cg" id="cg18"><span id="w18_0" class="w">Et</span> <span id="w18_1" class="w">en</span> <span id="w18_2" class="w">vrai,</span></div><div class="cg" id="cg19"><span id="w19_0" class="w">le</span> <span id="w19_1" class="w">plus</span> <span id="w19_2" class="w">dur,</span></div><div class="cg" id="cg20"><span id="w20_0" class="w">c&#x27;est</span> <span id="w20_1" class="w">pas</span> <span id="w20_2" class="w">de</span> <span id="w20_3" class="w">faire</span> <span id="w20_4" class="w">la</span> <span id="w20_5" class="w">vidéo.</span></div><div class="cg" id="cg21"><span id="w21_0" class="w">C&#x27;est</span> <span id="w21_1" class="w">que</span> <span id="w21_2" class="w">les</span> <span id="w21_3" class="w">gens</span></div><div class="cg" id="cg22"><span id="w22_0" class="w">s&#x27;arrêtent</span> <span id="w22_1" class="w">dessus.</span></div><div class="cg" id="cg23"><span id="w23_0" class="w">Toi,</span> <span id="w23_1" class="w">par</span> <span id="w23_2" class="w">exemple…</span></div><div class="cg" id="cg24"><span id="w24_0" class="w">t&#x27;es</span> <span id="w24_1" class="w">encore</span> <span id="w24_2" class="w">là.</span></div><div class="cg" id="cg25"><span id="w25_0" class="w">Donc</span> <span id="w25_1" class="w">ça</span> <span id="w25_2" class="w">marche,</span></div><div class="cg" id="cg26"><span id="w26_0" class="w">non ?</span></div><div class="cg" id="cg27"><span id="w27_0" class="w">Bref.</span></div><div class="cg" id="cg28"><span id="w28_0" class="w">T&#x27;as</span> <span id="w28_1" class="w">une</span> <span id="w28_2" class="w">marque,</span></div><div class="cg" id="cg29"><span id="w29_0" class="w">une</span> <span id="w29_1" class="w">appli,</span></div><div class="cg" id="cg30"><span id="w30_0" class="w">un</span> <span id="w30_1" class="w">événement,</span></div><div class="cg" id="cg31"><span id="w31_0" class="w">une</span> <span id="w31_1" class="w">formation ?</span></div><div class="cg" id="cg32"><span id="w32_0" class="w">Et</span> <span id="w32_1" class="w">tu</span> <span id="w32_2" class="w">veux</span> <span id="w32_3" class="w">une</span> <span id="w32_4" class="w">vidéo</span></div><div class="cg" id="cg33"><span id="w33_0" class="w">comme</span> <span id="w33_1" class="w">ça ?</span></div><div class="cg" id="cg34"><span id="w34_0" class="w">Écris-moi</span> <span id="w34_1" class="w">sur</span> <span id="w34_2" class="w">WhatsApp.</span></div><div class="cg" id="cg35"><span id="w35_0" class="w">Le</span> <span id="w35_1" class="w">numéro</span> <span id="w35_2" class="w">est</span> <span id="w35_3" class="w">juste</span> <span id="w35_4" class="w">là.</span></div><div class="cg" id="cg36"><span id="w36_0" class="w">On</span> <span id="w36_1" class="w">en</span> <span id="w36_2" class="w">parle.</span></div><div class="cg" id="cg37"><span id="w37_0" class="w">Tranquille.</span></div></div>
+
+  <audio id="vo" src="assets/voice/voiceover.wav" data-start="0" data-duration="36.1" data-track-index="10" data-volume="1"></audio>
+  <audio id="bed" src="assets/bgm/bed.wav" data-start="0" data-duration="40" data-track-index="11" data-volume="0.35"></audio>
+  <audio id="sfx0" src="assets/sfx/pop.wav" data-start="0.05" data-duration="0.18" data-track-index="20" data-volume="0.35"></audio>
+  <audio id="sfx1" src="assets/sfx/whoosh.wav" data-start="2.62" data-duration="0.55" data-track-index="21" data-volume="0.45"></audio>
+  <audio id="sfx2" src="assets/sfx/whoosh.wav" data-start="3.1" data-duration="0.55" data-track-index="22" data-volume="0.35"></audio>
+  <audio id="sfx3" src="assets/sfx/whoosh.wav" data-start="5.38" data-duration="0.55" data-track-index="23" data-volume="0.45"></audio>
+  <audio id="sfx4" src="assets/sfx/whoosh.wav" data-start="7.18" data-duration="0.55" data-track-index="24" data-volume="0.45"></audio>
+  <audio id="sfx5" src="assets/sfx/whoosh.wav" data-start="8.68" data-duration="0.55" data-track-index="25" data-volume="0.45"></audio>
+  <audio id="sfx6" src="assets/sfx/whoosh.wav" data-start="10.22" data-duration="0.55" data-track-index="26" data-volume="0.45"></audio>
+  <audio id="sfx7" src="assets/sfx/stamp.wav" data-start="13.42" data-duration="0.5" data-track-index="27" data-volume="0.7"></audio>
+  <audio id="sfx8" src="assets/sfx/pop.wav" data-start="14.52" data-duration="0.18" data-track-index="28" data-volume="0.45"></audio>
+  <audio id="sfx9" src="assets/sfx/whoosh.wav" data-start="15.52" data-duration="0.55" data-track-index="29" data-volume="0.4"></audio>
+  <audio id="sfx10" src="assets/sfx/pop.wav" data-start="16.6" data-duration="0.18" data-track-index="30" data-volume="0.45"></audio>
+  <audio id="sfx11" src="assets/sfx/ding.wav" data-start="17.56" data-duration="1.4" data-track-index="31" data-volume="0.45"></audio>
+  <audio id="sfx12" src="assets/sfx/whoosh.wav" data-start="17.75" data-duration="0.55" data-track-index="32" data-volume="0.45"></audio>
+  <audio id="sfx13" src="assets/sfx/tick.wav" data-start="20.55" data-duration="0.12" data-track-index="33" data-volume="0.5"></audio>
+  <audio id="sfx14" src="assets/sfx/stamp.wav" data-start="21.88" data-duration="0.5" data-track-index="34" data-volume="0.5"></audio>
+  <audio id="sfx15" src="assets/sfx/tick.wav" data-start="23.0" data-duration="0.12" data-track-index="35" data-volume="0.45"></audio>
+  <audio id="sfx16" src="assets/sfx/tick.wav" data-start="24.0" data-duration="0.12" data-track-index="36" data-volume="0.45"></audio>
+  <audio id="sfx17" src="assets/sfx/ding.wav" data-start="24.4" data-duration="1.4" data-track-index="37" data-volume="0.5"></audio>
+  <audio id="sfx18" src="assets/sfx/stamp.wav" data-start="26.18" data-duration="0.5" data-track-index="38" data-volume="0.45"></audio>
+  <audio id="sfx19" src="assets/sfx/pop.wav" data-start="27.14" data-duration="0.18" data-track-index="39" data-volume="0.45"></audio>
+  <audio id="sfx20" src="assets/sfx/pop.wav" data-start="27.76" data-duration="0.18" data-track-index="40" data-volume="0.45"></audio>
+  <audio id="sfx21" src="assets/sfx/pop.wav" data-start="28.64" data-duration="0.18" data-track-index="41" data-volume="0.45"></audio>
+  <audio id="sfx22" src="assets/sfx/pop.wav" data-start="29.52" data-duration="0.18" data-track-index="42" data-volume="0.45"></audio>
+  <audio id="sfx23" src="assets/sfx/whoosh.wav" data-start="29.98" data-duration="0.55" data-track-index="43" data-volume="0.45"></audio>
+  <audio id="sfx24" src="assets/sfx/stamp.wav" data-start="31.36" data-duration="0.5" data-track-index="44" data-volume="0.6"></audio>
+  <audio id="sfx25" src="assets/sfx/whoosh.wav" data-start="32.08" data-duration="0.55" data-track-index="45" data-volume="0.4"></audio>
+  <audio id="sfx26" src="assets/sfx/pop.wav" data-start="32.8" data-duration="0.18" data-track-index="46" data-volume="0.45"></audio>
+  <audio id="sfx27" src="assets/sfx/whoosh.wav" data-start="33.95" data-duration="0.55" data-track-index="47" data-volume="0.35"></audio>
+  <audio id="sfx28" src="assets/sfx/pop.wav" data-start="34.82" data-duration="0.18" data-track-index="48" data-volume="0.45"></audio>
+  <audio id="sfx29" src="assets/sfx/whoosh.wav" data-start="36.08" data-duration="0.55" data-track-index="49" data-volume="0.5"></audio>
+  <audio id="sfx30" src="assets/sfx/stamp.wav" data-start="36.7" data-duration="0.5" data-track-index="50" data-volume="0.55"></audio>
+  <audio id="sfx31" src="assets/sfx/coin.wav" data-start="37.6" data-duration="0.9" data-track-index="51" data-volume="0.4"></audio>
+</div>
+<script>
+
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+var V = false, W = 1920, H = 1080;
+var CAPS = [[0.0], [0.82, 0.98, 1.08, 1.22, 1.34], [1.54, 1.78, 1.94], [2.6, 2.92], [3.16, 4.08, 4.24, 4.4], [4.56, 4.72], [5.44, 5.8, 6.16, 6.34], [7.24, 7.44, 7.68, 8.02, 8.12], [8.72, 9.0, 9.24], [9.58, 9.68, 9.94, 10.08], [10.24, 10.64], [10.88, 11.12, 11.34, 11.74], [12.54, 12.64], [13.24, 13.42, 13.58, 13.74, 13.88], [14.34, 14.52, 14.84, 14.96], [15.42, 15.52], [16.52, 16.6, 16.8], [17.56], [17.8, 18.46, 18.6], [19.1, 19.18, 19.34], [19.58, 19.8, 19.94, 20.06, 20.22, 20.38], [20.92, 21.08, 21.2, 21.32], [21.5, 21.88], [22.64, 22.82, 23.02], [23.5, 23.62, 23.82], [24.34, 24.48, 24.68], [24.92], [26.18], [26.76, 26.98, 27.14], [27.68, 27.76], [28.48, 28.64], [29.08, 29.52], [30.0, 30.52, 30.66, 30.86, 31.06], [31.36, 31.58], [32.1, 32.42, 32.62], [33.34, 33.44, 33.72, 33.96, 34.16], [34.82, 34.94, 35.02], [35.3]], CAPS_END = 36.4;
+
+// ── captions (karaoke: upcoming grey · current orange · spoken white) ──
+CAPS.forEach(function (g, gi) {
+  var start = g[0], end = (gi + 1 < CAPS.length) ? CAPS[gi + 1][0] : CAPS_END;
+  var el = '#cg' + gi;
+  tl.set(el, { opacity: 1 }, start);
+  tl.fromTo(el, { y: 14, scale: .96 }, { y: 0, scale: 1, duration: .16, ease: 'back.out(2)' }, start);
+  tl.set(el, { opacity: 0 }, end);
+  g.forEach(function (t, wi) {
+    tl.set('#w' + gi + '_' + wi, { attr: { class: 'w on' } }, t);
+    var nt = (wi + 1 < g.length) ? g[wi + 1] : end;
+    if (nt - t > .05) tl.set('#w' + gi + '_' + wi, { attr: { class: 'w done' } }, Math.min(nt, t + .45));
+  });
+});
+// dark captions on the beige scene
+tl.set('#caps', { '--past': '#081230', '--up': 'rgba(8,18,48,.4)', textShadow: 'none' }, 14.30);
+tl.set('#caps', { '--past': '#ffffff', '--up': 'rgba(255,255,255,.42)' }, 17.75);
+tl.set('#caps', { '--past': '#081230', '--up': 'rgba(8,18,48,.4)', '--on': '#ffffff' }, 17.80);
+tl.set('#caps', { '--past': '#ffffff', '--up': 'rgba(255,255,255,.42)', '--on': '#FF6B1A' }, 18.35);
+
+// ── HUD timecode ──
+var tc = { t: 0 };
+tl.fromTo(tc, { t: 0 }, { t: 40, duration: 40, ease: 'none', onUpdate: function () {
+  var s = Math.floor(tc.t); document.getElementById('tc').textContent = '00:' + (s < 10 ? '0' : '') + s;
+} }, 0);
+
+// ── helpers ──
+function titleIn(sel, t) { tl.fromTo(sel + ' .ln > span', { yPercent: 115 }, { yPercent: 0, duration: .45, stagger: .07, ease: 'power4.out' }, t); }
+function labelIn(sel, t) { tl.fromTo(sel, { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: .3, ease: 'power3.out' }, t); }
+function cardIn(sel, t, rot) { tl.fromTo(sel, { opacity: 0, scale: .82, rotation: rot || -4, y: 40 }, { opacity: 1, scale: 1, rotation: 0, y: 0, duration: .5, ease: 'back.out(1.5)' }, t); }
+function cycle(ids, times) { ids.forEach(function (id, i) { tl.set(id, { opacity: 1 }, times[i]); tl.fromTo(id, { scale: 1.08 }, { scale: 1, duration: .4, ease: 'power2.out' }, times[i]); }); }
+function prog(sel, a, b) { tl.fromTo(sel, { scaleX: 0 }, { scaleX: 1, duration: b - a, ease: 'none' }, a); }
+// orange bar wipes between projects
+function wipe(sel, t, dir) {
+  var horiz = dir === 'x';
+  var w = horiz ? W * .55 : W, h = horiz ? H : H * .4;
+  tl.set(sel, { left: horiz ? -w : 0, top: horiz ? 0 : -h, width: w, height: h, borderRadius: 24 }, 0);
+  if (horiz) tl.fromTo(sel, { x: 0 }, { x: W + w, duration: .42, ease: 'power3.inOut' }, t - .21);
+  else tl.fromTo(sel, { y: 0 }, { y: H + h, duration: .42, ease: 'power3.inOut' }, t - .21);
+}
+
+// ── S1 intro 0–3.2 ──
+tl.fromTo('#s1-dot', { scale: 0 }, { scale: 1, duration: .35, ease: 'back.out(3)' }, .05);
+tl.to('#s1-dot', { y: -26, duration: .3, ease: 'power2.out', yoyo: true, repeat: 1 }, .4);
+tl.to('#s1-dot', { scale: 0, duration: .2 }, .78);
+var introT = [.82, 1.34, 1.78, 1.94];
+for (var i = 0; i < 3; i++) {
+  var t = introT[Math.min(i, 3)];
+  if (3 === 3) t = [.82, 1.30, 1.94][i];
+  tl.fromTo('#i' + i, { yPercent: 115, filter: 'blur(6px)' }, { yPercent: 0, filter: 'blur(0px)', duration: .35, ease: 'power4.out' }, t);
+}
+tl.fromTo('#s1-strike', { scaleX: 0 }, { scaleX: 1, duration: .3, ease: 'power3.out' }, 2.30);
+tl.to('#s1-txt', { opacity: 0, x: -60, filter: 'blur(10px)', duration: .3, ease: 'power2.in' }, 2.62);
+tl.fromTo('#s1-block', { scale: 0, borderRadius: 26 }, { scale: 1, duration: .3, ease: 'back.out(2)' }, 2.62);
+tl.to('#s1-block', { scaleX: W / 320 * 1.05, scaleY: H / 180 * 1.05, borderRadius: 0, duration: .28, ease: 'power3.in' }, 2.90);
+
+// ── S2 Allô 3.10–5.45 ──
+cardIn('#s2-card', 3.16, -5);
+tl.fromTo('#s2-phone', { opacity: 0, y: 160, rotation: 8 }, { opacity: 1, y: 0, rotation: 3, duration: .55, ease: 'back.out(1.4)' }, 3.40);
+labelIn('#s2-lbl', 3.30); titleIn('#s2-ttl', 3.36);
+cycle(['#a2', '#a3', '#a4'], [3.85, 4.40, 4.90]);
+prog('#s2-prog', 3.2, 5.45);
+tl.fromTo('#s2-route', { attr: { 'stroke-dashoffset': 1 } }, { attr: { 'stroke-dashoffset': 0 }, duration: 1, ease: 'power2.inOut' }, 3.9);
+tl.fromTo('#s2-btn', { scale: 1 }, { scale: .92, duration: .1, yoyo: true, repeat: 1 }, 4.95);
+wipe('#wp1', 5.40, 'y');
+
+// ── S3 restaurant 5.40–7.25 ──
+cardIn('#s3-card', 5.42, 4);
+tl.fromTo('#s3-side', { opacity: 0, x: 120, rotation: 10 }, { opacity: 1, x: 0, rotation: 4, duration: .5, ease: 'back.out(1.5)' }, 5.95);
+labelIn('#s3-lbl', 5.50); titleIn('#s3-ttl', 5.55);
+cycle(['#c2', '#c3', '#c4'], [5.95, 6.40, 6.85]);
+tl.set('#sv2', { opacity: 1 }, 6.6);
+prog('#s3-prog', 5.45, 7.25);
+wipe('#wp2', 7.20, 'x');
+
+// ── S4 boutique 7.20–8.75 ──
+cardIn('#s4-card', 7.22, -4);
+labelIn('#s4-lbl', 7.30); titleIn('#s4-ttl', 7.34);
+cycle(['#b2', '#b3', '#b4'], [7.62, 8.0, 8.38]);
+prog('#s4-prog', 7.25, 8.75);
+wipe('#wp3', 8.70, 'y');
+
+// ── S5 soirée 8.70–10.30 ──
+cardIn('#s5-card', 8.72, 5);
+labelIn('#s5-lbl', 8.78); titleIn('#s5-ttl', 8.82);
+cycle(['#l2', '#l3', '#l4', '#l5', '#l6'], [9.0, 9.25, 9.50, 9.75, 10.0]);
+prog('#s5-prog', 8.75, 10.3);
+wipe('#wp4', 10.24, 'x');
+
+// ── S6 YouTube 10.24–12.56 ──
+cardIn('#s6-player', 10.26, -3);
+labelIn('#s6-lbl', 10.40); titleIn('#s6-ttl', 10.95);
+tl.set('#s6-ep2', { opacity: 0 }, 0); tl.set('#s6-ep3', { opacity: 0 }, 0);
+tl.set('#s6-ep2', { opacity: 1 }, 10.88); tl.set('#s6-ep3', { opacity: 1 }, 11.18);
+prog('#s6-prog', 10.3, 11.7);
+tl.to('#s6-player', { scale: .32, xPercent: -34, yPercent: -25, borderRadius: 40, duration: .45, ease: 'power3.inOut' }, 11.62);
+tl.to('#s6-player', { opacity: 0, duration: .1 }, 12.0);
+tl.fromTo('#s6-grid .yt-th', { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .35, stagger: .05, ease: 'back.out(1.8)' }, 11.80);
+
+// ── S7 MOI 12.50–14.35 ──
+tl.fromTo('#wall', { yPercent: -50, rotation: -8, scale: 1.25, opacity: 0 }, { yPercent: -50, rotation: -8, scale: 1, opacity: 1, duration: .5, ease: 'power3.out' }, 12.50);
+tl.to('#wall', { x: -120, duration: 1.8, ease: 'none' }, 12.5);
+tl.fromTo('#moi', { scale: 2.2, opacity: 0 }, { scale: 1, opacity: 1, duration: .28, ease: 'power4.out' }, 13.40);
+tl.to('#moi', { scale: .08, opacity: 0, duration: .3, ease: 'power3.in' }, 14.0);
+tl.fromTo('#moi-dot', { scale: 0 }, { scale: 1, duration: .25, ease: 'back.out(2)' }, 14.05);
+tl.to('#wall, #wall-dim', { opacity: 0, duration: .25 }, 14.05);
+
+// ── S8 textes / transitions / sons 14.30–17.80 ──
+tl.fromTo('#s8', { clipPath: 'circle(0% at 50% 50%)' }, { clipPath: 'circle(150% at 50% 50%)', duration: .4, ease: 'power3.inOut' }, 14.30);
+tl.fromTo('#sk1', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: .45, ease: 'back.out(1.6)' }, 14.45);
+tl.fromTo('#sk-txt i', { yPercent: 120, rotation: 12 }, { yPercent: 0, rotation: 0, duration: .4, stagger: .06, ease: 'back.out(2.4)' }, 14.60);
+tl.to('#sk-txt i', { yPercent: -18, duration: .18, stagger: .05, yoyo: true, repeat: 1, ease: 'power2.out' }, 15.20);
+tl.fromTo('#sk2', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: .45, ease: 'back.out(1.6)' }, 15.45);
+tl.fromTo('#sk-circ', { scale: 0 }, { scale: 6, duration: .7, ease: 'power3.inOut' }, 15.60);
+tl.fromTo('#sk-sq', { rotation: 0, scale: 0 }, { rotation: 180, scale: 1, duration: .6, ease: 'back.out(1.6)' }, 16.10);
+tl.fromTo('#sk3', { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: .45, ease: 'back.out(1.6)' }, 16.50);
+tl.fromTo('#sk-bars i', { scaleY: .12 }, { scaleY: function (i) { return [.4, .9, .6, 1, .3, .7, .95, .5, .8, .35, .65][i % 11]; }, duration: .18, stagger: { each: .02, from: 'center' }, yoyo: true, repeat: 5, ease: 'sine.inOut' }, 16.6);
+tl.fromTo('.sk-ok', { scale: 0 }, { scale: 1, duration: .3, stagger: .06, ease: 'back.out(3)' }, 17.56);
+
+// ── S9 iris 17.70–19.0 ──
+tl.fromTo('#iris', { scale: 0 }, { scale: Math.hypot(W, H) / 120 * 1.05, duration: .55, ease: 'power3.in' }, 17.72);
+
+// ── S10/S11 le plus dur → t'es encore là → ça marche 18.90–26.15 ──
+tl.fromTo('#s10', { clipPath: 'circle(0% at 50% 50%)' }, { clipPath: 'circle(150% at 50% 50%)', duration: .5, ease: 'power3.inOut' }, 18.40);
+tl.fromTo('#d1', { yPercent: 115 }, { yPercent: 0, duration: .4, ease: 'power4.out' }, 19.12);
+tl.fromTo('#d2', { yPercent: 115 }, { yPercent: 0, duration: .4, ease: 'power4.out' }, 19.95);
+tl.fromTo('#dur-strike', { scaleX: 0 }, { scaleX: 1, duration: .3, ease: 'power3.out' }, 20.55);
+tl.fromTo('#d3', { yPercent: 115 }, { yPercent: 0, duration: .4, ease: 'power4.out' }, 21.05);
+tl.fromTo('#d4', { yPercent: 115 }, { yPercent: 0, duration: .4, ease: 'power4.out' }, 21.70);
+tl.fromTo('#feedph', { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: .55, ease: 'power3.out' }, 19.3);
+tl.fromTo('#feed', { yPercent: 0 }, { yPercent: -62, duration: 2.45, ease: 'power1.in' }, 19.4);
+tl.to('#feed', { yPercent: -66, duration: .5, ease: 'back.out(3)' }, 21.88);
+// → t'es encore là
+tl.to('#dur', { opacity: 0, x: -80, duration: .35, ease: 'power2.in' }, 22.50);
+var fp2 = [420, 150, 330, 660], fp = [1380, 140, 330, 660];
+tl.to('#feedph', { x: fp2[0] - fp[0], y: fp2[1] - fp[1], duration: .55, ease: 'power3.inOut' }, 22.55);
+tl.fromTo('#ring', { opacity: 0, scale: .6 }, { opacity: 1, scale: 1, duration: .45, ease: 'back.out(1.6)' }, 22.70);
+tl.fromTo('#ring-arc', { attr: { 'stroke-dashoffset': .62 } }, { attr: { 'stroke-dashoffset': .55 }, duration: 1.7, ease: 'none' }, 22.6);
+var rt = { t: 22 };
+tl.fromTo(rt, { t: 22.6 }, { t: 24.4, duration: 1.8, ease: 'none', onUpdate: function () {
+  var s = Math.floor(rt.t); document.getElementById('ring-t').textContent = '00:' + s;
+} }, 22.6);
+tl.to('#ring', { scale: .4, opacity: 0, duration: .25, ease: 'power3.in' }, 24.30);
+tl.fromTo('#check', { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: .45, ease: 'back.out(2.2)' }, 24.36);
+tl.fromTo('#check-p', { attr: { 'stroke-dashoffset': 1 } }, { attr: { 'stroke-dashoffset': 0 }, duration: .3, ease: 'power2.out' }, 24.55);
+tl.fromTo('#marche', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .35, ease: 'power3.out' }, 24.62);
+tl.fromTo('#non', { opacity: 0 }, { opacity: 1, duration: .2 }, 24.95);
+tl.to('#check', { rotation: 10, duration: .12, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 25.30);
+tl.to('#feedph, #check, #marche, #non', { opacity: 0, scale: 1.08, duration: .3, ease: 'power2.in' }, 25.85);
+
+// ── S12 bref / t'as… 26.10–30.10 ──
+tl.fromTo('#bref', { scale: 1.6, opacity: 0 }, { scale: 1, opacity: 1, duration: .2, ease: 'power4.out' }, 26.16);
+tl.to('#bref', { opacity: 0, scale: .8, duration: .2 }, 26.62);
+tl.fromTo('#tas', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: .35, ease: 'power3.out' }, 26.74);
+var pT = [27.14, 27.76, 28.64, 29.52];
+pT.forEach(function (t, i) {
+  tl.fromTo('#p' + i, { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .3, ease: 'back.out(2)' }, t - .22);
+  tl.to('#p' + i, { backgroundColor: '#FF6B1A', borderColor: '#FF6B1A', color: '#081230', duration: .15 }, t);
+  tl.fromTo('#p' + i + ' .ck', { scale: 0 }, { scale: 1, duration: .3, ease: 'back.out(3)' }, t + .05);
+});
+
+// ── S13 comme ça ? 30.0–32.15 ──
+tl.fromTo('#row1', { x: 0 }, { x: -1600, duration: 2.2, ease: 'none' }, 30.0);
+tl.fromTo('#row2', { x: -1600 }, { x: 0, duration: 2.2, ease: 'none' }, 30.0);
+tl.fromTo('#band', { scaleY: 0 }, { scaleY: 1, duration: .3, ease: 'power4.out' }, 30.50);
+tl.fromTo('#band1', { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: .3, ease: 'power3.out' }, 30.80);
+tl.to('#band1', { yPercent: -100, opacity: 0, duration: .2, ease: 'power3.in' }, 31.26);
+tl.fromTo('#band2', { scale: 1.8, opacity: 0 }, { scale: 1, opacity: 1, duration: .25, ease: 'power4.out' }, 31.36);
+
+// ── S14 WhatsApp 32.10–36.20 ──
+tl.fromTo('#chat', { opacity: 0, y: 160 }, { opacity: 1, y: 0, duration: .5, ease: 'power3.out' }, 32.10);
+tl.fromTo('#ch-typing', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: .45, ease: 'none' }, 32.30);
+tl.set('#ch-typing', { opacity: 0 }, 32.80);
+tl.fromTo('#bub1', { opacity: 0, y: 40, scale: .8 }, { opacity: 1, y: 0, scale: 1, duration: .35, ease: 'back.out(2)' }, 32.80);
+tl.fromTo('#num', { opacity: 0, x: V ? 0 : 60, y: V ? 40 : 0 }, { opacity: 1, x: 0, y: 0, duration: .4, ease: 'power3.out' }, 33.40);
+tl.fromTo('#num-u', { scaleX: 0 }, { scaleX: 1, duration: .4, ease: 'power3.out' }, 33.80);
+tl.fromTo('#arrow-p', { attr: { 'stroke-dashoffset': 1 } }, { attr: { 'stroke-dashoffset': 0 }, duration: .4, ease: 'power2.out' }, 33.95);
+tl.fromTo('#arrow-h', { opacity: 0 }, { opacity: 1, duration: .1 }, 34.30);
+tl.fromTo('#bub2', { opacity: 0, y: 40, scale: .8 }, { opacity: 1, y: 0, scale: 1, duration: .35, ease: 'back.out(2)' }, 34.82);
+tl.fromTo('#num div', { scale: 1 }, { scale: 1.05, duration: .15, yoyo: true, repeat: 1, ease: 'power2.out' }, 35.30);
+
+// ── S15 end card 36.10–40 ──
+tl.fromTo('#s15', { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: .45, ease: 'power4.inOut' }, 36.10);
+tl.fromTo('#endname i', { yPercent: 110, opacity: 0, filter: 'blur(8px)' }, { yPercent: 0, opacity: 1, filter: 'blur(0px)', duration: .45, stagger: .04, ease: 'power4.out' }, 36.45);
+tl.fromTo('#endtag', { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: .4 }, 37.1);
+tl.fromTo('#endpill', { opacity: 0, scale: .7 }, { opacity: 1, scale: 1, duration: .45, ease: 'back.out(2)' }, 37.30);
+tl.fromTo('#endtk', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: .4 }, 37.65);
+tl.to('#endname', { scale: 1.04, duration: 3.2, ease: 'none' }, 36.8);
+
+tl.to({}, { duration: 40.0 }, 0);
+window.__timelines['main'] = tl;
+
+</script>
+</body>
+</html>
