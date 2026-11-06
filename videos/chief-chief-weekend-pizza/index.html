@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Chief-Chief — Week-end Pizza</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/theme.css" />
+    <style>
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #d6060f; }
+.ctr { left: 0; width: 100%; text-align: center; }
+.bg-black { position: absolute; inset: 0; background: radial-gradient(circle at 70% 40%, #3a0508 0%, #121010 62%); }
+.beams { position: absolute; inset: 0; overflow: hidden; }
+.beam { position: absolute; top: -260px; width: 260px; height: 1700px; transform-origin: 50% 0%; background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 55%, rgba(255, 255, 255, 0) 100%); filter: blur(10px); }
+.beam:nth-child(1) { left: 180px; } .beam:nth-child(2) { left: 640px; } .beam:nth-child(3) { left: 1100px; } .beam:nth-child(4) { left: 1520px; }
+#fx { pointer-events: none; }
+/* 3D helpers */
+.stage { perspective: 1800px; }
+.pz3d { position: absolute; inset: 0; transform-style: preserve-3d; }
+.pz-layer { position: absolute; inset: 0; border-radius: 50%; }
+.pz-top { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.85); }
+.pz-top img { width: 100%; height: 100%; display: block; }
+.pz-shadow { position: absolute; left: 10%; right: 10%; bottom: -14%; height: 16%; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(40, 0, 4, 0.55), rgba(40, 0, 4, 0) 70%); }
+.x3d-w { text-shadow: 2px 2px 0 #c9c9c9, 4px 4px 0 #b8b8b8, 6px 6px 0 #a6a6a6, 8px 8px 0 #959595, 10px 10px 0 #121010, 0 24px 40px rgba(40, 0, 4, 0.5); }
+.x3d-r { text-shadow: 2px 2px 0 #b10510, 4px 4px 0 #9a0410, 6px 6px 0 #85030e, 8px 8px 0 #70020c, 10px 10px 0 #5a020a, 12px 12px 0 #121010, 0 26px 40px rgba(40, 0, 4, 0.35); }
+.x3d-k { text-shadow: 2px 2px 0 #a8040d, 4px 4px 0 #8a030b, 6px 6px 0 #6c0209, 8px 8px 0 #4e0107, 0 0 60px rgba(214, 6, 15, 0.5); }
+.flipwrap { display: flex; justify-content: center; gap: 36px; perspective: 1600px; }
+.flip { width: 480px; height: 250px; }
+.flip-in { width: 100%; height: 100%; background: #fff; border-radius: 26px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #d6060f; box-shadow: 0 26px 50px rgba(40, 0, 4, 0.4); transform-origin: 50% 0%; backface-visibility: hidden; }
+.flip-in .big { font-size: 64px; }
+.red-t .flip-in { background: #d6060f; color: #fff; box-shadow: 0 26px 50px rgba(214, 6, 15, 0.35); }
+.red-t .flip-in .mid { font-size: 52px; }
+.tile-ico { width: 110px; height: 110px; }
+.sticker { display: inline-block; background: #121010; color: #fff; padding: 10px 70px 24px; border-radius: 30px; border: 10px solid #fff; box-shadow: 0 26px 50px rgba(40, 0, 4, 0.5); }
+.badge { width: 240px; height: 240px; border-radius: 50%; background: #121010; border: 10px solid #fff; display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+.badge .big { font-size: 78px; }
+.vpanel { position: absolute; object-fit: cover; border-radius: 26px; border: 10px solid #fff; box-shadow: 0 30px 70px rgba(40, 0, 4, 0.55); background: #121010; }
+.c3d { transform-origin: 50% 100%; }
+.wapill { display: inline-flex; align-items: center; gap: 18px; background: #fff; color: #d6060f; border-radius: 999px; padding: 12px 40px 14px 22px; box-shadow: 0 16px 36px rgba(40, 0, 4, 0.35); }
+.wa-ico { width: 74px; height: 74px; } .wapill .mid { font-size: 50px; }
+/* S1 */
+#s1-big { top: 390px; font-size: 140px; } #s1-logo { left: 840px; top: 50px; width: 250px; height: 250px; }
+#s1-lead { left: 140px; top: 360px; font-size: 70px; } #s1-pizza { left: 130px; top: 450px; font-size: 200px; }
+#s1-stage { left: 1080px; top: 170px; width: 720px; height: 720px; }
+/* S2 */
+#s2-days { top: 230px; } #s2-lead { top: 590px; font-size: 66px; } #s2-promo { top: 680px; } #s2-promo .big { font-size: 160px; }
+/* S3 */
+#s3-lead { left: 130px; top: 170px; font-size: 70px; } #s3-pct { left: 100px; top: 250px; font-size: 360px; }
+#s3-red { left: 140px; top: 640px; font-size: 100px; } #s3-all { left: 130px; top: 790px; } #s3-all .pill { font-size: 70px; }
+#s3-stage { left: 1180px; top: 200px; width: 640px; height: 640px; } #s3-badge { left: 1600px; top: 120px; }
+/* S4 */
+#s4-a, #s4-b, #s4-c { left: 120px; top: 120px; } #s4-a .lead, #s4-b .lead, #s4-c .lead { font-size: 62px; } #s4-a .big, #s4-b .big, #s4-c .big { font-size: 130px; margin-top: 18px; }
+#v-tiree { left: 140px; top: 400px; width: 340px; height: 600px; }
+#v-bulles { left: 790px; top: 330px; width: 380px; height: 676px; }
+#v-fumee { left: 1440px; top: 400px; width: 340px; height: 600px; }
+/* S5 */
+#s5-fan { left: 560px; top: 160px; width: 800px; height: 760px; }
+#s5-c1, #s5-c2, #s5-c3 { left: 220px; top: 60px; width: 380px; height: 600px; }
+#s5-p1 { left: 160px; top: 260px; } #s5-p2 { left: 1380px; top: 420px; } #s5-p3 { left: 200px; top: 680px; } .pop .pill { font-size: 72px; }
+/* S6 */
+#s6-lead { left: 120px; top: 300px; font-size: 54px; } #s6-big { left: 110px; top: 390px; font-size: 165px; }
+#v-part { left: 1300px; top: 90px; width: 500px; height: 900px; }
+/* S7 */
+#s7-tiles { top: 280px; } #s7-sub { top: 680px; } #s7-sub .pill { font-size: 70px; }
+/* S8 */
+#s8-big { left: 120px; top: 140px; font-size: 140px; } #s8-url { left: 130px; top: 330px; font-size: 66px; }
+#s8-wa { left: 130px; top: 450px; } #s8-num { left: 120px; top: 600px; font-size: 170px; }
+#s8-rib { left: 130px; top: 860px; } #s8-rib .pill { font-size: 50px; }
+#s8-stage { left: 1280px; top: 260px; width: 560px; height: 560px; }
+/* S9 */
+#s9-lead0 { top: 60px; font-size: 60px; } #s9-logo { left: 830px; top: 140px; width: 260px; height: 260px; }
+#s9-lead { top: 430px; font-size: 64px; } #s9-big { top: 505px; font-size: 210px; }
+#s9-band { left: 0; top: 820px; width: 1920px; height: 260px; background: #121010; display: flex; align-items: center; justify-content: center; gap: 40px; }
+#s9-band .mid { font-size: 64px; } #s9-band .pill { font-size: 54px; }
+
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="34.53" data-fps="30" data-width="1920" data-height="1080">
+      <!-- S1 · Le week-end arrive / week-end PIZZA (0 – 3.65) · ROUGE -->
+      <section id="s1" class="clip scene" data-start="0" data-duration="3.7" data-track-index="1">
+        <div class="bg-red"></div>
+        <div class="rays red" id="s1-rays"></div>
+        <div class="vignette"></div>
+        <div id="s1-big" class="abs ctr big c-white">Le week-end arrive</div>
+        <img id="s1-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+        <div id="s1-lead" class="abs lead c-white">c'est le week-end</div>
+        <div id="s1-pizza" class="abs big c-white x3d-w">Pizza !</div>
+        <div id="s1-stage" class="stage abs"><div class="pz3d" id="pz1" data-img="assets/cut/pizza-ballon.png"></div></div>
+      </section>
+
+      <!-- S2 · Ven / Sam / Dim + promo (3.65 – 6.45) · ROUGE -->
+      <section id="s2" class="clip scene" data-start="3.65" data-duration="2.85" data-track-index="1">
+        <div class="bg-red"></div>
+        <div class="beams" id="s2-beams"><i class="beam"></i><i class="beam"></i><i class="beam"></i><i class="beam"></i></div>
+        <div id="s2-days" class="abs ctr flipwrap">
+          <div class="flip"><div class="flip-in"><span class="big">Vendredi</span></div></div>
+          <div class="flip"><div class="flip-in"><span class="big">Samedi</span></div></div>
+          <div class="flip"><div class="flip-in"><span class="big">Dimanche</span></div></div>
+        </div>
+        <div id="s2-lead" class="abs ctr lead c-white">nos pizzas sont en</div>
+        <div id="s2-promo" class="abs ctr"><span class="sticker big">Promo !</span></div>
+      </section>
+
+      <!-- S3 · −10 % (6.45 – 9.3) · BLANC -->
+      <section id="s3" class="clip scene" data-start="6.45" data-duration="2.9" data-track-index="1">
+        <div class="bg-white"></div>
+        <div id="s3-lead" class="abs lead c-ink">profitez de</div>
+        <div id="s3-pct" class="abs big c-red x3d-r">−10%</div>
+        <div id="s3-red" class="abs mid c-ink">de réduction</div>
+        <div id="s3-all" class="abs"><span class="pill red">sur toutes nos pizzas</span></div>
+        <div id="s3-stage" class="stage abs"><div class="pz3d" id="pz3" data-img="assets/cut/pizza-pepperoni-rond.png"></div></div>
+        <div id="s3-badge" class="abs badge"><span class="big">−10%</span></div>
+      </section>
+
+      <!-- S4 · Généreuses / passion / bien chaudes (9.3 – 13.65) · ROUGE (video panels at root) -->
+      <section id="s4" class="clip scene" data-start="9.3" data-duration="4.4" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s4-a" class="abs"><div class="lead c-white">des pizzas</div><div class="big c-white">généreuses</div></div>
+        <div id="s4-b" class="abs"><div class="lead c-white">préparées avec</div><div class="big c-white">passion</div></div>
+        <div id="s4-c" class="abs"><div class="lead c-white">servies</div><div class="big c-white">bien chaudes</div></div>
+      </section>
+
+      <!-- S5 · Entre amis / famille / solo (13.65 – 15.9) · ROUGE -->
+      <section id="s5" class="clip scene" data-start="13.65" data-duration="2.3" data-track-index="1">
+        <div class="bg-red"></div>
+        <div class="rays red" id="s5-rays"></div>
+        <div class="vignette"></div>
+        <div id="s5-fan" class="stage abs">
+          <div id="s5-c1" class="card c3d"><img src="assets/src/pizza-poulet.jpg" alt="" /></div>
+          <div id="s5-c2" class="card c3d"><img src="assets/src/pizza-part-pepperoni.jpg" alt="" style="object-position: 50% 45%" /></div>
+          <div id="s5-c3" class="card c3d"><img src="assets/src/pizza-part-mais.jpg" alt="" style="object-position: 50% 40%" /></div>
+        </div>
+        <div id="s5-p1" class="abs pop"><span class="pill wht">entre amis</span></div>
+        <div id="s5-p2" class="abs pop"><span class="pill blk">en famille</span></div>
+        <div id="s5-p3" class="abs pop"><span class="pill wht">ou en solo</span></div>
+      </section>
+
+      <!-- S6 · Toujours une raison de craquer (15.9 – 18.25) · NOIR (slice video at root) -->
+      <section id="s6" class="clip scene" data-start="15.9" data-duration="2.4" data-track-index="1">
+        <div class="bg-black"></div>
+        <div id="s6-lead" class="abs lead c-white">il y a toujours une bonne raison de</div>
+        <div id="s6-big" class="abs big c-red x3d-k">craquer !</div>
+      </section>
+
+      <!-- S7 · Sur place / emporter / livré (18.25 – 21.15) · BLANC -->
+      <section id="s7" class="clip scene" data-start="18.25" data-duration="2.95" data-track-index="1">
+        <div class="bg-white"></div>
+        <div id="s7-tiles" class="abs ctr flipwrap">
+          <div class="flip red-t"><div class="flip-in"><svg viewBox="0 0 64 64" class="tile-ico"><path d="M8 26h48M14 26v26M50 26v26M10 18h44l2 8H8z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /></svg><span class="mid">Sur place</span></div></div>
+          <div class="flip red-t"><div class="flip-in"><svg viewBox="0 0 64 64" class="tile-ico"><path d="M14 22h36l-3 34H17zM24 22v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round" /></svg><span class="mid">À emporter</span></div></div>
+          <div class="flip red-t"><div class="flip-in"><svg viewBox="0 0 64 64" class="tile-ico"><circle cx="16" cy="46" r="9" fill="none" stroke="#fff" stroke-width="5" /><circle cx="50" cy="46" r="9" fill="none" stroke="#fff" stroke-width="5" /><path d="M16 46l10-16h14l10 16M30 30l-4-10h-8M40 30l4-12h8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="mid">Livraison</span></div></div>
+        </div>
+        <div id="s7-sub" class="abs ctr"><span class="pill blk">directement chez vous</span></div>
+      </section>
+
+      <!-- S8 · Commandez (21.15 – 30.75) · ROUGE -->
+      <section id="s8" class="clip scene" data-start="21.15" data-duration="9.65" data-track-index="1">
+        <div class="bg-red"></div>
+        <div id="s8-big" class="abs big c-white">Commandez vite</div>
+        <div id="s8-url" class="abs mid c-white" style="text-transform: none"></div>
+        <div id="s8-wa" class="abs"><span class="wapill"><svg class="wa-ico" viewBox="0 0 32 32"><path fill="#d6060f" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-2.6-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5a.6.6 0 0 0 0-.6c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.8 13.8 0 0 0 5.3 4.7c2 .8 2.7.9 3.6.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.2-.6-.4z" /></svg><span class="mid">WhatsApp</span></span></div>
+        <div id="s8-num" class="abs big c-white"><span class="w">88</span> <span class="w">84</span> <span class="w">49</span> <span class="w">84</span></div>
+        <div id="s8-rib" class="abs"><span class="pill blk">−10% · vendredi · samedi · dimanche</span></div>
+        <div id="s8-stage" class="stage abs"><div class="pz3d" id="pz8" data-img="assets/cut/pizza-ballon.png"></div></div>
+      </section>
+
+      <!-- S9 · Signature (30.75 – 34.53) · ROUGE -->
+      <section id="s9" class="clip scene" data-start="30.75" data-duration="3.78" data-track-index="1">
+        <div class="rays red" id="s9-rays"></div>
+        <div class="vignette"></div>
+        <div id="s9-lead0" class="abs ctr lead c-white">ce week-end, c'est pizza chez</div>
+        <img id="s9-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+        <div id="s9-lead" class="abs ctr lead c-white">le goût qui vous ramène</div>
+        <div id="s9-big" class="abs ctr big c-white x3d-w">Toujours</div>
+        <div id="s9-band" class="abs"><span class="mid c-white">−10% sur toutes les pizzas</span><span class="pill red">ven · sam · dim</span></div>
+      </section>
+
+      <!-- Video panels (root level) -->
+      <video id="v-tiree" class="vpanel" src="assets/clips/part-tiree.mp4" muted playsinline data-start="9.35" data-duration="4.3" data-playback-rate="0.7" data-track-index="2"></video>
+      <video id="v-bulles" class="vpanel" src="assets/clips/fromage-bulles.mp4" muted playsinline data-start="10.8" data-duration="2.85" data-playback-rate="0.8" data-track-index="3"></video>
+      <video id="v-fumee" class="vpanel" src="assets/clips/pizza-fumee.mp4" muted playsinline data-start="12.0" data-duration="1.65" data-track-index="4"></video>
+      <video id="v-part" class="vpanel" src="assets/clips/part-fromage.mp4" muted playsinline data-start="15.95" data-duration="2.3" data-track-index="2"></video>
+
+      <!-- Transition overlay -->
+      <div id="fx" class="clip scene" data-start="0" data-duration="34.53" data-track-index="7">
+        <div id="wp-w" class="wpanel" style="background: #ffffff"></div>
+        <div id="wp-r" class="wpanel" style="background: #d6060f"></div>
+        <div id="wp-k" class="wpanel" style="background: #121010"></div>
+      </div>
+
+      <audio id="voice" src="assets/voice/voix-off.mp3" data-start="0" data-duration="34.53" data-track-index="10" data-volume="1"></audio>
+      <audio id="music" src="assets/music/weekend-doux.mp3" data-start="0" data-duration="34.53" data-track-index="11" data-volume="0.09"></audio>
+      <audio id="sfx" src="assets/sfx/sfx-mix.wav" data-start="0" data-duration="34.53" data-track-index="12" data-volume="0.28"></audio>
+
+    </div>
+    <script>
+      // Deterministic pseudo-random (seeded LCG) for decorative elements.
+      let seed = 611;
+      const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+      // ---------- 3D pizza: a stack of crust discs under the photo gives it real thickness ----------
+      document.querySelectorAll(".pz3d").forEach((host) => {
+        const stage = host.parentElement;
+        const sh = document.createElement("i");
+        sh.className = "pz-shadow";
+        stage.insertBefore(sh, host);
+        for (let i = 14; i >= 1; i--) {
+          const l = document.createElement("i");
+          l.className = "pz-layer";
+          const shade = Math.round(150 - i * 5);
+          l.style.cssText = `transform:translateZ(${-i * 2.6}px);background:rgb(${shade + 40},${Math.round(shade * 0.62)},${Math.round(shade * 0.28)})`;
+          host.appendChild(l);
+        }
+        const top = document.createElement("div");
+        top.className = "pz-top";
+        const im = document.createElement("img");
+        im.src = host.dataset.img;
+        im.alt = "";
+        top.appendChild(im);
+        host.appendChild(top);
+      });
+
+      // typed URL (S8)
+      const urlHost = document.getElementById("s8-url");
+      const urlChars = [];
+      for (const ch of "chiefchiefrestaurant.com") {
+        const s = document.createElement("span");
+        s.className = "w";
+        s.textContent = ch;
+        urlHost.appendChild(s);
+        urlChars.push(s);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set(".wpanel", { xPercent: -110 }, 0);
+
+      // ---------- helpers (fluid eases) ----------
+      function wipe(t, id, dir = 1) {
+        tl.fromTo(id, { xPercent: -110 * dir, skewX: -10 }, { xPercent: 0, skewX: -10, duration: 0.24, ease: "power2.in", immediateRender: false }, t - 0.24);
+        tl.to(id, { xPercent: 110 * dir, duration: 0.32, ease: "power2.out" }, t);
+      }
+      function punch(sel, t, d = 0.36) {
+        tl.fromTo(sel, { scale: 1.7, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: d, ease: "expo.out" }, t);
+      }
+      function slam(sel, t, d = 0.24) {
+        tl.fromTo(sel, { scale: 2.5, opacity: 0 }, { scale: 1, opacity: 1, duration: d, ease: "power3.in" }, t);
+      }
+      function leadIn(sel, t) {
+        tl.fromTo(sel, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, ease: "power3.out" }, t);
+      }
+      function popUp(sel, t, rot = 0) {
+        tl.fromTo(sel, { scale: 0, opacity: 0, rotation: rot - 20 }, { scale: 1, opacity: 1, rotation: rot, duration: 0.45, ease: "back.out(2.6)" }, t);
+      }
+      function out(sel, t, d = 0.22) {
+        tl.to(sel, { x: -220, opacity: 0, filter: "blur(10px)", duration: d, ease: "power2.in" }, t);
+      }
+      function shake(sel, t, amp = 12, n = 4) {
+        tl.fromTo(sel, { x: 0 }, { x: amp, duration: 0.04, ease: "none", yoyo: true, repeat: n, immediateRender: false }, t);
+        tl.set(sel, { x: 0 }, t + 0.04 * (n + 1));
+      }
+      // 3D pizza: arrive from depth, tilt to show thickness, keep spinning
+      function pizza3d(id, t, d, opts = {}) {
+        tl.fromTo(id, { z: -1600, rotationX: 70, rotationY: -40, rotationZ: -180, opacity: 0 }, { z: 0, rotationX: 28, rotationY: 0, rotationZ: 0, opacity: 1, duration: 0.9, ease: "expo.out" }, t);
+        tl.to(id, { rotationZ: opts.spin || 120, duration: d - 0.9, ease: "none" }, t + 0.9);
+        tl.to(id, { rotationX: 12, duration: (d - 0.9) / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t + 0.9);
+      }
+
+      // ================= S1 · Le week-end arrive (0 – 3.65) =================
+      tl.fromTo("#s1-rays", { rotation: 0 }, { rotation: 25, duration: 3.7, ease: "none" }, 0);
+      punch("#s1-big", 0.1, 0.4);
+      tl.fromTo("#s1-logo", { scale: 0, rotation: -160 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.7)" }, 1.25);
+      tl.to("#s1-big", { y: -200, scale: 0.6, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.1);
+      leadIn("#s1-lead", 2.35);
+      pizza3d("#pz1", 2.3, 1.4, { spin: 90 });
+      slam("#s1-pizza", 3.2, 0.24);
+      shake("#s1", 3.44, 12, 3);
+      wipe(3.65, "#wp-k");
+
+      // ================= S2 · Ven / Sam / Dim + promo (3.65 – 6.45) =================
+      document.querySelectorAll("#s2-beams .beam").forEach((b, i) => {
+        tl.fromTo(b, { rotation: i % 2 ? -26 : 26 }, { rotation: i % 2 ? 20 : -20, duration: 2.8, ease: "sine.inOut" }, 3.65);
+      });
+      [3.68, 4.25, 4.68].forEach((t, i) => {
+        tl.fromTo(`#s2-days .flip:nth-child(${i + 1}) .flip-in`, { rotationX: -100, opacity: 0 }, { rotationX: 0, opacity: 1, duration: 0.55, ease: "back.out(1.6)" }, t);
+      });
+      leadIn("#s2-lead", 5.25);
+      tl.fromTo("#s2-promo", { y: 260, rotation: -12 }, { y: 0, rotation: -4, duration: 0.4, ease: "back.out(2.2)" }, 5.62);
+      tl.to("#s2-promo", { scale: 1.06, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 6.0);
+      wipe(6.45, "#wp-w");
+
+      // ================= S3 · −10 % (6.45 – 9.3) =================
+      leadIn("#s3-lead", 6.55);
+      pizza3d("#pz3", 6.5, 2.8, { spin: 150 });
+      tl.fromTo("#s3-pct", { scale: 3, opacity: 0, rotationY: -60, transformPerspective: 1200 }, { scale: 1, opacity: 1, rotationY: 0, duration: 0.35, ease: "power3.in" }, 7.1);
+      shake("#s3", 7.45, 16, 4);
+      tl.to("#s3-pct", { rotationY: 14, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 1, transformPerspective: 1200 }, 7.7);
+      tl.fromTo("#s3-red", { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, 7.65);
+      tl.fromTo("#s3-all", { x: -600, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 8.15);
+      popUp("#s3-badge", 7.35, -10);
+      wipe(9.3, "#wp-r", -1);
+
+      // ================= S4 · Généreuses / passion / chaudes (9.3 – 13.65) =================
+      leadIn("#s4-a .lead", 9.4);
+      punch("#s4-a .big", 9.75, 0.32);
+      tl.fromTo("#v-tiree", { y: 900, rotationY: 40, transformPerspective: 1600 }, { y: 0, rotationY: 18, duration: 0.6, ease: "expo.out" }, 9.35);
+      out("#s4-a", 10.7);
+      leadIn("#s4-b .lead", 10.85);
+      punch("#s4-b .big", 11.4, 0.32);
+      tl.fromTo("#v-bulles", { y: 900, scale: 0.8, transformPerspective: 1600 }, { y: 0, scale: 1, duration: 0.6, ease: "expo.out" }, 10.8);
+      out("#s4-b", 11.95);
+      leadIn("#s4-c .lead", 12.1);
+      punch("#s4-c .big", 12.6, 0.32);
+      tl.fromTo("#v-fumee", { y: 900, rotationY: -40, transformPerspective: 1600 }, { y: 0, rotationY: -18, duration: 0.6, ease: "expo.out" }, 12.0);
+      tl.to(["#v-tiree", "#v-bulles", "#v-fumee"], { y: -1100, duration: 0.3, ease: "power2.in", stagger: 0.04 }, 13.3);
+      wipe(13.65, "#wp-r");
+
+      // ================= S5 · Amis / famille / solo (13.65 – 15.9) =================
+      tl.fromTo("#s5-rays", { rotation: 0 }, { rotation: 20, duration: 2.3, ease: "none" }, 13.65);
+      [["#s5-c1", "#s5-p1", 13.75, -16], ["#s5-c2", "#s5-p2", 14.35, 0], ["#s5-c3", "#s5-p3", 14.95, 16]].forEach(([c, p, t, r]) => {
+        tl.fromTo(c, { y: 700, rotation: r * 2, rotationY: r * 3, transformPerspective: 1600, opacity: 0 }, { y: 0, rotation: r, rotationY: r * 1.2, opacity: 1, duration: 0.55, ease: "back.out(1.4)" }, t);
+        popUp(p, t + 0.05, r ? -r / 3 : 4);
+      });
+      tl.to("#s5-fan", { scale: 1.05, duration: 0.8, ease: "sine.inOut" }, 15.1);
+      wipe(15.9, "#wp-k", -1);
+
+      // ================= S6 · Raison de craquer (15.9 – 18.25) =================
+      tl.fromTo("#v-part", { x: 700, rotationY: -40, transformPerspective: 1600 }, { x: 0, rotationY: -10, duration: 0.6, ease: "expo.out" }, 15.95);
+      tl.to("#v-part", { rotationY: 6, duration: 1.6, ease: "sine.inOut" }, 16.6);
+      leadIn("#s6-lead", 16.0);
+      slam("#s6-big", 17.35, 0.24);
+      shake("#s6", 17.6, 14, 4);
+      wipe(18.25, "#wp-w");
+
+      // ================= S7 · Sur place / emporter / livré (18.25 – 21.15) =================
+      [18.38, 18.98, 19.7].forEach((t, i) => {
+        tl.fromTo(`#s7-tiles .flip:nth-child(${i + 1}) .flip-in`, { rotationX: -100, opacity: 0 }, { rotationX: 0, opacity: 1, duration: 0.55, ease: "back.out(1.6)" }, t);
+      });
+      popUp("#s7-sub", 20.1, -2);
+      tl.to(["#s7-tiles", "#s7-sub"], { y: -60, opacity: 0, filter: "blur(10px)", duration: 0.22, ease: "power2.in" }, 20.85);
+      wipe(21.15, "#wp-r", -1);
+
+      // ================= S8 · Commandez (21.15 – 30.75) =================
+      pizza3d("#pz8", 21.2, 9.5, { spin: 330 });
+      punch("#s8-big", 21.3, 0.36);
+      tl.fromTo(urlChars, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.07, ease: "power2.out", stagger: 0.06 }, 22.2);
+      tl.fromTo("#s8-wa", { x: -500, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 24.0);
+      [25.75, 26.45, 27.15, 28.25].forEach((t, i) => slam(`#s8-num .w:nth-child(${i + 1})`, t, 0.22));
+      popUp("#s8-rib", 29.0, -2);
+      tl.to("#s8-num", { scale: 1.05, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, 29.6);
+      wipe(30.75, "#wp-k");
+
+      // ================= S9 · Signature (30.75 – 34.53) =================
+      tl.fromTo("#s9-rays", { rotation: 0 }, { rotation: 30, duration: 3.8, ease: "none" }, 30.75);
+      leadIn("#s9-lead0", 30.85);
+      tl.fromTo("#s9-logo", { scale: 0, rotationY: -180, transformPerspective: 1200 }, { scale: 1, rotationY: 0, duration: 0.6, ease: "back.out(1.6)" }, 31.3);
+      leadIn("#s9-lead", 32.05);
+      slam("#s9-big", 33.25, 0.24);
+      tl.fromTo("#s9-band", { yPercent: 100 }, { yPercent: 0, duration: 0.45, ease: "expo.out" }, 31.6);
+
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>
