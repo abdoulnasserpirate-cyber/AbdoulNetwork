@@ -1,0 +1,1 @@
+hqdn3d=2:1.5:4:3,huesaturation=saturation=-0.30:colors=y:strength=1.5,eq=saturation=0.84:contrast=0.94:gamma=1.03,colorbalance=rm=-0.012:bm=0.008:rh=-0.015,curves=all='0/0.035 0.25/0.262 0.75/0.75 1/0.965',scale=1080:1920:flags=lanczos,unsharp=5:5:0.45:5:5:0
