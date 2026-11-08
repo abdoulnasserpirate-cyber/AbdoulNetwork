@@ -1,0 +1,71 @@
+ABONNIA — JOUR 1 — TEXTE DE LA VOIX OFF (environ 55 à 60 s)
+
+Consignes d'enregistrement :
+- Lis exactement ces 21 phrases, dans l'ordre.
+- Laisse environ 1 seconde de silence entre chaque phrase (c'est ce qui me permet de découper).
+- Ton de narrateur de jeu vidéo : chaleureux, énergique, avec le sourire.
+- Si tu rates une phrase : pause, puis relis toute la phrase, et dis-moi laquelle garder (ex. « ligne 7 : 2e prise »).
+- Envoie le fichier .m4a tel quel.
+
+1.  Et si on créait un pays… en plein désert ?
+    [Plongée à travers les nuages vers l'oasis vue du ciel. HUD : Jour 1, Population 0, « Pays sans nom »]
+
+2.  Tous ensemble.
+    [La caméra continue de descendre]
+
+3.  Regarde. Une oasis cachée au milieu des dunes.
+    [Vue zénithale qui se rapproche lentement]
+
+4.  Des montagnes, un fleuve, et un lac.
+    [Étiquettes MONTAGNES, FLEUVE, LAC qui apparaissent une par une, chacune sur son mot]
+
+5.  Ici, il y a la place pour des millions d'habitants.
+    [Survol en 3/4 ; des centaines d'immeubles fantômes poussent en vague]
+
+6.  Mais pour l'instant… il n'y a rien.
+    [Les fantômes disparaissent ; travelling au ras du sol, palmiers et montagnes au fond]
+
+7.  La règle est simple : un abonné égale un habitant.
+    [Des pions tombent un par un ; le compteur monte de 1 à 8 avec le badge EXEMPLE]
+
+8.  Aujourd'hui, on est zéro. Tu seras le premier ?
+    [Les pions disparaissent, le compteur revient à 0 ; plan au sol près du fleuve]
+
+9.  Chaque jour, vous votez.
+    [Survol du fleuve en plongée ; titre CHAQUE JOUR VOUS VOTEZ]
+
+10. Les constructions, les lois, les guerres, les manifs…
+    [Grille d'icônes CONSTRUCTIONS, LOIS, GUERRES, MANIFS, chacune sur son mot]
+
+11. C'est vous qui décidez de l'avenir.
+    [La caméra glisse au-dessus de la palmeraie]
+
+12. Mais d'abord, le pays a besoin d'un nom et d'un drapeau.
+    [Plan au sol devant un drapeau blanc « ? » planté dans l'oasis, qui ondule au vent]
+
+13. Écris le nom en commentaire.
+    [Carte 1 « Nom du pays — Écris-le en commentaire »]
+
+14. Décris le drapeau : une IA le dessinera.
+    [Faux commentaire « Qu'il s'appelle Sahelia, drapeau orange avec un palmier vert », likes de 276 à 1 240, badge EXEMPLE ; carte 2 « Le drapeau »]
+
+15. Le commentaire le plus liké gagne.
+    [La lumière devient plus dramatique]
+
+16. Et maintenant, premier vote : où est-ce qu'on fonde le pays ?
+    [Survol du fleuve ; titre PREMIER VOTE]
+
+17. A : au bord du fleuve. De l'eau et des terres fertiles.
+    [Épingle bleue A, cercle au sol ; village fantôme, moulin, champs]
+
+18. B : près des dunes. Le commerce et les caravanes.
+    [Épingle orange B, cercle au sol ; maisons fantômes, marché couvert, chameaux]
+
+19. Commente A ou B, avec ton nom et ton drapeau.
+    [Vue du ciel avec les deux épingles ; cartes A vs B]
+
+20. Abonne-toi, et viens vivre ici.
+    [La caméra remonte vers les nuages]
+
+21. Demain : jour 2.
+    [Fondu dans les nuages blancs]
