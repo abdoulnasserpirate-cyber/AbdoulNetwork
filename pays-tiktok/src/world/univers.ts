@@ -70,9 +70,9 @@ export const OASIS: UniversPreset = {
   mountainsZ: -66,
   lieux: {
     // A : au bord du fleuve (terres fertiles) — B : près des dunes (commerce, caravanes)
-    A: [-34, -18],
-    B: [36, -6],
-    drapeau: [-6, -4],
+    A: [-10, -32],
+    B: [40, -14],
+    drapeau: [16, 4],
     centre: [0, 0],
   },
 };

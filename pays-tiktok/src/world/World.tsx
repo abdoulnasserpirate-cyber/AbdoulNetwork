@@ -76,13 +76,13 @@ export const World: React.FC<WorldProps> = ({
     >
       <CameraRig keys={camera} aspect={width / height} />
       <fog attach="fog" args={[fogColor, 420, 1500]} />
-      <SkyDome top={drama > 0.5 ? '#6f7fa6' : p.sky} bottom={'#fbe8c4'} />
+      <SkyDome top={'#' + new THREE.Color(p.sky).lerp(new THREE.Color('#5d6a8c'), drama).getHexString()} bottom={'#' + new THREE.Color('#fbe8c4').lerp(new THREE.Color('#b9a08a'), drama).getHexString()} />
       <hemisphereLight args={['#cfe9ff', '#e7c48a', 1.15 - drama * 0.5]} />
       <ambientLight intensity={0.25} />
       <directionalLight
         position={[-210, 170, 110]}
         intensity={sunI}
-        color={drama > 0.5 ? '#ffd2a0' : '#fff2da'}
+        color={new THREE.Color('#fff2da').lerp(new THREE.Color('#ffb070'), drama)}
         castShadow
         shadow-mapSize-width={4096}
         shadow-mapSize-height={4096}

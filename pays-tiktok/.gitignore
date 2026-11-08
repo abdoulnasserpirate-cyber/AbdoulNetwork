@@ -1,3 +1,8 @@
 node_modules/
 out/*.mp4
+out/controle/
 .remotion/
+public/audio/*.wav
+public/audio/sfx/
+!public/audio/voix-jour-*.wav
+public/audio/voix-jour-*-brut.wav

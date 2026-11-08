@@ -1,0 +1,194 @@
+{
+  "jour": 1,
+  "univers": "oasis",
+  "seed": 2026,
+  "population": 0,
+  "nom": null,
+  "voix": null,
+  "musique": "audio/musique-cozy.wav",
+  "queue": 1.0,
+  "lignes": [
+    {
+      "id": 1,
+      "voix": "Et si on créait un pays… en plein désert ?",
+      "sous_titre": "ET SI ON CRÉAIT UN *PAYS*… / EN PLEIN *DÉSERT* ?",
+      "plan": "plongee"
+    },
+    {
+      "id": 2,
+      "voix": "Tous ensemble.",
+      "sous_titre": "*TOUS ENSEMBLE*"
+    },
+    {
+      "id": 3,
+      "voix": "Regarde. Une oasis cachée au milieu des dunes.",
+      "sous_titre": "UNE OASIS *CACHÉE* / AU MILIEU DES DUNES",
+      "plan": "zenith_approche"
+    },
+    {
+      "id": 4,
+      "voix": "Des montagnes, un fleuve, et un lac.",
+      "sous_titre": "DES MONTAGNES, UN *FLEUVE* / ET UN LAC",
+      "plan": "zenith_etiquettes",
+      "elements": [
+        {
+          "type": "etiquettes",
+          "items": [
+            {"texte": "MONTAGNES", "mot": "montagnes", "cible": "montagnes"},
+            {"texte": "FLEUVE", "mot": "fleuve", "cible": "fleuve"},
+            {"texte": "LAC", "mot": "lac", "cible": "lac"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "voix": "Ici, il y a la place pour des millions d'habitants.",
+      "sous_titre": "ICI, IL Y A LA PLACE POUR / DES *MILLIONS* D'HABITANTS",
+      "plan": "survol_34",
+      "elements": [{"type": "ville_fantome", "mot": "place"}]
+    },
+    {
+      "id": 6,
+      "voix": "Mais pour l'instant… il n'y a rien.",
+      "sous_titre": "MAIS POUR L'INSTANT… / IL N'Y A *RIEN*",
+      "plan": "sol_travelling"
+    },
+    {
+      "id": 7,
+      "voix": "La règle est simple : un abonné égale un habitant.",
+      "sous_titre": "*1 ABONNÉ* / = 1 HABITANT",
+      "plan": "sol_pions",
+      "elements": [{"type": "pions", "mot": "simple", "nombre": 8, "compteur": true, "badge": "EXEMPLE"}]
+    },
+    {
+      "id": 8,
+      "voix": "Aujourd'hui, on est zéro. Tu seras le premier ?",
+      "sous_titre": "AUJOURD'HUI ON EST 0… / TU SERAS LE *PREMIER* ?",
+      "plan": "sol_fleuve"
+    },
+    {
+      "id": 9,
+      "voix": "Chaque jour, vous votez.",
+      "titre": "CHAQUE JOUR / *VOUS VOTEZ*",
+      "plan": "fleuve_plongee"
+    },
+    {
+      "id": 10,
+      "voix": "Les constructions, les lois, les guerres, les manifs…",
+      "elements": [
+        {
+          "type": "grille_icones",
+          "jusqua": 11,
+          "items": [
+            {"texte": "CONSTRUCTIONS", "icone": "maison", "mot": "constructions"},
+            {"texte": "LOIS", "icone": "loi", "mot": "lois"},
+            {"texte": "GUERRES", "icone": "epees", "mot": "guerres"},
+            {"texte": "MANIFS", "icone": "pancarte", "mot": "manifs"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "voix": "C'est vous qui décidez de l'avenir.",
+      "sous_titre": "C'EST VOUS QUI DÉCIDEZ / DE L'*AVENIR*",
+      "plan": "palmeraie"
+    },
+    {
+      "id": 12,
+      "voix": "Mais d'abord, le pays a besoin d'un nom et d'un drapeau.",
+      "titre": "LE PAYS A BESOIN D'UN / *NOM* ET D'UN *DRAPEAU*",
+      "plan": "sol_drapeau",
+      "elements": [{"type": "drapeau_blanc", "at": 0, "jusqua": 15}]
+    },
+    {
+      "id": 13,
+      "voix": "Écris le nom en commentaire.",
+      "elements": [
+        {"type": "consigne", "mot": "nom", "jusqua": 15, "numero": 1, "titre": "NOM DU PAYS", "texte": "Écris-le en commentaire"}
+      ]
+    },
+    {
+      "id": 14,
+      "voix": "Décris le drapeau : une IA le dessinera.",
+      "elements": [
+        {
+          "type": "commentaire",
+          "at": 0,
+          "jusqua": 15,
+          "pseudo": "Exemple",
+          "texte": "« Qu'il s'appelle Sahelia, drapeau orange avec un palmier vert »",
+          "likes_de": 276,
+          "likes_a": 1240,
+          "badge": "EXEMPLE"
+        },
+        {"type": "consigne", "mot": "drapeau", "jusqua": 15, "numero": 2, "titre": "LE DRAPEAU", "texte": "Décris-le : une IA le dessinera"}
+      ]
+    },
+    {
+      "id": 15,
+      "voix": "Le commentaire le plus liké gagne.",
+      "sous_titre": "LE PLUS *LIKÉ* GAGNE",
+      "elements": [{"type": "drame", "at": 0}]
+    },
+    {
+      "id": 16,
+      "voix": "Et maintenant, premier vote : où est-ce qu'on fonde le pays ?",
+      "titre": "PREMIER VOTE / OÙ *FONDE*-T-ON LE PAYS ?",
+      "plan": "fleuve_survol"
+    },
+    {
+      "id": 17,
+      "voix": "A : au bord du fleuve. De l'eau et des terres fertiles.",
+      "sous_titre": "*A* · AU BORD DU FLEUVE",
+      "sous_ligne": "DE L'EAU ET DES TERRES FERTILES",
+      "plan": "lieu_A",
+      "elements": [
+        {"type": "epingle", "lieu": "A", "at": 0, "jusqua": 19},
+        {"type": "village_fantome", "lieu": "A", "mot": "fleuve", "jusqua": 19}
+      ]
+    },
+    {
+      "id": 18,
+      "voix": "B : près des dunes. Le commerce et les caravanes.",
+      "sous_titre": "*B* · PRÈS DES DUNES",
+      "sous_ligne": "LE COMMERCE ET LES CARAVANES",
+      "plan": "lieu_B",
+      "elements": [
+        {"type": "epingle", "lieu": "B", "at": 0, "jusqua": 19},
+        {"type": "village_fantome", "lieu": "B", "mot": "dunes", "jusqua": 19},
+        {"type": "chameaux", "lieu": "B", "mot": "caravanes", "jusqua": 19}
+      ]
+    },
+    {
+      "id": 19,
+      "voix": "Commente A ou B, avec ton nom et ton drapeau.",
+      "titre": null,
+      "sous_titre": "COMMENTE *A* OU *B*",
+      "sous_ligne": "+ NOM ET DRAPEAU",
+      "plan": "zenith_vote",
+      "elements": [
+        {
+          "type": "cartes_vote",
+          "at": 0.2,
+          "a": {"titre": "AU BORD DU FLEUVE", "texte": "Eau et terres fertiles", "icone": "vagues"},
+          "b": {"titre": "PRÈS DES DUNES", "texte": "Commerce et caravanes", "icone": "chameau"}
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "voix": "Abonne-toi, et viens vivre ici.",
+      "sous_titre": "ABONNE-TOI ET / *VIENS VIVRE ICI*",
+      "plan": "remontee"
+    },
+    {
+      "id": 21,
+      "voix": "Demain : jour 2.",
+      "sous_titre": "ABONNE-TOI ET / *VIENS VIVRE ICI*",
+      "sous_ligne": "DEMAIN : *JOUR 2*",
+      "elements": [{"type": "fondu_blanc", "at": 0.3, "duree": 1.6}]
+    }
+  ]
+}
