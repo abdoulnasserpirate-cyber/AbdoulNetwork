@@ -80,6 +80,14 @@ for (const [n, d] of tries) {
     break;
   }
 }
+if (!segs && prises.size === 0) {
+  // Pauses trop courtes entre les lignes (voix IA, débit rapide) : alignement texte <-> pauses
+  console.log('\nPauses courtes : alignement par durées de phrases (scripts/align.py)…');
+  const out = execFileSync('python3', ['scripts/align.py', raw, epPath]).toString().trim().split('\n');
+  out.slice(0, -1).forEach((l) => console.log('  ' + l));
+  segs = JSON.parse(out[out.length - 1]);
+  used = ['align', 'pauses ≥ 0,15 s'];
+}
 if (!segs) {
   const s = detect(-35, 0.5);
   console.error('\nLe nombre de segments ne correspond pas au script. Segments détectés (-35 dB, 0,5 s) :');

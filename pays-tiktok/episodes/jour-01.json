@@ -4,26 +4,32 @@
   "seed": 2026,
   "population": 0,
   "nom": null,
-  "voix": null,
+  "voix": "audio/voix-jour-01.wav",
   "musique": "audio/musique-cozy.wav",
-  "queue": 1.0,
+  "queue": 1,
   "lignes": [
     {
       "id": 1,
       "voix": "Et si on créait un pays… en plein désert ?",
       "sous_titre": "ET SI ON CRÉAIT UN *PAYS*… / EN PLEIN *DÉSERT* ?",
-      "plan": "plongee"
+      "plan": "plongee",
+      "debut": 0.3,
+      "fin": 2.609
     },
     {
       "id": 2,
       "voix": "Tous ensemble.",
-      "sous_titre": "*TOUS ENSEMBLE*"
+      "sous_titre": "*TOUS ENSEMBLE*",
+      "debut": 3.074,
+      "fin": 3.711
     },
     {
       "id": 3,
       "voix": "Regarde. Une oasis cachée au milieu des dunes.",
       "sous_titre": "UNE OASIS *CACHÉE* / AU MILIEU DES DUNES",
-      "plan": "zenith_approche"
+      "plan": "zenith_approche",
+      "debut": 4.143,
+      "fin": 6.68
     },
     {
       "id": 4,
@@ -34,44 +40,81 @@
         {
           "type": "etiquettes",
           "items": [
-            {"texte": "MONTAGNES", "mot": "montagnes", "cible": "montagnes"},
-            {"texte": "FLEUVE", "mot": "fleuve", "cible": "fleuve"},
-            {"texte": "LAC", "mot": "lac", "cible": "lac"}
+            {
+              "texte": "MONTAGNES",
+              "mot": "montagnes",
+              "cible": "montagnes"
+            },
+            {
+              "texte": "FLEUVE",
+              "mot": "fleuve",
+              "cible": "fleuve"
+            },
+            {
+              "texte": "LAC",
+              "mot": "lac",
+              "cible": "lac"
+            }
           ]
         }
-      ]
+      ],
+      "debut": 7.125,
+      "fin": 9.358
     },
     {
       "id": 5,
       "voix": "Ici, il y a la place pour des millions d'habitants.",
       "sous_titre": "ICI, IL Y A LA PLACE POUR / DES *MILLIONS* D'HABITANTS",
       "plan": "survol_34",
-      "elements": [{"type": "ville_fantome", "mot": "place"}]
+      "elements": [
+        {
+          "type": "ville_fantome",
+          "mot": "place"
+        }
+      ],
+      "debut": 9.76,
+      "fin": 12.229
     },
     {
       "id": 6,
       "voix": "Mais pour l'instant… il n'y a rien.",
       "sous_titre": "MAIS POUR L'INSTANT… / IL N'Y A *RIEN*",
-      "plan": "sol_travelling"
+      "plan": "sol_travelling",
+      "debut": 12.749,
+      "fin": 14.531
     },
     {
       "id": 7,
       "voix": "La règle est simple : un abonné égale un habitant.",
       "sous_titre": "*1 ABONNÉ* / = 1 HABITANT",
       "plan": "sol_pions",
-      "elements": [{"type": "pions", "mot": "simple", "nombre": 8, "compteur": true, "badge": "EXEMPLE"}]
+      "elements": [
+        {
+          "type": "pions",
+          "mot": "simple",
+          "nombre": 8,
+          "compteur": true,
+          "badge": "EXEMPLE"
+        }
+      ],
+      "debut": 15.051,
+      "fin": 17.887
     },
     {
       "id": 8,
       "voix": "Aujourd'hui, on est zéro. Tu seras le premier ?",
       "sous_titre": "AUJOURD'HUI ON EST 0… / TU SERAS LE *PREMIER* ?",
-      "plan": "sol_fleuve"
+      "plan": "sol_fleuve",
+      "debut": 18.353,
+      "fin": 20.516
     },
     {
       "id": 9,
       "voix": "Chaque jour, vous votez.",
       "titre": "CHAQUE JOUR / *VOUS VOTEZ*",
-      "plan": "fleuve_plongee"
+      "plan": "fleuve_plongee",
+      "debut": 20.895,
+      "fin": 22.045
     },
     {
       "id": 10,
@@ -81,33 +124,70 @@
           "type": "grille_icones",
           "jusqua": 11,
           "items": [
-            {"texte": "CONSTRUCTIONS", "icone": "maison", "mot": "constructions"},
-            {"texte": "LOIS", "icone": "loi", "mot": "lois"},
-            {"texte": "GUERRES", "icone": "epees", "mot": "guerres"},
-            {"texte": "MANIFS", "icone": "pancarte", "mot": "manifs"}
+            {
+              "texte": "CONSTRUCTIONS",
+              "icone": "maison",
+              "mot": "constructions"
+            },
+            {
+              "texte": "LOIS",
+              "icone": "loi",
+              "mot": "lois"
+            },
+            {
+              "texte": "GUERRES",
+              "icone": "epees",
+              "mot": "guerres"
+            },
+            {
+              "texte": "MANIFS",
+              "icone": "pancarte",
+              "mot": "manifs"
+            }
           ]
         }
-      ]
+      ],
+      "debut": 22.46,
+      "fin": 25.547
     },
     {
       "id": 11,
       "voix": "C'est vous qui décidez de l'avenir.",
       "sous_titre": "C'EST VOUS QUI DÉCIDEZ / DE L'*AVENIR*",
-      "plan": "palmeraie"
+      "plan": "palmeraie",
+      "debut": 25.926,
+      "fin": 27.59
     },
     {
       "id": 12,
       "voix": "Mais d'abord, le pays a besoin d'un nom et d'un drapeau.",
       "titre": "LE PAYS A BESOIN D'UN / *NOM* ET D'UN *DRAPEAU*",
       "plan": "sol_drapeau",
-      "elements": [{"type": "drapeau_blanc", "at": 0, "jusqua": 15}]
+      "elements": [
+        {
+          "type": "drapeau_blanc",
+          "at": 0,
+          "jusqua": 15
+        }
+      ],
+      "debut": 28.076,
+      "fin": 30.861
     },
     {
       "id": 13,
       "voix": "Écris le nom en commentaire.",
       "elements": [
-        {"type": "consigne", "mot": "nom", "jusqua": 15, "numero": 1, "titre": "NOM DU PAYS", "texte": "Écris-le en commentaire"}
-      ]
+        {
+          "type": "consigne",
+          "mot": "nom",
+          "jusqua": 15,
+          "numero": 1,
+          "titre": "NOM DU PAYS",
+          "texte": "Écris-le en commentaire"
+        }
+      ],
+      "debut": 31.314,
+      "fin": 32.508
     },
     {
       "id": 14,
@@ -123,20 +203,38 @@
           "likes_a": 1240,
           "badge": "EXEMPLE"
         },
-        {"type": "consigne", "mot": "drapeau", "jusqua": 15, "numero": 2, "titre": "LE DRAPEAU", "texte": "Décris-le : une IA le dessinera"}
-      ]
+        {
+          "type": "consigne",
+          "mot": "drapeau",
+          "jusqua": 15,
+          "numero": 2,
+          "titre": "LE DRAPEAU",
+          "texte": "Décris-le : une IA le dessinera"
+        }
+      ],
+      "debut": 32.995,
+      "fin": 35.171
     },
     {
       "id": 15,
       "voix": "Le commentaire le plus liké gagne.",
       "sous_titre": "LE PLUS *LIKÉ* GAGNE",
-      "elements": [{"type": "drame", "at": 0}]
+      "elements": [
+        {
+          "type": "drame",
+          "at": 0
+        }
+      ],
+      "debut": 35.691,
+      "fin": 37.143
     },
     {
       "id": 16,
       "voix": "Et maintenant, premier vote : où est-ce qu'on fonde le pays ?",
       "titre": "PREMIER VOTE / OÙ *FONDE*-T-ON LE PAYS ?",
-      "plan": "fleuve_survol"
+      "plan": "fleuve_survol",
+      "debut": 37.663,
+      "fin": 40.539
     },
     {
       "id": 17,
@@ -145,9 +243,21 @@
       "sous_ligne": "DE L'EAU ET DES TERRES FERTILES",
       "plan": "lieu_A",
       "elements": [
-        {"type": "epingle", "lieu": "A", "at": 0, "jusqua": 19},
-        {"type": "village_fantome", "lieu": "A", "mot": "fleuve", "jusqua": 19}
-      ]
+        {
+          "type": "epingle",
+          "lieu": "A",
+          "at": 0,
+          "jusqua": 19
+        },
+        {
+          "type": "village_fantome",
+          "lieu": "A",
+          "mot": "fleuve",
+          "jusqua": 19
+        }
+      ],
+      "debut": 41.059,
+      "fin": 44.599
     },
     {
       "id": 18,
@@ -156,10 +266,27 @@
       "sous_ligne": "LE COMMERCE ET LES CARAVANES",
       "plan": "lieu_B",
       "elements": [
-        {"type": "epingle", "lieu": "B", "at": 0, "jusqua": 19},
-        {"type": "village_fantome", "lieu": "B", "mot": "dunes", "jusqua": 19},
-        {"type": "chameaux", "lieu": "B", "mot": "caravanes", "jusqua": 19}
-      ]
+        {
+          "type": "epingle",
+          "lieu": "B",
+          "at": 0,
+          "jusqua": 19
+        },
+        {
+          "type": "village_fantome",
+          "lieu": "B",
+          "mot": "dunes",
+          "jusqua": 19
+        },
+        {
+          "type": "chameaux",
+          "lieu": "B",
+          "mot": "caravanes",
+          "jusqua": 19
+        }
+      ],
+      "debut": 45.094,
+      "fin": 47.9
     },
     {
       "id": 19,
@@ -172,23 +299,43 @@
         {
           "type": "cartes_vote",
           "at": 0.2,
-          "a": {"titre": "AU BORD DU FLEUVE", "texte": "Eau et terres fertiles", "icone": "vagues"},
-          "b": {"titre": "PRÈS DES DUNES", "texte": "Commerce et caravanes", "icone": "chameau"}
+          "a": {
+            "titre": "AU BORD DU FLEUVE",
+            "texte": "Eau et terres fertiles",
+            "icone": "vagues"
+          },
+          "b": {
+            "titre": "PRÈS DES DUNES",
+            "texte": "Commerce et caravanes",
+            "icone": "chameau"
+          }
         }
-      ]
+      ],
+      "debut": 48.42,
+      "fin": 50.699
     },
     {
       "id": 20,
       "voix": "Abonne-toi, et viens vivre ici.",
       "sous_titre": "ABONNE-TOI ET / *VIENS VIVRE ICI*",
-      "plan": "remontee"
+      "plan": "remontee",
+      "debut": 51.132,
+      "fin": 52.74
     },
     {
       "id": 21,
       "voix": "Demain : jour 2.",
       "sous_titre": "ABONNE-TOI ET / *VIENS VIVRE ICI*",
       "sous_ligne": "DEMAIN : *JOUR 2*",
-      "elements": [{"type": "fondu_blanc", "at": 0.3, "duree": 1.6}]
+      "elements": [
+        {
+          "type": "fondu_blanc",
+          "at": 0.3,
+          "duree": 1.6
+        }
+      ],
+      "debut": 53.12,
+      "fin": 54.112
     }
   ]
 }
