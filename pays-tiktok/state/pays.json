@@ -1,0 +1,14 @@
+{
+  "univers": "oasis",
+  "seed": 2026,
+  "jour": 1,
+  "population": 0,
+  "nom": null,
+  "drapeau": { "couches": [], "svg": null },
+  "capitale": null,
+  "batiments": [],
+  "personnages": [],
+  "lois": [],
+  "votes_en_cours": [],
+  "historique": []
+}
