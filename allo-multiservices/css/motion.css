@@ -1,0 +1,53 @@
+/* ==========================================================================
+   États d'animation & transitions entre pages
+   La classe .js-motion est posée dans le <head> uniquement si les animations
+   sont autorisées. Elle est retirée automatiquement si GSAP ne charge pas :
+   le contenu reste donc toujours accessible.
+   ========================================================================== */
+
+/* Transitions entre pages (navigateurs compatibles) */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) { animation: vt-out 0.28s cubic-bezier(0.4, 0, 1, 1) both; }
+::view-transition-new(root) { animation: vt-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) both; }
+::view-transition-group(site-header),
+::view-transition-group(site-footer),
+::view-transition-group(action-bar) { animation: none; }
+
+@keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(16px); } }
+
+/* États initiaux (avant révélation) */
+.js-motion [data-reveal="up"],
+.js-motion [data-reveal="stagger"] > *,
+.js-motion [data-reveal="fade"] { opacity: 0; }
+
+.js-motion [data-reveal="lines"] .line-mask > span { transform: translateY(105%); }
+
+.js-motion [data-reveal="image"] { clip-path: inset(12% 10% 12% 10% round 28px); }
+.js-motion [data-reveal="image"] img { transform: scale(1.12); }
+
+.js-motion .route__path { opacity: 0; }
+.js-motion .route-stop { opacity: 0; }
+
+/* Fondu GSAP de repli pour la navigation (navigateurs sans View Transitions) */
+.page-leave main { opacity: 0; transform: translateY(-10px); transition: opacity 0.25s ease, transform 0.25s ease; }
+
+/* Préférence « réduire les animations » */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+  .final__phone::before { display: none; }
+  .hl { background-size: 100% 0.42em; }
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }

@@ -1,0 +1,43 @@
+{
+  "name": "Allô Multiservice",
+  "short_name": "Allô Multiservice",
+  "description": "Livraisons, courses et services à domicile partout à Maradi, 7 jours sur 7.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "fr",
+  "dir": "ltr",
+  "theme_color": "#0A1F4D",
+  "background_color": "#0A1F4D",
+  "categories": ["business", "lifestyle", "shopping"],
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Appeler",
+      "short_name": "Appeler",
+      "description": "Appeler le 74 58 18 24",
+      "url": "tel:+22774581824",
+      "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "description": "Écrire sur WhatsApp",
+      "url": "https://wa.me/22774581824",
+      "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Envoyer une demande",
+      "url": "/contact.html",
+      "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

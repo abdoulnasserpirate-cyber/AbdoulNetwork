@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hors connexion — Allô Multi-Services Maradi</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A1F4D">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style>
+  :root { --navy-950:#071739; --navy-900:#0A1F4D; --orange-500:#F7941D; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; min-height: 100%;
+    display: grid; place-items: center;
+    padding: calc(32px + env(safe-area-inset-top, 0px)) 20px calc(32px + env(safe-area-inset-bottom, 0px));
+    background: radial-gradient(120% 80% at 80% 0%, #13306E 0%, var(--navy-900) 45%, var(--navy-950) 100%);
+    color: #fff;
+    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55; text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { width: 100%; max-width: 440px; }
+  .logo { width: 170px; height: auto; margin: 0 auto 36px; display: block; }
+  .icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--orange-500); font-weight: 700; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 20px; }
+  .badge .icon { width: 16px; height: 16px; }
+  h1 { font-family: "Archivo", "Arial Narrow", system-ui, sans-serif; font-stretch: 112%; font-weight: 800; font-size: clamp(2rem, 8vw, 2.6rem); line-height: 1; letter-spacing: -.02em; margin: 0 0 14px; }
+  p { margin: 0 0 28px; color: rgba(255,255,255,.75); }
+  .actions { display: grid; gap: 10px; }
+  a.btn { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; border-radius: 14px; font-weight: 700; text-decoration: none; font-variant-numeric: tabular-nums; }
+  .btn--primary { background: var(--orange-500); color: var(--navy-950); }
+  .btn--line { border: 1.5px solid rgba(255,255,255,.35); color: #fff; }
+  .others { margin-top: 22px; font-size: .9375rem; color: rgba(255,255,255,.65); font-variant-numeric: tabular-nums; }
+  .others a { color: #fff; font-weight: 700; text-decoration: none; display: inline-block; padding: 6px 4px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--orange-500); outline-offset: 3px; }
+  button.retry { margin-top: 24px; background: none; border: 0; color: rgba(255,255,255,.8); font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; min-height: 48px; }
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="/assets/logo/logo-light.webp" alt="Allô Multi-Services" width="360" height="194">
+  <span class="badge"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.288-3.764"/><path d="m2 2 20 20"/></svg>Hors connexion</span>
+  <h1>Pas de connexion internet.</h1>
+  <p>Le téléphone, lui, fonctionne toujours. Appelez-nous, nous nous occupons de votre besoin, 7 jours sur 7.</p>
+  <div class="actions">
+    <a class="btn btn--primary" href="tel:+22774581824"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Appeler le 74 58 18 24</a>
+    <a class="btn btn--line" href="https://wa.me/22774581824"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Écrire sur WhatsApp</a>
+  </div>
+  <p class="others">Également au <a href="tel:+22788579290">88 57 92 90</a> et au <a href="tel:+22789967119">89 96 71 19</a></p>
+  <button class="retry" type="button" onclick="location.reload()">Réessayer</button>
+</main>
+</body>
+</html>
