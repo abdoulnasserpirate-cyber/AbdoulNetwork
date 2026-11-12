@@ -35,7 +35,7 @@ for fname, (w, h, fmt) in FORMATS.items():
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="{DUR}" data-width="{w}" data-height="{h}">
 {hosts}
-      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0" data-duration="{DUR}" data-track-index="20" data-track-kind="captions" data-width="{w}" data-height="{h}" style="z-index:50"></div>
+      <!-- sous-titres retirés à la demande du client (compositions/captions.html conservé, non monté) -->
       <audio id="bande-son" class="clip" src="assets/audio/bande-son.wav" data-start="0" data-duration="{DUR}" data-track-index="30" data-volume="1"></audio>
     </div>
     <script>
