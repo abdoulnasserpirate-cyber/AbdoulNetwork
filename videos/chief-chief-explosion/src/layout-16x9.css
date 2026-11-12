@@ -1,0 +1,51 @@
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #121010; }
+.hz-top { top: 40px; transform: rotate(-3deg); } .hz-bot { top: 950px; transform: rotate(2deg); } .hz-mid { top: 70px; transform: rotate(-2deg); }
+/* S1 */
+#s1-att { left: 110px; top: 230px; font-size: 230px; } #s1-hot { left: 120px; top: 470px; font-size: 150px; }
+#s1-burger { left: 1150px; top: 230px; width: 760px; height: 580px; } #s1-logo { left: 130px; top: 700px; width: 200px; height: 200px; }
+/* S2 */
+#s2-ce { left: 140px; top: 120px; font-size: 120px; }
+#s2-days { left: 140px; top: 330px; gap: 40px; } .dz { width: 520px; height: 380px; } .dz .an { font-size: 120px; }
+/* S3 */
+#s3-boom { left: 460px; top: 40px; width: 1000px; height: 1000px; }
+#s3-rings .ring { left: 960px; top: 540px; width: 10px; height: 10px; }
+#s3-lead { top: 120px; } #s3-big { top: 330px; font-size: 270px; text-shadow: 10px 10px 0 #121010; }
+#s3-sub { top: 680px; } #s3-sub .tag { font-size: 110px; }
+/* S4 */
+#s4-pct { left: 100px; top: 60px; font-size: 280px; }
+#s4-split { left: 800px; top: 70px; gap: 34px; } .pane { width: 330px; height: 900px; } .pane-t { font-size: 58px; }
+/* S5 */
+#s5-slash { left: 980px; top: -100px; width: 820px; height: 1300px; }
+#s5-burger { left: 1030px; top: 240px; width: 773px; height: 632px; }
+#s5-name { left: 120px; top: 110px; font-size: 140px; } #s5-old { left: 130px; top: 300px; } #s5-old .an { font-size: 170px; }
+#s5-new { left: 110px; top: 560px; } #s5-new .an { font-size: 230px; }
+#s5-burst { left: 1560px; top: 60px; width: 300px; height: 300px; } .burst-tag .an { font-size: 96px; }
+/* S6 */
+#v-shaw { left: 1180px; top: 70px; width: 520px; height: 924px; }
+#s6-name { left: 120px; top: 140px; font-size: 200px; } #s6-new { left: 110px; top: 640px; } #s6-new .an { font-size: 230px; }
+#s6-burst { left: 860px; top: 400px; width: 260px; height: 260px; }
+/* S7 */
+#s7-card { left: 1120px; top: 100px; width: 620px; height: 820px; }
+#s7-name { left: 120px; top: 90px; font-size: 170px; } #s7-old { left: 130px; top: 470px; } #s7-old .an { font-size: 160px; }
+#s7-new { left: 110px; top: 700px; } #s7-new .an { font-size: 200px; }
+#s7-burst { left: 1600px; top: 40px; width: 280px; height: 280px; }
+/* S8 */
+#s8-slash { left: -200px; top: -100px; width: 1000px; height: 1300px; }
+#s8-tacos { left: 60px; top: 260px; width: 749px; height: 583px; }
+#s8-name { left: 990px; top: 100px; font-size: 260px; } #s8-new { left: 980px; top: 430px; } #s8-new .an { font-size: 220px; }
+#s8-only { left: 1000px; top: 770px; } #s8-only .tag { font-size: 100px; }
+/* S9 */
+#s9-femme { left: 1100px; top: 140px; width: 760px; height: 931px; }
+#s9-w1 { left: 120px; top: 230px; } #s9-w2 { left: 260px; top: 430px; } #s9-w3 { left: 160px; top: 630px; } .word .tag { font-size: 130px; }
+#s9-ador { left: 120px; top: 860px; font-size: 110px; text-shadow: 6px 6px 0 #121010; }
+/* S10 */
+#s10-row { left: 140px; top: 280px; gap: 50px; } .svc3d { width: 510px; height: 520px; } .svc3d .an { font-size: 64px; }
+/* S11 */
+#s11-big { left: 120px; top: 80px; font-size: 175px; text-shadow: 8px 8px 0 #121010; } #s11-url { left: 130px; top: 320px; font-size: 64px; }
+#s11-wa { left: 130px; top: 440px; } #s11-num { left: 120px; top: 600px; font-size: 230px; text-shadow: 10px 10px 0 #121010; }
+#s11-stack { left: 1360px; top: 130px; width: 520px; height: 760px; } #s11-a { position: absolute; left: 0; top: 0; width: 520px; } #s11-b { position: absolute; left: 20px; top: 380px; width: 500px; }
+/* S12 */
+#s12-boom { left: 700px; top: -50px; width: 520px; height: 520px; }
+#s12-logo { left: 820px; top: 70px; width: 280px; height: 280px; } #s12-lead { top: 420px; font-size: 70px; } #s12-big { top: 500px; font-size: 230px; text-shadow: 10px 10px 0 #d6060f; }
+#s12-band { left: 60px; top: 860px; width: 1800px; gap: 18px; } #s12-band .tag { font-size: 64px; } .mini { font-size: 44px; }
+#tr-burst { left: -540px; top: -960px; width: 3000px; height: 3000px; }

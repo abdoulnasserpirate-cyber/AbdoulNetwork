@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Chief-Chief — Explosion du goût 9:16</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/theme.css" />
+    <style>
+@font-face { font-family: "Anton"; src: url("assets/fonts/Anton.woff2") format("woff2"); font-weight: 400; font-display: block; }
+.ctr { left: 0; width: 100%; text-align: center; }
+.an { font-family: "Anton", sans-serif; font-weight: 400; text-transform: uppercase; line-height: 0.95; letter-spacing: 0.01em; white-space: nowrap; }
+.bg-black { position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, #2a0508 0%, #121010 65%); }
+/* halftone dot overlays (pop-art) */
+.ht-red::after, .ht-dark::after, .ht-light::after { content: ""; position: absolute; inset: 0; background-size: 22px 22px; pointer-events: none; }
+.bg-black, .bg-red, .bg-white, .slash, .boom { pointer-events: none; }
+.ht-red::after { background-image: radial-gradient(circle, rgba(214, 6, 15, 0.35) 2.6px, transparent 3px); }
+.ht-dark::after { background-image: radial-gradient(circle, rgba(18, 16, 16, 0.18) 2.6px, transparent 3px); }
+.ht-light::after { background-image: radial-gradient(circle, rgba(214, 6, 15, 0.13) 2.6px, transparent 3px); }
+/* hazard marquee bands */
+.hazard { position: absolute; left: -5%; width: 110%; height: 92px; overflow: hidden; background: repeating-linear-gradient(-45deg, #121010 0 34px, #d6060f 34px 68px); border-top: 6px solid #fff; border-bottom: 6px solid #fff; display: flex; align-items: center; }
+.hz-run { font-family: "Anton", sans-serif; font-size: 52px; color: #fff; white-space: nowrap; letter-spacing: 0.06em; text-shadow: 0 3px 0 #121010; padding-left: 40px; }
+.sticker-img { display: block; filter: drop-shadow(0 26px 34px rgba(0, 0, 0, 0.45)); }
+.tag { display: inline-block; padding: 10px 40px 14px; border-radius: 12px; border: 6px solid #fff; box-shadow: 8px 8px 0 #121010; }
+.tag-r { background: #d6060f; color: #fff; } .tag-k { background: #121010; color: #fff; } .tag-w { background: #fff; color: #d6060f; border-color: #121010; }
+.boom polygon.b1 { fill: #d6060f; } .boom polygon.b2 { fill: #fff; } .boom polygon.b3 { fill: #121010; }
+.ring { position: absolute; border-radius: 50%; border: 1.5px solid #fff; display: block; }
+.days3d { display: flex; perspective: 1400px; }
+.dz { background: #fff; color: #d6060f; display: flex; align-items: center; justify-content: center; border-radius: 16px; border: 6px solid #121010; box-shadow: 10px 10px 0 #121010; transform-origin: 50% 100%; }
+.dz-k { background: #121010; color: #fff; border-color: #fff; box-shadow: 10px 10px 0 #fff; }
+.pct3d { text-shadow: 3px 3px 0 #121010, 6px 6px 0 #121010, 9px 9px 0 #121010, 12px 12px 0 #121010, 15px 15px 0 #121010, 0 30px 40px rgba(0, 0, 0, 0.35); }
+.split3d { display: flex; perspective: 1600px; }
+.pane { position: relative; overflow: hidden; background: #fff; border: 8px solid #121010; display: flex; align-items: center; justify-content: center; box-shadow: 12px 12px 0 #121010; }
+.pane-k { background: #121010; border-color: #fff; box-shadow: 12px 12px 0 #fff; }
+.pane-cut { width: 86%; height: auto; display: block; }
+.pane-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.pane-t { position: absolute; left: 0; right: 0; bottom: 0; background: #d6060f; color: #fff; text-align: center; padding: 10px 0 14px; }
+.slash { position: absolute; background: #d6060f; transform: skewX(-18deg); }
+.pold { position: absolute; white-space: nowrap; } .pold .an { color: #121010; } .pold-w .an { color: #fff; }
+.marker { position: absolute; left: -4%; top: 30%; width: 108%; height: 40%; overflow: visible; }
+.marker path { fill: none; stroke: #121010; stroke-width: 16; stroke-linecap: round; }
+.pold-w .marker path { stroke: #121010; }
+.pnew .an { display: inline-block; background: #d6060f; color: #fff; padding: 6px 40px 14px; border: 8px solid #121010; border-radius: 16px; box-shadow: 12px 12px 0 #121010; }
+.pnew-r .an { background: #fff; color: #d6060f; }
+.burst-tag { display: flex; align-items: center; justify-content: center; }
+.burst-tag svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.burst-tag .bt { fill: #121010; stroke: #fff; stroke-width: 4; }
+.burst-k .bt { fill: #fff; stroke: #121010; }
+.burst-tag .an { position: relative; color: #fff; }
+.card { background: #fff; padding: 12px; border-radius: 10px; box-shadow: 14px 14px 0 #121010; }
+.card img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.vpanel { position: absolute; object-fit: cover; border: 10px solid #fff; border-radius: 18px; box-shadow: 16px 16px 0 #d6060f; background: #121010; }
+.svc3d { background: #fff; border: 6px solid #d6060f; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: #121010; box-shadow: 10px 10px 0 #d6060f; transform-origin: 50% 100%; }
+.sv-ico { width: 110px; height: 110px; }
+#s10-row { display: flex; perspective: 1400px; }
+.wapill { display: inline-flex; align-items: center; gap: 18px; background: #fff; color: #d6060f; border-radius: 999px; padding: 12px 40px 14px 22px; border: 5px solid #121010; box-shadow: 8px 8px 0 #121010; }
+.wa-ico { width: 74px; height: 74px; } .wapill .mid { font-size: 50px; }
+.mini { display: inline-block; background: #fff; color: #121010; padding: 6px 22px 10px; border-radius: 10px; }
+#s12-band { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; }
+.dot { position: absolute; display: block; }
+#fx { pointer-events: none; }
+#tr-burst { overflow: visible; }
+#trb1 { fill: #121010; } #trb2 { fill: #d6060f; }
+#flash { inset: 0; background: #fff; opacity: 0; }
+
+.hot { text-shadow: 6px 6px 0 #d6060f, 12px 12px 0 #121010 !important; }
+
+.burst-tag.burst-k .an { color: #d6060f; }
+
+#s12-boom .b1 { fill: #d6060f; } #s12-boom .b2 { fill: #121010; }
+#s3-lead { z-index: 2; } #s3-lead .tag { font-size: 64px; }
+
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #121010; }
+.hz-top { top: 90px; transform: rotate(-3deg); } .hz-bot { top: 1760px; transform: rotate(2deg); } .hz-mid { top: 110px; transform: rotate(-2deg); }
+/* S1 */
+#s1-att { left: 70px; top: 300px; font-size: 175px; } #s1-hot { left: 80px; top: 500px; font-size: 118px; }
+#s1-burger { left: 100px; top: 760px; width: 880px; height: 672px; } #s1-logo { left: 790px; top: 1460px; width: 220px; height: 220px; }
+/* S2 */
+#s2-ce { left: 90px; top: 260px; font-size: 120px; }
+#s2-days { left: 140px; top: 470px; flex-direction: column; gap: 40px; } .dz { width: 800px; height: 330px; } .dz .an { font-size: 140px; }
+/* S3 */
+#s3-boom { left: -60px; top: 400px; width: 1200px; height: 1200px; }
+#s3-rings .ring { left: 540px; top: 960px; width: 10px; height: 10px; }
+#s3-lead { top: 280px; } #s3-big { top: 780px; font-size: 200px; text-shadow: 8px 8px 0 #121010; }
+#s3-sub { top: 1060px; } #s3-sub .tag { font-size: 110px; }
+/* S4 */
+#s4-pct { left: 0; width: 100%; text-align: center; top: 130px; font-size: 280px; }
+#s4-split { left: 60px; top: 560px; flex-direction: column; gap: 30px; } .pane { width: 960px; height: 380px; } .pane-cut { width: auto; height: 86%; } .pane-t { font-size: 62px; left: auto; right: 0; top: 0; bottom: 0; width: 360px; display: flex; align-items: center; justify-content: center; }
+/* S5 */
+#s5-slash { left: 100px; top: 900px; width: 900px; height: 1100px; }
+#s5-burger { left: 120px; top: 1050px; width: 840px; height: 687px; }
+#s5-name { left: 80px; top: 170px; font-size: 140px; } #s5-old { left: 90px; top: 350px; } #s5-old .an { font-size: 170px; }
+#s5-new { left: 70px; top: 600px; } #s5-new .an { font-size: 210px; }
+#s5-burst { left: 760px; top: 130px; width: 270px; height: 270px; } .burst-tag .an { font-size: 88px; }
+/* S6 */
+#v-shaw { left: 260px; top: 640px; width: 560px; height: 996px; }
+#s6-name { left: 80px; top: 160px; font-size: 150px; } #s6-new { left: 210px; top: 1660px; } #s6-new .an { font-size: 150px; }
+#s6-burst { left: 40px; top: 1360px; width: 240px; height: 240px; }
+/* S7 */
+#s7-card { left: 220px; top: 700px; width: 640px; height: 830px; }
+#s7-name { left: 80px; top: 140px; font-size: 140px; } #s7-old { left: 90px; top: 460px; } #s7-old .an { font-size: 130px; }
+#s7-new { left: 470px; top: 1580px; } #s7-new .an { font-size: 160px; }
+#s7-burst { left: 770px; top: 450px; width: 250px; height: 250px; }
+/* S8 */
+#s8-slash { left: -100px; top: 900px; width: 1300px; height: 900px; }
+#s8-tacos { left: 100px; top: 1000px; width: 880px; height: 685px; }
+#s8-name { left: 80px; top: 180px; font-size: 260px; } #s8-new { left: 70px; top: 480px; } #s8-new .an { font-size: 200px; }
+#s8-only { left: 90px; top: 800px; } #s8-only .tag { font-size: 90px; }
+/* S9 */
+#s9-femme { left: 180px; top: 990px; width: 800px; height: 980px; }
+#s9-w1 { left: 70px; top: 300px; } #s9-w2 { left: 260px; top: 490px; } #s9-w3 { left: 110px; top: 680px; } .word .tag { font-size: 120px; }
+#s9-ador { left: 60px; top: 860px; font-size: 96px; text-shadow: 6px 6px 0 #121010; }
+/* S10 */
+#s10-row { left: 190px; top: 260px; flex-direction: column; gap: 40px; } .svc3d { width: 700px; height: 420px; } .svc3d .an { font-size: 80px; }
+/* S11 */
+#s11-big { left: 70px; top: 160px; font-size: 150px; text-shadow: 7px 7px 0 #121010; } #s11-url { left: 80px; top: 350px; font-size: 56px; }
+#s11-wa { left: 80px; top: 460px; } #s11-num { left: 70px; top: 610px; font-size: 175px; text-shadow: 8px 8px 0 #121010; }
+#s11-stack { left: 160px; top: 900px; width: 780px; height: 800px; } #s11-a { position: absolute; left: 0; top: 0; width: 620px; } #s11-b { position: absolute; left: 180px; top: 400px; width: 580px; }
+/* S12 */
+#s12-boom { left: 240px; top: 320px; width: 600px; height: 600px; }
+#s12-logo { left: 320px; top: 400px; width: 440px; height: 440px; } #s12-lead { top: 930px; font-size: 64px; } #s12-big { top: 1010px; font-size: 200px; text-shadow: 9px 9px 0 #d6060f; }
+#s12-band { left: 60px; top: 1360px; width: 960px; gap: 18px; } #s12-band .tag { font-size: 60px; } .mini { font-size: 44px; }
+#tr-burst { left: -1460px; top: -540px; width: 4000px; height: 4000px; }
+
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="40.72" data-fps="30" data-width="1080" data-height="1920">
+      <!-- S1 · Attention, ça va chauffer (0 – 2.3) · NOIR -->
+      <section id="s1" class="clip scene" data-start="0" data-duration="2.35" data-track-index="1">
+        <div class="bg-black ht-red"></div>
+        <div class="hazard hz-top"><div class="hz-run">ATTENTION ★ ATTENTION ★ ATTENTION ★ ATTENTION ★ ATTENTION ★ ATTENTION ★ ATTENTION ★ ATTENTION ★</div></div>
+        <div class="hazard hz-bot"><div class="hz-run">ÇA VA CHAUFFER ★ ÇA VA CHAUFFER ★ ÇA VA CHAUFFER ★ ÇA VA CHAUFFER ★ ÇA VA CHAUFFER ★</div></div>
+        <div id="s1-att" class="abs an c-white">Attention !</div>
+        <div id="s1-hot" class="abs an c-white hot">ça va chauffer</div>
+        <img id="s1-burger" class="abs sticker-img" src="assets/cut/mains-burger-st.png" alt="" />
+        <img id="s1-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+      </section>
+
+      <!-- S2 · Ven / Sam / Dim (2.3 – 4.1) · ROUGE -->
+      <section id="s2" class="clip scene" data-start="2.3" data-duration="1.85" data-track-index="1">
+        <div class="bg-red ht-dark"></div>
+        <div id="s2-ce" class="abs an c-white">ce</div>
+        <div id="s2-days" class="abs days3d">
+          <div class="dz"><span class="an">Vendredi</span></div>
+          <div class="dz dz-k"><span class="an">Samedi</span></div>
+          <div class="dz"><span class="an">Dimanche</span></div>
+        </div>
+      </section>
+
+      <!-- S3 · L'explosion du goût (4.1 – 6.45) · NOIR -->
+      <section id="s3" class="clip scene" data-start="4.1" data-duration="2.4" data-track-index="1">
+        <div class="bg-black"></div>
+        <svg id="s3-boom" class="abs boom" viewBox="-100 -100 200 200"><polygon class="b1" /><polygon class="b2" /><polygon class="b3" /></svg>
+        <div id="s3-rings"><i class="ring"></i><i class="ring"></i><i class="ring"></i></div>
+        <div id="s3-lead" class="abs ctr"><span class="tag tag-k an">c'est l'</span></div>
+        <div id="s3-big" class="abs ctr an c-white">explosion</div>
+        <div id="s3-sub" class="abs ctr"><span class="tag tag-r an">du goût !</span></div>
+        <div id="s3-sparks"></div>
+      </section>
+
+      <!-- S4 · −10 % sur burgers / shawarma / tacos (6.45 – 9.95) · ROUGE -->
+      <section id="s4" class="clip scene" data-start="6.45" data-duration="3.0" data-track-index="1">
+        <div class="bg-red ht-dark"></div>
+        <div id="s4-pct" class="abs an c-white pct3d">−10%</div>
+        <div id="s4-split" class="abs split3d">
+          <div class="pane" id="s4-p1"><img src="assets/cut/burger-st.png" alt="" class="pane-cut" /><span class="pane-t an">Burgers</span></div>
+          <div class="pane pane-k" id="s4-p2"><img src="assets/cut/shawarma-card.jpg" alt="" class="pane-photo" /><span class="pane-t an">Shawarmas</span></div>
+          <div class="pane" id="s4-p3"><img src="assets/cut/tacos-2-st.png" alt="" class="pane-cut" /><span class="pane-t an">Tacos</span></div>
+        </div>
+      </section>
+
+      <!-- S5 · Burger 1500 → 1350 (9.95 – 13.35) · BLANC -->
+      <section id="s5" class="clip scene" data-start="9.45" data-duration="3.95" data-track-index="1">
+        <div class="bg-white ht-light"></div>
+        <div class="slash" id="s5-slash"></div>
+        <img id="s5-burger" class="abs sticker-img" src="assets/cut/burger-st.png" alt="" />
+        <div id="s5-name" class="abs an c-ink">Le burger</div>
+        <div id="s5-old" class="abs pold"><span class="an">1 500 F</span><svg class="marker" viewBox="0 0 400 60" preserveAspectRatio="none"><path d="M6 40 C 90 18, 180 50, 260 22 S 370 34, 394 16" /></svg></div>
+        <div id="s5-new" class="abs pnew"><span class="an">1 350 F</span></div>
+        <div id="s5-burst" class="abs burst-tag"><svg viewBox="-100 -100 200 200"><polygon class="bt" /></svg><span class="an">−10%</span></div>
+      </section>
+
+      <!-- S6 · Shawarma viande 1350 (13.35 – 16.15) · NOIR (video panel at root) -->
+      <section id="s6" class="clip scene" data-start="13.35" data-duration="2.85" data-track-index="1">
+        <div class="bg-black ht-red"></div>
+        <div id="s6-name" class="abs an c-white"><div>Shawarma</div><div class="c-red">viande</div></div>
+        <div id="s6-new" class="abs pnew pnew-r"><span class="an">1 350 F</span></div>
+        <div id="s6-burst" class="abs burst-tag"><svg viewBox="-100 -100 200 200"><polygon class="bt" /></svg><span class="an">−10%</span></div>
+      </section>
+
+      <!-- S7 · Shawarma poulet 2000 → 1800 (16.15 – 21.05) · ROUGE -->
+      <section id="s7" class="clip scene" data-start="16.15" data-duration="5.6" data-track-index="1">
+        <div class="bg-red ht-dark"></div>
+        <div id="s7-card" class="abs card tilt"><img src="assets/cut/shawarma-card.jpg" alt="" /></div>
+        <div id="s7-name" class="abs an c-white"><div>Shawarma</div><div class="c-ink">poulet</div></div>
+        <div id="s7-old" class="abs pold pold-w"><span class="an">2 000 F</span><svg class="marker" viewBox="0 0 400 60" preserveAspectRatio="none"><path d="M6 40 C 90 18, 180 50, 260 22 S 370 34, 394 16" /></svg></div>
+        <div id="s7-new" class="abs pnew"><span class="an">1 800 F</span></div>
+        <div id="s7-burst" class="abs burst-tag burst-k"><svg viewBox="-100 -100 200 200"><polygon class="bt" /></svg><span class="an">−10%</span></div>
+      </section>
+
+      <!-- S8 · Tacos 1800 seulement (21.05 – 22.95) · BLANC -->
+      <section id="s8" class="clip scene" data-start="21.75" data-duration="1.3" data-track-index="1">
+        <div class="bg-white ht-light"></div>
+        <div class="slash" id="s8-slash"></div>
+        <img id="s8-tacos" class="abs sticker-img" src="assets/cut/tacos-2-st.png" alt="" />
+        <div id="s8-name" class="abs an c-red">Tacos</div>
+        <div id="s8-new" class="abs pnew pnew-r"><span class="an">1 800 F</span></div>
+        <div id="s8-only" class="abs"><span class="tag tag-k an">seulement !</span></div>
+      </section>
+
+      <!-- S9 · Croquez / savourez / partagez / adorer (22.95 – 26.45) · ROUGE -->
+      <section id="s9" class="clip scene" data-start="23.05" data-duration="3.35" data-track-index="1">
+        <div class="bg-red ht-dark"></div>
+        <div class="hazard hz-mid"><div class="hz-run">CROQUEZ ★ SAVOUREZ ★ PARTAGEZ ★ CROQUEZ ★ SAVOUREZ ★ PARTAGEZ ★ CROQUEZ ★ SAVOUREZ ★ PARTAGEZ ★</div></div>
+        <img id="s9-femme" class="abs sticker-img" src="assets/cut/femme-burger-st.png" alt="" />
+        <div id="s9-w1" class="abs word"><span class="tag tag-w an">Croquez</span></div>
+        <div id="s9-w2" class="abs word"><span class="tag tag-k an">Savourez</span></div>
+        <div id="s9-w3" class="abs word"><span class="tag tag-w an">Partagez</span></div>
+        <div id="s9-ador" class="abs an c-white">vous allez adorer !</div>
+        <div id="s9-hearts"></div>
+      </section>
+
+      <!-- S10 · Sur place / emporter / livré (26.45 – 28.75) · NOIR -->
+      <section id="s10" class="clip scene" data-start="26.4" data-duration="2.15" data-track-index="1">
+        <div class="bg-black ht-red"></div>
+        <div id="s10-row" class="abs">
+          <div class="svc3d"><svg viewBox="0 0 64 64" class="sv-ico"><path d="M8 26h48M14 26v26M50 26v26M10 18h44l2 8H8z" fill="none" stroke="#d6060f" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" /></svg><span class="an">Sur place</span></div>
+          <div class="svc3d"><svg viewBox="0 0 64 64" class="sv-ico"><path d="M14 22h36l-3 34H17zM24 22v-6a8 8 0 0 1 16 0v6" fill="none" stroke="#d6060f" stroke-width="5" stroke-linejoin="round" /></svg><span class="an">À emporter</span></div>
+          <div class="svc3d"><svg viewBox="0 0 64 64" class="sv-ico"><circle cx="16" cy="46" r="9" fill="none" stroke="#d6060f" stroke-width="5" /><circle cx="50" cy="46" r="9" fill="none" stroke="#d6060f" stroke-width="5" /><path d="M16 46l10-16h14l10 16M30 30l-4-10h-8M40 30l4-12h8" fill="none" stroke="#d6060f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="an">Livré chez vous</span></div>
+        </div>
+      </section>
+
+      <!-- S11 · Commandez vite (28.75 – 36.95) · ROUGE -->
+      <section id="s11" class="clip scene" data-start="28.55" data-duration="8.4" data-track-index="1">
+        <div class="bg-red ht-dark"></div>
+        <div class="hazard hz-bot"><div class="hz-run">COMMANDEZ VITE ★ −10% ★ VENDREDI · SAMEDI · DIMANCHE ★ COMMANDEZ VITE ★ −10% ★ VENDREDI · SAMEDI · DIMANCHE ★</div></div>
+        <div id="s11-big" class="abs an c-white">Commandez vite</div>
+        <div id="s11-url" class="abs mid c-white" style="text-transform: none"></div>
+        <div id="s11-wa" class="abs"><span class="wapill"><svg class="wa-ico" viewBox="0 0 32 32"><path fill="#d6060f" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-2.6-1.6 9.6 9.6 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6.3-.5a.6.6 0 0 0 0-.6c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.8 13.8 0 0 0 5.3 4.7c2 .8 2.7.9 3.6.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.2-.3-.2-.6-.4z" /></svg><span class="mid">WhatsApp</span></span></div>
+        <div id="s11-num" class="abs an c-white"><span class="w">88</span> <span class="w">84</span> <span class="w">49</span> <span class="w">84</span></div>
+        <div id="s11-stack" class="abs">
+          <img id="s11-a" class="sticker-img" src="assets/cut/burger-st.png" alt="" />
+          <img id="s11-b" class="sticker-img" src="assets/cut/tacos-2-st.png" alt="" />
+        </div>
+      </section>
+
+      <!-- S12 · Signature (36.95 – 40.72) · NOIR -->
+      <section id="s12" class="clip scene" data-start="36.95" data-duration="3.77" data-track-index="1">
+        <div class="bg-black ht-red"></div>
+        <svg id="s12-boom" class="abs boom" viewBox="-100 -100 200 200"><polygon class="b1" /><polygon class="b2" /></svg>
+        <img id="s12-logo" class="abs" src="assets/cut/logo.png" alt="Chief-Chief" />
+        <div id="s12-lead" class="abs ctr lead c-white">le goût qui vous ramène</div>
+        <div id="s12-big" class="abs ctr an c-white">Toujours</div>
+        <div id="s12-band" class="abs">
+          <span class="tag tag-r an">−10% ven · sam · dim</span>
+          <span class="mini an">Burger 1 350 F</span><span class="mini an">Shawarma viande 1 350 F</span><span class="mini an">Shawarma poulet 1 800 F</span><span class="mini an">Tacos 1 800 F</span>
+        </div>
+      </section>
+
+      <!-- Video panel (root) -->
+      <video id="v-shaw" class="vpanel" src="assets/clips/shawarma-sauce.mp4" muted playsinline data-start="13.4" data-duration="2.8" data-track-index="2"></video>
+
+      <!-- Starburst transition overlay -->
+      <div id="fx" class="clip scene" data-start="0" data-duration="40.72" data-track-index="7">
+        <svg id="tr-burst" class="abs" viewBox="-100 -100 200 200"><polygon id="trb1" /><polygon id="trb2" /></svg>
+        <div id="flash" class="abs"></div>
+      </div>
+
+      <audio id="voice" src="assets/voice/voix-off.mp3" data-start="0" data-duration="40.72" data-track-index="10" data-volume="1"></audio>
+      <audio id="music" src="assets/music/explosion-doux.mp3" data-start="0" data-duration="40.72" data-track-index="11" data-volume="0.09"></audio>
+      <audio id="sfx" src="assets/sfx/sfx-mix.wav" data-start="0" data-duration="40.72" data-track-index="12" data-volume="0.28"></audio>
+
+    </div>
+    <script>
+      // Deterministic pseudo-random (seeded LCG) for decorative elements.
+      let seed = 1211;
+      const rnd = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+      const W = document.getElementById("root").offsetWidth;
+      const H = document.getElementById("root").offsetHeight;
+      const VERT = H > W;
+
+      // starburst polygons
+      function star(n, R, r, rot = 0) {
+        const pts = [];
+        for (let i = 0; i < n * 2; i++) {
+          const a = (i / (n * 2)) * Math.PI * 2 + rot;
+          const rr = i % 2 ? r : R;
+          pts.push(`${(Math.cos(a) * rr).toFixed(1)},${(Math.sin(a) * rr).toFixed(1)}`);
+        }
+        return pts.join(" ");
+      }
+      document.querySelectorAll(".boom").forEach((svg) => {
+        const ps = svg.querySelectorAll("polygon");
+        [[18, 98, 62], [18, 80, 52], [18, 62, 40]].forEach(([n, R, r], i) => ps[i] && ps[i].setAttribute("points", star(n, R, r, i * 0.09)));
+      });
+      document.querySelectorAll(".bt").forEach((p) => p.setAttribute("points", star(16, 96, 74)));
+      document.getElementById("trb1").setAttribute("points", star(14, 100, 70));
+      document.getElementById("trb2").setAttribute("points", star(14, 82, 56, 0.22));
+
+      // sparks (S3) and confetti (S11)
+      function sparks(hostId, n, cx, cy, colors) {
+        const host = document.getElementById(hostId);
+        const out = [];
+        for (let i = 0; i < n; i++) {
+          const d = document.createElement("i");
+          const w = 10 + Math.round(rnd() * 16);
+          d.className = "dot";
+          d.style.cssText = `left:${cx - w / 2}px;top:${cy - w / 2}px;width:${w}px;height:${Math.round(w * (0.4 + rnd() * 0.6))}px;background:${colors[i % colors.length]};border-radius:3px`;
+          host.appendChild(d);
+          const a = rnd() * Math.PI * 2;
+          const r = 380 + rnd() * 700;
+          out.push({ el: d, x: Math.cos(a) * r, y: Math.sin(a) * r, rot: (rnd() - 0.5) * 900 });
+        }
+        return out;
+      }
+      const sp3 = sparks("s3-sparks", 46, W / 2, H / 2, ["#ffffff", "#d6060f", "#ffffff"]);
+      const sp9 = sparks("s9-hearts", 30, VERT ? 540 : 520, VERT ? 1300 : 560, ["#ffffff", "#121010", "#ffffff"]);
+
+      // typed URL (S11)
+      const urlHost = document.getElementById("s11-url");
+      const urlChars = [];
+      for (const ch of "chiefchiefrestaurant.com") {
+        const s = document.createElement("span");
+        s.className = "w";
+        s.textContent = ch;
+        urlHost.appendChild(s);
+        urlChars.push(s);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.set("#tr-burst", { scale: 0, rotation: 0, transformOrigin: "50% 50%" }, 0);
+
+      // ---------- transitions ----------
+      // starburst iris: the burst grows to cover the frame at t, then shrinks away revealing the next scene
+      function burstWipe(t) {
+        tl.fromTo("#tr-burst", { scale: 0, rotation: -40 }, { scale: 1, rotation: 0, duration: 0.24, ease: "power2.in", immediateRender: false }, t - 0.24);
+        tl.to("#tr-burst", { scale: 0, rotation: 50, duration: 0.3, ease: "power2.out" }, t);
+      }
+      // flash + zoom punch into the next scene
+      function flashZoom(t, scene) {
+        tl.fromTo("#flash", { opacity: 0 }, { opacity: 0.95, duration: 0.05, ease: "none", immediateRender: false }, t - 0.05);
+        tl.to("#flash", { opacity: 0, duration: 0.22, ease: "power2.out" }, t);
+        if (scene) tl.fromTo(scene, { scale: 1.22 }, { scale: 1, duration: 0.4, ease: "expo.out", immediateRender: false }, t);
+      }
+      // ---------- motions ----------
+      function slam(sel, t, d = 0.22) {
+        tl.fromTo(sel, { scale: 2.8, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: 0, duration: d, ease: "power4.in" }, t);
+      }
+      function punch(sel, t, d = 0.34) {
+        tl.fromTo(sel, { scale: 1.7, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: d, ease: "expo.out" }, t);
+      }
+      function popTag(sel, t, rot = -4) {
+        tl.fromTo(sel, { scale: 0, opacity: 0, rotation: rot - 25 }, { scale: 1, opacity: 1, rotation: rot, duration: 0.42, ease: "back.out(2.8)" }, t);
+      }
+      function leadIn(sel, t) {
+        tl.fromTo(sel, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.25, ease: "power3.out" }, t);
+      }
+      function shake(sel, t, amp = 14, n = 4) {
+        tl.fromTo(sel, { x: 0, y: 0 }, { x: amp, y: -amp * 0.4, duration: 0.035, ease: "none", yoyo: true, repeat: n, immediateRender: false }, t);
+        tl.set(sel, { x: 0, y: 0 }, t + 0.035 * (n + 1));
+      }
+      function flyIn(sel, t, fromX, fromY, rot) {
+        tl.fromTo(sel, { x: fromX, y: fromY, rotation: rot * 3, scale: 0.6, opacity: 0 }, { x: 0, y: 0, rotation: rot, scale: 1, opacity: 1, duration: 0.55, ease: "back.out(1.5)" }, t);
+      }
+      function wobble(sel, t, d, rot = 3) {
+        tl.to(sel, { rotation: rot, scale: 1.04, duration: d, ease: "sine.inOut" }, t);
+      }
+      function marquee(scene, t, d) {
+        document.getElementById(scene).querySelectorAll(".hz-run").forEach((el, i) => {
+          tl.fromTo(el, { x: i % 2 ? -900 : 0 }, { x: i % 2 ? 0 : -900, duration: d, ease: "none" }, t);
+        });
+      }
+      function strike(sel, t) {
+        const p = document.querySelector(sel + " .marker path");
+        const L = 460;
+        p.style.strokeDasharray = L;
+        tl.fromTo(p, { strokeDashoffset: L }, { strokeDashoffset: 0, duration: 0.3, ease: "power2.inOut" }, t);
+        tl.to(sel, { opacity: 0.85, scale: 0.85, transformOrigin: "0% 50%", duration: 0.3, ease: "power2.out" }, t + 0.25);
+      }
+      function priceBoom(sel, burst, t) {
+        tl.fromTo(sel, { scale: 3, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: -3, duration: 0.24, ease: "power4.in" }, t);
+        tl.fromTo(burst, { scale: 0, rotation: -180 }, { scale: 1, rotation: -12, duration: 0.45, ease: "back.out(2.2)" }, t + 0.2);
+        tl.to(burst + " svg", { rotation: 90, duration: 2.0, ease: "none" }, t + 0.6);
+      }
+
+      // ================= S1 · Attention (0 – 2.35) · NOIR =================
+      marquee("s1", 0, 2.4);
+      slam("#s1-att", 0.05, 0.2);
+      shake("#s1", 0.26, 16, 4);
+      tl.fromTo("#s1-burger", { scale: 0.15, rotation: -30, opacity: 0, transformPerspective: 1200, rotationY: 50 }, { scale: 1.05, rotation: -4, rotationY: 0, opacity: 1, duration: 0.6, ease: "back.out(1.4)" }, 0.35);
+      tl.to("#s1-burger", { scale: 1.16, rotation: 3, duration: 1.4, ease: "sine.inOut" }, 0.95);
+      tl.fromTo("#s1-hot", { x: -700, skewX: 25, opacity: 0 }, { x: 0, skewX: 0, opacity: 1, duration: 0.35, ease: "expo.out" }, 0.75);
+      tl.fromTo("#s1-logo", { scale: 0, rotationY: -180, transformPerspective: 1000 }, { scale: 1, rotationY: 0, duration: 0.45, ease: "back.out(1.8)" }, 1.55);
+      burstWipe(2.35);
+
+      // ================= S2 · Ven / Sam / Dim (2.35 – 4.15) · ROUGE =================
+      leadIn("#s2-ce", 2.45);
+      [2.75, 3.25, 3.7].forEach((t, i) => {
+        tl.fromTo(`#s2-days .dz:nth-child(${i + 1})`, { rotationX: -95, opacity: 0, y: -60 }, { rotationX: 0, opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.8)" }, t);
+      });
+      flashZoom(4.15, "#s3");
+
+      // ================= S3 · Explosion du goût (4.15 – 6.5) · NOIR =================
+      leadIn("#s3-lead", 4.3);
+      tl.fromTo("#s3-boom", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.4, ease: "back.out(1.8)" }, 4.85);
+      tl.to("#s3-boom", { rotation: 40, duration: 1.6, ease: "none" }, 5.25);
+      slam("#s3-big", 5.0, 0.22);
+      shake("#s3", 5.22, 22, 6);
+      tl.fromTo("#flash", { opacity: 0 }, { opacity: 0.6, duration: 0.04, ease: "none", immediateRender: false }, 5.18);
+      tl.to("#flash", { opacity: 0, duration: 0.25 }, 5.22);
+      document.querySelectorAll("#s3-rings .ring").forEach((r, i) => {
+        tl.fromTo(r, { scale: 0, opacity: 0.9 }, { scale: 130, opacity: 0, duration: 0.6, ease: "power2.out" }, 5.22 + i * 0.12);
+      });
+      sp3.forEach((c, i) => {
+        tl.fromTo(c.el, { x: 0, y: 0, rotation: 0, opacity: 1, scale: 0.3 }, { x: c.x, y: c.y, rotation: c.rot, scale: 1, opacity: 0, duration: 1.0, ease: "expo.out" }, 5.22 + (i % 5) * 0.01);
+      });
+      popTag("#s3-sub", 5.55, -3);
+      burstWipe(6.45);
+
+      // ================= S4 · −10 % trio (6.45 – 9.45) · ROUGE =================
+      tl.fromTo("#s4-pct", { scale: 3, opacity: 0, rotationY: -70, transformPerspective: 1200 }, { scale: 1, opacity: 1, rotationY: 0, duration: 0.3, ease: "power3.in" }, 6.55);
+      shake("#s4", 6.85, 16, 4);
+      tl.to("#s4-pct", { rotationY: 16, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 1, transformPerspective: 1200 }, 7.1);
+      [["#s4-p1", 7.05], ["#s4-p2", 7.85], ["#s4-p3", 8.55]].forEach(([id, t], i) => {
+        tl.fromTo(id, { rotationY: VERT ? 0 : 90, rotationX: VERT ? 90 : 0, opacity: 0 }, { rotationY: VERT ? 0 : i === 1 ? 0 : i === 0 ? 8 : -8, rotationX: 0, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, t);
+      });
+      flashZoom(9.45, "#s5");
+
+      // ================= S5 · Burger 1500 → 1350 (9.45 – 13.4) · BLANC =================
+      tl.fromTo("#s5-slash", { xPercent: 120 }, { xPercent: 0, duration: 0.4, ease: "expo.out" }, 9.45);
+      flyIn("#s5-burger", 9.55, VERT ? 0 : 700, VERT ? 700 : 0, -6);
+      wobble("#s5-burger", 10.1, 3.2, 4);
+      punch("#s5-name", 9.6, 0.3);
+      punch("#s5-old", 10.65, 0.3);
+      strike("#s5-old", 11.6);
+      priceBoom("#s5-new", "#s5-burst", 12.15);
+      shake("#s5", 12.39, 14, 4);
+      burstWipe(13.4);
+
+      // ================= S6 · Shawarma viande 1350 (13.4 – 16.2) · NOIR =================
+      tl.fromTo("#v-shaw", { x: VERT ? 0 : 700, y: VERT ? 900 : 0, rotationY: -35, transformPerspective: 1600 }, { x: 0, y: 0, rotationY: -8, duration: 0.55, ease: "expo.out" }, 13.4);
+      tl.to("#v-shaw", { rotationY: 6, duration: 2.2, ease: "sine.inOut", transformPerspective: 1600 }, 13.95);
+      tl.fromTo("#s6-name > div", { x: -500, opacity: 0, skewX: 20 }, { x: 0, opacity: 1, skewX: 0, duration: 0.3, ease: "expo.out", stagger: 0.35 }, 13.6);
+      priceBoom("#s6-new", "#s6-burst", 15.0);
+      shake("#s6", 15.24, 14, 4);
+      flashZoom(16.15, "#s7");
+
+      // ================= S7 · Shawarma poulet 2000 → 1800 (16.15 – 21.75) · ROUGE =================
+      tl.fromTo("#s7-card", { y: VERT ? 900 : 0, x: VERT ? 0 : 800, rotation: 20, rotationY: 40, transformPerspective: 1600 }, { y: 0, x: 0, rotation: 4, rotationY: 0, duration: 0.6, ease: "back.out(1.3)" }, 16.2);
+      tl.fromTo("#s7-card img", { scale: 1.02 }, { scale: 1.18, duration: 5.4, ease: "sine.inOut" }, 16.2);
+      tl.fromTo("#s7-name > div", { x: -500, opacity: 0, skewX: 20 }, { x: 0, opacity: 1, skewX: 0, duration: 0.3, ease: "expo.out", stagger: 0.55 }, 16.4);
+      punch("#s7-old", 17.6, 0.3);
+      strike("#s7-old", 18.6);
+      priceBoom("#s7-new", "#s7-burst", 19.3);
+      shake("#s7", 19.54, 14, 4);
+      tl.to("#s7-new", { scale: 1.06, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 3 }, 20.0);
+      burstWipe(21.75);
+
+      // ================= S8 · Tacos 1800 (21.75 – 23.05) · BLANC =================
+      tl.fromTo("#s8-slash", { xPercent: -120 }, { xPercent: 0, duration: 0.35, ease: "expo.out" }, 21.75);
+      flyIn("#s8-tacos", 21.8, VERT ? 0 : -700, VERT ? 700 : 0, 5);
+      slam("#s8-name", 21.85, 0.2);
+      priceBoom("#s8-new", "#s8-only", 22.15);
+      flashZoom(23.05, "#s9");
+
+      // ================= S9 · Croquez / savourez / partagez (23.05 – 26.4) · ROUGE =================
+      marquee("s9", 23.05, 3.4);
+      tl.fromTo("#s9-femme", { x: VERT ? 0 : 700, y: VERT ? 900 : 0, rotation: 8, opacity: 0 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, 23.05);
+      tl.to("#s9-femme", { scale: 1.05, duration: 3.0, ease: "sine.inOut" }, 23.5);
+      popTag("#s9-w1", 23.1, -5);
+      popTag("#s9-w2", 23.55, 3);
+      popTag("#s9-w3", 24.35, -3);
+      slam("#s9-ador", 25.15, 0.22);
+      shake("#s9", 25.37, 12, 4);
+      sp9.forEach((c, i) => {
+        tl.fromTo(c.el, { x: 0, y: 0, rotation: 0, opacity: 1, scale: 0.3 }, { x: c.x * 0.8, y: c.y * 0.8, rotation: c.rot, scale: 1, opacity: 0, duration: 1.0, ease: "expo.out" }, 25.37 + (i % 5) * 0.01);
+      });
+      burstWipe(26.4);
+
+      // ================= S10 · Services (26.4 – 28.55) · NOIR =================
+      [26.45, 27.2, 27.75].forEach((t, i) => {
+        tl.fromTo(`#s10-row .svc3d:nth-child(${i + 1})`, { rotationX: -95, opacity: 0 }, { rotationX: 0, opacity: 1, duration: 0.45, ease: "back.out(1.8)" }, t);
+      });
+      flashZoom(28.55, "#s11");
+
+      // ================= S11 · Commandez (28.55 – 36.95) · ROUGE =================
+      marquee("s11", 28.55, 8.4);
+      slam("#s11-big", 28.7, 0.22);
+      shake("#s11", 28.92, 12, 3);
+      flyIn("#s11-a", 28.8, VERT ? 600 : 700, 0, -6);
+      flyIn("#s11-b", 29.1, VERT ? -600 : 700, 0, 5);
+      tl.to("#s11-a", { rotation: 4, y: -20, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 4 }, 29.4);
+      tl.to("#s11-b", { rotation: -4, y: 20, duration: 1.4, ease: "sine.inOut", yoyo: true, repeat: 4 }, 29.6);
+      tl.fromTo(urlChars, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.07, ease: "power2.out", stagger: 0.062 }, 29.6);
+      popTag("#s11-wa", 31.5, -2);
+      [32.6, 33.8, 34.9, 35.9].forEach((t, i) => {
+        slam(`#s11-num .w:nth-child(${i + 1})`, t, 0.2);
+      });
+      tl.to("#s11-num", { scale: 1.05, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1, transformOrigin: "0% 50%" }, 36.3);
+      burstWipe(36.95);
+
+      // ================= S12 · Signature (36.95 – 40.72) · NOIR =================
+      tl.fromTo("#s12-boom", { scale: 0, rotation: -90 }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.6)" }, 37.0);
+      tl.to("#s12-boom", { rotation: 60, duration: 3.2, ease: "none" }, 37.5);
+      tl.fromTo("#s12-logo", { scale: 0, rotationY: -180, transformPerspective: 1200 }, { scale: 1, rotationY: 0, duration: 0.55, ease: "back.out(1.6)" }, 37.05);
+      leadIn("#s12-lead", 37.95);
+      slam("#s12-big", 38.95, 0.22);
+      shake("#s12", 39.17, 16, 4);
+      tl.fromTo("#s12-band > *", { y: 80, opacity: 0, scale: 0.6 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)", stagger: 0.08 }, 37.6);
+
+      window.__timelines["main"] = tl;
+
+    </script>
+  </body>
+</html>

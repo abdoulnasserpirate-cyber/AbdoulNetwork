@@ -1,0 +1,51 @@
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #121010; }
+.hz-top { top: 90px; transform: rotate(-3deg); } .hz-bot { top: 1760px; transform: rotate(2deg); } .hz-mid { top: 110px; transform: rotate(-2deg); }
+/* S1 */
+#s1-att { left: 70px; top: 300px; font-size: 175px; } #s1-hot { left: 80px; top: 500px; font-size: 118px; }
+#s1-burger { left: 100px; top: 760px; width: 880px; height: 672px; } #s1-logo { left: 790px; top: 1460px; width: 220px; height: 220px; }
+/* S2 */
+#s2-ce { left: 90px; top: 260px; font-size: 120px; }
+#s2-days { left: 140px; top: 470px; flex-direction: column; gap: 40px; } .dz { width: 800px; height: 330px; } .dz .an { font-size: 140px; }
+/* S3 */
+#s3-boom { left: -60px; top: 400px; width: 1200px; height: 1200px; }
+#s3-rings .ring { left: 540px; top: 960px; width: 10px; height: 10px; }
+#s3-lead { top: 280px; } #s3-big { top: 780px; font-size: 200px; text-shadow: 8px 8px 0 #121010; }
+#s3-sub { top: 1060px; } #s3-sub .tag { font-size: 110px; }
+/* S4 */
+#s4-pct { left: 0; width: 100%; text-align: center; top: 130px; font-size: 280px; }
+#s4-split { left: 60px; top: 560px; flex-direction: column; gap: 30px; } .pane { width: 960px; height: 380px; } .pane-cut { width: auto; height: 86%; } .pane-t { font-size: 62px; left: auto; right: 0; top: 0; bottom: 0; width: 360px; display: flex; align-items: center; justify-content: center; }
+/* S5 */
+#s5-slash { left: 100px; top: 900px; width: 900px; height: 1100px; }
+#s5-burger { left: 120px; top: 1050px; width: 840px; height: 687px; }
+#s5-name { left: 80px; top: 170px; font-size: 140px; } #s5-old { left: 90px; top: 350px; } #s5-old .an { font-size: 170px; }
+#s5-new { left: 70px; top: 600px; } #s5-new .an { font-size: 210px; }
+#s5-burst { left: 760px; top: 130px; width: 270px; height: 270px; } .burst-tag .an { font-size: 88px; }
+/* S6 */
+#v-shaw { left: 260px; top: 640px; width: 560px; height: 996px; }
+#s6-name { left: 80px; top: 160px; font-size: 150px; } #s6-new { left: 210px; top: 1660px; } #s6-new .an { font-size: 150px; }
+#s6-burst { left: 40px; top: 1360px; width: 240px; height: 240px; }
+/* S7 */
+#s7-card { left: 220px; top: 700px; width: 640px; height: 830px; }
+#s7-name { left: 80px; top: 140px; font-size: 140px; } #s7-old { left: 90px; top: 460px; } #s7-old .an { font-size: 130px; }
+#s7-new { left: 470px; top: 1580px; } #s7-new .an { font-size: 160px; }
+#s7-burst { left: 770px; top: 450px; width: 250px; height: 250px; }
+/* S8 */
+#s8-slash { left: -100px; top: 900px; width: 1300px; height: 900px; }
+#s8-tacos { left: 100px; top: 1000px; width: 880px; height: 685px; }
+#s8-name { left: 80px; top: 180px; font-size: 260px; } #s8-new { left: 70px; top: 480px; } #s8-new .an { font-size: 200px; }
+#s8-only { left: 90px; top: 800px; } #s8-only .tag { font-size: 90px; }
+/* S9 */
+#s9-femme { left: 180px; top: 990px; width: 800px; height: 980px; }
+#s9-w1 { left: 70px; top: 300px; } #s9-w2 { left: 260px; top: 490px; } #s9-w3 { left: 110px; top: 680px; } .word .tag { font-size: 120px; }
+#s9-ador { left: 60px; top: 860px; font-size: 96px; text-shadow: 6px 6px 0 #121010; }
+/* S10 */
+#s10-row { left: 190px; top: 260px; flex-direction: column; gap: 40px; } .svc3d { width: 700px; height: 420px; } .svc3d .an { font-size: 80px; }
+/* S11 */
+#s11-big { left: 70px; top: 160px; font-size: 150px; text-shadow: 7px 7px 0 #121010; } #s11-url { left: 80px; top: 350px; font-size: 56px; }
+#s11-wa { left: 80px; top: 460px; } #s11-num { left: 70px; top: 610px; font-size: 175px; text-shadow: 8px 8px 0 #121010; }
+#s11-stack { left: 160px; top: 900px; width: 780px; height: 800px; } #s11-a { position: absolute; left: 0; top: 0; width: 620px; } #s11-b { position: absolute; left: 180px; top: 400px; width: 580px; }
+/* S12 */
+#s12-boom { left: 240px; top: 320px; width: 600px; height: 600px; }
+#s12-logo { left: 320px; top: 400px; width: 440px; height: 440px; } #s12-lead { top: 930px; font-size: 64px; } #s12-big { top: 1010px; font-size: 200px; text-shadow: 9px 9px 0 #d6060f; }
+#s12-band { left: 60px; top: 1360px; width: 960px; gap: 18px; } #s12-band .tag { font-size: 60px; } .mini { font-size: 44px; }
+#tr-burst { left: -1460px; top: -540px; width: 4000px; height: 4000px; }
