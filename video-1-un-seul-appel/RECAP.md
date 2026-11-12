@@ -4,10 +4,10 @@
 
 | Fichier | Format | Durée | Taille |
 |---|---|---|---|
-| `allo-video1-un-seul-appel-9x16-HD.mp4` | 1080×1920 · H.264 CRF 18 · AAC 192k | 37,5 s | TAILLE_9HD |
-| `allo-video1-un-seul-appel-9x16-whatsapp.mp4` | 1080×1920 · 2 passes · AAC 128k | 37,5 s | TAILLE_9WA |
-| `allo-video1-un-seul-appel-16x9-HD.mp4` | 1920×1080 · H.264 CRF 18 · AAC 192k | 37,5 s | TAILLE_16HD |
-| `allo-video1-un-seul-appel-16x9-whatsapp.mp4` | 1920×1080 · 2 passes · AAC 128k | 37,5 s | TAILLE_16WA |
+| `allo-video1-un-seul-appel-9x16-HD.mp4` | 1080×1920 · H.264 CRF 18 · AAC 192k | 37,5 s | 13.8 Mo (13.2 Mio) |
+| `allo-video1-un-seul-appel-9x16-whatsapp.mp4` | 1080×1920 · 2 passes · AAC 128k | 37,5 s | 14.4 Mo (13.7 Mio) |
+| `allo-video1-un-seul-appel-16x9-HD.mp4` | 1920×1080 · H.264 CRF 18 · AAC 192k | 37,5 s | 15.1 Mo (14.4 Mio) |
+| `allo-video1-un-seul-appel-16x9-whatsapp.mp4` | 1920×1080 · 2 passes · AAC 128k | 37,5 s | 14.4 Mo (13.7 Mio) |
 | `miniature-9x16.png`, `miniature-16x9.png` | plan final (logo + numéro) | — | — |
 
 WhatsApp : débit vidéo = 14 × 8192 / 37,5 − 128 = **2 930 kb/s**. Résolution pleine conservée, avec un grain léger contre le banding.
