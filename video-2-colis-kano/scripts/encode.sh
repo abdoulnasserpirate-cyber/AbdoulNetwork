@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Encode les livrables à partir des masters HyperFrames (renders/master-*.mp4) :
-#   - HD (H.264 CRF 18, high, yuv420p, AAC 192k, faststart)
+#   - HD (master H.264 CRF 18 rendu par HyperFrames, copié sans réencodage + faststart)
 #   - WhatsApp (< 15 Mo, 2 passes, AAC 128k 44,1 kHz) — débit = 14*8192/durée - 128
 #   - miniatures PNG
 set -euo pipefail
@@ -11,8 +11,8 @@ for F in 9x16 16x9; do
   DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$M")
   HD=$OUT/allo-video2-colis-kano-$F-HD.mp4
   WA=$OUT/allo-video2-colis-kano-$F-whatsapp.mp4
-  ffmpeg -y -loglevel error -i "$M" -c:v libx264 -preset slow -crf 18 -profile:v high -pix_fmt yuv420p \
-    -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$HD"
+  # le master est déjà rendu en H.264 CRF 18 (high, yuv420p) + AAC : copie sans perte, faststart
+  ffmpeg -y -loglevel error -i "$M" -c copy -movflags +faststart "$HD"
   TARGET=${WA_TARGET_MB:-14}
   VB=$(python3 -c "print(int($TARGET*8192/$DUR - 128))")
   LOG=tmp/x264-$F

@@ -4,7 +4,10 @@
 
 | Fichier | Format | Durée | Taille |
 |---|---|---|---|
-{{TABLE}}
+| `allo-video2-colis-kano-9x16-HD.mp4` | Vertical 1080×1920 · HD (master) | 65.5 s | **23.7 Mo** (22.6 Mio) |
+| `allo-video2-colis-kano-9x16-whatsapp.mp4` | Vertical 1080×1920 · WhatsApp | 65.5 s | **14.6 Mo** (13.9 Mio) |
+| `allo-video2-colis-kano-16x9-HD.mp4` | Horizontal 1920×1080 · HD (master) | 65.5 s | **23.0 Mo** (22.0 Mio) |
+| `allo-video2-colis-kano-16x9-whatsapp.mp4` | Horizontal 1920×1080 · WhatsApp | 65.5 s | **14.6 Mo** (13.9 Mio) |
 
 Miniatures : `miniature-9x16.png`, `miniature-16x9.png` (plan final : logo, carton, slogan, numéro).
 
@@ -60,3 +63,18 @@ cd build/9x16 && npx hyperframes@0.9.39 preview   # aperçu / édition dans Stud
 npx hyperframes@0.9.39 render --fps 30 --crf 18 -o ../../renders/master-9x16.mp4
 cd ../.. && ./scripts/encode.sh              # HD + WhatsApp + miniatures
 ```
+
+## Contrôle qualité effectué
+
+- Voix finale : -13,8 LUFS intégrés, crête -2,3 dBFS (HD et WhatsApp).
+- Prix vérifiés contre l'affiche tarifs : 1 000 / 1 500 / 2 000 F CFA « à partir de ». Numéros : 74 58 18 24 (principal), 88 57 92 90, 89 96 71 19, +227. Adresse : Maradi – Guidan Kaji.
+- Captures de chaque scène inspectées dans les 2 formats (zones sûres : rien dans les 250 px du bas ni les 180 px du haut en vertical ; sous-titres à 62 px du bas en horizontal).
+- Versions WhatsApp : 6 frames inspectées par format (textes, prix, numéros nets, pas de banding).
+- `hyperframes check` : il reste uniquement des faux positifs connus (texte du ruban volontairement rogné, chiffres du traqueur recouverts par la coche ✓, écran d'appel déjà sorti du téléphone).
+
+## Points à valider
+
+1. **Photo de Hadiza** : l'image fournie est un aperçu Adobe Stock avec filigrane. Il faut acheter la licence ou la remplacer par votre propre photo avant toute diffusion publique. Pour la remplacer : `assets/photos/hadiza.jpg` (format carré), puis rebuild et rendu.
+2. **Texte réellement prononcé** (le montage suit l'audio) : « du Nigeria **ou d'un autre pays** » et **Agadez** dans la liste des villes. Agadez n'est pas sur l'affiche, mais c'est une ville du Niger, couverte par « toutes les villes du Niger ».
+3. Les numéros 88 57 92 90 et 89 96 71 19 sont affichés en petit sous le numéro principal : à retirer si vous préférez un seul numéro.
+4. Le numéro du chauffeur dans la conversation WhatsApp est fictif et masqué (« +234 ●● ●●● ●●●● »).
