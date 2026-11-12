@@ -217,10 +217,10 @@ def build(key):
         </div>"""
 
     sections = []
-    for sid, title, boxes, keys, start, dur, kind in [
-        ("s3", "Montages courts", L["courts"], ["court1", "court2", "court3"], 6.0, 3.0, ["vv", "vv", "vv"]),
-        ("s4", "Motion Design", L["motions"], ["motion1", "motion2"], 9.0, 3.0, ["hh", "hh"]),
-        ("s5", "Projets perso", L["persos"], ["perso1", "perso2"], 12.0, 5.0, ["vv", "hh"]),
+    for sid, title, boxes, keys, start, dur, kind, green in [
+        ("s3", "Montages courts", L["courts"], ["court1", "court2", "court3"], 6.0, 3.0, ["vv", "vv", "vv"], True),
+        ("s4", "Motion Design", L["motions"], ["motion1", "motion2"], 9.0, 3.0, ["hh", "hh"], False),
+        ("s5", "Projets perso", L["persos"], ["perso1", "perso2"], 12.0, 5.0, ["vv", "hh"], True),
     ]:
         cards = "".join(
             card(f"{sid}-c{i+1}", b, CLIPS[k], start, dur, kd)
@@ -228,7 +228,9 @@ def build(key):
         )
         sections.append(
             f'<div id="{sid}" class="scene sec">'
-            f'<div id="{sid}-title" class="sec-title" style="top:{L["sec_top"]}px">{title}</div>{cards}</div>'
+            + (f'<div id="{sid}-bg" class="secfill"><div class="grad"></div><div class="tscrim" style="top:{L["sec_top"] - 120}px"></div></div>'
+               if green else f'<div id="{sid}-bg" class="secfill"><div class="sec-bg"></div></div>')
+            + f'<div id="{sid}-title" class="sec-title{" on-green" if green else ""}" style="top:{L["sec_top"]}px">{title}</div>{cards}</div>'
         )
 
     # ------------------------------------------------------------ HTML
@@ -298,17 +300,23 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
   background: linear-gradient(100deg, #34330B 0%, #4F4E12 30%, #6B6A1A 60%, #7C6807 85%, #5E5208 100%);
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
   -webkit-background-clip: text; background-clip: text; color: transparent; }}
+.secfill {{ position: absolute; inset: 0; overflow: hidden; }}
+.sec-title.on-green {{ background: none; -webkit-background-clip: border-box; background-clip: border-box; color: #FFFFFF; filter: none;
+  text-shadow: 0 3px 6px rgba(30,30,5,0.5), 0 8px 30px rgba(30,30,5,0.45); }}
+.tscrim {{ position: absolute; left: 0; width: {W}px; height: {L['sec_title'] + 240}px;
+  background: radial-gradient(ellipse 45% 50% at 50% 50%, rgba(40,40,8,0.38) 0%, rgba(40,40,8,0.15) 50%, rgba(40,40,8,0) 80%); }}
 .vcard {{ position: absolute; border-radius: 24px; overflow: hidden; background: #1a1a1a;
   box-shadow: 0 24px 60px rgba(17,17,17,0.22), 0 6px 16px rgba(17,17,17,0.12); }}
 .vcard video {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
 #rise {{ position: absolute; left: 0; top: 0; width: {W}px; height: {int(H*1.6)}px;
-  background: linear-gradient(180deg, rgba(232,224,30,0) 0%, #E8E01E 30%, #CFC81C 60%, #6B6A1A 100%); }}
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 28%, #FFFFFF 100%); }}
 
 /* scène 6 */
 #s6-wrap {{ position: absolute; left: {(W - L['cta_width'])//2}px; top: 0; width: {L['cta_width']}px; height: {H}px;
   display: grid; place-items: center; text-align: center; }}
-.cta {{ grid-area: 1 / 1; width: 100%; font-weight: 500; font-size: {L['cta']}px; color: #FFFFFF; line-height: 1.25;
-  text-shadow: 0 2px 4px rgba(30,30,5,0.55), 0 4px 22px rgba(30,30,5,0.45); }}
+.cta {{ grid-area: 1 / 1; width: 100%; font-weight: 600; font-size: {L['cta']}px; color: #111111; line-height: 1.25; }}
+#s6 {{ background: #FFFFFF; }}
+#s6-green {{ position: absolute; inset: 0; overflow: hidden; }}
 .scrim {{ position: absolute; inset: 0; background: radial-gradient(ellipse 55% 38% at 50% 50%, rgba(40,40,8,0.38) 0%, rgba(40,40,8,0.18) 45%, rgba(40,40,8,0) 75%); }}
 .cta .wd {{ display: inline-block; opacity: 0; white-space: nowrap; }}
 
@@ -355,8 +363,7 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
     </div>
   </div>
 
-  <!-- 3-5. SECTIONS VIDÉO (fond commun) -->
-  <div id="secbg" class="scene"><div id="secbg-img" class="sec-bg"></div></div>
+  <!-- 3-5. SECTIONS VIDÉO : vert / blanc / vert -->
   {''.join(sections)}
   <div id="s5-rise" class="scene" style="opacity:1;background:transparent"><div id="rise"></div></div>
 
@@ -373,10 +380,9 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
 
   <!-- 6-8. CTA, CARTE PROFIL, SIGNATURE -->
   <div id="s6" class="scene">
-    <div class="grad"></div>
+    <div id="s6-green"><div class="grad"></div>
     <div id="s6-b1" class="blob" style="left:{int(-0.15*W)}px;top:{int(0.40*H)}px;width:{int(0.6*max(W,H))}px;height:{int(0.6*max(W,H))}px;background:rgba(107,106,26,0.30)"></div>
-    <div id="s6-b2" class="blob" style="left:{int(0.55*W)}px;top:{int(-0.2*H)}px;width:{int(0.5*max(W,H))}px;height:{int(0.5*max(W,H))}px;background:rgba(255,250,170,0.35)"></div>
-    <div id="s6-scrim" class="scrim"></div>
+    <div id="s6-b2" class="blob" style="left:{int(0.55*W)}px;top:{int(-0.2*H)}px;width:{int(0.5*max(W,H))}px;height:{int(0.5*max(W,H))}px;background:rgba(255,250,170,0.35)"></div></div>
     <div id="s6-wrap">
       <div id="cta1" class="cta">{' '.join(f'<span class="wd">{html.escape(w)}</span>' for w in "Transformons ton idée en\u00a0visuels".split(" "))}</div>
       <div id="cta2" class="cta">{' '.join(f'<span class="wd">{html.escape(w)}</span>' for w in "Écris-moi, on\u00a0en\u00a0parle\u00a0:)".split(" "))}</div>
@@ -436,8 +442,8 @@ document.fonts.ready.then(function () {{
   hide("#s2", 6.05);
 
   /* ---------------- 3-5. fond commun 5.6–17 s */
-  show("#secbg", 5.6); hide("#secbg", 17.05);
-  tl.fromTo("#secbg-img", {{ x: 0, y: 0, scale: 1.0 }}, {{ x: -60, y: -20, scale: 1.04, duration: 11.5, ease: "none" }}, 5.6);
+  // fond qui balaie de bas en haut à chaque changement de section (vert ↔ blanc)
+  const wipe = (sel, t) => tl.fromTo(sel, {{ clipPath: "inset(100% 0% 0% 0%)" }}, {{ clipPath: "inset(0% 0% 0% 0%)", duration: 0.4, ease: IO }}, t);
 
   const titleIn = (sel, t) => tl.fromTo(sel, {{ opacity: 0, y: -30, scale: 0.92 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.45, ease: IN }}, t);
   const exitSec = (id, t) => {{
@@ -446,7 +452,7 @@ document.fonts.ready.then(function () {{
   }};
 
   // 3. Montages courts 6–9 s
-  show("#s3", 5.95); hide("#s3", 9.0);
+  show("#s3", 5.6); hide("#s3", 9.3);
   titleIn("#s3-title", 6.0);
   tl.fromTo("#s3 .vcard", {{ y: H * 0.75, opacity: 0, rotation: (i) => [-4, 3, -2][i] }},
     {{ y: 0, opacity: 1, rotation: 0, duration: 0.7, ease: "back.out(1.4)", stagger: 0.15 }}, 6.1);
@@ -454,7 +460,7 @@ document.fonts.ready.then(function () {{
   exitSec("#s3", 8.75);
 
   // 4. Motion Design 9–12 s
-  show("#s4", 9.0); hide("#s4", 12.0);
+  show("#s4", 8.8); hide("#s4", 12.3); wipe("#s4-bg", 8.8);
   titleIn("#s4-title", 9.02);
   tl.fromTo("#s4-c1", {{ opacity: 0, x: V ? 0 : -140, y: V ? 120 : 0 }}, {{ opacity: 1, x: 0, y: 0, duration: 0.6, ease: "power3.out" }}, 9.15);
   tl.fromTo("#s4-c2", {{ opacity: 0, x: V ? 0 : 140, y: V ? 120 : 0 }}, {{ opacity: 1, x: 0, y: 0, duration: 0.6, ease: "power3.out" }}, 9.3);
@@ -462,13 +468,13 @@ document.fonts.ready.then(function () {{
   exitSec("#s4", 11.75);
 
   // 5. Projets perso 12–17 s
-  show("#s5", 12.0); hide("#s5", 17.05);
+  show("#s5", 11.8); hide("#s5", 17.05); wipe("#s5-bg", 11.8);
   titleIn("#s5-title", 12.02);
   tl.fromTo("#s5-c1", {{ opacity: 0, y: 160, scale: 0.85 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.65, ease: IN }}, 12.1);
   tl.fromTo("#s5-c2", {{ opacity: 0, y: 160, scale: 0.85 }}, {{ opacity: 1, y: 0, scale: 1, duration: 0.65, ease: IN }}, 12.3);
   tl.to("#s5-c1", {{ y: -14, duration: 3.2, ease: "sine.inOut" }}, 13.0);
   tl.to("#s5-c2", {{ y: 14, duration: 3.2, ease: "sine.inOut" }}, 13.0);
-  // sortie : dégradé jaune qui monte du bas
+  // sortie : vague blanche qui monte du bas
   tl.fromTo("#rise", {{ y: H }}, {{ y: -H * 0.6, duration: 0.85, ease: IO }}, 16.25);
   hide("#s5-rise", 17.3);
 
@@ -480,7 +486,8 @@ document.fonts.ready.then(function () {{
   tl.to("#cta1", {{ opacity: 0, y: -30, filter: "blur(8px)", duration: 0.3, ease: "power2.in" }}, 18.45);
   tl.fromTo("#cta2 .wd", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.1 }}, 18.65);
   tl.to("#cta2", {{ opacity: 0, scale: 0.9, duration: 0.3, ease: "power2.in" }}, 19.4);
-  tl.to("#s6-scrim", {{ opacity: 0, duration: 0.5 }}, 19.4);
+  // le vert s'ouvre en cercle autour de la pilule noire
+  tl.fromTo("#s6-green", {{ clipPath: "circle(0% at 50% 50%)" }}, {{ clipPath: "circle(120% at 50% 50%)", duration: 0.7, ease: IO }}, 19.45);
   tl.fromTo("#pcard", {{ opacity: 0, scale: 0 }}, {{ opacity: 1, scale: 1, duration: 0.4, ease: IN }}, 19.5);
 
   /* ---------------- 7. CARTE PROFIL 20–24 s */
