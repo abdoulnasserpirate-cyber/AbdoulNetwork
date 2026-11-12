@@ -1,0 +1,124 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+      container-type: size; container-name: sc; font-family: var(--font); color: #fff; }
+    #s7-ground { position: absolute; inset: -6%; background: radial-gradient(100% 90% at 30% 50%, #12307f 0%, var(--navy-900) 72%); }
+    /* téléphone stylisé */
+    #s7-phone { position: absolute; right: 11%; top: 8%; width: 25cqw; height: 84cqh; font-size: 1.12cqw;
+      border-radius: 3.4em; background: #050c26; border: .55em solid #26346b; box-shadow: 0 2.2em 4em rgba(0,0,0,.45); }
+    #s7-screen { position: absolute; inset: .6em; border-radius: 2.8em; overflow: hidden;
+      background: linear-gradient(170deg, #1a4fd6 0%, #0b2163 55%, #06123a 100%); }
+    #s7-notch { position: absolute; left: 50%; top: .9em; width: 7em; height: 1.6em; margin-left: -3.5em; border-radius: 1em; background: #050c26; }
+    #s7-inc { position: absolute; top: 8%; left: 0; right: 0; text-align: center; font-size: 1.35em; font-weight: 700; letter-spacing: .08em; opacity: .85; }
+    #s7-ava { position: absolute; top: 15%; left: 50%; width: 46%; aspect-ratio: 1; margin-left: -23%; border-radius: 50%; background: #fff;
+      display: flex; align-items: center; justify-content: center; }
+    #s7-ava img { width: 84%; display: block; }
+    #s7-ava-r .ring { border-width: .35em; border-color: rgba(255,255,255,.55); width: 100%; height: 100%; margin: 0; left: 0; top: 0; }
+    #s7-name { position: absolute; top: 46%; left: 0; right: 0; text-align: center; font-size: 2em; font-weight: 900; line-height: 1.05; }
+    #s7-num { position: absolute; top: 57%; left: 0; right: 0; text-align: center; font-size: 2.15em; font-weight: 900; letter-spacing: .04em; color: var(--yellow); white-space: nowrap; }
+    #s7-num span { display: inline-block; }
+    .s7-btn { position: absolute; bottom: 9%; width: 5.4em; height: 5.4em; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .s7-btn .ico { width: 52%; height: 52%; color: #fff; }
+    #s7-no { left: 16%; background: #e5383b; }
+    #s7-no .ico { transform: rotate(135deg); }
+    #s7-yes { right: 16%; background: var(--wa-green); }
+    #s7-yes-r { position: absolute; inset: 0; border-radius: 50%; border: .4em solid var(--wa-green); }
+    /* colonne texte */
+    #s7-col { position: absolute; left: 6%; width: 52%; top: 0; bottom: 0; }
+    #s7-ask { position: absolute; left: 0; right: 0; top: 24%; display: flex; align-items: center; gap: 2.4cqw; }
+    #s7-med { width: 16cqmin; height: 16cqmin; flex: none; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; }
+    #s7-med svg { width: 66%; height: 66%; overflow: visible; }
+    #s7-morph { fill: var(--navy-900); fill-rule: evenodd; }
+    #s7-ask1 { display: block; font-size: 6.4cqw; }
+    #s7-ask2 { display: block; font-size: 2.9cqw; margin-top: .6cqh; }
+    #s7-ask2 b { color: var(--wa-green); font-weight: 900; }
+    #s7-big { position: absolute; left: 0; right: 0; top: 36%; }
+    .s7-line { display: block; font-size: 10cqw; line-height: .92; }
+    .s7-pair { display: inline-block; }
+    #s7-pre { display: block; font-size: 2.6cqw; font-weight: 800; margin-bottom: 1cqh; color: var(--yellow); letter-spacing: .06em; }
+    #s7-more { position: absolute; left: 0; right: 0; top: 83%; font-size: 2.1cqw; font-weight: 700; opacity: .9; }
+    @container sc (orientation: portrait) {
+      #s7-phone { right: auto; left: 50%; margin-left: -22cqw; top: 3%; width: 44cqw; height: 42cqh; font-size: 1.95cqw; }
+      #s7-col { left: 5%; width: 90%; }
+      #s7-ask { top: 51%; justify-content: center; gap: 3cqw; }
+      #s7-med { width: 20cqw; height: 20cqw; }
+      #s7-ask1 { font-size: 11cqw; }
+      #s7-ask2 { font-size: 4.8cqw; }
+      #s7-big { top: 46.5%; text-align: center; }
+      #s7-pre { font-size: 4.4cqw; margin-bottom: .4cqh; }
+      .s7-line { font-size: 15.5cqw; }
+      #s7-more { top: 66.2%; text-align: center; font-size: 3.6cqw; }
+    }
+  </style>
+  <div id="root" data-composition-id="s7-appel">
+    <div id="s7-ground"></div>
+    <div class="cam" id="s7-cam">
+      <div id="s7-phone">
+        <div id="s7-screen">
+          <div id="s7-notch"></div>
+          <div id="s7-inc">APPEL ENTRANT…</div>
+          <div id="s7-ava"><div id="s7-ava-r"><div class="ring"></div><div class="ring"></div></div><img src="assets/logo/logo-full.svg" alt="Logo Allô Multi-Services Maradi" /></div>
+          <div id="s7-name">Allô<br />Multi-Services</div>
+          <div id="s7-num"><span>+227</span> <span class="s7-d" id="s7-d1">74</span> <span class="s7-d" id="s7-d2">58</span> <span class="s7-d" id="s7-d3">18</span> <span class="s7-d" id="s7-d4">24</span></div>
+          <div class="s7-btn" id="s7-no" data-icon="handset"></div>
+          <div class="s7-btn" id="s7-yes"><div id="s7-yes-r"></div><div data-icon="handset" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center"></div></div>
+        </div>
+      </div>
+      <div id="s7-col">
+        <div id="s7-ask">
+          <div id="s7-med"><svg viewBox="0 0 100 100"><path id="s7-morph" d="" /></svg></div>
+          <div><span id="s7-ask1" class="hero">APPELEZ</span><span id="s7-ask2" class="sub">ou écrivez sur <b>WhatsApp</b></span></div>
+        </div>
+        <div id="s7-big">
+          <span id="s7-pre">APPEL / WHATSAPP · +227</span>
+          <span class="s7-line hero"><span class="s7-pair" id="s7-b1">74</span> <span class="s7-pair yel" id="s7-b2">58</span></span>
+          <span class="s7-line hero"><span class="s7-pair" id="s7-b3">18</span> <span class="s7-pair yel" id="s7-b4">24</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="grain"></div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s7-appel";
+      const S = +document.querySelector('[data-composition-id="' + ID + '"][data-start]').dataset.start;
+      const T = (a) => Math.max(0, a - S);
+      const R = document.querySelector('[data-composition-id="' + ID + '"]');
+      FX.mountIcons(R);
+      R.querySelectorAll(".s7-btn .ico").forEach((s) => (s.style.width = s.style.height = "52%"));
+      const V = FX.isV();
+      const tl = gsap.timeline({ paused: true });
+      const morph = R.querySelector("#s7-morph");
+      morph.setAttribute("d", FX.SIL.handset);
+      FX.drift(tl, "#s7-cam", 0, 6.1, 0.6);
+      tl.fromTo("#s7-ground", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 0);
+      // le téléphone monte (27.00), appel entrant : l'avatar sonne
+      tl.fromTo("#s7-phone", { y: "70cqh", rotate: V ? 0 : 8 }, { y: 0, rotate: V ? 0 : -2, duration: 0.6, ease: "expo.out" }, 0);
+      FX.rings(tl, R.querySelectorAll("#s7-ava-r .ring"), 0.5, { from: 1, to: 1.6, dur: 0.9, stagger: 0.3, alpha: 0.9 });
+      FX.rings(tl, R.querySelectorAll("#s7-ava-r .ring"), 1.8, { from: 1, to: 1.6, dur: 0.9, stagger: 0.3, alpha: 0.9 });
+      tl.fromTo("#s7-inc", { opacity: 0 }, { opacity: 0.85, duration: 0.3, ease: "power1.out" }, 0.4);
+      tl.fromTo("#s7-name", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, 0.45);
+      gsap.set(".s7-d", { opacity: 0 });
+      // « Appelez » (27.16) — médaillon combiné → MORPH bulle WhatsApp (« WhatsApp » 28.22)
+      tl.fromTo("#s7-med", { scale: 0, rotate: -60 }, { scale: 1, rotate: 0, duration: 0.45, ease: "back.out(2)" }, T(27.1));
+      FX.dropLetters(tl, R.querySelector("#s7-ask1"), T(27.16), { from: -90, stagger: 0.03, dur: 0.34 });
+      tl.fromTo("#s7-ask2", { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, T(27.62));
+      tl.to(morph, { morphSVG: FX.ICONS.wa[0], duration: 0.45, ease: "power3.inOut" }, T(28.16));
+      tl.to("#s7-med", { backgroundColor: "#25d366", duration: 0.3, ease: "power2.inOut" }, T(28.2));
+      tl.to(morph, { fill: "#ffffff", duration: 0.3, ease: "power2.inOut" }, T(28.2));
+      // le tempo ralentit : la phrase laisse la place au numéro (28.80)
+      tl.to("#s7-ask", { opacity: 0, filter: "blur(10px)", y: V ? -20 : -40, duration: 0.2, ease: "power3.in" }, T(28.62));
+      tl.fromTo("#s7-pre", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, T(28.78));
+      // 74 · 58 · 18 · 24 composés sur la voix
+      [[28.94, 1], [30.02, 2], [30.98, 3], [31.82, 4]].forEach(([t, i]) => {
+        FX.slam(tl, "#s7-b" + i, T(t) - 0.04, { from: 1.9, dur: 0.38 });
+        tl.fromTo("#s7-d" + i, { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.4)" }, T(t) - 0.04);
+        tl.fromTo("#s7-phone", { x: 0 }, { x: V ? 4 : 6, duration: 0.05, ease: "sine.inOut", yoyo: true, repeat: 3 }, T(t) - 0.04);
+      });
+      // bouton vert qui pulse + autres numéros
+      tl.fromTo("#s7-yes", { scale: 1 }, { scale: 1.14, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 7 }, T(29.4));
+      tl.fromTo("#s7-yes-r", { scale: 1, opacity: 0.9 }, { scale: 2.1, opacity: 0, duration: 0.8, ease: "power2.out", repeat: 4 }, T(29.4));
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

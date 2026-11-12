@@ -1,0 +1,41 @@
+/* Allô Multi-Services Maradi — jetons de marque (échantillonnés sur les affiches officielles) */
+/* Montserrat (SIL OFL) livrée avec le projet : rendu identique dans les deux formats, sans réseau */
+@font-face { font-family: "AlloMontserrat"; src: url("fonts/Montserrat-latin-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: "AlloMontserrat"; src: url("fonts/Montserrat-italic-latin-var.woff2") format("woff2"); font-weight: 100 900; font-style: italic; }
+:root {
+  --navy-900: #06123a;
+  --navy: #0b2163;
+  --royal: #1a4fd6;
+  --orange: #f5730f;
+  --yellow: #ffc814;
+  --white: #ffffff;
+  --mist: #eef3fb;
+  --logo-navy: #0a3470;
+  --wa-green: #25d366;
+  --font: "AlloMontserrat", "Montserrat", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { overflow: hidden; background: var(--navy-900); }
+
+/* Chaque scène : racine fluide, container query pour la mise en page par format */
+.scene { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+  container-type: size; container-name: sc; font-family: var(--font); color: var(--white); }
+.ground { position: absolute; inset: -6%; background: radial-gradient(120% 90% at 50% 40%, var(--navy) 0%, var(--navy-900) 70%); }
+.cam { position: absolute; inset: 0; transform-origin: 50% 45%; }
+.fill { position: absolute; inset: 0; }
+.center { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.hero { font-weight: 900; line-height: .86; letter-spacing: -0.02em; text-transform: uppercase; white-space: nowrap; }
+.sub { font-weight: 800; font-style: italic; letter-spacing: -0.01em; }
+.yel { color: var(--yellow); }
+.ora { color: var(--orange); }
+.nav { color: var(--logo-navy); }
+.ico { display: block; overflow: visible; }
+.ico path { fill: currentColor; fill-rule: evenodd; }
+.badge { display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--yellow); color: var(--navy-900); border-radius: 0.28em; padding: 0.16em 0.42em 0.12em;
+  font-weight: 900; line-height: 1; box-shadow: 0 0.12em 0 #c7900a; transform-origin: 50% 60%; white-space: nowrap; }
+.badge small { font-size: 0.34em; font-weight: 800; letter-spacing: 0.04em; }
+.ring { position: absolute; border-radius: 50%; border: 0.9cqmin solid var(--orange); left: 50%; top: 50%;
+  width: 20cqmin; height: 20cqmin; margin: -10cqmin 0 0 -10cqmin; opacity: 0; }
+.grain { position: absolute; inset: 0; pointer-events: none; opacity: 0.05; mix-blend-mode: overlay;
+  background-image: url("grain.png"); background-size: 256px 256px; }

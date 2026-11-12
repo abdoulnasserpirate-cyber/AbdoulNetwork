@@ -1,0 +1,236 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+      container-type: size; container-name: sc; font-family: var(--font); color: #fff; }
+    .s2-panel { position: absolute; inset: 0; overflow: hidden; }
+    .s2-word { position: absolute; left: 0; right: 0; text-align: center; }
+    .s2-ico { position: absolute; }
+    .s2-ico .ico { width: 100%; height: 100%; }
+    /* a · COLIS (orange) */
+    #s2-a { background: var(--orange); }
+    #s2-a .s2-word, #s2-a-top .s2-word, #s2-a-bot .s2-word { top: 50%; font-size: 21cqw; color: var(--navy-900); margin-top: -0.43em; }
+    #s2-a-box, #s2-a-top .s2-ico, #s2-a-bot .s2-ico { left: 62%; top: 9%; width: 26cqmin; height: 26cqmin; color: #fff; }
+    #s2-a-top { clip-path: inset(0 0 50% 0); background: var(--orange); }
+    #s2-a-bot { clip-path: inset(50% 0 0 0); background: var(--orange); }
+    /* b · COURSES (jaune) */
+    #s2-b { background: var(--yellow); }
+    #s2-b .s2-word { top: 50%; font-size: 16cqw; color: var(--navy-900); margin-top: -0.43em; }
+    #s2-b-bag { left: 10%; top: 8%; width: 26cqmin; height: 26cqmin; color: var(--orange); }
+    /* c · DOCUMENTS (bleu roi) */
+    #s2-c { background: var(--royal); }
+    #s2-c .s2-word { top: 50%; font-size: 12.6cqw; margin-top: -0.43em; }
+    #s2-c-doc { right: 8%; bottom: 8%; width: 28cqmin; height: 28cqmin; color: var(--yellow); }
+    /* d · 4 cases + REPAS */
+    #s2-d { background: var(--navy-900); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1cqmin; padding: 1cqmin; }
+    .s2-cell { position: relative; border-radius: 2.4cqmin; display: flex; align-items: center; justify-content: center; }
+    .s2-cell > div[data-icon] { position: absolute; top: 12%; left: 31%; width: 38%; aspect-ratio: 1; }
+    .s2-cell .ico { width: 100%; height: 100%; }
+    .s2-cell span { display: none; position: absolute; bottom: 7%; left: 0; right: 0; text-align: center; font-weight: 900; font-size: 2.2cqw; letter-spacing: .04em; }
+    #s2-c1 { background: var(--orange); color: #fff; }
+    #s2-c2 { background: var(--yellow); color: var(--navy-900); }
+    #s2-c3 { background: var(--royal); color: #fff; }
+    #s2-c4 { background: #fff; color: var(--orange); }
+    #s2-c4 span { color: var(--navy-900); }
+    #s2-d-band { position: absolute; left: 0; right: 0; top: 50%; height: 30cqh; margin-top: -15cqh; background: var(--navy-900);
+      display: flex; align-items: center; justify-content: center; }
+    #s2-d-word { font-size: 17cqw; color: var(--yellow); }
+    /* e · Nigeria */
+    #s2-e { background: radial-gradient(110% 90% at 50% 45%, var(--navy) 0%, var(--navy-900) 75%); }
+    #s2-moto { position: absolute; left: 0; top: 40%; width: 38cqmin; height: 38cqmin; color: #fff; z-index: 5; }
+    #s2-speed { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 4; }
+    .s2-sl { position: absolute; height: 1.1cqmin; border-radius: 1cqmin; background: var(--orange); }
+    #s2-map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; }
+    #s2-route { fill: none; stroke: var(--orange); stroke-width: 0.9; stroke-linecap: round; stroke-dasharray: 1.6 2.2; }
+    .s2-dot { fill: var(--yellow); }
+    .s2-lab { position: absolute; font-weight: 900; font-size: 4.2cqw; line-height: 1; }
+    .s2-lab small { display: block; font-size: .42em; font-weight: 800; font-style: italic; opacity: .85; letter-spacing: .06em; margin-top: .3em; }
+    #s2-kano { left: 7%; top: 74%; }
+    #s2-maradi { right: 6%; top: 51%; text-align: right; color: var(--yellow); }
+    #s2-travel { position: absolute; left: 0; top: 0; width: 13cqmin; height: 13cqmin; margin: -6.5cqmin 0 0 -6.5cqmin; color: #fff; }
+    #s2-e-title { position: absolute; left: 0; right: 0; top: 11%; text-align: center; font-size: 6.4cqw; }
+    /* f · LESSIVE (photo dans les lettres) */
+    #s2-f { background: #fff; }
+    #s2-f-word { position: absolute; left: 0; right: 0; top: 50%; margin-top: -0.43em; text-align: center; font-size: 19.5cqw;
+      background-image: url("assets/photos/lessive-bassine.jpg"); background-size: cover; background-position: 50% 62%;
+      -webkit-background-clip: text; background-clip: text; color: transparent; }
+    #s2-f-label { position: absolute; left: 0; right: 0; top: 22%; text-align: center; font-size: 3.4cqw; color: var(--royal); }
+    .s2-bub { position: absolute; border-radius: 50%; border: .5cqmin solid var(--royal); opacity: .5; }
+    /* g · REPASSAGE (le fer révèle le mot) */
+    #s2-g { background: var(--mist); }
+    #s2-g-word { position: absolute; left: 0; right: 0; top: 50%; margin-top: -0.43em; text-align: center; font-size: 12.4cqw; color: var(--navy-900); }
+    #s2-iron { position: absolute; left: 0; top: 50%; width: 22cqmin; height: 22cqmin; margin: -24cqmin 0 0 -11cqmin; color: var(--orange); }
+    .s2-steam { position: absolute; width: 4cqmin; height: 4cqmin; border-radius: 50%; background: #fff; }
+    @container sc (orientation: portrait) {
+      #s2-a .s2-word, #s2-a-top .s2-word, #s2-a-bot .s2-word { font-size: 25cqw; top: 52%; }
+      #s2-a-box, #s2-a-top .s2-ico, #s2-a-bot .s2-ico { left: 30%; top: 14%; width: 40cqmin; height: 40cqmin; }
+      #s2-b .s2-word { font-size: 18cqw; top: 52%; }
+      #s2-b-bag { left: 30%; top: 14%; width: 40cqmin; height: 40cqmin; }
+      #s2-c .s2-word { font-size: 13.5cqw; top: 52%; }
+      #s2-c-doc { right: 30%; bottom: auto; top: 14%; width: 40cqmin; height: 40cqmin; }
+      #s2-d { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
+      .s2-cell span { display: block; font-size: 4.6cqw; }
+      .s2-cell > div[data-icon] { top: 22%; left: 34%; width: 32%; }
+      #s2-d-band { height: 16cqh; margin-top: -8cqh; }
+      #s2-d-word { font-size: 24cqw; }
+      #s2-moto { top: 34%; width: 52cqmin; height: 52cqmin; }
+      .s2-lab { font-size: 8cqw; }
+      #s2-kano { left: 8%; top: 58%; }
+      #s2-maradi { right: 8%; top: 39%; }
+      #s2-travel { width: 16cqmin; height: 16cqmin; margin: -8cqmin 0 0 -8cqmin; }
+      #s2-e-title { top: 9%; bottom: auto; font-size: 9cqw; }
+      #s2-f-word { font-size: 21cqw; }
+      #s2-f-label { top: 30%; font-size: 6.5cqw; }
+      #s2-g-word { font-size: 14.2cqw; }
+      #s2-iron { width: 30cqmin; height: 30cqmin; margin: -36cqmin 0 0 -15cqmin; }
+    }
+  </style>
+  <div id="root" data-composition-id="s2-avalanche">
+    <div class="cam" id="s2-cam">
+      <!-- g en dessous : REPASSAGE -->
+      <div class="s2-panel" id="s2-g">
+        <div id="s2-g-word" class="hero">REPASSAGE</div>
+        <div class="s2-steam" style="left:30%;top:36%"></div><div class="s2-steam" style="left:50%;top:34%"></div><div class="s2-steam" style="left:70%;top:37%"></div>
+        <div id="s2-iron" data-icon="iron"></div>
+      </div>
+      <div class="s2-panel" id="s2-f">
+        <div class="s2-bub" style="left:8%;top:70%;width:9cqmin;height:9cqmin"></div>
+        <div class="s2-bub" style="left:80%;top:76%;width:13cqmin;height:13cqmin"></div>
+        <div class="s2-bub" style="left:22%;top:12%;width:6cqmin;height:6cqmin"></div>
+        <div class="s2-bub" style="left:66%;top:16%;width:8cqmin;height:8cqmin"></div>
+        <div class="s2-bub" style="left:46%;top:82%;width:5cqmin;height:5cqmin"></div>
+        <div id="s2-f-label" class="sub">la lessive ?</div>
+        <div id="s2-f-word" class="hero">LESSIVE</div>
+      </div>
+      <div class="s2-panel" id="s2-e">
+        <svg id="s2-map" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path id="s2-route" d="" /><circle class="s2-dot" id="s2-dot1" r="1.2" /><circle class="s2-dot" id="s2-dot2" r="1.6" />
+        </svg>
+        <div class="s2-lab" id="s2-kano">KANO<small>NIGERIA</small></div>
+        <div class="s2-lab" id="s2-maradi">MARADI<small>NIGER</small></div>
+        <div id="s2-travel" data-icon="box"></div>
+        <div id="s2-e-title" class="hero">COLIS DU <span class="yel">NIGERIA</span></div>
+        <div id="s2-speed">
+          <div class="s2-sl" style="top:42%;width:30%"></div><div class="s2-sl" style="top:50%;width:46%"></div>
+          <div class="s2-sl" style="top:58%;width:24%"></div><div class="s2-sl" style="top:64%;width:38%"></div>
+        </div>
+        <div id="s2-moto" data-icon="moto"></div>
+      </div>
+      <div class="s2-panel" id="s2-d">
+        <div class="s2-cell" id="s2-c1"><div data-icon="box"></div><span>COLIS</span></div>
+        <div class="s2-cell" id="s2-c2"><div data-icon="bag"></div><span>COURSES</span></div>
+        <div class="s2-cell" id="s2-c3"><div data-icon="doc"></div><span>DOCUMENTS</span></div>
+        <div class="s2-cell" id="s2-c4"><div data-icon="meal"></div><span>REPAS</span></div>
+        <div id="s2-d-band"><div id="s2-d-word" class="hero">REPAS</div></div>
+      </div>
+      <div class="s2-panel" id="s2-c">
+        <div class="s2-ico" id="s2-c-doc" data-icon="doc"></div>
+        <div class="s2-word hero" id="s2-c-word">DOCUMENTS</div>
+      </div>
+      <div class="s2-panel" id="s2-b">
+        <div class="s2-ico" id="s2-b-bag" data-icon="bag"></div>
+        <div class="s2-word hero" id="s2-b-word">COURSES</div>
+      </div>
+      <!-- a : COLIS + ses deux moitiés pour la découpe (slice) -->
+      <div class="s2-panel" id="s2-a">
+        <div class="s2-ico" id="s2-a-box" data-icon="box"></div>
+        <div class="s2-word hero" id="s2-a-word">COLIS</div>
+      </div>
+      <div class="s2-panel" id="s2-a-top"><div class="s2-ico" data-icon="box"></div><div class="s2-word hero">COLIS</div></div>
+      <div class="s2-panel" id="s2-a-bot"><div class="s2-ico" data-icon="box"></div><div class="s2-word hero">COLIS</div></div>
+    </div>
+    <div class="grain"></div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s2-avalanche";
+      const S = +document.querySelector('[data-composition-id="' + ID + '"][data-start]').dataset.start;
+      const T = (a) => Math.max(0, a - S);
+      const R = document.querySelector('[data-composition-id="' + ID + '"]');
+      FX.mountIcons(R);
+      const V = FX.isV();
+      const tl = gsap.timeline({ paused: true });
+      const panels = ["#s2-a", "#s2-a-top", "#s2-a-bot", "#s2-b", "#s2-c", "#s2-d", "#s2-e", "#s2-f", "#s2-g"];
+      // visibilité des panneaux (instantanée, sur la voix)
+      const show = (sel, a, b) => { tl.set(sel, { autoAlpha: 1 }, T(a)); if (b) tl.set(sel, { autoAlpha: 0 }, T(b)); };
+      gsap.set(panels.join(","), { autoAlpha: 0 });
+
+      // ── a · COLIS (3.25 → 4.30) : circle reveal depuis le combiné de S1
+      const ox = V ? "50%" : "27%", oy = V ? "27%" : "48%";
+      show("#s2-a", 3.25, 4.3);
+      tl.fromTo("#s2-a", { clipPath: `circle(0% at ${ox} ${oy})` }, { clipPath: `circle(150% at ${ox} ${oy})`, duration: 0.42, ease: "power3.inOut" }, 0);
+      FX.slam(tl, "#s2-a-word", T(3.42), { from: 1.7 });
+      tl.fromTo("#s2-a-box", { y: "-120cqh", rotate: -25 }, { y: 0, rotate: 8, duration: 0.42, ease: "bounce.out" }, T(3.5));
+      // ── slice : COLIS se fend en deux (4.30) → COURSES
+      show("#s2-a-top, #s2-a-bot", 4.3, 4.62);
+      gsap.set(["#s2-a-top .s2-ico", "#s2-a-bot .s2-ico"], { rotate: 8 });
+      tl.fromTo("#s2-a-top", { yPercent: 0 }, { yPercent: -55, duration: 0.3, ease: "power3.in" }, T(4.3));
+      tl.fromTo("#s2-a-bot", { yPercent: 0 }, { yPercent: 55, duration: 0.3, ease: "power3.in" }, T(4.3));
+      show("#s2-b", 4.3, 5.28);
+      tl.fromTo("#s2-b-word", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "expo.out" }, T(4.4));
+      FX.dropLetters(tl, document.getElementById("s2-b-word"), T(4.46), { from: 60, stagger: 0.03, dur: 0.3 });
+      tl.fromTo("#s2-b-bag", { scale: 0, rotate: -40 }, { scale: 1, rotate: -6, duration: 0.5, ease: "back.out(2.2)" }, T(4.54));
+      tl.fromTo("#s2-b", { scale: 1.08 }, { scale: 1, duration: 0.9, ease: "power2.out" }, T(4.3));
+      // ── c · DOCUMENTS : coupe nette sur le temps (5.28), mot étiré
+      show("#s2-c", 5.28, 6.0);
+      tl.fromTo("#s2-c-word", { scaleX: 2.3, scaleY: 0.45, opacity: 0.2 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.5, ease: "elastic.out(1,0.6)" }, T(5.3));
+      tl.fromTo("#s2-c-doc", { x: "40cqw", rotate: 30 }, { x: 0, rotate: -8, duration: 0.45, ease: "expo.out" }, T(5.36));
+      tl.fromTo("#s2-c", { x: 0 }, { x: V ? -14 : -24, duration: 0.7, ease: "sine.inOut" }, T(5.3));
+      // ── d · split-screen 4 cases (6.00) + REPAS (6.24)
+      show("#s2-d", 6.0, 6.86);
+      const cells = ["#s2-c1", "#s2-c2", "#s2-c3", "#s2-c4"];
+      const from = V ? [{ x: "-100cqw" }, { y: "-100cqh" }, { y: "100cqh" }, { x: "100cqw" }] : [{ y: "-100cqh" }, { y: "100cqh" }, { y: "-100cqh" }, { y: "100cqh" }];
+      cells.forEach((c, i) => tl.fromTo(c, from[i], { x: 0, y: 0, duration: 0.3, ease: "expo.out" }, T(5.98) + i * 0.05));
+      tl.fromTo("#s2-d-band", { scaleY: 0 }, { scaleY: 1, duration: 0.22, ease: "expo.out" }, T(6.2));
+      FX.slam(tl, "#s2-d-word", T(6.22), { from: 1.6, dur: 0.36 });
+      tl.fromTo("#s2-c4 .ico", { scale: 1 }, { scale: 1.18, duration: 0.25, ease: "back.out(3)" }, T(6.24));
+      // ── e · whip pan : le scooter traverse (6.84) → trajet Kano → Maradi
+      tl.to("#s2-d", { x: "-100cqw", filter: "blur(18px)", duration: 0.2, ease: "power3.in" }, T(6.8));
+      show("#s2-e", 6.86, 8.78);
+      tl.fromTo("#s2-moto", { x: "-60cqw" }, { x: "140cqw", duration: 0.5, ease: "power2.inOut" }, T(6.82));
+      tl.fromTo("#s2-moto", { filter: "blur(10px)" }, { filter: "blur(0px)", duration: 0.25, ease: "power1.out" }, T(6.82));
+      tl.set("#s2-moto", { autoAlpha: 0 }, T(7.34));
+      tl.fromTo(".s2-sl", { x: "-50cqw", scaleX: 0.3 }, { x: "120cqw", scaleX: 1.4, duration: 0.5, ease: "power2.inOut", stagger: 0.04 }, T(6.84));
+      tl.set("#s2-speed", { autoAlpha: 0 }, T(7.45));
+      const route = R.querySelector("#s2-route");
+      tl.fromTo(route, { strokeDashoffset: 0, opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power1.out" }, T(7.0));
+      tl.fromTo("#s2-map", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.9, ease: "power2.inOut" }, T(7.0));
+      tl.fromTo("#s2-kano", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, T(7.02));
+      tl.fromTo("#s2-maradi", { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, T(7.72));
+      // le carton suit la courbe (positions en % du cadre, calculées sur la courbe de Bézier)
+      // trajet Kano → Maradi : une courbe de Bézier, mêmes points pour le tracé et le carton
+      const P = V ? [[22, 56], [30, 44], [70, 52], [78, 33]] : [[17, 71], [40, 50], [62, 70], [84, 42]];
+      route.setAttribute("d", `M${P[0]} C${P[1]} ${P[2]} ${P[3]}`);
+      ["#s2-dot1", "#s2-dot2"].forEach((d, i) => { const q = P[i * 3]; R.querySelector(d).setAttribute("cx", q[0]); R.querySelector(d).setAttribute("cy", q[1]); });
+      const bez = (a, b, c, d, t) => { const u = 1 - t; return u*u*u*a + 3*u*u*t*b + 3*u*t*t*c + t*t*t*d; };
+      const pt = (t) => ({ x: bez(P[0][0], P[1][0], P[2][0], P[3][0], t), y: bez(P[0][1], P[1][1], P[2][1], P[3][1], t) });
+      const prog = { p: 0 };
+      tl.fromTo(prog, { p: 0 }, { p: 1, duration: 1.0, ease: "power2.inOut",
+        onUpdate: () => { const q = pt(prog.p); gsap.set("#s2-travel", { left: q.x + "%", top: q.y + "%" }); } }, T(7.05));
+      tl.fromTo("#s2-travel", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, T(7.05));
+      tl.fromTo("#s2-e-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, T(7.1));
+      tl.fromTo("#s2-e-title .yel", { scale: 0.6 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" }, T(7.72));
+      tl.fromTo("#s2-e", { scale: 1 }, { scale: 1.06, duration: 1.9, ease: "sine.inOut" }, T(6.86));
+      // ── f · LESSIVE : la photo réelle remplit les lettres (8.78)
+      show("#s2-f", 8.78, 9.74);
+      tl.fromTo("#s2-f", { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.28, ease: "expo.out" }, T(8.76));
+      tl.fromTo("#s2-f-word", { yPercent: 40, scale: 0.9 }, { yPercent: 0, scale: 1, duration: 0.45, ease: "expo.out" }, T(8.82));
+      tl.fromTo("#s2-f-word", { backgroundPosition: "50% 80%" }, { backgroundPosition: "50% 45%", duration: 1.0, ease: "sine.inOut" }, T(8.8));
+      tl.fromTo("#s2-f-label", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, T(8.8));
+      tl.fromTo(".s2-bub", { y: 60, scale: 0.4 }, { y: -140, scale: 1.1, duration: 1.0, ease: "power1.out", stagger: 0.05 }, T(8.76));
+      // ── g · REPASSAGE : le fer balaie et « repasse » le mot (9.74)
+      show("#s2-g", 9.74);
+      tl.fromTo("#s2-g", { clipPath: "inset(0 0 0 100%)" }, { clipPath: "inset(0 0 0 0%)", duration: 0.26, ease: "power3.out" }, T(9.72));
+      const sweep = { p: 0 };
+      tl.fromTo(sweep, { p: 0 }, { p: 1, duration: 0.62, ease: "power2.inOut",
+        onUpdate: () => {
+          gsap.set("#s2-g-word", { clipPath: `inset(0 ${100 - sweep.p * 100}% 0 0)` });
+          gsap.set("#s2-iron", { left: (6 + sweep.p * 88) + "%" });
+        } }, T(9.86));
+      tl.fromTo("#s2-iron", { rotate: -10, y: 0 }, { rotate: 4, y: 10, duration: 0.62, ease: "sine.inOut" }, T(9.86));
+      tl.fromTo(".s2-steam", { y: 0, scale: 0.3, opacity: 0 }, { y: -90, scale: 1.6, opacity: 0.0, duration: 0.7, ease: "power1.out", stagger: 0.12 }, T(9.95));
+      tl.fromTo(".s2-steam", { opacity: 0 }, { opacity: 0.8, duration: 0.15, ease: "power1.out", stagger: 0.12 }, T(9.95));
+      tl.fromTo("#s2-g-word", { scale: 1 }, { scale: 1.04, duration: 0.5, ease: "power2.out" }, T(10.48));
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

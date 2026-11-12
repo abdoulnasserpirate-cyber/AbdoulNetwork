@@ -1,0 +1,78 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+      container-type: size; container-name: sc; font-family: var(--font); color: #fff; }
+    #s1-phone { position: absolute; left: 27%; top: 48%; width: 40cqmin; height: 40cqmin; margin: -20cqmin 0 0 -20cqmin; }
+    #s1-phone .ico { width: 100%; height: 100%; color: #fff; }
+    #s1-rings .ring { left: 27%; top: 48%; }
+    #s1-rings .ring:nth-child(even) { border-color: var(--yellow); }
+    #s1-text { position: absolute; left: 47%; right: 4%; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    #s1-etsi { font-size: 4.2cqw; display: block; margin-bottom: 1.2cqh; }
+    .s1-big { display: block; font-size: 10.2cqw; }
+    #s1-q { font-size: 3.3cqw; display: block; margin-top: 2.4cqh; line-height: 1.15; }
+    #s1-qm { position: absolute; right: 5%; top: 12%; font-size: 24cqh; font-weight: 900; color: var(--yellow); line-height: 1; }
+    @container sc (orientation: portrait) {
+      #s1-phone { left: 50%; top: 21%; width: 46cqmin; height: 46cqmin; margin: -23cqmin 0 0 -23cqmin; }
+      #s1-rings .ring { left: 50%; top: 21%; }
+      #s1-text { left: 6%; right: 6%; top: 37%; bottom: auto; align-items: center; text-align: center; }
+      #s1-etsi { font-size: 7cqw; margin-bottom: 1cqh; }
+      .s1-big { font-size: 19cqw; }
+      #s1-q { font-size: 6cqw; margin-top: 2cqh; }
+      #s1-qm { right: 7%; top: 8%; font-size: 24cqw; }
+    }
+  </style>
+  <div id="root" data-composition-id="s1-hook">
+    <div class="ground" id="s1-ground"></div>
+    <div class="cam" id="s1-cam">
+      <div id="s1-rings">
+        <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+        <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      </div>
+      <div id="s1-phone"><div id="s1-phone-in" data-icon="handset" style="width:100%;height:100%"></div></div>
+      <div id="s1-text">
+        <span id="s1-etsi" class="sub">Et si…</span>
+        <span class="s1-big hero" id="s1-l1"><span id="s1-w1" style="display:inline-block">UN</span> <span id="s1-w2" style="display:inline-block">SEUL</span></span>
+        <span class="s1-big hero yel" id="s1-l2">APPEL</span>
+        <span id="s1-q" class="sub">suffisait pour tout régler ?</span>
+      </div>
+      <div id="s1-qm" class="sub">?</div>
+    </div>
+    <div class="grain"></div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s1-hook";
+      const S = +document.querySelector('[data-composition-id="' + ID + '"][data-start]').dataset.start;
+      const T = (a) => Math.max(0, a - S);
+      const R = document.querySelector('[data-composition-id="' + ID + '"]');
+      FX.mountIcons(R);
+      const tl = gsap.timeline({ paused: true });
+      const rings = R.querySelectorAll("#s1-rings .ring");
+
+      FX.drift(tl, "#s1-cam", 0, 3.6, 1.2);
+      // frame 0 déjà en mouvement : le combiné entre en tournant
+      tl.fromTo("#s1-phone", { scale: 0.55, rotate: -28 }, { scale: 1, rotate: 0, duration: 0.5, ease: "back.out(2)" }, 0);
+      // sonnerie : deux trilles (0–0.36 s, 0.48–0.84 s) → le combiné vibre
+      [0, 0.48].forEach((t0) => {
+        tl.fromTo("#s1-phone-in", { rotate: 0 }, { rotate: 9, duration: 0.03, ease: "sine.inOut", repeat: 11, yoyo: true }, t0);
+        tl.set("#s1-phone-in", { rotate: 0 }, t0 + 0.36);
+      });
+      FX.rings(tl, [rings[0], rings[1], rings[2]], 0.0, { dur: 1.0, stagger: 0.16, to: 6 });
+      FX.rings(tl, [rings[3], rings[4], rings[5]], 0.48, { dur: 1.0, stagger: 0.16, to: 6 });
+      // « Et si… » (0.90) « un seul appel » (1.32 / 1.46 / 1.70)
+      tl.fromTo("#s1-etsi", { opacity: 0, x: -40, filter: "blur(8px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, T(0.88));
+      FX.slam(tl, "#s1-w1", T(1.3), { from: 1.8 });
+      FX.slam(tl, "#s1-w2", T(1.44), { from: 1.8 });
+      FX.dropLetters(tl, document.getElementById("s1-l2"), T(1.6), { stagger: 0.03 });
+      tl.fromTo("#s1-phone", { scale: 1 }, { scale: 0.88, duration: 0.5, ease: "power2.inOut" }, T(1.3));
+      // « suffisait pour tout régler ? » (1.70–2.86)
+      tl.fromTo("#s1-q", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, T(1.74));
+      tl.fromTo("#s1-qm", { opacity: 0, scale: 0.3, rotate: -30 }, { opacity: 1, scale: 1, rotate: 8, duration: 0.5, ease: "back.out(2.4)" }, T(2.5));
+      // l'appel repart : nouvelle onde qui deviendra la transition (circle reveal de S2 à 3.25)
+      tl.fromTo("#s1-phone-in", { rotate: 0 }, { rotate: 9, duration: 0.03, ease: "sine.inOut", repeat: 9, yoyo: true }, T(2.95));
+      FX.rings(tl, [rings[6], rings[7]], T(2.95), { dur: 0.6, stagger: 0.1, to: 9, alpha: 1 });
+      tl.to("#s1-text, #s1-qm", { opacity: 0, filter: "blur(10px)", scale: 0.94, duration: 0.2, ease: "power3.in" }, T(3.1));
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

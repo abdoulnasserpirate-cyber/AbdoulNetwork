@@ -1,0 +1,141 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+      container-type: size; container-name: sc; font-family: var(--font); color: #fff; }
+    #s5-ground { position: absolute; inset: -6%; background: radial-gradient(110% 90% at 70% 40%, #12307f 0%, var(--navy-900) 72%); }
+    .s5-stripe { position: absolute; height: 2.2cqmin; border-radius: 2cqmin; transform-origin: 0 50%; }
+    /* visuel */
+    #s5-visual { position: absolute; left: 52%; top: 9%; width: 40cqw; height: 66cqh; }
+    .s5-card { position: absolute; inset: 0; border-radius: 3cqmin; overflow: hidden; border: .9cqmin solid #fff; background: #fff; }
+    .s5-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    #s5-p1 img { object-position: 60% 30%; }
+    #s5-p2 img { object-position: 50% 20%; }
+    #s5-p3 img { object-position: 50% 50%; }
+    #s5-med { position: absolute; left: -8cqmin; bottom: -8cqmin; width: 30cqmin; height: 30cqmin; border-radius: 50%;
+      background: var(--yellow); box-shadow: 0 1.4cqmin 0 #c7900a; display: flex; align-items: center; justify-content: center; }
+    #s5-med svg { width: 64%; height: 64%; overflow: visible; }
+    #s5-morph { fill: var(--navy-900); fill-rule: evenodd; }
+    .s5-det { position: absolute; left: 18%; top: 18%; width: 64%; height: 64%; color: var(--navy-900); opacity: 0; }
+    .s5-det .ico { width: 100%; height: 100%; }
+    /* texte */
+    #s5-text { position: absolute; left: 6%; width: 44%; top: 0; bottom: 0; }
+    .s5-blk { position: absolute; left: 0; right: 0; top: 18%; }
+    .s5-kick { font-size: 2.5cqw; color: var(--yellow); display: block; margin-bottom: 1.2cqh; }
+    .s5-title { font-size: 6.6cqw; display: block; }
+    .s5-bwrap { position: relative; display: inline-block; margin-top: 4cqh; }
+    .s5-badge { font-size: 6.6cqw; }
+    .s5-flash { position: absolute; inset: -30%; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 60%); opacity: 0; }
+    .s5-note { display: block; margin-top: 4.2cqh; font-size: 2.2cqw; font-weight: 700; opacity: .9; }
+    @container sc (orientation: portrait) {
+      #s5-visual { left: 13%; top: 8%; width: 74cqw; height: 31cqh; }
+      #s5-med { left: auto; right: -5cqmin; bottom: -9cqmin; width: 34cqmin; height: 34cqmin; }
+      #s5-text { left: 6%; width: 88%; }
+      .s5-blk { top: 45%; text-align: center; }
+      .s5-kick { font-size: 5cqw; margin-bottom: .8cqh; }
+      .s5-title { font-size: 13cqw; }
+      .s5-bwrap { margin-top: 2.2cqh; }
+      .s5-badge { font-size: 11.5cqw; }
+      .s5-note { margin-top: 2.2cqh; font-size: 4.4cqw; }
+    }
+  </style>
+  <div id="root" data-composition-id="s5-prix">
+    <div id="s5-ground"></div>
+    <div class="cam" id="s5-cam">
+      <div class="s5-stripe" style="left:-10%;top:84%;width:70%;background:var(--orange)" id="s5-st1"></div>
+      <div class="s5-stripe" style="left:-10%;top:88%;width:46%;background:var(--yellow)" id="s5-st2"></div>
+      <div id="s5-visual">
+        <div class="s5-card" id="s5-p1"><img src="assets/photos/livreur-carton.jpg" alt="Livreur Allô remettant un colis" /></div>
+        <div class="s5-card" id="s5-p2"><img src="assets/photos/agent-colis.jpg" alt="Agent Allô qui prépare des colis" /></div>
+        <div class="s5-card" id="s5-p3"><img src="assets/photos/repassage-chemise.jpg" alt="Chemise repassée" /></div>
+        <div id="s5-med"><svg viewBox="0 0 100 100"><path id="s5-morph" d="" /></svg><div class="s5-det" id="s5-det-moto" data-icon="moto"></div><div class="s5-det" id="s5-det-box" data-icon="box"></div></div>
+      </div>
+      <div id="s5-text">
+        <div class="s5-blk" id="s5-b1">
+          <span class="s5-kick sub">dans tout Maradi</span>
+          <span class="s5-title hero">LIVRAISON</span>
+          <div class="s5-bwrap"><div class="s5-flash"></div><div class="badge s5-badge"><small>À PARTIR DE</small>500 F</div></div>
+          <span class="s5-note">selon la zone</span>
+        </div>
+        <div class="s5-blk" id="s5-b2">
+          <span class="s5-kick sub">prise en charge</span>
+          <span class="s5-title hero">VOS COLIS</span>
+          <div class="s5-bwrap"><div class="s5-flash"></div><div class="badge s5-badge"><small>À PARTIR DE</small>1 000 F</div></div>
+          <span class="s5-note">réception et livraison à Maradi</span>
+        </div>
+        <div class="s5-blk" id="s5-b3">
+          <span class="s5-kick sub">à seulement</span>
+          <span class="s5-title hero">REPASSAGE</span>
+          <div class="s5-bwrap"><div class="s5-flash"></div><div class="badge s5-badge">100 F<small>LE COMPLET</small></div></div>
+          <span class="s5-note">haut + bas</span>
+        </div>
+      </div>
+    </div>
+    <div class="grain"></div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s5-prix";
+      const S = +document.querySelector('[data-composition-id="' + ID + '"][data-start]').dataset.start;
+      const T = (a) => Math.max(0, a - S);
+      const R = document.querySelector('[data-composition-id="' + ID + '"]');
+      const V = FX.isV();
+      const tl = gsap.timeline({ paused: true });
+      const morph = R.querySelector("#s5-morph");
+      morph.setAttribute("d", FX.SIL.handset);
+      FX.mountIcons(R);
+      FX.drift(tl, "#s5-cam", 0, 8.6, 0.8);
+      tl.fromTo("#s5-ground", { opacity: 0.4 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(["#s5-st1", "#s5-st2"], { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "expo.out", stagger: 0.06 }, 0.1);
+      gsap.set(["#s5-p2", "#s5-p3", "#s5-b2", "#s5-b3"], { autoAlpha: 0 });
+
+      // le médaillon arrive (combiné) puis MORPH : combiné → scooter (« livraison » 14.62)
+      tl.fromTo("#s5-med", { scale: 0, rotate: -90 }, { scale: 1, rotate: 0, duration: 0.45, ease: "back.out(1.8)" }, 0);
+      tl.to(morph, { morphSVG: FX.SIL.moto, duration: 0.42, ease: "power3.inOut" }, T(14.66));
+      tl.to(morph, { morphSVG: FX.SIL.box, duration: 0.42, ease: "power3.inOut" }, T(17.58));
+      tl.to(morph, { morphSVG: FX.ICONS.iron.join(""), duration: 0.42, ease: "power3.inOut" }, T(19.9));
+      // à l'arrivée de chaque morph, l'icône détaillée prend le relais (même style)
+      [["#s5-det-moto", 14.66 + 0.42, 17.58], ["#s5-det-box", 17.58 + 0.42, 19.9]].forEach(([d, a, b]) => {
+        tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "power1.out", immediateRender: false }, T(a) - 0.06);
+        tl.fromTo(morph, { opacity: 1 }, { opacity: 0, duration: 0.1, ease: "power1.out", immediateRender: false }, T(a) - 0.06);
+        tl.set(d, { opacity: 0 }, T(b));
+        tl.set(morph, { opacity: 1 }, T(b));
+      });
+      tl.fromTo("#s5-med", { scale: 1 }, { scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, T(17.58));
+      tl.fromTo("#s5-med", { scale: 1 }, { scale: 1.12, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, T(19.9));
+
+      // photo 1 : masque qui s'ouvre
+      tl.fromTo("#s5-p1", { clipPath: "inset(50% 50% 50% 50% round 3cqmin)", rotate: -6 }, { clipPath: "inset(0% 0% 0% 0% round 3cqmin)", rotate: -3, duration: 0.55, ease: "expo.out" }, 0.08);
+      tl.fromTo("#s5-p1 img", { scale: 1.25 }, { scale: 1.05, duration: 2.9, ease: "sine.out" }, 0.08);
+
+      // bloc texte : arrivée + badge qui claque sur le prix
+      function block(b, tIn, tTitle, tPrice, tNote, tOut) {
+        const q = (s) => R.querySelector(b + " " + s);
+        tl.set(b, { autoAlpha: 1 }, T(tIn));
+        tl.fromTo(q(".s5-kick"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out" }, T(tIn));
+        FX.dropLetters(tl, q(".s5-title"), T(tTitle), { from: -80, stagger: 0.03, dur: 0.34 });
+        FX.badge(tl, q(".badge"), q(".s5-flash"), T(tPrice) - 0.05);
+        tl.fromTo(q(".s5-note"), { opacity: 0, y: 14 }, { opacity: 0.9, y: 0, duration: 0.3, ease: "expo.out" }, T(tNote));
+        if (tOut) {
+          tl.to(b, { opacity: 0, filter: "blur(10px)", x: -40, duration: 0.18, ease: "power3.in" }, T(tOut) - 0.18);
+          tl.set(b, { autoAlpha: 0 }, T(tOut));
+        }
+      }
+      block("#s5-b1", 14.55, 14.6, 15.9, 16.4, 17.36);
+      block("#s5-b2", 17.36, 17.6, 18.82, 19.2, 19.7);
+      block("#s5-b3", 19.7, 19.92, 21.36, 22.24, null);
+
+      // changement de photo : whip latéral
+      function swap(outSel, inSel, t) {
+        tl.to(outSel, { x: V ? "-90cqw" : "-60cqw", rotate: -12, filter: "blur(14px)", duration: 0.22, ease: "power3.in" }, t - 0.22);
+        tl.set(outSel, { autoAlpha: 0 }, t);
+        tl.set(inSel, { autoAlpha: 1 }, t - 0.02);
+        tl.fromTo(inSel, { x: V ? "90cqw" : "60cqw", rotate: 10, filter: "blur(14px)" }, { x: 0, rotate: -3, filter: "blur(0px)", duration: 0.4, ease: "expo.out" }, t - 0.02);
+        tl.fromTo(inSel + " img", { scale: 1.2 }, { scale: 1.04, duration: 2.4, ease: "sine.out" }, t);
+      }
+      swap("#s5-p1", "#s5-p2", T(17.4));
+      swap("#s5-p2", "#s5-p3", T(19.74));
+      // sortie : diagonale (slice) gérée par S6
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

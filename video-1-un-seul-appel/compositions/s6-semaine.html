@@ -1,0 +1,100 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+      container-type: size; container-name: sc; font-family: var(--font); color: #fff; }
+    #s6-a, #s6-top, #s6-bot { position: absolute; inset: 0; background: var(--orange); }
+    #s6-top { clip-path: inset(0 0 50% 0); }
+    #s6-bot { clip-path: inset(50% 0 0 0); }
+    .s6-big { position: absolute; left: 0; right: 0; top: 30%; margin-top: -0.43em; text-align: center; font-size: 30cqw; color: var(--navy-900); }
+    .s6-big .yel2 { color: #fff; }
+    #s6-we { position: absolute; left: 0; right: 0; top: 59.5%; text-align: center; font-size: 4.6cqw; color: var(--navy-900); }
+    #s6-days { position: absolute; left: 50%; top: 68%; display: flex; gap: 1.4cqw; transform-origin: 50% 50%; }
+    .s6-d { width: 6.2cqw; height: 6.2cqw; border-radius: 1.6cqw; background: var(--navy-900); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 3.2cqw; }
+    /* carte */
+    #s6-map { position: absolute; inset: 0; background: radial-gradient(90% 80% at 50% 45%, #12307f 0%, var(--navy-900) 75%); }
+    #s6-roads { position: absolute; inset: 0; width: 100%; height: 100%; }
+    #s6-roads path { fill: none; stroke: rgba(255,255,255,.14); stroke-width: .35; }
+    .s6-zone { position: absolute; left: 50%; top: 38%; border-radius: 50%; }
+    #s6-z1 { width: 70cqmin; height: 70cqmin; margin: -35cqmin 0 0 -35cqmin; background: rgba(245,115,15,.16); border: .5cqmin dashed rgba(255,200,20,.75); }
+    #s6-z2 { width: 34cqmin; height: 34cqmin; margin: -17cqmin 0 0 -17cqmin; background: rgba(245,115,15,.38); }
+    #s6-rings .ring { left: 50%; top: 38%; border-color: var(--yellow); }
+    #s6-pin { position: absolute; left: 50%; top: 38%; width: 18cqmin; height: 18cqmin; margin: -17cqmin 0 0 -9cqmin; color: var(--yellow); transform-origin: 50% 95%; }
+    #s6-pin .ico { width: 100%; height: 100%; }
+    #s6-mt { position: absolute; left: 0; right: 0; top: 62%; text-align: center; }
+    #s6-mt1 { display: block; font-size: 6.4cqw; }
+    #s6-mt2 { display: block; font-size: 3.4cqw; color: var(--yellow); margin-top: .8cqh; }
+    @container sc (orientation: portrait) {
+      .s6-big { font-size: 38cqw; top: 30%; }
+      #s6-we { top: 46%; font-size: 7.6cqw; }
+      #s6-days { top: 54%; gap: 1.6cqw; }
+      .s6-d { width: 11.2cqw; height: 11.2cqw; font-size: 5.2cqw; }
+      .s6-zone, #s6-rings .ring, #s6-pin { top: 34%; }
+      #s6-z1 { width: 90cqmin; height: 90cqmin; margin: -45cqmin 0 0 -45cqmin; }
+      #s6-z2 { width: 44cqmin; height: 44cqmin; margin: -22cqmin 0 0 -22cqmin; }
+      #s6-pin { width: 24cqmin; height: 24cqmin; margin: -23cqmin 0 0 -12cqmin; }
+      #s6-mt { top: 54%; }
+      #s6-mt1 { font-size: 11cqw; }
+      #s6-mt2 { font-size: 6.6cqw; }
+    }
+  </style>
+  <div id="root" data-composition-id="s6-semaine">
+    <div class="cam" id="s6-cam">
+      <div id="s6-map">
+        <svg id="s6-roads" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0 40 C 30 42, 60 38, 100 46" /><path d="M48 0 C 50 30, 46 60, 52 100" /><path d="M10 100 L 90 0" />
+          <path d="M0 70 C 40 60, 60 72, 100 64" /><path d="M20 0 C 26 40, 30 70, 18 100" /><path d="M78 0 C 72 40, 84 70, 76 100" />
+        </svg>
+        <div class="s6-zone" id="s6-z1"></div><div class="s6-zone" id="s6-z2"></div>
+        <div id="s6-rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+        <div id="s6-pin" data-icon="pin"></div>
+        <div id="s6-mt"><span id="s6-mt1" class="hero">TOUT MARADI</span><span id="s6-mt2" class="sub">et ses environs</span></div>
+      </div>
+      <div id="s6-a">
+        <div class="s6-big hero" id="s6-big"><span id="s6-n1" style="display:inline-block">7</span><span id="s6-j" style="display:inline-block" class="yel2">J</span><span id="s6-n2" style="display:inline-block">/7</span></div>
+        <div id="s6-we" class="sub">même le week-end</div>
+        <div id="s6-days">
+          <div class="s6-d">L</div><div class="s6-d">M</div><div class="s6-d">M</div><div class="s6-d">J</div>
+          <div class="s6-d">V</div><div class="s6-d s6-wk">S</div><div class="s6-d s6-wk">D</div>
+        </div>
+      </div>
+      <div id="s6-top"><div class="s6-big hero">7<span class="yel2">J</span>/7</div></div>
+      <div id="s6-bot"><div class="s6-big hero">7<span class="yel2">J</span>/7</div></div>
+    </div>
+    <div class="grain"></div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s6-semaine";
+      const S = +document.querySelector('[data-composition-id="' + ID + '"][data-start]').dataset.start;
+      const T = (a) => Math.max(0, a - S);
+      const R = document.querySelector('[data-composition-id="' + ID + '"]');
+      FX.mountIcons(R);
+      const tl = gsap.timeline({ paused: true });
+      gsap.set("#s6-days", { xPercent: -50 });
+      gsap.set(["#s6-top", "#s6-bot"], { autoAlpha: 0 });
+      // entrée : volet diagonal orange (22.90)
+      tl.fromTo("#s6-a", { clipPath: "polygon(0% 0%, 0% 0%, -30% 100%, -30% 100%)" },
+        { clipPath: "polygon(0% 0%, 130% 0%, 100% 100%, -30% 100%)", duration: 0.34, ease: "power3.inOut" }, 0);
+      FX.slam(tl, "#s6-n1", T(23.16), { from: 2, dur: 0.32 });
+      FX.slam(tl, "#s6-j", T(23.3), { from: 2, dur: 0.32 });
+      FX.slam(tl, "#s6-n2", T(23.66), { from: 2, dur: 0.34 });
+      tl.fromTo("#s6-we", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, T(24.16));
+      tl.fromTo(R.querySelectorAll(".s6-d"), { scale: 0, y: 30 }, { scale: 1, y: 0, duration: 0.32, ease: "back.out(2.4)", stagger: 0.05 }, T(24.18));
+      tl.to(R.querySelectorAll(".s6-wk"), { backgroundColor: "#ffc814", color: "#06123a", scale: 1.18, duration: 0.25, ease: "back.out(3)", stagger: 0.08 }, T(24.62));
+      // slice : « 7J/7 » se fend et ouvre sur la carte (25.06)
+      tl.set("#s6-a", { autoAlpha: 0 }, T(25.06));
+      tl.set(["#s6-top", "#s6-bot"], { autoAlpha: 1 }, T(25.06));
+      tl.fromTo("#s6-top", { yPercent: 0, rotate: 0 }, { yPercent: -60, rotate: -3, duration: 0.32, ease: "power3.in" }, T(25.06));
+      tl.fromTo("#s6-bot", { yPercent: 0, rotate: 0 }, { yPercent: 60, rotate: 3, duration: 0.32, ease: "power3.in" }, T(25.06));
+      tl.fromTo("#s6-map", { scale: 1.15 }, { scale: 1, duration: 1.2, ease: "expo.out" }, T(25.06));
+      tl.fromTo("#s6-pin", { y: "-60cqh", scale: 0.6 }, { y: 0, scale: 1, duration: 0.5, ease: "bounce.out" }, T(25.12));
+      tl.fromTo("#s6-z2", { scale: 0 }, { scale: 1, duration: 0.5, ease: "expo.out" }, T(25.48));
+      tl.fromTo("#s6-z1", { scale: 0, rotate: -40 }, { scale: 1, rotate: 0, duration: 0.8, ease: "expo.out" }, T(26.2));
+      FX.rings(tl, R.querySelectorAll("#s6-rings .ring"), T(25.5), { dur: 1.3, stagger: 0.3, to: 6 });
+      tl.fromTo("#s6-mt1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, T(25.4));
+      tl.fromTo("#s6-mt2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, T(26.24));
+      FX.drift(tl, "#s6-cam", T(25.06), 2.2, 1);
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

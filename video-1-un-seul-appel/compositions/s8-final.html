@@ -1,0 +1,82 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; width: 100% !important; height: 100% !important; overflow: hidden;
+      container-type: size; container-name: sc; font-family: var(--font); color: var(--logo-navy); }
+    #s8-ground { position: absolute; inset: 0; background: radial-gradient(90% 80% at 50% 40%, #ffffff 0%, #eef3fb 100%); }
+    .s8-arc { position: absolute; border-radius: 50%; border-style: solid; border-color: transparent; }
+    #s8-arc1 { width: 120cqmax; height: 120cqmax; left: -76cqmax; top: -84cqmax; border-width: 3cqmin; border-bottom-color: var(--orange); border-right-color: var(--orange); }
+    #s8-arc2 { width: 110cqmax; height: 110cqmax; right: -70cqmax; bottom: -78cqmax; border-width: 2.4cqmin; border-top-color: var(--yellow); border-left-color: var(--yellow); }
+    #s8-logo { position: absolute; left: 50%; top: 7%; width: 50cqw; margin-left: -25cqw; aspect-ratio: 2560 / 1520; }
+    #s8-logo img { position: absolute; left: 0; width: 100%; display: block; }
+    #s8-l-swoosh, #s8-l-allo { top: 0; height: 51.97%; }
+    #s8-l-ms { top: 51.97%; height: 14.47%; }
+    #s8-l-mar { top: 66.45%; height: 10.53%; }
+    #s8-l-tag { top: 76.97%; height: 23.03%; }
+    #s8-cta { position: absolute; left: 0; right: 0; top: 66%; display: flex; flex-direction: column; align-items: center; }
+    #s8-pill { display: flex; align-items: center; gap: .45em; background: var(--logo-navy); color: #fff; border-radius: .5em;
+      padding: .14em .55em .14em .3em; font-size: 5.4cqw; font-weight: 900; letter-spacing: .02em; white-space: nowrap; }
+    .s8-ic { width: 1.05em; height: 1.05em; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+    .s8-ic .ico { width: 62%; height: 62%; color: #fff; }
+    #s8-ic1 { background: var(--orange); }
+    #s8-ic2 { background: var(--wa-green); }
+    #s8-info { margin-top: 1.6cqh; font-size: 2.3cqw; font-weight: 800; color: var(--logo-navy); }
+    #s8-info b { color: var(--orange); }
+    #s8-more { margin-top: 1cqh; font-size: 2cqw; font-weight: 700; color: var(--logo-navy); opacity: .85; }
+    @container sc (orientation: portrait) {
+      #s8-logo { width: 92cqw; margin-left: -46cqw; top: 8%; }
+      #s8-cta { top: 45%; }
+      #s8-pill { font-size: 9.6cqw; }
+      #s8-info { font-size: 4.4cqw; margin-top: 1.2cqh; }
+      #s8-more { font-size: 3.8cqw; }
+    }
+  </style>
+  <div id="root" data-composition-id="s8-final">
+    <div id="s8-ground"></div>
+    <div class="cam" id="s8-cam">
+      <div class="s8-arc" id="s8-arc1"></div><div class="s8-arc" id="s8-arc2"></div>
+      <div id="s8-logo">
+        <img id="s8-l-swoosh" src="assets/logo/logo-swoosh.svg" alt="" />
+        <img id="s8-l-allo" src="assets/logo/logo-allo.svg" alt="Allô" />
+        <img id="s8-l-ms" src="assets/logo/logo-multiservices.svg" alt="Multi-Services" />
+        <img id="s8-l-mar" src="assets/logo/logo-maradi.svg" alt="Maradi" />
+        <img id="s8-l-tag" src="assets/logo/logo-tagline.svg" alt="Tous vos besoins, un seul appel !" />
+      </div>
+      <div id="s8-cta">
+        <div id="s8-pill"><div class="s8-ic" id="s8-ic1" data-icon="handset"></div><div class="s8-ic" id="s8-ic2" data-icon="wa"></div><span>74 58 18 24</span></div>
+        <div id="s8-info"><b>7j/7</b> · Maradi – Guidan Kaji</div>
+        <div id="s8-more">Aussi : 88 57 92 90 · 89 96 71 19</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s8-final";
+      const S = +document.querySelector('[data-composition-id="' + ID + '"][data-start]').dataset.start;
+      const T = (a) => Math.max(0, a - S);
+      const R = document.querySelector('[data-composition-id="' + ID + '"]');
+      R.querySelectorAll(".s8-ic").forEach((el) => { el.innerHTML = FX.svgIcon(el.dataset.icon); });
+      const V = FX.isV();
+      const tl = gsap.timeline({ paused: true });
+      // onde de sonnerie depuis le bouton vert du téléphone : circle reveal
+      const o = V ? "62% 40%" : "79% 80%";
+      tl.fromTo(["#s8-ground", "#s8-cam"], { clipPath: `circle(0% at ${o})` }, { clipPath: `circle(150% at ${o})`, duration: 0.45, ease: "power3.inOut" }, 0);
+      tl.fromTo("#s8-arc1", { rotate: -30 }, { rotate: 4, duration: 3, ease: "expo.out" }, 0);
+      tl.fromTo("#s8-arc2", { rotate: 30 }, { rotate: -4, duration: 3, ease: "expo.out" }, 0);
+      // le swoosh se dessine (« Allô » 32.94), le logo se construit
+      tl.fromTo("#s8-l-swoosh", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut" }, T(32.9));
+      tl.fromTo("#s8-l-allo", { scale: 1.4, opacity: 0, filter: "blur(10px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "back.out(1.6)" }, T(32.98));
+      tl.fromTo("#s8-l-ms", { clipPath: "inset(0 0 100% 0)", y: 16 }, { clipPath: "inset(0 0 0% 0)", y: 0, duration: 0.35, ease: "expo.out" }, T(33.24));
+      tl.fromTo("#s8-l-mar", { scaleX: 0.3, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 0.45, ease: "expo.out" }, T(33.5));
+      // le slogan s'écrit (« tous vos besoins, un seul appel » 34.10 → 35.32)
+      tl.fromTo("#s8-l-tag", { clipPath: "inset(-10% 100% -10% 0)" }, { clipPath: "inset(-10% 0% -10% 0)", duration: 1.22, ease: "sine.inOut" }, T(34.08));
+      // contact
+      tl.fromTo("#s8-pill", { scale: 0, rotate: -6 }, { scale: 1, rotate: 0, duration: 0.55, ease: "back.out(1.8)" }, T(35.45));
+      tl.fromTo("#s8-info", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "expo.out" }, T(35.62));
+      tl.fromTo("#s8-more", { opacity: 0, y: 12 }, { opacity: 0.85, y: 0, duration: 0.35, ease: "expo.out" }, T(35.8));
+      // le combiné de la pastille sonne une dernière fois
+      tl.fromTo("#s8-ic1 .ico", { rotate: 0 }, { rotate: 10, duration: 0.035, ease: "sine.inOut", yoyo: true, repeat: 9 }, T(36.2));
+      FX.drift(tl, "#s8-logo", 0, 4.65, 0.5);
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
