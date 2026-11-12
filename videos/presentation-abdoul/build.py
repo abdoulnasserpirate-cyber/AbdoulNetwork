@@ -31,7 +31,7 @@ CLIPS = {
 LAYOUTS = {
     "16x9": dict(
         W=1920, H=1080, out="index.html", bg="assets/fond-lumiere-16x9.jpg",
-        s1_small=46, s1_big=140, s1_width=1700,
+        s1_small=54, s1_big=140, s1_width=1700,
         photo_d=560, photo_x=280, photo_y=260,
         col=dict(left=860, top=0, width=1000, height=1080, justify="center"),
         badge=28, title=88, title_width=1000, roles=32, btn=30,
@@ -40,14 +40,14 @@ LAYOUTS = {
         courts=[(470, 300, 330, 587), (830, 260, 330, 587), (1190, 320, 330, 587)],
         motions=[(170, 340, 760, 428), (990, 340, 760, 428)],
         persos=[(380, 270, 380, 676), (850, 470, 760, 428)],
-        cta=60, cta_width=1500,
+        cta=68, cta_width=1500,
         card=dict(w=1180, h=490), pill=dict(w=280, h=80),
         handle=58, name=32, stat_n=48, stat_l=24, follow_btn=(270, 70, 28),
         sig_handle=64, sig_wa=32,
     ),
     "9x16": dict(
         W=1080, H=1920, out="../presentation-abdoul-9x16/index.html", bg="assets/fond-lumiere-9x16.jpg",
-        s1_small=60, s1_big=150, s1_width=920,
+        s1_small=68, s1_big=150, s1_width=920,
         photo_d=700, photo_x=190, photo_y=250,
         col=dict(left=40, top=1000, width=1000, height=800, justify="flex-start"),
         badge=40, title=104, title_width=1000, roles=38, btn=42,
@@ -55,7 +55,7 @@ LAYOUTS = {
         courts=[(130, 340, 370, 658), (580, 370, 370, 658), (355, 1075, 370, 658)],
         motions=[(80, 420, 920, 518), (80, 1020, 920, 518)],
         persos=[(110, 360, 420, 747), (180, 1180, 820, 461)],
-        cta=76, cta_width=900,
+        cta=84, cta_width=900,
         card=dict(w=920, h=880), pill=dict(w=300, h=86),
         handle=62, name=36, stat_n=52, stat_l=28, follow_btn=(330, 88, 34),
         sig_handle=72, sig_wa=38,
@@ -257,9 +257,10 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
 /* scène 1 */
 #s1-wrap {{ position: absolute; left: {(W - L['s1_width'])//2}px; top: 0; width: {L['s1_width']}px; height: {H}px;
   display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }}
-#s1-small {{ font-weight: 300; font-size: {L['s1_small']}px; color: #FFFFFF; letter-spacing: 0.5px; margin-bottom: 6px; }}
+#s1-small {{ font-weight: 500; font-size: {L['s1_small']}px; color: #FFFFFF; letter-spacing: 0.5px; margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(30,30,5,0.55), 0 4px 22px rgba(30,30,5,0.45); }}
 #s1-big {{ font-weight: 800; font-size: {L['s1_big']}px; line-height: 1.02; color: #FFFFFF; letter-spacing: -2px;
-  text-shadow: 0 10px 40px rgba(60,58,10,0.35); }}
+  text-shadow: 0 3px 6px rgba(30,30,5,0.45), 0 12px 44px rgba(30,30,5,0.45); }}
 
 /* scène 2 */
 #s2 {{ background: #FFFFFF; }}
@@ -293,7 +294,8 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
 .sec {{ background: transparent; }}
 .sec-title {{ position: absolute; left: 0; width: {W}px; text-align: center; font-weight: 800; font-size: {L['sec_title']}px;
   letter-spacing: -1px; line-height: 1.2;
-  background: linear-gradient(100deg, #6B6A1A 0%, #9C9112 30%, #D9B514 62%, #E8E01E 82%, #B89A0E 100%);
+  background: linear-gradient(100deg, #4F4E12 0%, #6B6A1A 25%, #8F7F08 55%, #A88E06 80%, #7A6A08 100%);
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
   -webkit-background-clip: text; background-clip: text; color: transparent; }}
 .vcard {{ position: absolute; border-radius: 24px; overflow: hidden; background: #1a1a1a;
   box-shadow: 0 24px 60px rgba(17,17,17,0.22), 0 6px 16px rgba(17,17,17,0.12); }}
@@ -304,8 +306,10 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
 /* scène 6 */
 #s6-wrap {{ position: absolute; left: {(W - L['cta_width'])//2}px; top: 0; width: {L['cta_width']}px; height: {H}px;
   display: grid; place-items: center; text-align: center; }}
-.cta {{ grid-area: 1 / 1; width: 100%; font-weight: 300; font-size: {L['cta']}px; color: #FFFFFF; line-height: 1.25; }}
-.cta .wd {{ display: inline-block; opacity: 0; }}
+.cta {{ grid-area: 1 / 1; width: 100%; font-weight: 500; font-size: {L['cta']}px; color: #FFFFFF; line-height: 1.25;
+  text-shadow: 0 2px 4px rgba(30,30,5,0.55), 0 4px 22px rgba(30,30,5,0.45); }}
+.scrim {{ position: absolute; inset: 0; background: radial-gradient(ellipse 55% 38% at 50% 50%, rgba(40,40,8,0.38) 0%, rgba(40,40,8,0.18) 45%, rgba(40,40,8,0) 75%); }}
+.cta .wd {{ display: inline-block; opacity: 0; white-space: nowrap; }}
 
 /* scène 7-8 */
 #stage {{ position: absolute; left: 0; top: 0; width: {W}px; height: {H}px; display: flex; align-items: center; justify-content: center; }}
@@ -343,6 +347,7 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
     <div class="grad"></div>
     <div id="s1-b1" class="blob" style="left:{int(-0.18*W)}px;top:{int(-0.25*H)}px;width:{int(0.62*max(W,H))}px;height:{int(0.62*max(W,H))}px;background:rgba(107,106,26,0.32)"></div>
     <div id="s1-b2" class="blob" style="left:{int(0.62*W)}px;top:{int(0.45*H)}px;width:{int(0.55*max(W,H))}px;height:{int(0.55*max(W,H))}px;background:rgba(255,250,170,0.40)"></div>
+    <div class="scrim"></div>
     <div id="s1-wrap">
       <div id="s1-small">{typed("Tu cherches un…", "t1")}</div>
       <div id="s1-big">{big_html}</div>
@@ -370,9 +375,10 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
     <div class="grad"></div>
     <div id="s6-b1" class="blob" style="left:{int(-0.15*W)}px;top:{int(0.40*H)}px;width:{int(0.6*max(W,H))}px;height:{int(0.6*max(W,H))}px;background:rgba(107,106,26,0.30)"></div>
     <div id="s6-b2" class="blob" style="left:{int(0.55*W)}px;top:{int(-0.2*H)}px;width:{int(0.5*max(W,H))}px;height:{int(0.5*max(W,H))}px;background:rgba(255,250,170,0.35)"></div>
+    <div id="s6-scrim" class="scrim"></div>
     <div id="s6-wrap">
-      <div id="cta1" class="cta">{' '.join(f'<span class="wd">{html.escape(w)}</span>' for w in "Transformons ton idée en visuels".split())}</div>
-      <div id="cta2" class="cta">{' '.join(f'<span class="wd">{html.escape(w)}</span>' for w in "Écris-moi, on en parle :)".split())}</div>
+      <div id="cta1" class="cta">{' '.join(f'<span class="wd">{html.escape(w)}</span>' for w in "Transformons ton idée en\u00a0visuels".split(" "))}</div>
+      <div id="cta2" class="cta">{' '.join(f'<span class="wd">{html.escape(w)}</span>' for w in "Écris-moi, on\u00a0en\u00a0parle\u00a0:)".split(" "))}</div>
     </div>
     <div id="stage">
       <div id="pcard">
@@ -473,6 +479,7 @@ document.fonts.ready.then(function () {{
   tl.to("#cta1", {{ opacity: 0, y: -30, filter: "blur(8px)", duration: 0.3, ease: "power2.in" }}, 18.45);
   tl.fromTo("#cta2 .wd", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.4, ease: IN, stagger: 0.1 }}, 18.65);
   tl.to("#cta2", {{ opacity: 0, scale: 0.9, duration: 0.3, ease: "power2.in" }}, 19.4);
+  tl.to("#s6-scrim", {{ opacity: 0, duration: 0.5 }}, 19.4);
   tl.fromTo("#pcard", {{ opacity: 0, scale: 0 }}, {{ opacity: 1, scale: 1, duration: 0.4, ease: IN }}, 19.5);
 
   /* ---------------- 7. CARTE PROFIL 20–24 s */
