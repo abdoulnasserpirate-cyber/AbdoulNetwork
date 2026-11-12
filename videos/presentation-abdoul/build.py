@@ -31,7 +31,7 @@ CLIPS = {
 LAYOUTS = {
     "16x9": dict(
         W=1920, H=1080, out="index.html", bg="assets/fond-lumiere-16x9.jpg",
-        s1_small=54, s1_big=140, s1_width=1700,
+        s1_small=62, s1_big=140, s1_width=1700,
         photo_d=560, photo_x=150, photo_y=260,
         col=dict(left=760, top=0, width=1110, height=1080, justify="center"),
         badge=36, title=94, title_width=1110, roles=40, btn=38,
@@ -40,7 +40,7 @@ LAYOUTS = {
         courts=[(470, 300, 330, 587), (830, 260, 330, 587), (1190, 320, 330, 587)],
         motions=[(170, 340, 760, 428), (990, 340, 760, 428)],
         persos=[(380, 270, 380, 676), (850, 470, 760, 428)],
-        cta=68, cta_width=1500,
+        cta=80, cta_width=1500,
         card=dict(w=1180, h=490), pill=dict(w=280, h=80),
         handle=58, name=32, stat_n=48, stat_l=24, follow_btn=(270, 70, 28),
         sig_handle=64, sig_wa=32,
