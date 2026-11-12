@@ -7,6 +7,7 @@
 <style>
 @font-face { font-family: "Montserrat"; font-weight: 300; src: url("assets/fonts/montserrat-latin-300-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 500; src: url("assets/fonts/montserrat-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { width: 1920px; height: 1080px; overflow: hidden; background: #111111; }
@@ -30,38 +31,38 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #11111
 
 /* scène 2 */
 #s2 { background: #FFFFFF; }
-#s2-photo { position: absolute; left: 280px; top: 260px; width: 560px; height: 560px;
+#s2-photo { position: absolute; left: 150px; top: 260px; width: 560px; height: 560px;
   border-radius: 50%; overflow: hidden;
   background: linear-gradient(135deg, #E8E01E 0%, #E8E01E 30%, #6B6A1A 78%, #111111 100%);
   box-shadow: 0 30px 70px rgba(17,17,17,0.18); }
 #s2-photo img { position: absolute; left: 22px; top: 56px; width: 548px; height: auto;
   filter: grayscale(1) contrast(1.08); }
-#s2-col { position: absolute; left: 860px; top: 0px; width: 1000px; height: 1080px;
+#s2-col { position: absolute; left: 760px; top: 0px; width: 1110px; height: 1080px;
   display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 26px; }
-#s2-badge { border: 3px solid #111111; border-radius: 999px; padding: 10px 26px; font-size: 28px; font-weight: 500;
+#s2-badge { border: 3px solid #111111; border-radius: 999px; padding: 12px 30px; font-size: 36px; font-weight: 600; color: #111111;
   white-space: nowrap; background: #FFFFFF; }
-#s2-title { font-weight: 800; font-size: 88px; line-height: 1.08; letter-spacing: -1.5px; width: 1000px; }
-#s2-roles { font-size: 32px; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 14px; }
-#s2-roles .sep { display: inline-block; width: 3px; height: 40px; background: #111111; opacity: 0; }
+#s2-title { font-weight: 800; font-size: 94px; line-height: 1.08; letter-spacing: -1.5px; width: 1110px; white-space: nowrap; }
+#s2-roles { font-size: 40px; font-weight: 600; color: #111111; white-space: nowrap; display: flex; align-items: center; gap: 14px; }
+#s2-roles .sep { display: inline-block; width: 4px; height: 50px; background: #111111; opacity: 0; }
 #s2-roles .rl { opacity: 0; display: inline-block; }
-#s2-btn { position: relative; height: 81px; border-radius: 999px; border: 3px solid #111111; overflow: hidden;
-  display: flex; align-items: center; padding: 0 10px 0 33px; gap: 18px;
+#s2-btn { position: relative; height: 102px; border-radius: 999px; border: 3px solid #111111; overflow: hidden;
+  display: flex; align-items: center; padding: 0 13px 0 41px; gap: 22px;
   margin-top: 10px; }
 #s2-btn-fill { position: absolute; inset: 0; background: #111111; transform-origin: 0% 50%; }
-#s2-btn-lbl { position: relative; color: #FFFFFF; font-weight: 800; font-size: 30px; white-space: nowrap; opacity: 0; }
-#s2-btn-circ { position: relative; width: 60px; height: 60px; border-radius: 50%; background: #FFFFFF;
+#s2-btn-lbl { position: relative; color: #FFFFFF; font-weight: 800; font-size: 38px; white-space: nowrap; opacity: 0; }
+#s2-btn-circ { position: relative; width: 76px; height: 76px; border-radius: 50%; background: #FFFFFF;
   opacity: 0; }
 #s2-arrow { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 39px; color: #111111; }
+  font-weight: 800; font-size: 49px; color: #111111; }
 
 /* sections vidéo */
 .sec-bg { position: absolute; left: -100px; top: -60px; width: 2120px; height: 1200px;
   background: #EDEDED url("assets/fond-lumiere-16x9.jpg") center / cover no-repeat; }
 .sec { background: transparent; }
-.sec-title { position: absolute; left: 0; width: 1920px; text-align: center; font-weight: 800; font-size: 76px;
+.sec-title { position: absolute; left: 0; width: 1920px; text-align: center; font-weight: 800; font-size: 92px;
   letter-spacing: -1px; line-height: 1.2;
-  background: linear-gradient(100deg, #4F4E12 0%, #6B6A1A 25%, #8F7F08 55%, #A88E06 80%, #7A6A08 100%);
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
+  background: linear-gradient(100deg, #34330B 0%, #4F4E12 30%, #6B6A1A 60%, #7C6807 85%, #5E5208 100%);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
   -webkit-background-clip: text; background-clip: text; color: transparent; }
 .vcard { position: absolute; border-radius: 24px; overflow: hidden; background: #1a1a1a;
   box-shadow: 0 24px 60px rgba(17,17,17,0.22), 0 6px 16px rgba(17,17,17,0.12); }
@@ -122,7 +123,7 @@ html, body { width: 1920px; height: 1080px; overflow: hidden; background: #11111
 
   <!-- 3-5. SECTIONS VIDÉO (fond commun) -->
   <div id="secbg" class="scene"><div id="secbg-img" class="sec-bg"></div></div>
-  <div id="s3" class="scene sec"><div id="s3-title" class="sec-title" style="top:120px">Montages courts</div><div id="s3-c1" class="vcard vv" style="left:470px;top:300px;width:330px;height:587px"><video id="s3-c1-v" class="clip" src="assets/clips/court1-stop-aux-pubs.mp4" muted playsinline data-start="6.0" data-duration="3.0" data-track-index="3"></video></div><div id="s3-c2" class="vcard vv" style="left:830px;top:260px;width:330px;height:587px"><video id="s3-c2-v" class="clip" src="assets/clips/court2-competences-ia.mp4" muted playsinline data-start="6.0" data-duration="3.0" data-track-index="4"></video></div><div id="s3-c3" class="vcard vv" style="left:1190px;top:320px;width:330px;height:587px"><video id="s3-c3-v" class="clip" src="assets/clips/court3-sublime-booty-9x16.mp4" muted playsinline data-start="6.0" data-duration="3.0" data-track-index="5"></video></div></div><div id="s4" class="scene sec"><div id="s4-title" class="sec-title" style="top:120px">Motion Design</div><div id="s4-c1" class="vcard hh" style="left:170px;top:340px;width:760px;height:428px"><video id="s4-c1-v" class="clip" src="assets/clips/motion1-chief-maradi.mp4" muted playsinline data-start="9.0" data-duration="3.0" data-track-index="3"></video></div><div id="s4-c2" class="vcard hh" style="left:990px;top:340px;width:760px;height:428px"><video id="s4-c2-v" class="clip" src="assets/clips/motion2-sublime-booty.mp4" muted playsinline data-start="9.0" data-duration="3.0" data-track-index="4"></video></div></div><div id="s5" class="scene sec"><div id="s5-title" class="sec-title" style="top:120px">Projets perso</div><div id="s5-c1" class="vcard vv" style="left:380px;top:270px;width:380px;height:676px"><video id="s5-c1-v" class="clip" src="assets/clips/perso1-chief-plats-9x16.mp4" muted playsinline data-start="12.0" data-duration="5.0" data-track-index="3"></video></div><div id="s5-c2" class="vcard hh" style="left:850px;top:470px;width:760px;height:428px"><video id="s5-c2-v" class="clip" src="assets/clips/perso2-chief-allo-500f.mp4" muted playsinline data-start="12.0" data-duration="5.0" data-track-index="4"></video></div></div>
+  <div id="s3" class="scene sec"><div id="s3-title" class="sec-title" style="top:105px">Montages courts</div><div id="s3-c1" class="vcard vv" style="left:470px;top:300px;width:330px;height:587px"><video id="s3-c1-v" class="clip" src="assets/clips/court1-stop-aux-pubs.mp4" muted playsinline data-start="6.0" data-duration="3.0" data-track-index="3"></video></div><div id="s3-c2" class="vcard vv" style="left:830px;top:260px;width:330px;height:587px"><video id="s3-c2-v" class="clip" src="assets/clips/court2-competences-ia.mp4" muted playsinline data-start="6.0" data-duration="3.0" data-track-index="4"></video></div><div id="s3-c3" class="vcard vv" style="left:1190px;top:320px;width:330px;height:587px"><video id="s3-c3-v" class="clip" src="assets/clips/court3-sublime-booty-9x16.mp4" muted playsinline data-start="6.0" data-duration="3.0" data-track-index="5"></video></div></div><div id="s4" class="scene sec"><div id="s4-title" class="sec-title" style="top:105px">Motion Design</div><div id="s4-c1" class="vcard hh" style="left:170px;top:340px;width:760px;height:428px"><video id="s4-c1-v" class="clip" src="assets/clips/motion1-chief-maradi.mp4" muted playsinline data-start="9.0" data-duration="3.0" data-track-index="3"></video></div><div id="s4-c2" class="vcard hh" style="left:990px;top:340px;width:760px;height:428px"><video id="s4-c2-v" class="clip" src="assets/clips/motion2-sublime-booty.mp4" muted playsinline data-start="9.0" data-duration="3.0" data-track-index="4"></video></div></div><div id="s5" class="scene sec"><div id="s5-title" class="sec-title" style="top:105px">Projets perso</div><div id="s5-c1" class="vcard vv" style="left:380px;top:270px;width:380px;height:676px"><video id="s5-c1-v" class="clip" src="assets/clips/perso1-chief-plats-9x16.mp4" muted playsinline data-start="12.0" data-duration="5.0" data-track-index="3"></video></div><div id="s5-c2" class="vcard hh" style="left:850px;top:470px;width:760px;height:428px"><video id="s5-c2-v" class="clip" src="assets/clips/perso2-chief-allo-500f.mp4" muted playsinline data-start="12.0" data-duration="5.0" data-track-index="4"></video></div></div>
   <div id="s5-rise" class="scene" style="opacity:1;background:transparent"><div id="rise"></div></div>
 
   <!-- 2. PRÉSENTATION -->

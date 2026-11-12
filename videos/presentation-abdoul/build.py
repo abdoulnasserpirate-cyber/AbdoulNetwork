@@ -32,10 +32,10 @@ LAYOUTS = {
     "16x9": dict(
         W=1920, H=1080, out="index.html", bg="assets/fond-lumiere-16x9.jpg",
         s1_small=54, s1_big=140, s1_width=1700,
-        photo_d=560, photo_x=280, photo_y=260,
-        col=dict(left=860, top=0, width=1000, height=1080, justify="center"),
-        badge=28, title=88, title_width=1000, roles=32, btn=30,
-        sec_title=76, sec_top=120,
+        photo_d=560, photo_x=150, photo_y=260,
+        col=dict(left=760, top=0, width=1110, height=1080, justify="center"),
+        badge=36, title=94, title_width=1110, roles=40, btn=38,
+        sec_title=92, sec_top=105,
         # cartes : (left, top, width, height)
         courts=[(470, 300, 330, 587), (830, 260, 330, 587), (1190, 320, 330, 587)],
         motions=[(170, 340, 760, 428), (990, 340, 760, 428)],
@@ -50,8 +50,8 @@ LAYOUTS = {
         s1_small=68, s1_big=150, s1_width=920,
         photo_d=700, photo_x=190, photo_y=250,
         col=dict(left=40, top=1000, width=1000, height=800, justify="flex-start"),
-        badge=40, title=104, title_width=1000, roles=38, btn=42,
-        sec_title=92, sec_top=200,
+        badge=46, title=112, title_width=1000, roles=40, btn=48,
+        sec_title=104, sec_top=190,
         courts=[(130, 340, 370, 658), (580, 370, 370, 658), (355, 1075, 370, 658)],
         motions=[(80, 420, 920, 518), (80, 1020, 920, 518)],
         persos=[(110, 360, 420, 747), (180, 1180, 820, 461)],
@@ -241,6 +241,7 @@ def build(key):
 <style>
 @font-face {{ font-family: "Montserrat"; font-weight: 300; src: url("assets/fonts/montserrat-latin-300-normal.woff2") format("woff2"); }}
 @font-face {{ font-family: "Montserrat"; font-weight: 500; src: url("assets/fonts/montserrat-latin-500-normal.woff2") format("woff2"); }}
+@font-face {{ font-family: "Montserrat"; font-weight: 600; src: url("assets/fonts/montserrat-latin-600-normal.woff2") format("woff2"); }}
 @font-face {{ font-family: "Montserrat"; font-weight: 800; src: url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); }}
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111; }}
@@ -272,11 +273,11 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
   filter: grayscale(1) contrast(1.08); }}
 #s2-col {{ position: absolute; left: {col['left']}px; top: {col['top']}px; width: {col['width']}px; height: {col['height']}px;
   display: flex; flex-direction: column; justify-content: {col['justify']}; align-items: center; text-align: center; gap: 26px; }}
-#s2-badge {{ border: 3px solid #111111; border-radius: 999px; padding: 10px 26px; font-size: {L['badge']}px; font-weight: 500;
+#s2-badge {{ border: 3px solid #111111; border-radius: 999px; padding: 12px 30px; font-size: {L['badge']}px; font-weight: 600; color: #111111;
   white-space: nowrap; background: #FFFFFF; }}
-#s2-title {{ font-weight: 800; font-size: {L['title']}px; line-height: 1.08; letter-spacing: -1.5px; width: {L['title_width']}px; }}
-#s2-roles {{ font-size: {L['roles']}px; font-weight: 500; white-space: nowrap; display: flex; align-items: center; gap: 14px; }}
-#s2-roles .sep {{ display: inline-block; width: 3px; height: {int(L['roles']*1.25)}px; background: #111111; opacity: 0; }}
+#s2-title {{ font-weight: 800; font-size: {L['title']}px; line-height: 1.08; letter-spacing: -1.5px; width: {L['title_width']}px;{'' if v else ' white-space: nowrap;'} }}
+#s2-roles {{ font-size: {L['roles']}px; font-weight: 600; color: #111111; white-space: nowrap; display: flex; align-items: center; gap: 14px; }}
+#s2-roles .sep {{ display: inline-block; width: 4px; height: {int(L['roles']*1.25)}px; background: #111111; opacity: 0; }}
 #s2-roles .rl {{ opacity: 0; display: inline-block; }}
 #s2-btn {{ position: relative; height: {int(L['btn']*2.7)}px; border-radius: 999px; border: 3px solid #111111; overflow: hidden;
   display: flex; align-items: center; padding: 0 {int(L['btn']*0.35)}px 0 {int(L['btn']*1.1)}px; gap: {int(L['btn']*0.6)}px;
@@ -294,8 +295,8 @@ html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #111111
 .sec {{ background: transparent; }}
 .sec-title {{ position: absolute; left: 0; width: {W}px; text-align: center; font-weight: 800; font-size: {L['sec_title']}px;
   letter-spacing: -1px; line-height: 1.2;
-  background: linear-gradient(100deg, #4F4E12 0%, #6B6A1A 25%, #8F7F08 55%, #A88E06 80%, #7A6A08 100%);
-  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
+  background: linear-gradient(100deg, #34330B 0%, #4F4E12 30%, #6B6A1A 60%, #7C6807 85%, #5E5208 100%);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
   -webkit-background-clip: text; background-clip: text; color: transparent; }}
 .vcard {{ position: absolute; border-radius: 24px; overflow: hidden; background: #1a1a1a;
   box-shadow: 0 24px 60px rgba(17,17,17,0.22), 0 6px 16px rgba(17,17,17,0.12); }}
