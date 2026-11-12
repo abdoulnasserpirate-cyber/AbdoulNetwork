@@ -1,0 +1,6 @@
+tmp/
+build/*/assets/
+build/*/renders/
+build/*/.hyperframes/
+build/*/snapshots/
+renders/

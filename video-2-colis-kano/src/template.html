@@ -1,0 +1,457 @@
+<!doctype html>
+<!--
+  Allô Multi-Services Maradi · Vidéo 2/3 « Kano → Maradi : vos colis entre de bonnes mains »
+  SOURCE UNIQUE pour les deux formats. Ne pas éditer build/*/index.html : modifier src/ puis
+  lancer `node scripts/build.mjs`. {{FMT}} vaut "v" (1080x1920) ou "h" (1920x1080).
+-->
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width={{W}}, height={{H}}" />
+<title>Allô Multi-Services Maradi · Colis Kano → Maradi ({{FMTLABEL}})</title>
+<script src="assets/vendor/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Montserrat";src:url("assets/fonts/montserrat-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal}
+@font-face{font-family:"Montserrat";src:url("assets/fonts/montserrat-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal}
+@font-face{font-family:"Montserrat";src:url("assets/fonts/montserrat-latin-900-normal.woff2") format("woff2");font-weight:900;font-style:normal}
+@font-face{font-family:"Montserrat";src:url("assets/fonts/montserrat-latin-800-italic.woff2") format("woff2");font-weight:800;font-style:italic}
+@font-face{font-family:"Montserrat";src:url("assets/fonts/montserrat-latin-900-italic.woff2") format("woff2");font-weight:900;font-style:italic}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");font-weight:500}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-600-normal.woff2") format("woff2");font-weight:600}
+@font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");font-weight:700}
+@font-face{font-family:"Kalam";src:url("assets/fonts/kalam-latin-700-normal.woff2") format("woff2");font-weight:700}
+
+:root{
+  --ink:#0B1A4F; --navy:#06347E; --royal:#0B44B3; --sky:#E8EEFB; --line:#D9E2F4;
+  --yellow:#FDCB05; --yellow2:#FFDA3D; --bg:#F4F7FD; --white:#FFFFFF; --kraft:#D9A967;
+  --wa:#25D366; --wa-bubble:#DCF8C6; --muted:#5B6B93;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:var(--bg)}
+body{font-family:"Inter",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+#root{position:relative;width:100%;height:100%;overflow:hidden;background:var(--bg)}
+.clip{position:absolute;inset:0}
+.layer{position:absolute;inset:0;pointer-events:none}
+.mont{font-family:"Montserrat",sans-serif}
+.hide{opacity:0}
+
+/* ---------- fond « logistique tech » ---------- */
+#bg{position:absolute;inset:-120px;
+  background-image:radial-gradient(circle, rgba(11,68,179,.13) 2px, transparent 2.6px);
+  background-size:44px 44px}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+#blobA{width:900px;height:900px;background:#DCE6FB;left:-260px;top:-220px}
+#blobB{width:760px;height:760px;background:#FFF1B8;right:-260px;bottom:-200px;opacity:.5}
+#grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>")}
+
+/* ---------- carte ---------- */
+#map{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.v #mapScrim{background:linear-gradient(180deg,#F4F7FD 0%,rgba(244,247,253,.9) 20%,rgba(244,247,253,0) 33%)}
+.h #mapScrim{background:linear-gradient(90deg,#F4F7FD 0%,rgba(244,247,253,.92) 36%,rgba(244,247,253,0) 52%)}
+.cty{fill:#E4EAF7;stroke:#FFFFFF;stroke-width:2.2;stroke-linejoin:round}
+.cty-niger{fill:#FFFFFF;stroke:var(--royal);stroke-width:2.6}
+.cty-nigeria{fill:#EDF1FA}
+.mapLbl{font-family:"Montserrat";font-weight:800;fill:#6F7FAE;letter-spacing:.32em}
+.pinLbl{font-family:"Montserrat";font-weight:800;fill:var(--ink)}
+.pinLblBg{fill:#fff;stroke:var(--line)}
+.route{fill:none;stroke:var(--yellow);stroke-linecap:round}
+.arrow{fill:none;stroke:var(--yellow);stroke-linecap:round;stroke-linejoin:round}
+.arrowSr{fill:none;stroke:var(--royal);stroke-linecap:round;stroke-dasharray:1 22}
+
+/* ---------- textes ---------- */
+.kicker{display:inline-flex;align-items:center;gap:14px;font-family:"Montserrat";font-weight:800;
+  text-transform:uppercase;letter-spacing:.14em;color:var(--royal)}
+.kicker .num{display:grid;place-items:center;border-radius:50%;background:var(--yellow);color:var(--ink);font-weight:900}
+.title{font-family:"Montserrat";font-weight:900;line-height:1.02;color:var(--ink);margin:0;letter-spacing:-.01em}
+.title em{font-style:normal;background:linear-gradient(transparent 58%, var(--yellow) 58%, var(--yellow) 92%, transparent 92%);padding:0 .06em}
+.sub{font-family:"Inter";font-weight:600;color:var(--muted);line-height:1.35;margin:0}
+.chip{display:inline-flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--line);
+  border-radius:999px;font-family:"Inter";font-weight:700;color:var(--ink);box-shadow:0 14px 34px rgba(11,26,79,.12)}
+.chip .ic{display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff}
+.chip.yel .ic{background:var(--yellow);color:var(--ink)}
+svg.i{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- sous-titres ---------- */
+#caps{position:absolute;left:0;right:0;display:flex;justify-content:center;pointer-events:none}
+.cap{position:absolute;bottom:0;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .26em;
+  padding:.28em .62em .34em;border-radius:22px;background:rgba(6,20,72,.86);
+  font-family:"Montserrat";font-weight:800;color:#fff;text-align:center;line-height:1.18;opacity:0;
+  box-shadow:0 18px 40px rgba(6,20,72,.25)}
+.cap .w{position:relative;display:inline-block;color:rgba(255,255,255,.62)}
+.cap .w.on{color:#fff}
+
+.cap .w span.t{position:relative}
+
+/* ---------- traqueur 5 étapes ---------- */
+#tracker{position:absolute}
+.tk-step{position:absolute;display:flex;align-items:center}
+.tk-dot{position:relative;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:var(--yellow);
+  font-family:"Montserrat";font-weight:900;box-shadow:0 8px 20px rgba(6,52,126,.25)}
+.tk-dot .ok{position:absolute;inset:0;display:grid;place-items:center;border-radius:50%;background:var(--yellow);color:var(--ink);opacity:0}
+.tk-ring{position:absolute;inset:-10px;border-radius:50%;border:3px solid var(--yellow);opacity:0}
+.tk-lbl{font-family:"Montserrat";font-weight:800;color:var(--ink);white-space:nowrap}
+.tk-st{font-family:"Inter";font-weight:700;color:var(--royal);white-space:nowrap}
+.tk-line{position:absolute;background:repeating-linear-gradient(var(--dir), rgba(6,52,126,.28) 0 8px, transparent 8px 16px)}
+.tk-fill{position:absolute;background:var(--yellow);border-radius:4px}
+
+/* ---------- téléphone ---------- */
+#phoneWrap{position:absolute;width:400px;height:820px}
+#phone{position:absolute;inset:0;border-radius:58px;background:#0A1236;padding:14px;
+  box-shadow:0 50px 90px rgba(11,26,79,.32), inset 0 0 0 3px #26335F}
+#screen{position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden;background:#fff}
+.notch{position:absolute;top:12px;left:50%;width:120px;height:30px;margin-left:-60px;border-radius:20px;background:#0A1236;z-index:9}
+.scr{position:absolute;inset:0}
+/* écran d'appel */
+#scrCall{background:linear-gradient(170deg,#0B44B3 0%,#06347E 55%,#0A1F5C 100%);color:#fff;
+  display:flex;flex-direction:column;align-items:center;padding-top:110px}
+#scrCall .ava{width:150px;height:150px;border-radius:50%;background:#fff;display:grid;place-items:center;
+  box-shadow:0 0 0 10px rgba(255,255,255,.12),0 0 0 22px rgba(255,255,255,.06)}
+#scrCall .ava img{width:122px}
+#scrCall .nm{margin-top:40px;font-family:"Montserrat";font-weight:800;font-size:27px;text-align:center;line-height:1.15}
+#scrCall .st{margin-top:12px;font-weight:600;font-size:19px;opacity:.75}
+#scrCall .btns{position:absolute;bottom:90px;display:flex;gap:70px}
+#scrCall .b{width:78px;height:78px;border-radius:50%;display:grid;place-items:center}
+#scrCall .pulse{position:absolute;width:150px;height:150px;border-radius:50%;border:3px solid rgba(253,203,5,.8);top:110px;left:50%;margin-left:-75px;opacity:0}
+/* écran localisation (raccord épingle) */
+#scrLoc{background:#EAF0FB}
+/* WhatsApp */
+#scrWa{background:#EFE7DD}
+#scrWa .hd{height:118px;background:#075E54;color:#fff;display:flex;align-items:flex-end;gap:14px;padding:0 20px 16px}
+#scrWa .hd .av{width:50px;height:50px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden}
+#scrWa .hd .av img{width:44px}
+#scrWa .hd b{display:block;font-size:19px;font-family:"Inter";font-weight:700}
+#scrWa .hd small{font-size:14px;opacity:.8}
+#waBody{position:absolute;top:118px;left:0;right:0;bottom:0;padding:18px 16px;display:flex;flex-direction:column;gap:12px}
+.bub{max-width:84%;padding:12px 14px 18px;border-radius:16px;font-size:20px;line-height:1.3;font-weight:500;position:relative;
+  box-shadow:0 1px 1px rgba(0,0,0,.12);color:#111}
+.bub.me{align-self:flex-end;background:var(--wa-bubble);border-top-right-radius:4px}
+.bub.them{align-self:flex-start;background:#fff;border-top-left-radius:4px}
+.bub .tm{position:absolute;right:10px;bottom:4px;font-size:11px;color:#6b7a6b}
+.bub .lab{display:block;font-size:13px;font-weight:700;color:#0B44B3;margin-bottom:3px}
+.bub.photo{padding:6px 6px 22px}
+.bub.photo .ph{width:230px;height:170px;border-radius:12px;background:#E9DCC8;display:grid;place-items:center;overflow:hidden}
+.typing{align-self:flex-start;background:#fff;border-radius:16px;padding:14px 18px;display:flex;gap:6px}
+.typing i{width:9px;height:9px;border-radius:50%;background:#9aa}
+/* notification */
+#notif{position:absolute;left:14px;right:14px;top:64px;border-radius:24px;background:rgba(255,255,255,.96);
+  box-shadow:0 20px 40px rgba(0,0,0,.18);padding:16px;display:flex;gap:14px;align-items:center;z-index:5}
+#notif .ap{width:56px;height:56px;border-radius:14px;background:#fff;border:2px solid var(--line);display:grid;place-items:center;flex:none}
+#notif .ap img{width:50px}
+#notif b{font-size:16px;display:block;font-family:"Inter";font-weight:700}
+#notif span{font-size:15px;color:#333;font-weight:500}
+#scrHome{background:linear-gradient(170deg,#1F4FD1 0%,#0B2E86 100%)}
+#scrHome .clock{position:absolute;top:150px;width:100%;text-align:center;color:#fff;font-family:"Montserrat";font-weight:800;font-size:84px}
+
+/* ---------- carton isométrique ---------- */
+.boxSvg{position:absolute;overflow:visible}
+.ck{display:flex;align-items:center;gap:16px;background:#fff;border-radius:22px;border:2px solid var(--line);
+  font-family:"Montserrat";font-weight:800;color:var(--ink);box-shadow:0 16px 36px rgba(11,26,79,.14)}
+.ck .bx{display:grid;place-items:center;border-radius:50%;background:var(--yellow);color:var(--ink);flex:none}
+
+/* ---------- scène 5 (relais) ---------- */
+#s5bg{position:absolute;inset:0;background:radial-gradient(120% 90% at 70% 30%, #0B44B3 0%, #06347E 45%, #061F5A 100%)}
+.wave{position:absolute;border-radius:50%;border:3px solid rgba(253,203,5,.55)}
+
+/* ---------- ruban adhésif ---------- */
+#tape{position:absolute;display:flex;flex-direction:column;justify-content:center;background:var(--yellow);
+  box-shadow:0 0 0 14px rgba(255,255,255,.35), 0 30px 60px rgba(0,0,0,.22);overflow:hidden}
+#tape .row{white-space:nowrap;font-family:"Montserrat";font-weight:900;font-style:italic;color:var(--navy);letter-spacing:.04em}
+#tape .row b{color:#0B44B3}
+
+/* ---------- tarifs ---------- */
+.tCard{position:absolute;border-radius:34px;background:#fff;border:2px solid var(--line);
+  box-shadow:0 40px 80px rgba(11,26,79,.18);overflow:hidden;backface-visibility:hidden}
+.tCard .ph{position:absolute;overflow:hidden;border-radius:24px}
+.tCard .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.tCard .ic{position:absolute;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:var(--yellow)}
+.tCard h3{position:absolute;margin:0;font-family:"Montserrat";font-weight:900;color:var(--ink);line-height:1.08}
+.tCard p{position:absolute;margin:0;font-family:"Inter";font-weight:600;color:var(--muted);line-height:1.35}
+.tCard .from{position:absolute;font-family:"Montserrat";font-weight:800;color:var(--ink)}
+.badge{position:absolute;display:flex;align-items:baseline;gap:.25em;border-radius:999px;background:var(--yellow);
+  font-family:"Montserrat";font-weight:900;color:var(--ink);box-shadow:0 12px 28px rgba(253,203,5,.45)}
+.badge small{font-size:.5em;font-weight:900}
+.mini{position:absolute;display:flex;align-items:center;justify-content:space-between;border-radius:22px;background:#fff;
+  border:2px solid var(--line);box-shadow:0 12px 26px rgba(11,26,79,.1);font-family:"Montserrat";font-weight:800;color:var(--ink)}
+.mini .pr{border-radius:999px;background:var(--yellow);font-weight:900}
+#tarifHead{position:absolute;display:flex;flex-direction:column}
+#tarifHead .t1{display:inline-block;align-self:flex-start;border-radius:999px;background:var(--navy);color:#fff;font-family:"Montserrat";font-weight:900}
+#tarifHead .t2{display:inline-block;align-self:flex-start;border-radius:999px;background:var(--yellow);color:var(--ink);font-family:"Montserrat";font-weight:900;font-style:italic}
+
+/* ---------- facture ---------- */
+#invoice{position:absolute;background:#fff;border-radius:18px 18px 0 0;box-shadow:0 40px 80px rgba(11,26,79,.22);overflow:hidden}
+#invoice .hdr{display:flex;align-items:center;justify-content:space-between;background:var(--navy);color:#fff}
+#invoice .row{display:flex;align-items:center;justify-content:space-between;border-bottom:2px dashed var(--line);font-family:"Inter";font-weight:600;color:var(--ink)}
+#invoice .row .v{display:flex;align-items:center;gap:10px;color:var(--royal);font-weight:700}
+#invoice .tot{display:flex;align-items:center;justify-content:space-between;background:#FFF6CC;font-family:"Montserrat";font-weight:900}
+#invoice .zig{height:22px;background:linear-gradient(-45deg,transparent 11px,#fff 0) 0 0/22px 22px repeat-x,linear-gradient(45deg,transparent 11px,#fff 0) 0 0/22px 22px repeat-x}
+#printer{position:absolute;border-radius:26px;background:var(--navy);box-shadow:0 24px 50px rgba(11,26,79,.3)}
+
+/* ---------- CTA ---------- */
+.num{font-family:"Montserrat";font-weight:900;color:var(--ink);letter-spacing:.02em}
+.pair{display:inline-block}
+.ctaBtn{display:inline-flex;align-items:center;gap:16px;border-radius:999px;font-family:"Montserrat";font-weight:800}
+</style>
+</head>
+<body>
+<div id="root" class="{{FMT}}" data-composition-id="main" data-start="0" data-width="{{W}}" data-height="{{H}}" data-duration="{{DUR}}">
+
+  <!-- ===== AUDIO ===== -->
+  <audio id="vo" src="assets/audio/voix-off.wav" data-start="0" data-duration="{{DUR}}" data-track-index="20" data-volume="1"></audio>
+  {{SFX}}
+
+  <!-- ===== FOND PERMANENT (dérive lente) ===== -->
+  <div class="layer" id="bgWrap"><div id="bg"></div><div class="blob" id="blobA"></div><div class="blob" id="blobB"></div></div>
+
+  <!-- ===== CARTE (S1-S2 puis S7) ===== -->
+  <div class="layer" id="mapLayer">
+    <svg id="map" viewBox="0 0 {{W}} {{H}}" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="pinSh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0B1A4F" flood-opacity=".28"/></filter>
+        <mask id="mRoute" maskUnits="userSpaceOnUse" x="0" y="0" width="2400" height="2000"><path id="routeMask" d="{{ROUTE}}" fill="none" stroke="#fff" stroke-width="14" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/></mask>
+        <marker id="ah" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#FDCB05"/></marker>
+        <marker id="ahB" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="3.4" markerHeight="3.4" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0B44B3"/></marker>
+      </defs>
+      <g id="mapG">
+        <g id="countries">{{MAP_PATHS}}</g>
+        <text class="mapLbl" id="lblNiger" x="{{LBL_NIGER_X}}" y="{{LBL_NIGER_Y}}" font-size="70" text-anchor="middle">NIGER</text>
+        <text class="mapLbl" id="lblNigeria" x="{{LBL_NIGERIA_X}}" y="{{LBL_NIGERIA_Y}}" font-size="46" text-anchor="middle">NIGERIA</text>
+        <text class="mapLbl" id="clNiger" x="1262" y="1040" font-size="15" text-anchor="middle">NIGER</text>
+        <text class="mapLbl" id="clNigeria" x="1185" y="1262" font-size="15" text-anchor="middle">NIGERIA</text>
+        <!-- trajet Kano -> Maradi -->
+        <path id="routeTrack" d="{{ROUTE}}" class="route" stroke="#E7D9A6" stroke-width="2.2" stroke-dasharray="0.1 6.5" opacity=".7"/>
+        <path id="route" d="{{ROUTE}}" class="route" stroke-width="3.6" stroke-dasharray="0.1 6.5" mask="url(#mRoute)"/>
+        <!-- flèches Niger + sous-région (S7) -->
+        <g id="arrows">{{ARROWS}}</g>
+        <g id="dotsAll">{{CITY_DOTS}}</g>
+        <!-- épingles gros plan (S1-S2) -->
+        <g id="pinKano" transform="translate({{KANO}})"><g class="pinS">{{PIN_CLOSE}}<text class="pinLbl" x="0" y="-62" font-size="15" text-anchor="middle">KANO</text></g></g>
+        <g id="pinMaradi" transform="translate({{MARADI}})"><g class="pinS">{{PIN_CLOSE}}<text class="pinLbl" x="0" y="-62" font-size="15" text-anchor="middle">MARADI</text></g></g>
+        <!-- carton miniature -->
+        <g id="miniBoxPos" transform="translate({{KANO}})"><g id="miniBox">{{MINIBOX}}</g></g>
+        <!-- épingles plan large (S7) -->
+        <g id="wide">{{WIDE_PINS}}</g>
+      </g>
+    </svg>
+    <div id="mapScrim" class="layer"></div>
+  </div>
+
+  <!-- ===== S1 : accroche ===== -->
+  <section id="s1" class="clip" data-start="0" data-duration="6.4" data-track-index="2">
+    <div id="s1txt" class="layer">
+      <div id="s1a" class="title mont">Votre colis arrive <em>du Nigeria</em>…</div>
+      <div id="s1b" class="title mont">…mais vous n'êtes pas disponible&nbsp;?</div>
+      <div id="s1chip" class="chip"><span class="ic">{{I_CLOCK}}</span><span>Impossible d'aller le chercher</span></div>
+    </div>
+  </section>
+
+  <!-- ===== S2 : Hadiza ===== -->
+  <section id="s2" class="clip" data-start="6.0" data-duration="6.8" data-track-index="2">
+    <div id="s2card" class="layer">
+      <div id="hCard" style="position:absolute;background:#fff;border-radius:40px;box-shadow:0 40px 80px rgba(11,26,79,.2);overflow:hidden">
+        <div id="hPhoto" style="position:absolute;overflow:hidden"><img src="assets/photos/hadiza.jpg" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+        <div id="hInfo" style="position:absolute">
+          <div class="kicker" id="hKick">Commerçante · Maradi</div>
+          <div class="title mont" id="hName">Hadiza</div>
+        </div>
+      </div>
+      <div id="s2c1" class="chip"><span class="ic">{{I_TRUCK}}</span><span>Sa marchandise arrive avec un chauffeur</span></div>
+      <div id="s2c2" class="chip yel"><span class="ic">{{I_STORE}}</span><span>Elle ne peut pas quitter sa boutique</span></div>
+    </div>
+  </section>
+
+  <!-- ===== TÉLÉPHONE (S3, S4) ===== -->
+  <section id="sPhone" class="clip" data-start="12.3" data-duration="6.75" data-track-index="3">
+    <div id="phTxt" class="layer">
+      <div id="p1" style="position:absolute">
+        <div class="kicker"><span class="num">1</span>Étape 1</div>
+        <div class="title mont p-t">Vous nous <em>contactez</em></div>
+        <p class="sub p-s">Un appel ou un message à Allô Multi-Services Maradi.</p>
+      </div>
+      <div id="p2" style="position:absolute">
+        <div class="kicker"><span class="num">2</span>Étape 2</div>
+        <div class="title mont p-t">Vous envoyez <em>les infos</em></div>
+        <div class="p-list">
+          <div class="chip li" id="li1"><span class="ic">{{I_PHONE}}</span><span>Numéro du chauffeur</span></div>
+          <div class="chip li" id="li2"><span class="ic">{{I_CAMERA}}</span><span>Photo du colis</span></div>
+          <div class="chip li" id="li3"><span class="ic">{{I_USER}}</span><span>Nom du destinataire</span></div>
+        </div>
+      </div>
+    </div>
+    <div id="phoneWrap">
+      <div id="phone"><div id="screen">
+        <div class="notch"></div>
+        <div class="scr" id="scrLoc">
+          <svg viewBox="0 0 372 792" width="100%" height="100%"><g opacity=".9">{{MINIMAP}}</g></svg>
+          <div id="locPin" style="position:absolute;left:50%;top:44%;width:84px;height:84px;margin:-84px 0 0 -42px">{{PIN_UI}}</div>
+        </div>
+        <div class="scr" id="scrCall">
+          <div class="pulse" id="callPulse"></div>
+          <div class="ava"><img src="assets/logo/logo-allo-trace.svg"/></div>
+          <div class="nm">Allô Multi-Services<br/>Maradi</div>
+          <div class="st" id="callSt">Appel en cours…</div>
+          <div class="btns"><div class="b" style="background:rgba(255,255,255,.16)">{{I_SPEAKER}}</div><div class="b" style="background:#E5484D">{{I_HANG}}</div></div>
+        </div>
+        <div class="scr" id="scrWa">
+          <div class="hd"><div class="av"><img src="assets/logo/logo-allo-trace.svg"/></div><div><b>Allô Multi-Services Maradi</b><small>en ligne</small></div></div>
+          <div id="waBody">
+            <div class="bub me" id="b1">Bonjour ! J'attends un colis qui arrive de Kano.<span class="tm">10:42 ✓✓</span></div>
+            <div class="bub them" id="b2">Bonjour Hadiza ! Envoyez-nous les infos, on s'en occupe.<span class="tm">10:42</span></div>
+            <div class="bub me" id="b3"><span class="lab">Chauffeur</span>+234 ●● ●●● ●●●● · Bus Kano–Maradi<span class="tm">10:43 ✓✓</span></div>
+            <div class="bub me photo" id="b4"><div class="ph">{{BOX_PHOTO}}</div><span class="tm">10:43 ✓✓</span></div>
+            <div class="bub me" id="b5"><span class="lab">Destinataire</span>Hadiza · Maradi<span class="tm">10:43 ✓✓</span></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ===== S5 : nous prenons le relais (fond marine) ===== -->
+  <section id="s5" class="clip" data-start="18.6" data-duration="3.95" data-track-index="2">
+    <div id="s5in" class="layer">
+      <div id="s5bg"></div>
+      <div id="s5waves" class="layer"><div class="wave" id="wv1"></div><div class="wave" id="wv2"></div><div class="wave" id="wv3"></div></div>
+      <div id="s5agent" style="position:absolute;display:grid;place-items:center;border-radius:50%;background:#fff">{{I_HEADSET}}</div>
+      <div id="s5drv" style="position:absolute;display:grid;place-items:center;border-radius:50%;background:var(--yellow);color:var(--ink)">{{I_TRUCK_BIG}}</div>
+      <svg id="s5link" style="position:absolute;overflow:visible" width="10" height="10"><path id="s5path" d="" fill="none" stroke="#FDCB05" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 18"/></svg>
+      <div id="s5txt" style="position:absolute;color:#fff">
+        <div class="kicker" style="color:var(--yellow)"><span class="num">3</span>Étape 3</div>
+        <div class="title mont" style="color:#fff" id="s5t">Nous prenons <em style="color:var(--yellow);background:none">le relais</em></div>
+        <p class="sub" style="color:rgba(255,255,255,.82)" id="s5s">Notre équipe appelle le chauffeur et organise la récupération.</p>
+      </div>
+      <div id="s5c1" class="chip"><span class="ic" style="background:var(--yellow);color:var(--ink)">{{I_CHECK}}</span><span>Chauffeur contacté</span></div>
+      <div id="s5c2" class="chip"><span class="ic" style="background:var(--yellow);color:var(--ink)">{{I_CLOCK}}</span><span>Récupération organisée</span></div>
+    </div>
+  </section>
+
+  <!-- ===== S6 : récupération / vérification / réemballage ===== -->
+  <section id="s6" class="clip" data-start="22.0" data-duration="4.4" data-track-index="2">
+    <div id="s6a" class="layer">
+      <div id="s6txt" style="position:absolute">
+        <div class="kicker"><span class="num">4</span>Étape 4</div>
+        <div class="title mont" id="s6t">Nous récupérons <em>votre colis</em></div>
+      </div>
+      <div class="ck" id="ck0"><span class="bx">{{I_CHECK}}</span>Colis récupéré</div>
+      <div id="s6b" class="layer">
+        <div id="agentCard" style="position:absolute;border-radius:36px;overflow:hidden;box-shadow:0 40px 80px rgba(11,26,79,.2);background:#fff">
+          <img src="assets/photos/agent-scotche.jpg" style="width:100%;height:100%;object-fit:cover;display:block"/>
+        </div>
+        <div id="ckList" style="position:absolute;display:flex;flex-direction:column">
+          <div class="ck" id="ck1"><span class="bx">{{I_CHECK}}</span>Colis récupéré</div>
+          <div class="ck" id="ck2"><span class="bx">{{I_CHECK}}</span>Vérifié</div>
+          <div class="ck" id="ck3"><span class="bx">{{I_CHECK}}</span>Réemballé si besoin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S7 : textes carte large ===== -->
+  <section id="s7" class="clip" data-start="25.9" data-duration="8.45" data-track-index="2">
+    <div id="s7txt" style="position:absolute">
+      <div class="chip yel" id="s7c1"><span class="ic">{{I_PIN}}</span><span>Livraison à Maradi</span></div>
+      <div class="title mont" id="s7t">Expédié <em>partout</em></div>
+      <p class="sub" id="s7s">Niamey, Zinder, Tahoua, Agadez… toutes les villes du Niger et la sous-région.</p>
+    </div>
+    <div id="delivCard" style="position:absolute;border-radius:30px;overflow:hidden;background:#fff;border:8px solid #fff;box-shadow:0 30px 70px rgba(11,26,79,.25)">
+      <img src="assets/photos/livraison.jpg" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:22px"/>
+    </div>
+  </section>
+
+  <!-- ===== S8 : confirmation ===== -->
+  <section id="s8" class="clip" data-start="33.9" data-duration="4.35" data-track-index="2">
+    <div id="s8txt" style="position:absolute">
+      <div class="kicker"><span class="num">5</span>Étape 5</div>
+      <div class="title mont" id="s8t">Prise en charge <em>confirmée</em></div>
+    </div>
+    <div id="s8ava" style="position:absolute;border-radius:50%;overflow:hidden;border:10px solid #fff;box-shadow:0 24px 50px rgba(11,26,79,.25)"><img src="assets/photos/hadiza.jpg" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+    <div id="phone2Wrap" style="position:absolute;width:400px;height:820px">
+      <div style="position:absolute;inset:0;border-radius:58px;background:#0A1236;padding:14px;box-shadow:0 50px 90px rgba(11,26,79,.32), inset 0 0 0 3px #26335F">
+        <div style="position:relative;width:100%;height:100%;border-radius:46px;overflow:hidden">
+          <div class="notch"></div>
+          <div class="scr" id="scrHome"><div class="clock">10:58</div></div>
+          <div id="notif"><div class="ap"><img src="assets/logo/logo-allo-trace.svg"/></div><div><b>Allô Multi-Services Maradi</b><span>Votre colis est bien pris en charge&nbsp;✅</span></div></div>
+          <div id="bigOk" style="position:absolute;left:50%;top:56%;width:190px;height:190px;margin:-95px 0 0 -95px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;color:var(--ink)">{{I_CHECK_BIG}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S9 : tarifs ===== -->
+  <section id="s9" class="clip" data-start="37.9" data-duration="13.3" data-track-index="2">
+    <div id="tarifHead"><span class="t1" id="th1">Nos tarifs</span><span class="t2" id="th2">Prise en charge de vos colis</span></div>
+    <div id="cardStage" style="position:absolute;perspective:2200px">
+      {{TARIF_CARDS}}
+    </div>
+    <div id="miniList" style="position:absolute">{{TARIF_MINIS}}</div>
+  </section>
+
+  <!-- ===== S10 : facture ===== -->
+  <section id="s10" class="clip" data-start="50.8" data-duration="2.45" data-track-index="2">
+    <div id="s10txt" style="position:absolute"><div class="title mont" id="s10t">Une facture <em>claire</em> à la fin</div>
+      <p class="sub" id="s10s">Le prix final dépend de la distance, de l'heure, du volume et des manipulations.</p></div>
+    <div id="printer"></div>
+    <div id="invWrap" style="position:absolute;overflow:hidden">
+      <div id="invoice">
+        <div class="hdr"><img src="assets/logo/logo-allo-blanc.svg" id="invLogo"/><span class="mont" style="font-weight:900;letter-spacing:.12em">FACTURE</span></div>
+        <div class="row"><span>Prise en charge du colis</span><span class="v">{{I_CHECK}}</span></div>
+        <div class="row"><span>Distance · heure de récupération</span><span class="v">{{I_CHECK}}</span></div>
+        <div class="row"><span>Volume · manipulations</span><span class="v">{{I_CHECK}}</span></div>
+        <div class="tot"><span>Montant définitif</span><span style="color:var(--royal)">indiqué ici</span></div>
+        <div class="zig"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== S11 : on s'en occupe ===== -->
+  <section id="s11" class="clip" data-start="52.9" data-duration="1.95" data-track-index="2">
+    <div id="s11t" class="title mont" style="position:absolute;text-align:center">Votre colis, <em>on s'en occupe&nbsp;!</em></div>
+  </section>
+
+  <!-- ===== S12 : appel à l'action ===== -->
+  <section id="s12" class="clip" data-start="54.6" data-duration="5.85" data-track-index="2">
+    <div id="ctaWrap" style="position:absolute;display:flex;flex-direction:column;align-items:center">
+      <div id="ctaBtns" style="display:flex;gap:22px">
+        <div class="ctaBtn" id="cb1" style="background:var(--navy);color:#fff"><span class="ci">{{I_PHONE}}</span>Appelez</div>
+        <div class="ctaBtn" id="cb2" style="background:var(--wa);color:#fff"><span class="ci">{{I_WA}}</span>WhatsApp</div>
+      </div>
+      <div id="ctaNum" class="num"><span class="pfx">+227</span> <span class="pair" id="n1">74</span> <span class="pair" id="n2">58</span> <span class="pair" id="n3">18</span> <span class="pair" id="n4">24</span></div>
+      <div id="ctaLine"></div>
+      <div id="ctaAlt" class="sub">Aussi : 88 57 92 90 · 89 96 71 19</div>
+      <div id="ctaAddr" class="chip"><span class="ic">{{I_PIN}}</span><span>Maradi – Guidan Kaji · 7j/7</span></div>
+    </div>
+  </section>
+
+  <!-- ===== S13 : signature ===== -->
+  <section id="s13" class="clip" data-start="60.2" data-duration="{{S13DUR}}" data-track-index="2">
+    <div id="endLogo" style="position:absolute"><img src="assets/logo/logo-allo-trace.svg" style="width:100%;display:block"/></div>
+    <div id="endSlogan" style="position:absolute;text-align:center;font-family:'Kalam';font-weight:700;color:var(--navy)">Tous vos besoins, un seul appel&nbsp;!</div>
+    <div id="endNum" class="chip" style="position:absolute"><span class="ic" style="background:var(--wa)">{{I_WA}}</span><span class="mont" style="font-weight:900">74 58 18 24</span></div>
+  </section>
+
+  <!-- ===== CARTON HÉROS (S6, S11, S13) ===== -->
+  <div class="layer" id="heroLayer"><div id="heroBoxPos" style="position:absolute;width:600px;height:600px"><div id="heroBox" style="position:absolute;inset:0">{{HERO_BOX}}</div></div></div>
+
+  <div class="layer" id="morphLayer"><div id="morph" style="position:absolute;border-radius:50%;background:#06347E"></div></div>
+  <!-- ===== TRAQUEUR (S3 → S8) ===== -->
+  <div class="layer" id="trackerLayer"><div id="tracker">{{TRACKER}}</div></div>
+
+  <!-- ===== TRANSITIONS PLEIN ÉCRAN ===== -->
+  <div class="layer" id="fxLayer">
+    <div id="zoomDark" style="position:absolute;inset:0;background:#4A3012"></div>
+    <div id="tape"></div>
+  </div>
+
+  <!-- ===== SOUS-TITRES ===== -->
+  <div id="caps"></div>
+  <div class="layer" id="grain"></div>
+</div>
+
+<script>
+window.__FMT = "{{FMT}}";
+window.__DATA = {{DATA}};
+</script>
+<script>
+{{FILM_JS}}
+</script>
+</body>
+</html>
